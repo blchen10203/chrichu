@@ -1,1 +1,3977 @@
-[]
+[
+  {
+    "id": "jon-jones",
+    "name": "Jon Jones",
+    "dob": "1987-07-19",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 24,
+    "metrics": {
+      "height": 76,
+      "reach": 84.0,
+      "slpm": 4.4,
+      "career_sig": 1564,
+      "knockdowns": 6,
+      "td_avg": 1.9,
+      "sub_wins": 6,
+      "win_pct": 96,
+      "finish_rate": 55,
+      "age": 39
+    }
+  },
+  {
+    "id": "randy-couture",
+    "name": "Randy Couture",
+    "dob": "1963-06-22",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 24,
+    "metrics": {
+      "height": 73,
+      "reach": 75.0,
+      "slpm": 2.8,
+      "career_sig": 778,
+      "knockdowns": 1,
+      "td_avg": 2.8,
+      "sub_wins": 4,
+      "win_pct": 67,
+      "finish_rate": 69,
+      "age": 63
+    }
+  },
+  {
+    "id": "georges-st-pierre",
+    "name": "Georges St-Pierre",
+    "dob": "1981-05-19",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 22,
+    "metrics": {
+      "height": 71,
+      "reach": 76.0,
+      "slpm": 3.8,
+      "career_sig": 1313,
+      "knockdowns": 9,
+      "td_avg": 3.9,
+      "sub_wins": 3,
+      "win_pct": 91,
+      "finish_rate": 40,
+      "age": 45
+    }
+  },
+  {
+    "id": "valentina-shevchenko",
+    "name": "Valentina Shevchenko",
+    "dob": "1988-03-07",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 19,
+    "metrics": {
+      "height": 65,
+      "reach": 66.0,
+      "slpm": 3.0,
+      "career_sig": 1100,
+      "knockdowns": 2,
+      "td_avg": 2.6,
+      "sub_wins": 2,
+      "win_pct": 79,
+      "finish_rate": 40,
+      "age": 38
+    }
+  },
+  {
+    "id": "demetrious-johnson",
+    "name": "Demetrious Johnson",
+    "dob": "1986-08-13",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 18,
+    "metrics": {
+      "height": 63,
+      "reach": 66.0,
+      "slpm": 3.5,
+      "career_sig": 1173,
+      "knockdowns": 3,
+      "td_avg": 3.3,
+      "sub_wins": 5,
+      "win_pct": 83,
+      "finish_rate": 47,
+      "age": 40
+    }
+  },
+  {
+    "id": "anderson-silva",
+    "name": "Anderson Silva",
+    "dob": "1975-04-14",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 25,
+    "metrics": {
+      "height": 74,
+      "reach": 77.0,
+      "slpm": 3.1,
+      "career_sig": 832,
+      "knockdowns": 18,
+      "td_avg": 0.2,
+      "sub_wins": 3,
+      "win_pct": 71,
+      "finish_rate": 82,
+      "age": 51
+    }
+  },
+  {
+    "id": "matt-hughes",
+    "name": "Matt Hughes",
+    "dob": "1973-10-13",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 25,
+    "metrics": {
+      "height": 69,
+      "reach": 73.0,
+      "slpm": 2.4,
+      "career_sig": 531,
+      "knockdowns": 3,
+      "td_avg": 3.2,
+      "sub_wins": 5,
+      "win_pct": 72,
+      "finish_rate": 72,
+      "age": 53
+    }
+  },
+  {
+    "id": "jose-aldo",
+    "name": "Jose Aldo",
+    "dob": "1986-09-09",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 23,
+    "metrics": {
+      "height": 67,
+      "reach": 70.0,
+      "slpm": 3.6,
+      "career_sig": 1354,
+      "knockdowns": 7,
+      "td_avg": 0.5,
+      "sub_wins": 0,
+      "win_pct": 61,
+      "finish_rate": 29,
+      "age": 40
+    }
+  },
+  {
+    "id": "alexander-volkanovski",
+    "name": "Alexander Volkanovski",
+    "dob": "1988-09-29",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 19,
+    "metrics": {
+      "height": 66,
+      "reach": 71.0,
+      "slpm": 6.0,
+      "career_sig": 1871,
+      "knockdowns": 6,
+      "td_avg": 1.6,
+      "sub_wins": 0,
+      "win_pct": 84,
+      "finish_rate": 38,
+      "age": 38
+    }
+  },
+  {
+    "id": "israel-adesanya",
+    "name": "Israel Adesanya",
+    "dob": "1989-07-22",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 19,
+    "metrics": {
+      "height": 76,
+      "reach": 80.0,
+      "slpm": 4.0,
+      "career_sig": 1313,
+      "knockdowns": 13,
+      "td_avg": 0.0,
+      "sub_wins": 0,
+      "win_pct": 68,
+      "finish_rate": 38,
+      "age": 37
+    }
+  },
+  {
+    "id": "amanda-nunes",
+    "name": "Amanda Nunes",
+    "dob": "1988-05-30",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 18,
+    "metrics": {
+      "height": 68,
+      "reach": 69.0,
+      "slpm": 4.5,
+      "career_sig": 928,
+      "knockdowns": 8,
+      "td_avg": 2.8,
+      "sub_wins": 3,
+      "win_pct": 89,
+      "finish_rate": 62,
+      "age": 38
+    }
+  },
+  {
+    "id": "bj-penn",
+    "name": "BJ Penn",
+    "dob": "1978-12-13",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 27,
+    "metrics": {
+      "height": 69,
+      "reach": 70.0,
+      "slpm": 2.8,
+      "career_sig": 999,
+      "knockdowns": 7,
+      "td_avg": 1.1,
+      "sub_wins": 4,
+      "win_pct": 44,
+      "finish_rate": 92,
+      "age": 47
+    }
+  },
+  {
+    "id": "max-holloway",
+    "name": "Max Holloway",
+    "dob": "1991-12-04",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 33,
+    "metrics": {
+      "height": 71,
+      "reach": 69.0,
+      "slpm": 6.9,
+      "career_sig": 3693,
+      "knockdowns": 12,
+      "td_avg": 0.2,
+      "sub_wins": 2,
+      "win_pct": 73,
+      "finish_rate": 58,
+      "age": 34
+    }
+  },
+  {
+    "id": "tito-ortiz",
+    "name": "Tito Ortiz",
+    "dob": "1975-01-23",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 27,
+    "metrics": {
+      "height": 75,
+      "reach": 74.0,
+      "slpm": 2.3,
+      "career_sig": 707,
+      "knockdowns": 2,
+      "td_avg": 2.9,
+      "sub_wins": 2,
+      "win_pct": 56,
+      "finish_rate": 67,
+      "age": 51
+    }
+  },
+  {
+    "id": "daniel-cormier",
+    "name": "Daniel Cormier",
+    "dob": "1979-03-20",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 15,
+    "metrics": {
+      "height": 71,
+      "reach": 72.0,
+      "slpm": 4.4,
+      "career_sig": 911,
+      "knockdowns": 2,
+      "td_avg": 1.7,
+      "sub_wins": 4,
+      "win_pct": 79,
+      "finish_rate": 64,
+      "age": 47
+    }
+  },
+  {
+    "id": "joanna-jedrzejczyk",
+    "name": "Joanna Jedrzejczyk",
+    "dob": "1987-08-18",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 15,
+    "metrics": {
+      "height": 66,
+      "reach": 65.0,
+      "slpm": 6.3,
+      "career_sig": 1754,
+      "knockdowns": 1,
+      "td_avg": 0.3,
+      "sub_wins": 0,
+      "win_pct": 67,
+      "finish_rate": 20,
+      "age": 39
+    }
+  },
+  {
+    "id": "frankie-edgar",
+    "name": "Frankie Edgar",
+    "dob": "1981-10-16",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 30,
+    "metrics": {
+      "height": 66,
+      "reach": 68.0,
+      "slpm": 3.8,
+      "career_sig": 1801,
+      "knockdowns": 3,
+      "td_avg": 2.3,
+      "sub_wins": 2,
+      "win_pct": 60,
+      "finish_rate": 39,
+      "age": 45
+    }
+  },
+  {
+    "id": "kamaru-usman",
+    "name": "Kamaru Usman",
+    "dob": "1987-05-11",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 20,
+    "metrics": {
+      "height": 72,
+      "reach": 76.0,
+      "slpm": 4.1,
+      "career_sig": 1503,
+      "knockdowns": 10,
+      "td_avg": 2.6,
+      "sub_wins": 1,
+      "win_pct": 80,
+      "finish_rate": 31,
+      "age": 39
+    }
+  },
+  {
+    "id": "stipe-miocic",
+    "name": "Stipe Miocic",
+    "dob": "1982-08-19",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 19,
+    "metrics": {
+      "height": 76,
+      "reach": 80.0,
+      "slpm": 4.7,
+      "career_sig": 1007,
+      "knockdowns": 7,
+      "td_avg": 1.7,
+      "sub_wins": 0,
+      "win_pct": 74,
+      "finish_rate": 64,
+      "age": 44
+    }
+  },
+  {
+    "id": "tj-dillashaw",
+    "name": "TJ Dillashaw",
+    "dob": "1986-02-07",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 18,
+    "metrics": {
+      "height": 66,
+      "reach": 67.0,
+      "slpm": 5.1,
+      "career_sig": 1123,
+      "knockdowns": 9,
+      "td_avg": 1.6,
+      "sub_wins": 1,
+      "win_pct": 72,
+      "finish_rate": 62,
+      "age": 40
+    }
+  },
+  {
+    "id": "alex-pereira",
+    "name": "Alex Pereira",
+    "dob": "1987-07-07",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 13,
+    "metrics": {
+      "height": 76,
+      "reach": 79.0,
+      "slpm": 5.0,
+      "career_sig": 697,
+      "knockdowns": 7,
+      "td_avg": 0.1,
+      "sub_wins": 0,
+      "win_pct": 77,
+      "finish_rate": 80,
+      "age": 39
+    }
+  },
+  {
+    "id": "tim-sylvia",
+    "name": "Tim Sylvia",
+    "dob": "1976-03-05",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 13,
+    "metrics": {
+      "height": 80,
+      "reach": 80.0,
+      "slpm": 4.3,
+      "career_sig": 585,
+      "knockdowns": 5,
+      "td_avg": 0.1,
+      "sub_wins": 0,
+      "win_pct": 69,
+      "finish_rate": 56,
+      "age": 50
+    }
+  },
+  {
+    "id": "zhang-weili",
+    "name": "Zhang Weili",
+    "dob": "1989-08-13",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 13,
+    "metrics": {
+      "height": 64,
+      "reach": 63.0,
+      "slpm": 4.7,
+      "career_sig": 929,
+      "knockdowns": 3,
+      "td_avg": 2.0,
+      "sub_wins": 2,
+      "win_pct": 77,
+      "finish_rate": 40,
+      "age": 37
+    }
+  },
+  {
+    "id": "ronda-rousey",
+    "name": "Ronda Rousey",
+    "dob": "1987-02-01",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 8,
+    "metrics": {
+      "height": 67,
+      "reach": 66.0,
+      "slpm": 4.8,
+      "career_sig": 118,
+      "knockdowns": 2,
+      "td_avg": 4.9,
+      "sub_wins": 3,
+      "win_pct": 75,
+      "finish_rate": 100,
+      "age": 39
+    }
+  },
+  {
+    "id": "chuck-liddell",
+    "name": "Chuck Liddell",
+    "dob": "1969-12-17",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 23,
+    "metrics": {
+      "height": 74,
+      "reach": 76.0,
+      "slpm": 3.0,
+      "career_sig": 611,
+      "knockdowns": 14,
+      "td_avg": 0.5,
+      "sub_wins": 0,
+      "win_pct": 70,
+      "finish_rate": 62,
+      "age": 56
+    }
+  },
+  {
+    "id": "alexandre-pantoja",
+    "name": "Alexandre Pantoja",
+    "dob": "1990-04-16",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 19,
+    "metrics": {
+      "height": 65,
+      "reach": 67.0,
+      "slpm": 4.5,
+      "career_sig": 1088,
+      "knockdowns": 4,
+      "td_avg": 2.8,
+      "sub_wins": 6,
+      "win_pct": 74,
+      "finish_rate": 57,
+      "age": 36
+    }
+  },
+  {
+    "id": "islam-makhachev",
+    "name": "Islam Makhachev",
+    "dob": "1991-10-27",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 19,
+    "metrics": {
+      "height": 70,
+      "reach": 70.0,
+      "slpm": 2.3,
+      "career_sig": 507,
+      "knockdowns": 5,
+      "td_avg": 3.2,
+      "sub_wins": 8,
+      "win_pct": 95,
+      "finish_rate": 61,
+      "age": 35
+    }
+  },
+  {
+    "id": "rose-namajunas",
+    "name": "Rose Namajunas",
+    "dob": "1992-06-29",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 19,
+    "metrics": {
+      "height": 65,
+      "reach": 65.0,
+      "slpm": 3.5,
+      "career_sig": 1040,
+      "knockdowns": 6,
+      "td_avg": 1.5,
+      "sub_wins": 3,
+      "win_pct": 63,
+      "finish_rate": 42,
+      "age": 34
+    }
+  },
+  {
+    "id": "deiveson-figueiredo",
+    "name": "Deiveson Figueiredo",
+    "dob": "1987-12-18",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 23,
+    "metrics": {
+      "height": 65,
+      "reach": 68.0,
+      "slpm": 2.6,
+      "career_sig": 723,
+      "knockdowns": 12,
+      "td_avg": 1.6,
+      "sub_wins": 4,
+      "win_pct": 61,
+      "finish_rate": 57,
+      "age": 38
+    }
+  },
+  {
+    "id": "brandon-moreno",
+    "name": "Brandon Moreno",
+    "dob": "1993-12-07",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 21,
+    "metrics": {
+      "height": 67,
+      "reach": 70.0,
+      "slpm": 3.9,
+      "career_sig": 1375,
+      "knockdowns": 4,
+      "td_avg": 1.4,
+      "sub_wins": 3,
+      "win_pct": 57,
+      "finish_rate": 50,
+      "age": 32
+    }
+  },
+  {
+    "id": "merab-dvalishvili",
+    "name": "Merab Dvalishvili",
+    "dob": "1991-01-10",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 18,
+    "metrics": {
+      "height": 66,
+      "reach": 68.0,
+      "slpm": 4.5,
+      "career_sig": 1453,
+      "knockdowns": 1,
+      "td_avg": 5.7,
+      "sub_wins": 1,
+      "win_pct": 78,
+      "finish_rate": 14,
+      "age": 35
+    }
+  },
+  {
+    "id": "petr-yan",
+    "name": "Petr Yan",
+    "dob": "1993-02-11",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 17,
+    "metrics": {
+      "height": 67,
+      "reach": 67.0,
+      "slpm": 5.2,
+      "career_sig": 1584,
+      "knockdowns": 10,
+      "td_avg": 1.6,
+      "sub_wins": 0,
+      "win_pct": 76,
+      "finish_rate": 31,
+      "age": 33
+    }
+  },
+  {
+    "id": "renan-barao",
+    "name": "Renan Barao",
+    "dob": "1987-01-31",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 17,
+    "metrics": {
+      "height": 66,
+      "reach": 70.0,
+      "slpm": 3.9,
+      "career_sig": 922,
+      "knockdowns": 4,
+      "td_avg": 1.5,
+      "sub_wins": 3,
+      "win_pct": 53,
+      "finish_rate": 56,
+      "age": 39
+    }
+  },
+  {
+    "id": "henry-cejudo",
+    "name": "Henry Cejudo",
+    "dob": "1987-02-09",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 16,
+    "metrics": {
+      "height": 64,
+      "reach": 64.0,
+      "slpm": 3.8,
+      "career_sig": 838,
+      "knockdowns": 5,
+      "td_avg": 1.8,
+      "sub_wins": 0,
+      "win_pct": 62,
+      "finish_rate": 40,
+      "age": 39
+    }
+  },
+  {
+    "id": "tyron-woodley",
+    "name": "Tyron Woodley",
+    "dob": "1982-04-07",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 16,
+    "metrics": {
+      "height": 69,
+      "reach": 74.0,
+      "slpm": 2.4,
+      "career_sig": 528,
+      "knockdowns": 10,
+      "td_avg": 0.4,
+      "sub_wins": 1,
+      "win_pct": 56,
+      "finish_rate": 67,
+      "age": 44
+    }
+  },
+  {
+    "id": "cain-velasquez",
+    "name": "Cain Velasquez",
+    "dob": "1982-07-28",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 15,
+    "metrics": {
+      "height": 73,
+      "reach": 77.0,
+      "slpm": 6.5,
+      "career_sig": 719,
+      "knockdowns": 10,
+      "td_avg": 4.6,
+      "sub_wins": 0,
+      "win_pct": 80,
+      "finish_rate": 83,
+      "age": 44
+    }
+  },
+  {
+    "id": "dominick-cruz",
+    "name": "Dominick Cruz",
+    "dob": "1985-03-09",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 10,
+    "metrics": {
+      "height": 68,
+      "reach": 68.0,
+      "slpm": 4.3,
+      "career_sig": 780,
+      "knockdowns": 1,
+      "td_avg": 2.3,
+      "sub_wins": 0,
+      "win_pct": 70,
+      "finish_rate": 14,
+      "age": 41
+    }
+  },
+  {
+    "id": "pat-miletich",
+    "name": "Pat Miletich",
+    "dob": "1968-03-09",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 10,
+    "metrics": {
+      "height": 70,
+      "slpm": 1.3,
+      "career_sig": 147,
+      "knockdowns": 1,
+      "td_avg": 1.4,
+      "sub_wins": 3,
+      "win_pct": 80,
+      "finish_rate": 62,
+      "age": 58
+    }
+  },
+  {
+    "id": "andrei-arlovski",
+    "name": "Andrei Arlovski",
+    "dob": "1979-02-04",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 42,
+    "metrics": {
+      "height": 75,
+      "reach": 77.0,
+      "slpm": 3.9,
+      "career_sig": 1585,
+      "knockdowns": 10,
+      "td_avg": 0.3,
+      "sub_wins": 2,
+      "win_pct": 56,
+      "finish_rate": 48,
+      "age": 47
+    }
+  },
+  {
+    "id": "frank-mir",
+    "name": "Frank Mir",
+    "dob": "1979-05-24",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 27,
+    "metrics": {
+      "height": 75,
+      "reach": 79.0,
+      "slpm": 2.2,
+      "career_sig": 339,
+      "knockdowns": 8,
+      "td_avg": 2.0,
+      "sub_wins": 8,
+      "win_pct": 59,
+      "finish_rate": 81,
+      "age": 47
+    }
+  },
+  {
+    "id": "vitor-belfort",
+    "name": "Vitor Belfort",
+    "dob": "1977-04-01",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 26,
+    "metrics": {
+      "height": 72,
+      "reach": 74.0,
+      "slpm": 2.0,
+      "career_sig": 287,
+      "knockdowns": 11,
+      "td_avg": 0.6,
+      "sub_wins": 2,
+      "win_pct": 60,
+      "finish_rate": 93,
+      "age": 49
+    }
+  },
+  {
+    "id": "robbie-lawler",
+    "name": "Robbie Lawler",
+    "dob": "1982-03-20",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 25,
+    "metrics": {
+      "height": 71,
+      "reach": 74.0,
+      "slpm": 4.2,
+      "career_sig": 1334,
+      "knockdowns": 10,
+      "td_avg": 0.8,
+      "sub_wins": 0,
+      "win_pct": 60,
+      "finish_rate": 53,
+      "age": 44
+    }
+  },
+  {
+    "id": "lyoto-machida",
+    "name": "Lyoto Machida",
+    "dob": "1978-05-30",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 24,
+    "metrics": {
+      "height": 73,
+      "reach": 74.0,
+      "slpm": 2.5,
+      "career_sig": 716,
+      "knockdowns": 14,
+      "td_avg": 0.7,
+      "sub_wins": 1,
+      "win_pct": 67,
+      "finish_rate": 50,
+      "age": 48
+    }
+  },
+  {
+    "id": "aljamain-sterling",
+    "name": "Aljamain Sterling",
+    "dob": "1989-07-31",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 23,
+    "metrics": {
+      "height": 67,
+      "reach": 71.0,
+      "slpm": 4.3,
+      "career_sig": 1407,
+      "knockdowns": 0,
+      "td_avg": 2.5,
+      "sub_wins": 4,
+      "win_pct": 78,
+      "finish_rate": 33,
+      "age": 37
+    }
+  },
+  {
+    "id": "junior-dos-santos",
+    "name": "Junior Dos Santos",
+    "dob": "1984-01-30",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 23,
+    "metrics": {
+      "height": 76,
+      "reach": 77.0,
+      "slpm": 4.5,
+      "career_sig": 1109,
+      "knockdowns": 14,
+      "td_avg": 0.3,
+      "sub_wins": 0,
+      "win_pct": 65,
+      "finish_rate": 67,
+      "age": 42
+    }
+  },
+  {
+    "id": "chris-weidman",
+    "name": "Chris Weidman",
+    "dob": "1984-06-17",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 20,
+    "metrics": {
+      "height": 74,
+      "reach": 78.0,
+      "slpm": 3.1,
+      "career_sig": 626,
+      "knockdowns": 5,
+      "td_avg": 3.3,
+      "sub_wins": 3,
+      "win_pct": 60,
+      "finish_rate": 58,
+      "age": 42
+    }
+  },
+  {
+    "id": "rich-franklin",
+    "name": "Rich Franklin",
+    "dob": "1974-10-05",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 20,
+    "metrics": {
+      "height": 73,
+      "reach": 76.0,
+      "slpm": 4.2,
+      "career_sig": 856,
+      "knockdowns": 10,
+      "td_avg": 1.0,
+      "sub_wins": 1,
+      "win_pct": 70,
+      "finish_rate": 71,
+      "age": 52
+    }
+  },
+  {
+    "id": "holly-holm",
+    "name": "Holly Holm",
+    "dob": "1981-10-17",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 16,
+    "metrics": {
+      "height": 68,
+      "reach": 69.0,
+      "slpm": 3.1,
+      "career_sig": 805,
+      "knockdowns": 2,
+      "td_avg": 0.9,
+      "sub_wins": 0,
+      "win_pct": 53,
+      "finish_rate": 25,
+      "age": 45
+    }
+  },
+  {
+    "id": "benson-henderson",
+    "name": "Benson Henderson",
+    "dob": "1983-11-16",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 14,
+    "metrics": {
+      "height": 69,
+      "reach": 70.0,
+      "slpm": 3.3,
+      "career_sig": 826,
+      "knockdowns": 3,
+      "td_avg": 1.9,
+      "sub_wins": 2,
+      "win_pct": 79,
+      "finish_rate": 18,
+      "age": 42
+    }
+  },
+  {
+    "id": "ciryl-gane",
+    "name": "Ciryl Gane",
+    "dob": "1990-04-12",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 14,
+    "metrics": {
+      "height": 76,
+      "reach": 81.0,
+      "slpm": 5.4,
+      "career_sig": 983,
+      "knockdowns": 4,
+      "td_avg": 0.7,
+      "sub_wins": 2,
+      "win_pct": 85,
+      "finish_rate": 64,
+      "age": 36
+    }
+  },
+  {
+    "id": "julianna-pena",
+    "name": "Julianna Pena",
+    "dob": "1989-08-19",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 12,
+    "metrics": {
+      "height": 66,
+      "reach": 69.0,
+      "slpm": 3.1,
+      "career_sig": 493,
+      "knockdowns": 0,
+      "td_avg": 1.7,
+      "sub_wins": 2,
+      "win_pct": 67,
+      "finish_rate": 50,
+      "age": 37
+    }
+  },
+  {
+    "id": "frank-shamrock",
+    "name": "Frank Shamrock",
+    "dob": "1972-12-08",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 5,
+    "metrics": {
+      "height": 70,
+      "slpm": 1.7,
+      "career_sig": 77,
+      "knockdowns": 2,
+      "td_avg": 0.3,
+      "sub_wins": 3,
+      "win_pct": 100,
+      "finish_rate": 100,
+      "age": 53
+    }
+  },
+  {
+    "id": "charles-oliveira",
+    "name": "Charles Oliveira",
+    "dob": "1989-10-17",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 37,
+    "metrics": {
+      "height": 70,
+      "reach": 74.0,
+      "slpm": 3.2,
+      "career_sig": 954,
+      "knockdowns": 8,
+      "td_avg": 2.3,
+      "sub_wins": 17,
+      "win_pct": 69,
+      "finish_rate": 84,
+      "age": 37
+    }
+  },
+  {
+    "id": "rafael-dos-anjos",
+    "name": "Rafael Dos Anjos",
+    "dob": "1984-10-26",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 37,
+    "metrics": {
+      "height": 68,
+      "reach": 70.0,
+      "slpm": 3.5,
+      "career_sig": 1848,
+      "knockdowns": 7,
+      "td_avg": 1.9,
+      "sub_wins": 5,
+      "win_pct": 57,
+      "finish_rate": 43,
+      "age": 42
+    }
+  },
+  {
+    "id": "dustin-poirier",
+    "name": "Dustin Poirier",
+    "dob": "1989-01-19",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 32,
+    "metrics": {
+      "height": 69,
+      "reach": 72.0,
+      "slpm": 5.3,
+      "career_sig": 1861,
+      "knockdowns": 15,
+      "td_avg": 1.2,
+      "sub_wins": 4,
+      "win_pct": 71,
+      "finish_rate": 68,
+      "age": 37
+    }
+  },
+  {
+    "id": "jessica-andrade",
+    "name": "Jessica Andrade",
+    "dob": "1991-09-25",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 30,
+    "metrics": {
+      "height": 61,
+      "reach": 62.0,
+      "slpm": 6.4,
+      "career_sig": 1824,
+      "knockdowns": 7,
+      "td_avg": 2.1,
+      "sub_wins": 3,
+      "win_pct": 57,
+      "finish_rate": 53,
+      "age": 35
+    }
+  },
+  {
+    "id": "michael-bisping",
+    "name": "Michael Bisping",
+    "dob": "1979-02-28",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 29,
+    "metrics": {
+      "height": 73,
+      "reach": 75.0,
+      "slpm": 4.3,
+      "career_sig": 1567,
+      "knockdowns": 8,
+      "td_avg": 1.1,
+      "sub_wins": 0,
+      "win_pct": 69,
+      "finish_rate": 50,
+      "age": 47
+    }
+  },
+  {
+    "id": "robert-whittaker",
+    "name": "Robert Whittaker",
+    "dob": "1990-12-20",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 25,
+    "metrics": {
+      "height": 72,
+      "reach": 73.0,
+      "slpm": 4.4,
+      "career_sig": 1489,
+      "knockdowns": 12,
+      "td_avg": 0.7,
+      "sub_wins": 0,
+      "win_pct": 72,
+      "finish_rate": 39,
+      "age": 35
+    }
+  },
+  {
+    "id": "sean-strickland",
+    "name": "Sean Strickland",
+    "dob": "1991-02-27",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 25,
+    "metrics": {
+      "height": 73,
+      "reach": 76.0,
+      "slpm": 6.0,
+      "career_sig": 2430,
+      "knockdowns": 7,
+      "td_avg": 0.7,
+      "sub_wins": 1,
+      "win_pct": 72,
+      "finish_rate": 33,
+      "age": 35
+    }
+  },
+  {
+    "id": "glover-teixeira",
+    "name": "Glover Teixeira",
+    "dob": "1979-10-28",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 23,
+    "metrics": {
+      "height": 74,
+      "reach": 76.0,
+      "slpm": 3.6,
+      "career_sig": 953,
+      "knockdowns": 5,
+      "td_avg": 2.0,
+      "sub_wins": 7,
+      "win_pct": 70,
+      "finish_rate": 81,
+      "age": 47
+    }
+  },
+  {
+    "id": "jan-blachowicz",
+    "name": "Jan Blachowicz",
+    "dob": "1983-02-24",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 23,
+    "metrics": {
+      "height": 74,
+      "reach": 78.0,
+      "slpm": 3.5,
+      "career_sig": 1040,
+      "knockdowns": 7,
+      "td_avg": 1.0,
+      "sub_wins": 2,
+      "win_pct": 52,
+      "finish_rate": 58,
+      "age": 43
+    }
+  },
+  {
+    "id": "rashad-evans",
+    "name": "Rashad Evans",
+    "dob": "1979-09-25",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 23,
+    "metrics": {
+      "height": 72,
+      "reach": 75.0,
+      "slpm": 2.1,
+      "career_sig": 614,
+      "knockdowns": 4,
+      "td_avg": 2.8,
+      "sub_wins": 0,
+      "win_pct": 61,
+      "finish_rate": 43,
+      "age": 47
+    }
+  },
+  {
+    "id": "anthony-pettis",
+    "name": "Anthony Pettis",
+    "dob": "1987-01-27",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 20,
+    "metrics": {
+      "height": 70,
+      "reach": 72.0,
+      "slpm": 3.3,
+      "career_sig": 769,
+      "knockdowns": 4,
+      "td_avg": 0.5,
+      "sub_wins": 4,
+      "win_pct": 55,
+      "finish_rate": 64,
+      "age": 39
+    }
+  },
+  {
+    "id": "leon-edwards",
+    "name": "Leon Edwards",
+    "dob": "1991-08-25",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 20,
+    "metrics": {
+      "height": 74,
+      "reach": 74.0,
+      "slpm": 2.6,
+      "career_sig": 873,
+      "knockdowns": 5,
+      "td_avg": 1.3,
+      "sub_wins": 1,
+      "win_pct": 74,
+      "finish_rate": 29,
+      "age": 35
+    }
+  },
+  {
+    "id": "dan-henderson",
+    "name": "Dan Henderson",
+    "dob": "1970-08-24",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 18,
+    "metrics": {
+      "height": 71,
+      "reach": 74.0,
+      "slpm": 2.4,
+      "career_sig": 526,
+      "knockdowns": 9,
+      "td_avg": 1.0,
+      "sub_wins": 0,
+      "win_pct": 50,
+      "finish_rate": 44,
+      "age": 56
+    }
+  },
+  {
+    "id": "urijah-faber",
+    "name": "Urijah Faber",
+    "dob": "1979-05-14",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 18,
+    "metrics": {
+      "height": 66,
+      "reach": 67.0,
+      "slpm": 2.9,
+      "career_sig": 713,
+      "knockdowns": 5,
+      "td_avg": 1.6,
+      "sub_wins": 6,
+      "win_pct": 61,
+      "finish_rate": 64,
+      "age": 47
+    }
+  },
+  {
+    "id": "alexa-grasso",
+    "name": "Alexa Grasso",
+    "dob": "1993-08-09",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 16,
+    "metrics": {
+      "height": 65,
+      "reach": 66.0,
+      "slpm": 4.2,
+      "career_sig": 1001,
+      "knockdowns": 3,
+      "td_avg": 0.4,
+      "sub_wins": 2,
+      "win_pct": 62,
+      "finish_rate": 30,
+      "age": 33
+    }
+  },
+  {
+    "id": "colby-covington",
+    "name": "Colby Covington",
+    "dob": "1988-02-22",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 17,
+    "metrics": {
+      "height": 71,
+      "reach": 72.0,
+      "slpm": 3.8,
+      "career_sig": 1099,
+      "knockdowns": 1,
+      "td_avg": 3.6,
+      "sub_wins": 2,
+      "win_pct": 71,
+      "finish_rate": 42,
+      "age": 38
+    }
+  },
+  {
+    "id": "kenny-florian",
+    "name": "Kenny Florian",
+    "dob": "1976-05-26",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 17,
+    "metrics": {
+      "height": 70,
+      "reach": 74.0,
+      "slpm": 2.4,
+      "career_sig": 454,
+      "knockdowns": 1,
+      "td_avg": 2.1,
+      "sub_wins": 7,
+      "win_pct": 71,
+      "finish_rate": 83,
+      "age": 50
+    }
+  },
+  {
+    "id": "carla-esparza",
+    "name": "Carla Esparza",
+    "dob": "1987-10-10",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 16,
+    "metrics": {
+      "height": 61,
+      "reach": 63.0,
+      "slpm": 2.2,
+      "career_sig": 492,
+      "knockdowns": 0,
+      "td_avg": 3.3,
+      "sub_wins": 1,
+      "win_pct": 62,
+      "finish_rate": 20,
+      "age": 39
+    }
+  },
+  {
+    "id": "justin-gaethje",
+    "name": "Justin Gaethje",
+    "dob": "1988-11-14",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 16,
+    "metrics": {
+      "height": 71,
+      "reach": 70.0,
+      "slpm": 6.3,
+      "career_sig": 1271,
+      "knockdowns": 9,
+      "td_avg": 0.3,
+      "sub_wins": 0,
+      "win_pct": 69,
+      "finish_rate": 64,
+      "age": 37
+    }
+  },
+  {
+    "id": "sean-o-malley",
+    "name": "Sean O'Malley",
+    "dob": "1994-10-24",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 16,
+    "metrics": {
+      "height": 71,
+      "reach": 72.0,
+      "slpm": 6.0,
+      "career_sig": 1131,
+      "knockdowns": 7,
+      "td_avg": 0.2,
+      "sub_wins": 0,
+      "win_pct": 80,
+      "finish_rate": 58,
+      "age": 32
+    }
+  },
+  {
+    "id": "conor-mcgregor",
+    "name": "Conor McGregor",
+    "dob": "1988-07-14",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 15,
+    "metrics": {
+      "height": 69,
+      "reach": 74.0,
+      "slpm": 5.3,
+      "career_sig": 599,
+      "knockdowns": 13,
+      "td_avg": 0.7,
+      "sub_wins": 0,
+      "win_pct": 67,
+      "finish_rate": 80,
+      "age": 38
+    }
+  },
+  {
+    "id": "dan-severn",
+    "name": "Dan Severn",
+    "dob": "1958-06-08",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 13,
+    "metrics": {
+      "height": 74,
+      "slpm": 1.0,
+      "career_sig": 118,
+      "knockdowns": 0,
+      "td_avg": 1.2,
+      "sub_wins": 5,
+      "win_pct": 69,
+      "finish_rate": 67,
+      "age": 68
+    }
+  },
+  {
+    "id": "khabib-nurmagomedov",
+    "name": "Khabib Nurmagomedov",
+    "dob": "1988-09-20",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 13,
+    "metrics": {
+      "height": 70,
+      "reach": 70.0,
+      "slpm": 4.1,
+      "career_sig": 705,
+      "knockdowns": 2,
+      "td_avg": 5.3,
+      "sub_wins": 5,
+      "win_pct": 100,
+      "finish_rate": 54,
+      "age": 38
+    }
+  },
+  {
+    "id": "quinton-jackson",
+    "name": "Quinton Jackson",
+    "dob": "1978-06-20",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 13,
+    "metrics": {
+      "height": 73,
+      "reach": 73.0,
+      "slpm": 2.8,
+      "career_sig": 514,
+      "knockdowns": 8,
+      "td_avg": 0.5,
+      "sub_wins": 0,
+      "win_pct": 62,
+      "finish_rate": 38,
+      "age": 48
+    }
+  },
+  {
+    "id": "sean-sherk",
+    "name": "Sean Sherk",
+    "dob": "1973-08-05",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 12,
+    "metrics": {
+      "height": 66,
+      "reach": 67.0,
+      "slpm": 2.2,
+      "career_sig": 415,
+      "knockdowns": 0,
+      "td_avg": 4.0,
+      "sub_wins": 1,
+      "win_pct": 67,
+      "finish_rate": 25,
+      "age": 53
+    }
+  },
+  {
+    "id": "dricus-du-plessis",
+    "name": "Dricus Du Plessis",
+    "dob": "1994-01-14",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 11,
+    "metrics": {
+      "height": 73,
+      "reach": 76.0,
+      "slpm": 5.2,
+      "career_sig": 906,
+      "knockdowns": 4,
+      "td_avg": 1.9,
+      "sub_wins": 2,
+      "win_pct": 91,
+      "finish_rate": 60,
+      "age": 32
+    }
+  },
+  {
+    "id": "ilia-topuria",
+    "name": "Ilia Topuria",
+    "dob": "1997-01-21",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 10,
+    "metrics": {
+      "height": 67,
+      "reach": 69.0,
+      "slpm": 4.8,
+      "career_sig": 502,
+      "knockdowns": 8,
+      "td_avg": 1.7,
+      "sub_wins": 1,
+      "win_pct": 90,
+      "finish_rate": 78,
+      "age": 29
+    }
+  },
+  {
+    "id": "jiri-prochazka",
+    "name": "Jiri Prochazka",
+    "dob": "1992-10-14",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 9,
+    "metrics": {
+      "height": 75,
+      "reach": 80.0,
+      "slpm": 5.6,
+      "career_sig": 518,
+      "knockdowns": 5,
+      "td_avg": 0.5,
+      "sub_wins": 1,
+      "win_pct": 67,
+      "finish_rate": 100,
+      "age": 34
+    }
+  },
+  {
+    "id": "brock-lesnar",
+    "name": "Brock Lesnar",
+    "dob": "1977-07-12",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 8,
+    "metrics": {
+      "height": 75,
+      "reach": 81.0,
+      "slpm": 3.5,
+      "career_sig": 213,
+      "knockdowns": 2,
+      "td_avg": 3.7,
+      "sub_wins": 1,
+      "win_pct": 57,
+      "age": 49
+    }
+  },
+  {
+    "id": "carlos-newton",
+    "name": "Carlos Newton",
+    "dob": "1976-08-17",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 7,
+    "metrics": {
+      "height": 69,
+      "slpm": 0.6,
+      "career_sig": 44,
+      "knockdowns": 2,
+      "td_avg": 2.1,
+      "sub_wins": 3,
+      "win_pct": 43,
+      "age": 50
+    }
+  },
+  {
+    "id": "cristiane-justino",
+    "name": "Cristiane Justino",
+    "dob": "1985-07-09",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 7,
+    "metrics": {
+      "height": 68,
+      "reach": 68.0,
+      "slpm": 7.1,
+      "career_sig": 460,
+      "knockdowns": 2,
+      "td_avg": 0.7,
+      "sub_wins": 0,
+      "win_pct": 86,
+      "finish_rate": 67,
+      "age": 41
+    }
+  },
+  {
+    "id": "kevin-randleman",
+    "name": "Kevin Randleman",
+    "dob": "1971-08-10",
+    "deceased": true,
+    "hasImage": false,
+    "trackedFights": 7,
+    "metrics": {
+      "height": 70,
+      "slpm": 0.8,
+      "career_sig": 97,
+      "knockdowns": 0,
+      "td_avg": 2.7,
+      "sub_wins": 0,
+      "win_pct": 57
+    }
+  },
+  {
+    "id": "mauricio-rua",
+    "name": "Mauricio Rua",
+    "dob": "1981-11-25",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 24,
+    "metrics": {
+      "height": 73,
+      "reach": 76.0,
+      "slpm": 3.4,
+      "career_sig": 888,
+      "knockdowns": 14,
+      "td_avg": 1.5,
+      "sub_wins": 0,
+      "win_pct": 46,
+      "finish_rate": 73,
+      "age": 44
+    }
+  },
+  {
+    "id": "tony-ferguson",
+    "name": "Tony Ferguson",
+    "dob": "1984-02-12",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 24,
+    "metrics": {
+      "height": 71,
+      "reach": 76.0,
+      "slpm": 4.9,
+      "career_sig": 1332,
+      "knockdowns": 3,
+      "td_avg": 0.4,
+      "sub_wins": 6,
+      "win_pct": 62,
+      "finish_rate": 73,
+      "age": 42
+    }
+  },
+  {
+    "id": "johny-hendricks",
+    "name": "Johny Hendricks",
+    "dob": "1983-09-12",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 21,
+    "metrics": {
+      "height": 69,
+      "reach": 69.0,
+      "slpm": 3.5,
+      "career_sig": 885,
+      "knockdowns": 6,
+      "td_avg": 3.7,
+      "sub_wins": 0,
+      "win_pct": 62,
+      "finish_rate": 38,
+      "age": 43
+    }
+  },
+  {
+    "id": "joseph-benavidez",
+    "name": "Joseph Benavidez",
+    "dob": "1984-07-31",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 21,
+    "metrics": {
+      "height": 64,
+      "reach": 65.0,
+      "slpm": 3.9,
+      "career_sig": 938,
+      "knockdowns": 6,
+      "td_avg": 1.5,
+      "sub_wins": 1,
+      "win_pct": 71,
+      "finish_rate": 40,
+      "age": 42
+    }
+  },
+  {
+    "id": "carlos-condit",
+    "name": "Carlos Condit",
+    "dob": "1984-04-26",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 19,
+    "metrics": {
+      "height": 74,
+      "reach": 75.0,
+      "slpm": 4.0,
+      "career_sig": 1006,
+      "knockdowns": 6,
+      "td_avg": 0.5,
+      "sub_wins": 0,
+      "win_pct": 47,
+      "finish_rate": 56,
+      "age": 42
+    }
+  },
+  {
+    "id": "raquel-pennington",
+    "name": "Raquel Pennington",
+    "dob": "1988-09-05",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 19,
+    "metrics": {
+      "height": 67,
+      "reach": 67.0,
+      "slpm": 4.1,
+      "career_sig": 1193,
+      "knockdowns": 1,
+      "td_avg": 0.8,
+      "sub_wins": 3,
+      "win_pct": 68,
+      "finish_rate": 23,
+      "age": 38
+    }
+  },
+  {
+    "id": "alexander-gustafsson",
+    "name": "Alexander Gustafsson",
+    "dob": "1987-01-15",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 18,
+    "metrics": {
+      "height": 77,
+      "reach": 79.0,
+      "slpm": 4.0,
+      "career_sig": 751,
+      "knockdowns": 9,
+      "td_avg": 1.5,
+      "sub_wins": 2,
+      "win_pct": 56,
+      "finish_rate": 70,
+      "age": 39
+    }
+  },
+  {
+    "id": "cody-garbrandt",
+    "name": "Cody Garbrandt",
+    "dob": "1991-07-07",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 18,
+    "metrics": {
+      "height": 68,
+      "reach": 65.0,
+      "slpm": 2.8,
+      "career_sig": 503,
+      "knockdowns": 11,
+      "td_avg": 0.8,
+      "sub_wins": 0,
+      "win_pct": 56,
+      "finish_rate": 60,
+      "age": 35
+    }
+  },
+  {
+    "id": "david-abbott",
+    "name": "David Abbott",
+    "dob": "1965-04-26",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 18,
+    "metrics": {
+      "height": 72,
+      "slpm": 1.5,
+      "career_sig": 156,
+      "knockdowns": 4,
+      "td_avg": 1.5,
+      "sub_wins": 2,
+      "win_pct": 44,
+      "finish_rate": 88,
+      "age": 61
+    }
+  },
+  {
+    "id": "fabricio-werdum",
+    "name": "Fabricio Werdum",
+    "dob": "1977-07-30",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 18,
+    "metrics": {
+      "height": 76,
+      "reach": 77.0,
+      "slpm": 4.6,
+      "career_sig": 890,
+      "knockdowns": 4,
+      "td_avg": 1.2,
+      "sub_wins": 4,
+      "win_pct": 67,
+      "finish_rate": 67,
+      "age": 49
+    }
+  },
+  {
+    "id": "evan-tanner",
+    "name": "Evan Tanner",
+    "dob": "1971-02-11",
+    "deceased": true,
+    "hasImage": false,
+    "trackedFights": 17,
+    "metrics": {
+      "height": 72,
+      "reach": 74.0,
+      "slpm": 3.2,
+      "career_sig": 388,
+      "knockdowns": 1,
+      "td_avg": 2.6,
+      "sub_wins": 4,
+      "win_pct": 65,
+      "finish_rate": 82
+    }
+  },
+  {
+    "id": "john-dodson",
+    "name": "John Dodson",
+    "dob": "1984-09-26",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 17,
+    "metrics": {
+      "height": 63,
+      "reach": 66.0,
+      "slpm": 3.2,
+      "career_sig": 742,
+      "knockdowns": 11,
+      "td_avg": 0.7,
+      "sub_wins": 0,
+      "win_pct": 59,
+      "finish_rate": 60,
+      "age": 42
+    }
+  },
+  {
+    "id": "magomed-ankalaev",
+    "name": "Magomed Ankalaev",
+    "dob": "1992-06-02",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 17,
+    "metrics": {
+      "height": 75,
+      "reach": 75.0,
+      "slpm": 3.5,
+      "career_sig": 744,
+      "knockdowns": 7,
+      "td_avg": 0.9,
+      "sub_wins": 0,
+      "win_pct": 81,
+      "finish_rate": 54,
+      "age": 34
+    }
+  },
+  {
+    "id": "yair-rodriguez",
+    "name": "Yair Rodriguez",
+    "dob": "1992-10-06",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 16,
+    "metrics": {
+      "height": 71,
+      "reach": 71.0,
+      "slpm": 4.6,
+      "career_sig": 984,
+      "knockdowns": 5,
+      "td_avg": 0.7,
+      "sub_wins": 1,
+      "win_pct": 73,
+      "finish_rate": 45,
+      "age": 34
+    }
+  },
+  {
+    "id": "forrest-griffin",
+    "name": "Forrest Griffin",
+    "dob": "1979-03-16",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 15,
+    "metrics": {
+      "height": 75,
+      "reach": 77.0,
+      "slpm": 4.6,
+      "career_sig": 796,
+      "knockdowns": 1,
+      "td_avg": 0.9,
+      "sub_wins": 2,
+      "win_pct": 67,
+      "finish_rate": 30,
+      "age": 47
+    }
+  },
+  {
+    "id": "chad-mendes",
+    "name": "Chad Mendes",
+    "dob": "1985-05-01",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 14,
+    "metrics": {
+      "height": 66,
+      "reach": 66.0,
+      "slpm": 3.3,
+      "career_sig": 381,
+      "knockdowns": 8,
+      "td_avg": 3.5,
+      "sub_wins": 0,
+      "win_pct": 64,
+      "finish_rate": 67,
+      "age": 41
+    }
+  },
+  {
+    "id": "chael-sonnen",
+    "name": "Chael Sonnen",
+    "dob": "1977-04-03",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 14,
+    "metrics": {
+      "height": 73,
+      "reach": 73.0,
+      "slpm": 2.9,
+      "career_sig": 410,
+      "knockdowns": 0,
+      "td_avg": 3.9,
+      "sub_wins": 2,
+      "win_pct": 50,
+      "finish_rate": 29,
+      "age": 49
+    }
+  },
+  {
+    "id": "francis-ngannou",
+    "name": "Francis Ngannou",
+    "dob": "1986-09-05",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 14,
+    "metrics": {
+      "height": 76,
+      "reach": 83.0,
+      "slpm": 2.3,
+      "career_sig": 229,
+      "knockdowns": 8,
+      "td_avg": 0.8,
+      "sub_wins": 1,
+      "win_pct": 86,
+      "finish_rate": 92,
+      "age": 40
+    }
+  },
+  {
+    "id": "matt-serra",
+    "name": "Matt Serra",
+    "dob": "1974-06-02",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 14,
+    "metrics": {
+      "height": 66,
+      "reach": 68.0,
+      "slpm": 2.0,
+      "career_sig": 333,
+      "knockdowns": 5,
+      "td_avg": 2.0,
+      "sub_wins": 1,
+      "win_pct": 50,
+      "finish_rate": 43,
+      "age": 52
+    }
+  },
+  {
+    "id": "miesha-tate",
+    "name": "Miesha Tate",
+    "dob": "1986-08-18",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 14,
+    "metrics": {
+      "height": 66,
+      "reach": 65.0,
+      "slpm": 3.0,
+      "career_sig": 618,
+      "knockdowns": 1,
+      "td_avg": 1.4,
+      "sub_wins": 2,
+      "win_pct": 50,
+      "finish_rate": 43,
+      "age": 40
+    }
+  },
+  {
+    "id": "pedro-rizzo",
+    "name": "Pedro Rizzo",
+    "dob": "1974-05-03",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 14,
+    "metrics": {
+      "height": 73,
+      "slpm": 1.7,
+      "career_sig": 286,
+      "knockdowns": 8,
+      "td_avg": 0.2,
+      "sub_wins": 0,
+      "win_pct": 64,
+      "finish_rate": 78,
+      "age": 52
+    }
+  },
+  {
+    "id": "joshua-van",
+    "name": "Joshua Van",
+    "dob": "2001-10-10",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 12,
+    "metrics": {
+      "height": 65,
+      "reach": 65.0,
+      "slpm": 8.3,
+      "career_sig": 1411,
+      "knockdowns": 8,
+      "td_avg": 0.7,
+      "sub_wins": 0,
+      "win_pct": 92,
+      "finish_rate": 36,
+      "age": 25
+    }
+  },
+  {
+    "id": "mark-coleman",
+    "name": "Mark Coleman",
+    "dob": "1964-12-20",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 12,
+    "metrics": {
+      "height": 73,
+      "reach": 75.0,
+      "slpm": 2.2,
+      "career_sig": 243,
+      "knockdowns": 0,
+      "td_avg": 3.4,
+      "sub_wins": 3,
+      "win_pct": 58,
+      "finish_rate": 86,
+      "age": 61
+    }
+  },
+  {
+    "id": "don-frye",
+    "name": "Don Frye",
+    "dob": "1965-11-23",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 10,
+    "metrics": {
+      "height": 73,
+      "slpm": 2.4,
+      "career_sig": 127,
+      "knockdowns": 1,
+      "td_avg": 1.1,
+      "sub_wins": 3,
+      "win_pct": 90,
+      "finish_rate": 100,
+      "age": 60
+    }
+  },
+  {
+    "id": "tom-aspinall",
+    "name": "Tom Aspinall",
+    "dob": "1993-04-11",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 10,
+    "metrics": {
+      "height": 77,
+      "reach": 78.0,
+      "slpm": 7.6,
+      "career_sig": 175,
+      "knockdowns": 5,
+      "td_avg": 2.6,
+      "sub_wins": 2,
+      "win_pct": 89,
+      "finish_rate": 100,
+      "age": 33
+    }
+  },
+  {
+    "id": "jens-pulver",
+    "name": "Jens Pulver",
+    "dob": "1974-12-06",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 9,
+    "metrics": {
+      "height": 67,
+      "reach": 70.0,
+      "slpm": 1.9,
+      "career_sig": 228,
+      "knockdowns": 1,
+      "td_avg": 0.5,
+      "sub_wins": 0,
+      "win_pct": 67,
+      "finish_rate": 33,
+      "age": 51
+    }
+  },
+  {
+    "id": "maurice-smith",
+    "name": "Maurice Smith",
+    "dob": "1961-12-13",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 7,
+    "metrics": {
+      "height": 74,
+      "slpm": 1.4,
+      "career_sig": 137,
+      "knockdowns": 0,
+      "td_avg": 0.0,
+      "sub_wins": 1,
+      "win_pct": 57,
+      "age": 64
+    }
+  },
+  {
+    "id": "demian-maia",
+    "name": "Demian Maia",
+    "dob": "1977-11-06",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 33,
+    "metrics": {
+      "height": 73,
+      "reach": 72.0,
+      "slpm": 1.8,
+      "career_sig": 739,
+      "knockdowns": 1,
+      "td_avg": 2.5,
+      "sub_wins": 11,
+      "win_pct": 67,
+      "finish_rate": 55,
+      "age": 49
+    }
+  },
+  {
+    "id": "derrick-lewis",
+    "name": "Derrick Lewis",
+    "dob": "1985-02-07",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 32,
+    "metrics": {
+      "height": 75,
+      "reach": 79.0,
+      "slpm": 2.4,
+      "career_sig": 682,
+      "knockdowns": 11,
+      "td_avg": 0.5,
+      "sub_wins": 0,
+      "win_pct": 62,
+      "finish_rate": 80,
+      "age": 41
+    }
+  },
+  {
+    "id": "diego-sanchez",
+    "name": "Diego Sanchez",
+    "dob": "1981-12-31",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 32,
+    "metrics": {
+      "height": 70,
+      "reach": 72.0,
+      "slpm": 2.7,
+      "career_sig": 1058,
+      "knockdowns": 6,
+      "td_avg": 1.4,
+      "sub_wins": 0,
+      "win_pct": 59,
+      "finish_rate": 32,
+      "age": 44
+    }
+  },
+  {
+    "id": "kelvin-gastelum",
+    "name": "Kelvin Gastelum",
+    "dob": "1991-10-24",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 26,
+    "metrics": {
+      "height": 69,
+      "reach": 71.0,
+      "slpm": 3.7,
+      "career_sig": 1269,
+      "knockdowns": 10,
+      "td_avg": 1.0,
+      "sub_wins": 2,
+      "win_pct": 56,
+      "finish_rate": 36,
+      "age": 35
+    }
+  },
+  {
+    "id": "nate-diaz",
+    "name": "Nate Diaz",
+    "dob": "1985-04-16",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 27,
+    "metrics": {
+      "height": 72,
+      "reach": 76.0,
+      "slpm": 4.6,
+      "career_sig": 1544,
+      "knockdowns": 4,
+      "td_avg": 0.8,
+      "sub_wins": 10,
+      "win_pct": 59,
+      "finish_rate": 75,
+      "age": 41
+    }
+  },
+  {
+    "id": "belal-muhammad",
+    "name": "Belal Muhammad",
+    "dob": "1988-07-09",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 22,
+    "metrics": {
+      "height": 71,
+      "reach": 72.0,
+      "slpm": 4.4,
+      "career_sig": 1515,
+      "knockdowns": 0,
+      "td_avg": 2.0,
+      "sub_wins": 1,
+      "win_pct": 71,
+      "finish_rate": 20,
+      "age": 38
+    }
+  },
+  {
+    "id": "jorge-masvidal",
+    "name": "Jorge Masvidal",
+    "dob": "1984-11-12",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 22,
+    "metrics": {
+      "height": 71,
+      "reach": 74.0,
+      "slpm": 4.0,
+      "career_sig": 1170,
+      "knockdowns": 9,
+      "td_avg": 0.9,
+      "sub_wins": 1,
+      "win_pct": 55,
+      "finish_rate": 58,
+      "age": 41
+    }
+  },
+  {
+    "id": "stephen-thompson",
+    "name": "Stephen Thompson",
+    "dob": "1983-02-11",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 22,
+    "metrics": {
+      "height": 72,
+      "reach": 75.0,
+      "slpm": 4.0,
+      "career_sig": 1293,
+      "knockdowns": 10,
+      "td_avg": 0.2,
+      "sub_wins": 0,
+      "win_pct": 55,
+      "finish_rate": 50,
+      "age": 43
+    }
+  },
+  {
+    "id": "gray-maynard",
+    "name": "Gray Maynard",
+    "dob": "1979-05-09",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 20,
+    "metrics": {
+      "height": 69,
+      "reach": 70.0,
+      "slpm": 1.9,
+      "career_sig": 493,
+      "knockdowns": 6,
+      "td_avg": 2.9,
+      "sub_wins": 0,
+      "win_pct": 58,
+      "finish_rate": 9,
+      "age": 47
+    }
+  },
+  {
+    "id": "anthony-johnson",
+    "name": "Anthony Johnson",
+    "dob": "1984-03-06",
+    "deceased": true,
+    "hasImage": false,
+    "trackedFights": 19,
+    "metrics": {
+      "height": 74,
+      "reach": 78.0,
+      "slpm": 3.2,
+      "career_sig": 381,
+      "knockdowns": 13,
+      "td_avg": 2.4,
+      "sub_wins": 0,
+      "win_pct": 68,
+      "finish_rate": 85
+    }
+  },
+  {
+    "id": "khalil-rountree-jr",
+    "name": "Khalil Rountree Jr.",
+    "dob": "1990-02-26",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 18,
+    "metrics": {
+      "height": 73,
+      "reach": 76.0,
+      "slpm": 3.9,
+      "career_sig": 680,
+      "knockdowns": 14,
+      "td_avg": 0.0,
+      "sub_wins": 0,
+      "win_pct": 59,
+      "finish_rate": 70,
+      "age": 36
+    }
+  },
+  {
+    "id": "cory-sandhagen",
+    "name": "Cory Sandhagen",
+    "dob": "1992-04-20",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 17,
+    "metrics": {
+      "height": 71,
+      "reach": 70.0,
+      "slpm": 4.9,
+      "career_sig": 1233,
+      "knockdowns": 4,
+      "td_avg": 1.1,
+      "sub_wins": 1,
+      "win_pct": 65,
+      "finish_rate": 64,
+      "age": 34
+    }
+  },
+  {
+    "id": "mackenzie-dern",
+    "name": "Mackenzie Dern",
+    "dob": "1993-03-24",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 17,
+    "metrics": {
+      "height": 64,
+      "reach": 63.0,
+      "slpm": 3.4,
+      "career_sig": 851,
+      "knockdowns": 2,
+      "td_avg": 1.1,
+      "sub_wins": 5,
+      "win_pct": 71,
+      "finish_rate": 42,
+      "age": 33
+    }
+  },
+  {
+    "id": "dominick-reyes",
+    "name": "Dominick Reyes",
+    "dob": "1989-12-26",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 16,
+    "metrics": {
+      "height": 76,
+      "reach": 77.0,
+      "slpm": 5.0,
+      "career_sig": 602,
+      "knockdowns": 8,
+      "td_avg": 0.2,
+      "sub_wins": 1,
+      "win_pct": 69,
+      "finish_rate": 73,
+      "age": 36
+    }
+  },
+  {
+    "id": "al-iaquinta",
+    "name": "Al Iaquinta",
+    "dob": "1987-04-30",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 15,
+    "metrics": {
+      "height": 70,
+      "reach": 70.0,
+      "slpm": 4.1,
+      "career_sig": 774,
+      "knockdowns": 7,
+      "td_avg": 0.6,
+      "sub_wins": 0,
+      "win_pct": 60,
+      "finish_rate": 44,
+      "age": 39
+    }
+  },
+  {
+    "id": "nick-diaz",
+    "name": "Nick Diaz",
+    "dob": "1983-08-02",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 15,
+    "metrics": {
+      "height": 73,
+      "reach": 76.0,
+      "slpm": 4.3,
+      "career_sig": 872,
+      "knockdowns": 3,
+      "td_avg": 1.0,
+      "sub_wins": 2,
+      "win_pct": 50,
+      "finish_rate": 86,
+      "age": 43
+    }
+  },
+  {
+    "id": "brian-ortega",
+    "name": "Brian Ortega",
+    "dob": "1991-02-21",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 14,
+    "metrics": {
+      "height": 68,
+      "reach": 69.0,
+      "slpm": 3.8,
+      "career_sig": 742,
+      "knockdowns": 5,
+      "td_avg": 0.9,
+      "sub_wins": 4,
+      "win_pct": 62,
+      "finish_rate": 88,
+      "age": 35
+    }
+  },
+  {
+    "id": "kai-kara-france",
+    "name": "Kai Kara-France",
+    "dob": "1993-03-26",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 13,
+    "metrics": {
+      "height": 64,
+      "reach": 69.0,
+      "slpm": 4.5,
+      "career_sig": 712,
+      "knockdowns": 8,
+      "td_avg": 0.6,
+      "sub_wins": 0,
+      "win_pct": 62,
+      "finish_rate": 38,
+      "age": 33
+    }
+  },
+  {
+    "id": "yoel-romero",
+    "name": "Yoel Romero",
+    "dob": "1977-04-30",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 13,
+    "metrics": {
+      "height": 72,
+      "reach": 73.0,
+      "slpm": 3.5,
+      "career_sig": 667,
+      "knockdowns": 10,
+      "td_avg": 1.6,
+      "sub_wins": 0,
+      "win_pct": 69,
+      "finish_rate": 78,
+      "age": 49
+    }
+  },
+  {
+    "id": "chan-sung-jung",
+    "name": "Chan Sung Jung",
+    "dob": "1987-03-17",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 12,
+    "metrics": {
+      "height": 67,
+      "reach": 72.0,
+      "slpm": 3.8,
+      "career_sig": 568,
+      "knockdowns": 4,
+      "td_avg": 0.8,
+      "sub_wins": 2,
+      "win_pct": 58,
+      "finish_rate": 86,
+      "age": 39
+    }
+  },
+  {
+    "id": "tatiana-suarez",
+    "name": "Tatiana Suarez",
+    "dob": "1990-12-19",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 11,
+    "metrics": {
+      "height": 65,
+      "reach": 66.0,
+      "slpm": 2.7,
+      "career_sig": 351,
+      "knockdowns": 0,
+      "td_avg": 4.0,
+      "sub_wins": 5,
+      "win_pct": 91,
+      "finish_rate": 60,
+      "age": 35
+    }
+  },
+  {
+    "id": "antonio-rodrigo-nogueira",
+    "name": "Antonio Rodrigo Nogueira",
+    "dob": "1976-06-02",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 11,
+    "metrics": {
+      "height": 75,
+      "reach": 77.0,
+      "slpm": 2.8,
+      "career_sig": 264,
+      "knockdowns": 4,
+      "td_avg": 1.3,
+      "sub_wins": 2,
+      "win_pct": 45,
+      "finish_rate": 60,
+      "age": 50
+    }
+  },
+  {
+    "id": "diego-lopes",
+    "name": "Diego Lopes",
+    "dob": "1994-12-30",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 10,
+    "metrics": {
+      "height": 71,
+      "reach": 72.0,
+      "slpm": 3.9,
+      "career_sig": 462,
+      "knockdowns": 6,
+      "td_avg": 0.9,
+      "sub_wins": 1,
+      "win_pct": 70,
+      "finish_rate": 71,
+      "age": 31
+    }
+  },
+  {
+    "id": "jack-della-maddalena",
+    "name": "Jack Della Maddalena",
+    "dob": "1996-09-10",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 10,
+    "metrics": {
+      "height": 71,
+      "reach": 73.0,
+      "slpm": 5.1,
+      "career_sig": 600,
+      "knockdowns": 6,
+      "td_avg": 0.4,
+      "sub_wins": 1,
+      "win_pct": 80,
+      "finish_rate": 62,
+      "age": 30
+    }
+  },
+  {
+    "id": "jamahal-hill",
+    "name": "Jamahal Hill",
+    "dob": "1991-05-19",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 11,
+    "metrics": {
+      "height": 76,
+      "reach": 79.0,
+      "slpm": 5.9,
+      "career_sig": 677,
+      "knockdowns": 4,
+      "td_avg": 0.0,
+      "sub_wins": 0,
+      "win_pct": 60,
+      "finish_rate": 67,
+      "age": 35
+    }
+  },
+  {
+    "id": "luke-rockhold",
+    "name": "Luke Rockhold",
+    "dob": "1984-10-17",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 11,
+    "metrics": {
+      "height": 75,
+      "reach": 77.0,
+      "slpm": 4.4,
+      "career_sig": 376,
+      "knockdowns": 2,
+      "td_avg": 1.1,
+      "sub_wins": 3,
+      "win_pct": 55,
+      "finish_rate": 100,
+      "age": 42
+    }
+  },
+  {
+    "id": "germaine-de-randamie",
+    "name": "Germaine de Randamie",
+    "dob": "1984-04-24",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 10,
+    "metrics": {
+      "height": 69,
+      "reach": 71.0,
+      "slpm": 2.6,
+      "career_sig": 317,
+      "knockdowns": 2,
+      "td_avg": 0.0,
+      "sub_wins": 1,
+      "win_pct": 70,
+      "finish_rate": 57,
+      "age": 42
+    }
+  },
+  {
+    "id": "khamzat-chimaev",
+    "name": "Khamzat Chimaev",
+    "dob": "1994-05-01",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 10,
+    "metrics": {
+      "height": 74,
+      "reach": 75.0,
+      "slpm": 4.0,
+      "career_sig": 396,
+      "knockdowns": 2,
+      "td_avg": 5.3,
+      "sub_wins": 4,
+      "win_pct": 90,
+      "finish_rate": 67,
+      "age": 32
+    }
+  },
+  {
+    "id": "liz-carmouche",
+    "name": "Liz Carmouche",
+    "dob": "1984-02-19",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 10,
+    "metrics": {
+      "height": 66,
+      "reach": 66.0,
+      "slpm": 2.2,
+      "career_sig": 314,
+      "knockdowns": 0,
+      "td_avg": 2.6,
+      "sub_wins": 0,
+      "win_pct": 50,
+      "finish_rate": 20,
+      "age": 42
+    }
+  },
+  {
+    "id": "royce-gracie",
+    "name": "Royce Gracie",
+    "dob": "1966-12-12",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 10,
+    "metrics": {
+      "height": 73,
+      "slpm": 0.5,
+      "career_sig": 36,
+      "knockdowns": 0,
+      "td_avg": 0.8,
+      "sub_wins": 7,
+      "win_pct": 80,
+      "finish_rate": 100,
+      "age": 59
+    }
+  },
+  {
+    "id": "eddie-alvarez",
+    "name": "Eddie Alvarez",
+    "dob": "1984-01-11",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 8,
+    "metrics": {
+      "height": 69,
+      "reach": 69.0,
+      "slpm": 4.5,
+      "career_sig": 400,
+      "knockdowns": 1,
+      "td_avg": 2.0,
+      "sub_wins": 0,
+      "win_pct": 57,
+      "age": 42
+    }
+  },
+  {
+    "id": "gilbert-melendez",
+    "name": "Gilbert Melendez",
+    "dob": "1982-04-12",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 7,
+    "metrics": {
+      "height": 69,
+      "reach": 73.0,
+      "slpm": 2.8,
+      "career_sig": 294,
+      "knockdowns": 0,
+      "td_avg": 0.4,
+      "sub_wins": 0,
+      "win_pct": 14,
+      "age": 44
+    }
+  },
+  {
+    "id": "ricco-rodriguez",
+    "name": "Ricco Rodriguez",
+    "dob": "1977-08-19",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 7,
+    "metrics": {
+      "height": 76,
+      "slpm": 2.1,
+      "career_sig": 178,
+      "knockdowns": 0,
+      "td_avg": 3.1,
+      "sub_wins": 0,
+      "win_pct": 71,
+      "finish_rate": 100,
+      "age": 49
+    }
+  },
+  {
+    "id": "dave-menne",
+    "name": "Dave Menne",
+    "dob": "1974-07-29",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 6,
+    "metrics": {
+      "height": 70,
+      "slpm": 2.2,
+      "career_sig": 143,
+      "knockdowns": 0,
+      "td_avg": 0.5,
+      "sub_wins": 0,
+      "win_pct": 33,
+      "age": 52
+    }
+  },
+  {
+    "id": "shane-carwin",
+    "name": "Shane Carwin",
+    "dob": "1975-01-04",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 6,
+    "metrics": {
+      "height": 74,
+      "reach": 80.0,
+      "slpm": 4.4,
+      "career_sig": 131,
+      "knockdowns": 4,
+      "td_avg": 1.0,
+      "sub_wins": 0,
+      "win_pct": 67,
+      "age": 51
+    }
+  },
+  {
+    "id": "donald-cerrone",
+    "name": "Donald Cerrone",
+    "dob": "1983-03-29",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 38,
+    "metrics": {
+      "height": 73,
+      "reach": 73.0,
+      "slpm": 4.9,
+      "career_sig": 1748,
+      "knockdowns": 20,
+      "td_avg": 1.0,
+      "sub_wins": 6,
+      "win_pct": 62,
+      "finish_rate": 70,
+      "age": 43
+    }
+  },
+  {
+    "id": "ovince-saint-preux",
+    "name": "Ovince Saint Preux",
+    "dob": "1983-04-08",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 28,
+    "metrics": {
+      "height": 75,
+      "reach": 80.0,
+      "slpm": 3.1,
+      "career_sig": 793,
+      "knockdowns": 6,
+      "td_avg": 0.9,
+      "sub_wins": 5,
+      "win_pct": 54,
+      "finish_rate": 73,
+      "age": 43
+    }
+  },
+  {
+    "id": "marlon-vera",
+    "name": "Marlon Vera",
+    "dob": "1992-12-02",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 27,
+    "metrics": {
+      "height": 68,
+      "reach": 70.0,
+      "slpm": 4.2,
+      "career_sig": 1552,
+      "knockdowns": 16,
+      "td_avg": 0.6,
+      "sub_wins": 4,
+      "win_pct": 59,
+      "finish_rate": 75,
+      "age": 33
+    }
+  },
+  {
+    "id": "thiago-alves",
+    "name": "Thiago Alves",
+    "dob": "1983-10-03",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 27,
+    "metrics": {
+      "height": 69,
+      "reach": 70.0,
+      "slpm": 3.7,
+      "career_sig": 1106,
+      "knockdowns": 13,
+      "td_avg": 0.7,
+      "sub_wins": 1,
+      "win_pct": 56,
+      "finish_rate": 60,
+      "age": 43
+    }
+  },
+  {
+    "id": "anthony-smith",
+    "name": "Anthony Smith",
+    "dob": "1988-07-26",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 25,
+    "metrics": {
+      "height": 76,
+      "reach": 76.0,
+      "slpm": 3.2,
+      "career_sig": 840,
+      "knockdowns": 7,
+      "td_avg": 0.5,
+      "sub_wins": 5,
+      "win_pct": 52,
+      "finish_rate": 85,
+      "age": 38
+    }
+  },
+  {
+    "id": "gilbert-burns",
+    "name": "Gilbert Burns",
+    "dob": "1986-07-20",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 25,
+    "metrics": {
+      "height": 70,
+      "reach": 71.0,
+      "slpm": 3.2,
+      "career_sig": 974,
+      "knockdowns": 4,
+      "td_avg": 2.0,
+      "sub_wins": 5,
+      "win_pct": 60,
+      "finish_rate": 53,
+      "age": 40
+    }
+  },
+  {
+    "id": "josh-koscheck",
+    "name": "Josh Koscheck",
+    "dob": "1977-11-30",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 25,
+    "metrics": {
+      "height": 70,
+      "reach": 73.0,
+      "slpm": 1.8,
+      "career_sig": 428,
+      "knockdowns": 4,
+      "td_avg": 2.5,
+      "sub_wins": 3,
+      "win_pct": 60,
+      "finish_rate": 60,
+      "age": 48
+    }
+  },
+  {
+    "id": "nate-marquardt",
+    "name": "Nate Marquardt",
+    "dob": "1979-04-20",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 25,
+    "metrics": {
+      "height": 72,
+      "reach": 74.0,
+      "slpm": 2.7,
+      "career_sig": 635,
+      "knockdowns": 12,
+      "td_avg": 2.1,
+      "sub_wins": 3,
+      "win_pct": 52,
+      "finish_rate": 69,
+      "age": 47
+    }
+  },
+  {
+    "id": "thiago-santos",
+    "name": "Thiago Santos",
+    "dob": "1984-01-07",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 24,
+    "metrics": {
+      "height": 74,
+      "reach": 76.0,
+      "slpm": 3.7,
+      "career_sig": 888,
+      "knockdowns": 14,
+      "td_avg": 0.9,
+      "sub_wins": 0,
+      "win_pct": 58,
+      "finish_rate": 79,
+      "age": 42
+    }
+  },
+  {
+    "id": "tim-elliott",
+    "name": "Tim Elliott",
+    "dob": "1986-12-24",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 23,
+    "metrics": {
+      "height": 67,
+      "reach": 66.0,
+      "slpm": 3.6,
+      "career_sig": 1012,
+      "knockdowns": 2,
+      "td_avg": 3.7,
+      "sub_wins": 3,
+      "win_pct": 48,
+      "finish_rate": 27,
+      "age": 39
+    }
+  },
+  {
+    "id": "curtis-blaydes",
+    "name": "Curtis Blaydes",
+    "dob": "1991-02-18",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 22,
+    "metrics": {
+      "height": 76,
+      "reach": 80.0,
+      "slpm": 4.0,
+      "career_sig": 833,
+      "knockdowns": 2,
+      "td_avg": 5.0,
+      "sub_wins": 0,
+      "win_pct": 71,
+      "finish_rate": 53,
+      "age": 35
+    }
+  },
+  {
+    "id": "gabriel-gonzaga",
+    "name": "Gabriel Gonzaga",
+    "dob": "1979-05-18",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 22,
+    "metrics": {
+      "height": 74,
+      "reach": 76.0,
+      "slpm": 2.1,
+      "career_sig": 293,
+      "knockdowns": 7,
+      "td_avg": 2.6,
+      "sub_wins": 4,
+      "win_pct": 55,
+      "finish_rate": 92,
+      "age": 47
+    }
+  },
+  {
+    "id": "michael-chiesa",
+    "name": "Michael Chiesa",
+    "dob": "1987-12-07",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 22,
+    "metrics": {
+      "height": 73,
+      "reach": 75.0,
+      "slpm": 2.0,
+      "career_sig": 409,
+      "knockdowns": 1,
+      "td_avg": 3.1,
+      "sub_wins": 9,
+      "win_pct": 68,
+      "finish_rate": 60,
+      "age": 38
+    }
+  },
+  {
+    "id": "gillian-robertson",
+    "name": "Gillian Robertson",
+    "dob": "1995-05-17",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 21,
+    "metrics": {
+      "height": 65,
+      "reach": 63.0,
+      "slpm": 2.6,
+      "career_sig": 609,
+      "knockdowns": 0,
+      "td_avg": 2.5,
+      "sub_wins": 7,
+      "win_pct": 67,
+      "finish_rate": 71,
+      "age": 31
+    }
+  },
+  {
+    "id": "jared-cannonier",
+    "name": "Jared Cannonier",
+    "dob": "1984-03-16",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 21,
+    "metrics": {
+      "height": 71,
+      "reach": 77.0,
+      "slpm": 4.2,
+      "career_sig": 1245,
+      "knockdowns": 7,
+      "td_avg": 0.8,
+      "sub_wins": 0,
+      "win_pct": 52,
+      "finish_rate": 64,
+      "age": 42
+    }
+  },
+  {
+    "id": "renato-moicano",
+    "name": "Renato Moicano",
+    "dob": "1989-05-21",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 21,
+    "metrics": {
+      "height": 71,
+      "reach": 72.0,
+      "slpm": 3.9,
+      "career_sig": 780,
+      "knockdowns": 2,
+      "td_avg": 1.8,
+      "sub_wins": 7,
+      "win_pct": 62,
+      "finish_rate": 69,
+      "age": 37
+    }
+  },
+  {
+    "id": "yushin-okami",
+    "name": "Yushin Okami",
+    "dob": "1981-07-21",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 21,
+    "metrics": {
+      "height": 74,
+      "reach": 75.0,
+      "slpm": 2.0,
+      "career_sig": 513,
+      "knockdowns": 4,
+      "td_avg": 2.0,
+      "sub_wins": 0,
+      "win_pct": 67,
+      "finish_rate": 36,
+      "age": 45
+    }
+  },
+  {
+    "id": "alistair-overeem",
+    "name": "Alistair Overeem",
+    "dob": "1980-05-17",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 20,
+    "metrics": {
+      "height": 76,
+      "reach": 80.0,
+      "slpm": 3.9,
+      "career_sig": 715,
+      "knockdowns": 10,
+      "td_avg": 0.8,
+      "sub_wins": 0,
+      "win_pct": 60,
+      "finish_rate": 75,
+      "age": 46
+    }
+  },
+  {
+    "id": "chris-lytle",
+    "name": "Chris Lytle",
+    "dob": "1974-08-18",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 20,
+    "metrics": {
+      "height": 71,
+      "reach": 68.0,
+      "slpm": 3.8,
+      "career_sig": 818,
+      "knockdowns": 2,
+      "td_avg": 0.6,
+      "sub_wins": 6,
+      "win_pct": 50,
+      "finish_rate": 70,
+      "age": 52
+    }
+  },
+  {
+    "id": "ryan-bader",
+    "name": "Ryan Bader",
+    "dob": "1983-06-07",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 20,
+    "metrics": {
+      "height": 74,
+      "reach": 74.0,
+      "slpm": 2.8,
+      "career_sig": 577,
+      "knockdowns": 7,
+      "td_avg": 3.4,
+      "sub_wins": 1,
+      "win_pct": 75,
+      "finish_rate": 40,
+      "age": 43
+    }
+  },
+  {
+    "id": "kevin-lee",
+    "name": "Kevin Lee",
+    "dob": "1992-09-04",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 19,
+    "metrics": {
+      "height": 69,
+      "reach": 77.0,
+      "slpm": 3.9,
+      "career_sig": 843,
+      "knockdowns": 1,
+      "td_avg": 3.2,
+      "sub_wins": 4,
+      "win_pct": 58,
+      "finish_rate": 64,
+      "age": 34
+    }
+  },
+  {
+    "id": "marvin-vettori",
+    "name": "Marvin Vettori",
+    "dob": "1993-09-20",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 19,
+    "metrics": {
+      "height": 72,
+      "reach": 74.0,
+      "slpm": 4.8,
+      "career_sig": 1540,
+      "knockdowns": 1,
+      "td_avg": 1.3,
+      "sub_wins": 2,
+      "win_pct": 47,
+      "finish_rate": 22,
+      "age": 33
+    }
+  },
+  {
+    "id": "roy-nelson",
+    "name": "Roy Nelson",
+    "dob": "1976-06-20",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 19,
+    "metrics": {
+      "height": 72,
+      "reach": 73.0,
+      "slpm": 2.2,
+      "career_sig": 439,
+      "knockdowns": 9,
+      "td_avg": 1.2,
+      "sub_wins": 0,
+      "win_pct": 47,
+      "finish_rate": 89,
+      "age": 50
+    }
+  },
+  {
+    "id": "uriah-hall",
+    "name": "Uriah Hall",
+    "dob": "1984-07-31",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 19,
+    "metrics": {
+      "height": 72,
+      "reach": 79.0,
+      "slpm": 3.2,
+      "career_sig": 634,
+      "knockdowns": 8,
+      "td_avg": 0.5,
+      "sub_wins": 0,
+      "win_pct": 53,
+      "finish_rate": 80,
+      "age": 42
+    }
+  },
+  {
+    "id": "jon-fitch",
+    "name": "Jon Fitch",
+    "dob": "1978-02-24",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 18,
+    "metrics": {
+      "height": 72,
+      "reach": 74.0,
+      "slpm": 2.6,
+      "career_sig": 630,
+      "knockdowns": 2,
+      "td_avg": 3.6,
+      "sub_wins": 3,
+      "win_pct": 78,
+      "finish_rate": 29,
+      "age": 48
+    }
+  },
+  {
+    "id": "katlyn-cerminara",
+    "name": "Katlyn Cerminara",
+    "dob": "1988-12-28",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 18,
+    "metrics": {
+      "height": 69,
+      "reach": 68.0,
+      "slpm": 4.6,
+      "career_sig": 1136,
+      "knockdowns": 2,
+      "td_avg": 0.3,
+      "sub_wins": 0,
+      "win_pct": 67,
+      "finish_rate": 8,
+      "age": 37
+    }
+  },
+  {
+    "id": "mark-hunt",
+    "name": "Mark Hunt",
+    "dob": "1974-03-23",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 18,
+    "metrics": {
+      "height": 70,
+      "reach": 72.0,
+      "slpm": 2.4,
+      "career_sig": 479,
+      "knockdowns": 9,
+      "td_avg": 0.5,
+      "sub_wins": 0,
+      "win_pct": 47,
+      "finish_rate": 88,
+      "age": 52
+    }
+  },
+  {
+    "id": "amanda-lemos",
+    "name": "Amanda Lemos",
+    "dob": "1987-05-22",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 16,
+    "metrics": {
+      "height": 64,
+      "reach": 65.0,
+      "slpm": 2.8,
+      "career_sig": 501,
+      "knockdowns": 6,
+      "td_avg": 0.9,
+      "sub_wins": 2,
+      "win_pct": 56,
+      "finish_rate": 56,
+      "age": 39
+    }
+  },
+  {
+    "id": "davey-grant",
+    "name": "Davey Grant",
+    "dob": "1985-12-18",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 17,
+    "metrics": {
+      "height": 68,
+      "reach": 69.0,
+      "slpm": 5.6,
+      "career_sig": 1071,
+      "knockdowns": 4,
+      "td_avg": 0.9,
+      "sub_wins": 1,
+      "win_pct": 53,
+      "finish_rate": 44,
+      "age": 40
+    }
+  },
+  {
+    "id": "josh-emmett",
+    "name": "Josh Emmett",
+    "dob": "1985-03-04",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 17,
+    "metrics": {
+      "height": 66,
+      "reach": 70.0,
+      "slpm": 3.7,
+      "career_sig": 775,
+      "knockdowns": 12,
+      "td_avg": 1.1,
+      "sub_wins": 0,
+      "win_pct": 59,
+      "finish_rate": 40,
+      "age": 41
+    }
+  },
+  {
+    "id": "ricardo-lamas",
+    "name": "Ricardo Lamas",
+    "dob": "1982-05-21",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 17,
+    "metrics": {
+      "height": 68,
+      "reach": 71.0,
+      "slpm": 3.4,
+      "career_sig": 600,
+      "knockdowns": 2,
+      "td_avg": 1.8,
+      "sub_wins": 3,
+      "win_pct": 65,
+      "finish_rate": 64,
+      "age": 44
+    }
+  },
+  {
+    "id": "alex-perez",
+    "name": "Alex Perez",
+    "dob": "1992-03-21",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 16,
+    "metrics": {
+      "height": 66,
+      "reach": 65.0,
+      "slpm": 3.8,
+      "career_sig": 455,
+      "knockdowns": 6,
+      "td_avg": 2.4,
+      "sub_wins": 2,
+      "win_pct": 53,
+      "finish_rate": 75,
+      "age": 34
+    }
+  },
+  {
+    "id": "volkan-oezdemir",
+    "name": "Volkan Oezdemir",
+    "dob": "1989-09-19",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 16,
+    "metrics": {
+      "height": 74,
+      "reach": 75.0,
+      "slpm": 5.0,
+      "career_sig": 751,
+      "knockdowns": 7,
+      "td_avg": 0.5,
+      "sub_wins": 1,
+      "win_pct": 56,
+      "finish_rate": 67,
+      "age": 37
+    }
+  },
+  {
+    "id": "corey-anderson",
+    "name": "Corey Anderson",
+    "dob": "1989-09-22",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 15,
+    "metrics": {
+      "height": 75,
+      "reach": 79.0,
+      "slpm": 4.4,
+      "career_sig": 721,
+      "knockdowns": 1,
+      "td_avg": 4.9,
+      "sub_wins": 0,
+      "win_pct": 67,
+      "finish_rate": 30,
+      "age": 37
+    }
+  },
+  {
+    "id": "stephan-bonnar",
+    "name": "Stephan Bonnar",
+    "dob": "1977-04-04",
+    "deceased": true,
+    "hasImage": false,
+    "trackedFights": 15,
+    "metrics": {
+      "height": 76,
+      "reach": 79.0,
+      "slpm": 2.6,
+      "career_sig": 459,
+      "knockdowns": 2,
+      "td_avg": 1.5,
+      "sub_wins": 2,
+      "win_pct": 53,
+      "finish_rate": 50
+    }
+  },
+  {
+    "id": "irene-aldana",
+    "name": "Irene Aldana",
+    "dob": "1988-03-26",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 14,
+    "metrics": {
+      "height": 69,
+      "reach": 68.0,
+      "slpm": 5.2,
+      "career_sig": 1065,
+      "knockdowns": 3,
+      "td_avg": 0.1,
+      "sub_wins": 1,
+      "win_pct": 57,
+      "finish_rate": 50,
+      "age": 38
+    }
+  },
+  {
+    "id": "macy-chiasson",
+    "name": "Macy Chiasson",
+    "dob": "1991-07-27",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 14,
+    "metrics": {
+      "height": 71,
+      "reach": 72.0,
+      "slpm": 3.2,
+      "career_sig": 490,
+      "knockdowns": 2,
+      "td_avg": 1.9,
+      "sub_wins": 2,
+      "win_pct": 57,
+      "finish_rate": 62,
+      "age": 35
+    }
+  },
+  {
+    "id": "mayra-bueno-silva",
+    "name": "Mayra Bueno Silva",
+    "dob": "1991-08-22",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 14,
+    "metrics": {
+      "height": 66,
+      "reach": 66.0,
+      "slpm": 3.5,
+      "career_sig": 568,
+      "knockdowns": 0,
+      "td_avg": 0.5,
+      "sub_wins": 4,
+      "win_pct": 38,
+      "finish_rate": 80,
+      "age": 35
+    }
+  },
+  {
+    "id": "virna-jandiroba",
+    "name": "Virna Jandiroba",
+    "dob": "1988-05-30",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 14,
+    "metrics": {
+      "height": 63,
+      "reach": 64.0,
+      "slpm": 2.2,
+      "career_sig": 410,
+      "knockdowns": 1,
+      "td_avg": 3.0,
+      "sub_wins": 3,
+      "win_pct": 64,
+      "finish_rate": 44,
+      "age": 38
+    }
+  },
+  {
+    "id": "yan-xiaonan",
+    "name": "Yan Xiaonan",
+    "dob": "1989-06-16",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 14,
+    "metrics": {
+      "height": 65,
+      "reach": 63.0,
+      "slpm": 4.7,
+      "career_sig": 935,
+      "knockdowns": 2,
+      "td_avg": 0.8,
+      "sub_wins": 0,
+      "win_pct": 64,
+      "finish_rate": 11,
+      "age": 37
+    }
+  },
+  {
+    "id": "brandon-royval",
+    "name": "Brandon Royval",
+    "dob": "1992-08-16",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 13,
+    "metrics": {
+      "height": 69,
+      "reach": 68.0,
+      "slpm": 5.6,
+      "career_sig": 852,
+      "knockdowns": 3,
+      "td_avg": 0.9,
+      "sub_wins": 4,
+      "win_pct": 62,
+      "finish_rate": 62,
+      "age": 34
+    }
+  },
+  {
+    "id": "ken-shamrock",
+    "name": "Ken Shamrock",
+    "dob": "1964-02-11",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 13,
+    "metrics": {
+      "height": 73,
+      "reach": 72.0,
+      "slpm": 0.8,
+      "career_sig": 117,
+      "knockdowns": 1,
+      "td_avg": 0.7,
+      "sub_wins": 4,
+      "win_pct": 46,
+      "finish_rate": 100,
+      "age": 62
+    }
+  },
+  {
+    "id": "rory-macdonald",
+    "name": "Rory MacDonald",
+    "dob": "1989-07-22",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 13,
+    "metrics": {
+      "height": 72,
+      "reach": 76.0,
+      "slpm": 3.7,
+      "career_sig": 667,
+      "knockdowns": 1,
+      "td_avg": 1.8,
+      "sub_wins": 1,
+      "win_pct": 69,
+      "finish_rate": 44,
+      "age": 37
+    }
+  },
+  {
+    "id": "bethe-correia",
+    "name": "Bethe Correia",
+    "dob": "1983-06-22",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 12,
+    "metrics": {
+      "height": 65,
+      "reach": 64.0,
+      "slpm": 4.4,
+      "career_sig": 664,
+      "knockdowns": 0,
+      "td_avg": 0.4,
+      "sub_wins": 0,
+      "win_pct": 42,
+      "finish_rate": 20,
+      "age": 43
+    }
+  },
+  {
+    "id": "claudia-gadelha",
+    "name": "Claudia Gadelha",
+    "dob": "1988-12-07",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 12,
+    "metrics": {
+      "height": 64,
+      "reach": 63.0,
+      "slpm": 3.3,
+      "career_sig": 590,
+      "knockdowns": 1,
+      "td_avg": 3.0,
+      "sub_wins": 1,
+      "win_pct": 58,
+      "finish_rate": 14,
+      "age": 37
+    }
+  },
+  {
+    "id": "darren-till",
+    "name": "Darren Till",
+    "dob": "1992-12-24",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 12,
+    "metrics": {
+      "height": 72,
+      "reach": 74.0,
+      "slpm": 2.3,
+      "career_sig": 375,
+      "knockdowns": 5,
+      "td_avg": 0.6,
+      "sub_wins": 0,
+      "win_pct": 50,
+      "finish_rate": 33,
+      "age": 33
+    }
+  },
+  {
+    "id": "ian-machado-garry",
+    "name": "Ian Machado Garry",
+    "dob": "1997-11-17",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 12,
+    "metrics": {
+      "height": 75,
+      "reach": 74.0,
+      "slpm": 4.3,
+      "career_sig": 804,
+      "knockdowns": 4,
+      "td_avg": 0.8,
+      "sub_wins": 0,
+      "win_pct": 83,
+      "finish_rate": 30,
+      "age": 28
+    }
+  },
+  {
+    "id": "paulo-costa",
+    "name": "Paulo Costa",
+    "dob": "1991-04-21",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 12,
+    "metrics": {
+      "height": 73,
+      "reach": 72.0,
+      "slpm": 6.2,
+      "career_sig": 934,
+      "knockdowns": 6,
+      "td_avg": 0.3,
+      "sub_wins": 0,
+      "win_pct": 67,
+      "finish_rate": 62,
+      "age": 35
+    }
+  },
+  {
+    "id": "sergei-pavlovich",
+    "name": "Sergei Pavlovich",
+    "dob": "1992-05-13",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 12,
+    "metrics": {
+      "height": 75,
+      "reach": 84.0,
+      "slpm": 4.5,
+      "career_sig": 285,
+      "knockdowns": 8,
+      "td_avg": 0.5,
+      "sub_wins": 0,
+      "win_pct": 75,
+      "finish_rate": 78,
+      "age": 34
+    }
+  },
+  {
+    "id": "wanderlei-silva",
+    "name": "Wanderlei Silva",
+    "dob": "1976-07-03",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 12,
+    "metrics": {
+      "height": 71,
+      "reach": 74.0,
+      "slpm": 2.7,
+      "career_sig": 325,
+      "knockdowns": 9,
+      "td_avg": 0.2,
+      "sub_wins": 0,
+      "win_pct": 42,
+      "finish_rate": 80,
+      "age": 50
+    }
+  },
+  {
+    "id": "antonio-silva",
+    "name": "Antonio Silva",
+    "dob": "1979-09-14",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 11,
+    "metrics": {
+      "height": 76,
+      "reach": 82.0,
+      "slpm": 2.9,
+      "career_sig": 194,
+      "knockdowns": 4,
+      "td_avg": 0.0,
+      "sub_wins": 0,
+      "win_pct": 27,
+      "age": 47
+    }
+  },
+  {
+    "id": "brendan-schaub",
+    "name": "Brendan Schaub",
+    "dob": "1983-03-18",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 11,
+    "metrics": {
+      "height": 76,
+      "reach": 78.0,
+      "slpm": 2.9,
+      "career_sig": 227,
+      "knockdowns": 4,
+      "td_avg": 2.3,
+      "sub_wins": 1,
+      "win_pct": 55,
+      "finish_rate": 67,
+      "age": 43
+    }
+  },
+  {
+    "id": "carlos-ulberg",
+    "name": "Carlos Ulberg",
+    "dob": "1990-11-07",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 11,
+    "metrics": {
+      "height": 76,
+      "reach": 77.0,
+      "slpm": 6.6,
+      "career_sig": 553,
+      "knockdowns": 7,
+      "td_avg": 0.5,
+      "sub_wins": 1,
+      "win_pct": 91,
+      "finish_rate": 70,
+      "age": 36
+    }
+  },
+  {
+    "id": "kyoji-horiguchi",
+    "name": "Kyoji Horiguchi",
+    "dob": "1990-10-12",
+    "deceased": false,
+    "hasImage": false,
+    "trackedFights": 11,
+    "metrics": {
+      "height": 65,
+      "reach": 66.0,
+      "slpm": 3.6,
+      "career_sig": 555,
+      "knockdowns": 6,
+      "td_avg": 1.7,
+      "sub_wins": 1,
+      "win_pct": 82,
+      "finish_rate": 33,
+      "age": 36
+    }
+  }
+]

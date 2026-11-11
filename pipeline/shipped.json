@@ -1,4 +1,5 @@
 {
-  "ship": ["height", "reach"],
+  "ship": ["height", "reach", "slpm", "career_sig", "knockdowns", "td_avg",
+           "sub_wins", "win_pct", "finish_rate", "age"],
   "step": {}
 }

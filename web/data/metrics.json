@@ -1,1 +1,112 @@
-[]
+[
+  {
+    "id": "height",
+    "label": "Height (in)",
+    "unit": "in",
+    "round": "silhouette",
+    "scale": "linear",
+    "snap": 1,
+    "min": 59.1,
+    "max": 81.9,
+    "step": 1.5264
+  },
+  {
+    "id": "reach",
+    "label": "Reach (in)",
+    "unit": "in",
+    "round": "silhouette",
+    "scale": "linear",
+    "snap": 0.5,
+    "min": 59.8,
+    "max": 86.2,
+    "step": 1.9587
+  },
+  {
+    "id": "slpm",
+    "label": "Significant strikes landed per minute",
+    "unit": "/min",
+    "round": "bar",
+    "scale": "linear",
+    "snap": 0.1,
+    "min": 0,
+    "max": 9.0402,
+    "step": 0.5286
+  },
+  {
+    "id": "career_sig",
+    "label": "Career significant strikes landed",
+    "unit": "",
+    "round": "bar",
+    "scale": "log",
+    "snap": null,
+    "min": 22.6566,
+    "max": 5867.9579,
+    "step": 0.1257
+  },
+  {
+    "id": "knockdowns",
+    "label": "Career knockdowns landed",
+    "unit": "",
+    "round": "bar",
+    "scale": "linear",
+    "snap": 1,
+    "min": 0,
+    "max": 22.0,
+    "step": 1.6654
+  },
+  {
+    "id": "td_avg",
+    "label": "Takedowns per 15 minutes",
+    "unit": "/15 min",
+    "round": "bar",
+    "scale": "linear",
+    "snap": 0.1,
+    "min": 0,
+    "max": 6.3125,
+    "step": 0.4887
+  },
+  {
+    "id": "sub_wins",
+    "label": "Wins by submission",
+    "unit": "",
+    "round": "bar",
+    "scale": "linear",
+    "snap": 1,
+    "min": 0,
+    "max": 18.7,
+    "step": 0.9824
+  },
+  {
+    "id": "win_pct",
+    "label": "Win % (UFC fights)",
+    "unit": "%",
+    "round": "bar",
+    "scale": "linear",
+    "snap": 1,
+    "min": 5.7143,
+    "max": 100,
+    "step": 5.2914
+  },
+  {
+    "id": "finish_rate",
+    "label": "% of wins by finish",
+    "unit": "%",
+    "round": "bar",
+    "scale": "linear",
+    "snap": 1,
+    "min": 0,
+    "max": 100,
+    "step": 8.7476
+  },
+  {
+    "id": "age",
+    "label": "Age (years)",
+    "unit": "years",
+    "round": "bar",
+    "scale": "linear",
+    "snap": 1,
+    "min": 20.7,
+    "max": 72.3,
+    "step": 2.9902
+  }
+]
