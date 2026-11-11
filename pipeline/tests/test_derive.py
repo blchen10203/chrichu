@@ -105,3 +105,30 @@ def test_no_contest_is_left_out_of_win_pct():
     m = derive.metrics_for(fights, 76, 84.0, "1990-01-01", False, TODAY)
     assert m["win_pct"] == pytest.approx(80)
     assert m["ufc_fights"] == 6
+
+
+def test_same_fight_url_is_counted_once_and_the_dated_copy_wins():
+    bout = "A One vs. B Two"
+    undated = {**result(bout, event="Other Name "), "URL": " http://x/f1 "}
+    dated = {**result(bout), "URL": "http://x/f1"}
+    stats = [stat(bout, "A One", event="Other Name"), stat(bout, "B Two", event="Other Name"),
+             stat(bout, "A One"), stat(bout, "B Two")]
+    fights = derive.fights_by_fighter([undated, dated], stats, EVENTS)["A One"]
+    assert len(fights) == 1
+    assert fights[0]["date"] == "2020-01-10"
+    assert fights[0]["mine"]["sig"] == 10
+
+
+def test_rows_without_a_url_are_never_duplicates():
+    fights = derive.fights_by_fighter([result("A One vs. B Two"), result("A One vs. B Two")], [], EVENTS)
+    assert len(fights["A One"]) == 2
+
+
+def test_log_minimums_are_not_met_just_above_zero():
+    m = derive.metrics_for(career(5, td="10 of 10", ctrl="0:10"), 76, 84.0, "1990-01-01", False, TODAY)
+    assert "control_time" not in m and "min_per_td" not in m  # 50 s control; 0.5 min per takedown
+
+
+def test_two_takedowns_are_too_few_for_min_per_td():
+    fights = career(1, td="1 of 1") + career(1, td="1 of 1")
+    assert "min_per_td" not in derive.metrics_for(fights, 76, 84.0, "1990-01-01", False, TODAY)

@@ -22,3 +22,11 @@ def test_main_will_not_overwrite_an_edited_roster(tmp_path, monkeypatch):
     monkeypatch.setattr(build, "SOURCE", DATA)
     assert draft_roster.main() == 1
     assert "A One,aaaa" in roster.read_text()
+
+
+def test_a_fight_listed_twice_counts_once():
+    row = {"EVENT": "UFC 1", "WEIGHTCLASS": "Bout"}
+    rows = {"ufc_fighter_tott": [], "ufc_event_details": [{"EVENT": "UFC 1", "DATE": "January 10, 2020"}],
+            "ufc_fight_results": [{**row, "BOUT": "D Dup vs. X", "URL": "u1"}, {**row, "BOUT": "D Dup vs. X", "URL": "u1"},
+                                  {**row, "BOUT": "A One vs. Y", "URL": "u2"}]}
+    assert [r["name"] for r in draft_roster.draft(rows)][:2] == ["A One", "D Dup"]  # a tie, so name order

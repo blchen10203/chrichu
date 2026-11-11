@@ -25,6 +25,19 @@ def _totals(rows):
     return t
 
 
+def unique_fights(results, events):
+    """Result rows with each fight URL once, preferring the copy whose event has a date."""
+    dated = {e["EVENT"].strip() for e in events if parse.iso_date(e["DATE"])}
+    seen, out = set(), []
+    for r in sorted(results, key=lambda r: r["EVENT"].strip() not in dated):
+        url = (r.get("URL") or "").strip()
+        if url and url in seen:
+            continue
+        seen.add(url)
+        out.append(r)
+    return out
+
+
 def fights_by_fighter(results, stats, events):
     dates = {e["EVENT"].strip(): parse.iso_date(e["DATE"]) for e in events}
     rows = {}
@@ -32,7 +45,7 @@ def fights_by_fighter(results, stats, events):
         rows.setdefault((r["EVENT"].strip(), " ".join(r["BOUT"].split())), []).append(r)
 
     out = {}
-    for res in results:
+    for res in unique_fights(results, events):
         event, bout = res["EVENT"].strip(), " ".join(res["BOUT"].split())
         names = bout.split(" vs. ")
         outcomes = res["OUTCOME"].strip().split("/")

@@ -6,6 +6,7 @@ import csv
 from collections import Counter
 
 import build
+import derive
 import parse
 
 FIELDS = ["name", "ufcstats_id", "ufc_slug", "deceased"]
@@ -13,7 +14,7 @@ FIELDS = ["name", "ufcstats_id", "ufc_slug", "deceased"]
 
 def draft(rows, limit=250):
     titles, fights = Counter(), Counter()
-    for r in rows["ufc_fight_results"]:
+    for r in derive.unique_fights(rows["ufc_fight_results"], rows["ufc_event_details"]):
         title = "Title" in r["WEIGHTCLASS"].strip()
         for name in r["BOUT"].split(" vs. "):
             name = name.strip()
@@ -32,7 +33,7 @@ def draft(rows, limit=250):
 def main():
     path = build.ROOT / "pipeline" / "roster.csv"
     if path.exists():
-        with open(path, newline="", encoding="utf-8") as f:
+        with open(path, newline="", encoding="utf-8-sig") as f:
             if any(csv.DictReader(f)):
                 print(f"{path} already has fighters; not overwriting it.")
                 return 1

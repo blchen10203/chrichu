@@ -42,19 +42,23 @@ def build(rows, roster, shipped, today, image_dir, min_eligible=30):
 
     tott = rows["ufc_fighter_tott"]
     fights = derive.fights_by_fighter(rows["ufc_fight_results"], rows["ufc_fight_stats"], rows["ufc_event_details"])
-    fighters, per_fighter = [], []
+    fighters, per_fighter, differs = [], [], []
     for r in roster:
         name = r["name"]
         mine = [t for t in tott if parse.fighter_id(t["URL"]) == r["ufcstats_id"]]
         if not mine:
             raise BuildError(f"{name}: id {r['ufcstats_id']} is not in the fighter file.")
-        if any(t["FIGHTER"].strip() == name and t is not mine[0] for t in tott):
+        t = mine[0]
+        if any(o["FIGHTER"].strip() in (name, t["FIGHTER"].strip()) and o is not t for o in tott):
             raise BuildError(f"{name}: another fighter has the same name, so their fights cannot be told apart.")
         if name not in fights:
             raise BuildError(f"{name}: no fights found under this name.")
-        t = mine[0]
+        if parse.slug(t["FIGHTER"]) != parse.slug(name):
+            differs.append(f"{name} -> {t['FIGHTER'].strip()}")
         dob = parse.iso_date(t["DOB"])
-        deceased = r["deceased"] == "1"
+        if r["deceased"].strip() not in ("0", "1"):
+            raise BuildError(f"{name}: deceased must be 0 or 1, not {r['deceased']!r}.")
+        deceased = r["deceased"].strip() == "1"
         fighter_id = parse.slug(name)
         values = derive.metrics_for(fights[name], parse.height_in(t["HEIGHT"]), parse.reach_in(t["REACH"]),
                                     dob, deceased, today)
@@ -77,7 +81,9 @@ def build(rows, roster, shipped, today, image_dir, min_eligible=30):
         if metric_id not in metrics.CANDIDATES:
             raise BuildError(f"Unknown metric {metric_id} in shipped.json.")
         summary, (lo, hi) = stats.get(metric_id, ({"n": 0, "step": 0}, (0, 0)))
-        step = shipped["step"].get(metric_id, summary["step"])
+        step = shipped.get("step", {}).get(metric_id, summary["step"])
+        if metric_id in shipped.get("step", {}) and (isinstance(step, bool) or not isinstance(step, (int, float)) or step <= 0):
+            raise BuildError(f"{metric_id}: step override must be a number greater than 0.")
         if summary["n"] < min_eligible:
             raise BuildError(f"{metric_id}: {summary['n']} eligible fighters, need {min_eligible}.")
         if step == 0:
@@ -99,12 +105,14 @@ def build(rows, roster, shipped, today, image_dir, min_eligible=30):
         else:
             line += f"{0:>4}"
         lines.append(line + ("  SHIP" if metric_id in shipped["ship"] else ""))
+    if differs:
+        lines += ["", "Name differs from fighter file (check the id):"] + differs
     return fighters, metrics_out, "\n".join(lines) + "\n"
 
 
 def main():
     try:
-        with open(ROOT / "pipeline" / "roster.csv", newline="", encoding="utf-8") as f:
+        with open(ROOT / "pipeline" / "roster.csv", newline="", encoding="utf-8-sig") as f:
             roster = list(csv.DictReader(f))
         shipped = json.loads((ROOT / "pipeline" / "shipped.json").read_text(encoding="utf-8"))
         fighters, metrics_out, report = build(read_csvs(SOURCE), roster, shipped, date.today(),

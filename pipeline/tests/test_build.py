@@ -1,3 +1,4 @@
+import functools
 import json
 from datetime import date
 from pathlib import Path
@@ -65,6 +66,8 @@ def test_deceased_flag():
     ((A, A), SHIP, 2, "A One"),                                             # listed twice
     ((A, B), {"ship": ["nope"], "step": {}}, 2, "nope"),                    # unknown metric
     ((A, B), SHIP, 3, "height"),                                            # too few eligible
+    (({**A, "deceased": "yes"}, B), SHIP, 2, "A One"),                      # deceased is not 0 or 1
+    ((A, B), {"ship": ["height", "reach"], "step": {"reach": 0}}, 2, "reach"),  # override must be above 0
 ])
 def test_build_stops(roster, shipped, min_eligible, message):
     with pytest.raises(build.BuildError, match=message):
@@ -98,3 +101,50 @@ def test_failed_run_leaves_files_untouched(tmp_path, monkeypatch, capsys):
     assert build.main() == 1                      # download fails
     assert old.read_text() == "OLD"
     assert "roster" in capsys.readouterr().err
+
+
+def test_missing_step_key_builds():
+    assert run(shipped={"ship": ["height", "reach"]})[1]
+
+
+def test_report_flags_an_id_that_points_at_another_name():
+    rows = build.read_csvs(DATA)
+    rows["ufc_fighter_tott"] = [{**t, "FIGHTER": "A Onne"} if t["FIGHTER"] == "A One" else t
+                                for t in rows["ufc_fighter_tott"]]
+    _, _, report = build.build(rows, [A, B], SHIP, TODAY, Path("no-such-dir"), 2)
+    assert "Name differs from fighter file (check the id):\nA One -> A Onne\n" in report
+    assert "B Two ->" not in report
+    assert "Name differs" not in run()[2]
+
+
+def test_shared_name_check_covers_the_fighter_file_name():
+    rows = build.read_csvs(DATA)
+    rows["ufc_fighter_tott"] = rows["ufc_fighter_tott"] + [
+        {**rows["ufc_fighter_tott"][0], "FIGHTER": "A One", "URL": "http://x/fighter-details/ffff"}]
+    rows["ufc_fighter_tott"][0] = {**rows["ufc_fighter_tott"][0], "FIGHTER": "A Onne"}
+    with pytest.raises(build.BuildError, match="A One"):  # id aaaa is "A Onne", but ffff is also "A One"
+        build.build(rows, [A, B], SHIP, TODAY, Path("no-such-dir"), 2)
+
+
+def test_main_reads_a_roster_saved_with_a_byte_order_mark(tmp_path, monkeypatch, capsys):
+    (tmp_path / "pipeline").mkdir()
+    (tmp_path / "pipeline" / "roster.csv").write_text("name,ufcstats_id,ufc_slug,deceased\n", encoding="utf-8-sig")
+    (tmp_path / "pipeline" / "shipped.json").write_text(json.dumps(SHIP))
+    monkeypatch.setattr(build, "ROOT", tmp_path)
+    monkeypatch.setattr(build, "SOURCE", DATA)
+    assert build.main() == 1
+    assert "roster is empty" in capsys.readouterr().err
+
+
+def test_main_writes_the_site_data(tmp_path, monkeypatch):
+    (tmp_path / "pipeline").mkdir()
+    (tmp_path / "pipeline" / "roster.csv").write_text(
+        "name,ufcstats_id,ufc_slug,deceased\nA One,aaaa,a-one,0\nB Two,bbbb,b-two,0\n")
+    (tmp_path / "pipeline" / "shipped.json").write_text(json.dumps(SHIP))
+    monkeypatch.setattr(build, "ROOT", tmp_path)
+    monkeypatch.setattr(build, "SOURCE", DATA)
+    monkeypatch.setattr(build, "build", functools.partial(build.build, min_eligible=2))
+    assert build.main() == 0
+    for name in ("fighters.json", "metrics.json"):
+        assert len(json.loads((tmp_path / "web" / "data" / name).read_text(encoding="utf-8"))) == 2
+    assert (tmp_path / "pipeline" / "report.txt").exists()
