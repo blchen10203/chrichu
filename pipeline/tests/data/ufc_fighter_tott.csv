@@ -1,0 +1,6 @@
+FIGHTER,HEIGHT,WEIGHT,REACH,STANCE,DOB,URL
+A One,"6' 4""",205 lbs.,"84""",Orthodox,"Jul 19, 1987",http://ufcstats.com/fighter-details/aaaa
+B Two,"5' 10""",155 lbs.,"70""",Southpaw,--,http://ufcstats.com/fighter-details/bbbb
+C Three,--,--,--,,--,http://ufcstats.com/fighter-details/cccc
+D Dup,"6' 0""",170 lbs.,"72""",Orthodox,--,http://ufcstats.com/fighter-details/dddd
+D Dup,"5' 8""",145 lbs.,"68""",Orthodox,--,http://ufcstats.com/fighter-details/eeee
