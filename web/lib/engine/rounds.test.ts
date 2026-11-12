@@ -93,6 +93,13 @@ describe("saved rounds", () => {
     expect(fixed.slice(0, 2)).toEqual(saved.slice(0, 2));
     expect(fixed.slice(2)).toEqual(set.slice(2));
   });
+  it("repairs unplayed rounds when a fighter is removed from the data", () => {
+    const smaller = fighters.filter((f) => f.id !== set[3].target);
+    const fixed = repairRounds(set, 2, DAY, smaller, metrics);
+    expect(fixed.slice(0, 2)).toEqual(set.slice(0, 2));
+    expect(fixed).toHaveLength(5);
+    for (const r of fixed.slice(2)) expect(isValidRound(r, smaller, metrics)).toBe(true);
+  });
   it("leaves a broken round alone once it has been played", () => {
     const saved = set.map((r, i) => (i === 0 ? { ...r, target: "nobody" } : r));
     expect(repairRounds(saved, 1, DAY, fighters, metrics)).toEqual(saved);

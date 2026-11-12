@@ -1,5 +1,5 @@
-import { rng } from "./rng";
-import type { Fighter, FighterId, Metric, MetricId, Round } from "./types";
+import { rng } from "@/lib/engine/rng";
+import type { Fighter, FighterId, Metric, MetricId, Round } from "@/lib/engine/types";
 
 const DAY_MS = 86_400_000;
 const SET_SIZE = 5;

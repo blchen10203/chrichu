@@ -76,6 +76,7 @@ const dayBefore = (date: string): string =>
   new Date(Date.parse(date) - 86_400_000).toISOString().slice(0, 10);
 
 export function recordGuess(state: State, date: string, guess: number, score: number): State {
+  if (!Number.isFinite(guess) || !Number.isFinite(score)) return state;
   const day = state.daily.days[date];
   if (!day || day.done) return state;
   const guesses = [...day.guesses, guess];
@@ -91,6 +92,7 @@ export function recordGuess(state: State, date: string, guess: number, score: nu
 }
 
 export function recordInfinite(state: State, score: number): State {
+  if (!Number.isFinite(score)) return state;
   const { rounds, totalScore } = state.infinite;
   return { ...state, infinite: { rounds: rounds + 1, totalScore: totalScore + score } };
 }

@@ -105,3 +105,12 @@ describe("stats", () => {
     expect(recordInfinite(recordInfinite(emptyState(), 80), 40).infinite).toEqual({ rounds: 2, totalScore: 120 });
   });
 });
+
+describe("non-finite input", () => {
+  it("ignores a NaN guess, an Infinity score and a NaN infinite score", () => {
+    const state = startDay(emptyState(), "2026-12-01", rounds);
+    expect(recordGuess(state, "2026-12-01", NaN, 50)).toBe(state);
+    expect(recordGuess(state, "2026-12-01", 70, Infinity)).toBe(state);
+    expect(recordInfinite(state, NaN)).toBe(state);
+  });
+});
