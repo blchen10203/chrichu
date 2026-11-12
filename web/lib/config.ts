@@ -4,5 +4,5 @@ export const config = {
   siteUrl: "https://reachdle.vercel.app",
   launchDate: "2026-12-01", // Daily puzzle #1. Placeholder until launch.
   showFighterImages: true,
-  showUfcLogo: true,
+  showUfcLogo: false, // Turn on once public/img/ufc-logo.svg is added.
 };
