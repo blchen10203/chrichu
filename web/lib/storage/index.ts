@@ -28,16 +28,31 @@ export function browserStorage(): Storage | null {
 const isObject = (v: unknown): v is Record<string, unknown> =>
   typeof v === "object" && v !== null && !Array.isArray(v);
 
+const isNum = (v: unknown): v is number => typeof v === "number" && Number.isFinite(v);
+const isNums = (v: unknown): boolean => Array.isArray(v) && v.every(isNum);
+const isRound = (v: unknown): boolean =>
+  isObject(v) && [v.metric, v.ref, v.target].every((x) => typeof x === "string");
+const isDay = (v: unknown): boolean =>
+  isObject(v) && Array.isArray(v.rounds) && v.rounds.every(isRound) &&
+  isNums(v.guesses) && isNums(v.scores) && typeof v.done === "boolean";
+
+// All-or-nothing: any mismatch anywhere means a fresh state, so later code can trust the shape.
+function isState(v: unknown): v is State {
+  if (!isObject(v) || !isObject(v.daily) || !isObject(v.survival) || !isObject(v.infinite)) return false;
+  const { days, streak, maxStreak, lastDone } = v.daily;
+  return (
+    isObject(days) && Object.values(days).every(isDay) &&
+    isNum(streak) && isNum(maxStreak) && (lastDone === null || typeof lastDone === "string") &&
+    isNum(v.survival.best) && isNum(v.survival.runs) &&
+    isNum(v.infinite.rounds) && isNum(v.infinite.totalScore)
+  );
+}
+
 export function load(storage: Pick<Storage, "getItem"> | null): State {
   try {
     const raw = storage?.getItem(STORAGE_KEY);
-    if (!raw) return emptyState();
-    const data: unknown = JSON.parse(raw);
-    if (!isObject(data) || !isObject(data.daily)) return emptyState();
-    const { days, streak, maxStreak } = data.daily;
-    if (!isObject(days) || typeof streak !== "number" || typeof maxStreak !== "number") return emptyState();
-    if (!isObject(data.survival) || !isObject(data.infinite)) return emptyState();
-    return data as unknown as State;
+    const data: unknown = raw ? JSON.parse(raw) : null;
+    return isState(data) ? data : emptyState();
   } catch {
     return emptyState();
   }

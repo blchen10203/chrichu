@@ -20,6 +20,23 @@ describe("load and save", () => {
     "gives an empty state for %s", (value) => {
       expect(load(fake(value))).toEqual(emptyState());
     });
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  type Patch = (s: any) => void;
+  const broken = (patch: Patch) => {
+    const s = JSON.parse(JSON.stringify(playDay(emptyState(), "2026-12-01")));
+    patch(s);
+    return JSON.stringify(s);
+  };
+  it.each<[string, Patch]>([
+    ["a day entry that is empty", (s) => { s.daily.days["2026-12-01"] = {}; }],
+    ["guesses that is not an array", (s) => { s.daily.days["2026-12-01"].guesses = "x"; }],
+    ["a round missing target", (s) => { delete s.daily.days["2026-12-01"].rounds[0].target; }],
+    ["an empty infinite", (s) => { s.infinite = {}; }],
+    ["a string survival best", (s) => { s.survival.best = "1"; }],
+    ["a numeric lastDone", (s) => { s.daily.lastDone = 5; }],
+  ])("gives an empty state for %s", (_name, patch) => {
+    expect(load(fake(broken(patch)))).toEqual(emptyState());
+  });
   it("gives an empty state when storage is missing or throws", () => {
     expect(load(null)).toEqual(emptyState());
     expect(load({ getItem: () => { throw new Error("blocked"); } })).toEqual(emptyState());
