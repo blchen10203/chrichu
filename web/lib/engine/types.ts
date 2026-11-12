@@ -7,7 +7,7 @@ export type FighterId = string;
 export type Fighter = {
   id: FighterId;
   name: string;
-  dob: string; // YYYY-MM-DD
+  dob: string | null; // YYYY-MM-DD
   deceased: boolean;
   hasImage: boolean;
   trackedFights: number;
@@ -21,7 +21,7 @@ export type Metric = {
   unit: string;
   round: "silhouette" | "bar";
   scale: "linear" | "log";
-  snap: number; // TODO: log metrics snap to 2 significant figures instead
+  snap: number | null;
   min: number; // slider range
   max: number;
   step: number; // scoring unit
