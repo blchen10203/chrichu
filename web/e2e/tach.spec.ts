@@ -17,4 +17,5 @@ test("the tachometer needle follows a drag and a tap", async ({ page }) => {
   await page.mouse.up();
   expect(await valueOf(page)).toBeGreaterThan(low);
   await expectReveal(page, stage);
+  await expect(stage.getByTestId("guess-needle")).toBeVisible(); // the estimate stays beside the true value
 });
