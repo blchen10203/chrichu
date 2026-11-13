@@ -8,7 +8,7 @@ test("a keyboard-only player can play Infinite rounds", async ({ page }) => {
   await page.goto("/infinite");
   await expect(page.getByText("INFINITE · ROUND 1")).toBeVisible();
 
-  const slider = page.getByRole("slider");
+  const slider = page.getByRole("slider").first();
   const before = await slider.getAttribute("aria-valuenow");
   await slider.focus();
   await page.keyboard.press("ArrowUp");

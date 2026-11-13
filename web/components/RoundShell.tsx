@@ -3,6 +3,7 @@
 import { useState, type ReactNode } from "react";
 import { Avatar } from "@/components/Avatar";
 import { BarStage } from "@/components/BarStage";
+import { SilhouetteStage } from "@/components/SilhouetteStage";
 import { config } from "@/lib/config";
 import { metricCopy } from "@/lib/copy";
 import { formatValue, fromFraction, nudge } from "@/lib/engine/scale";
@@ -58,9 +59,9 @@ type Props = RowsProps & {
 export function RoundShell({ modeLabel, top, metric, refFighter, target, refValue, onLockIn }: Props) {
   const [guess, setGuess] = useState(() => fromFraction(metric, 0.5));
   const copy = metricCopy(metric, target.name);
+  const stage = { metric, refValue, value: guess, onChange: setGuess };
   const circle = "flex size-12 items-center justify-center rounded-full border border-line bg-panel text-text";
 
-  // Task 3 picks SilhouetteStage here for silhouette metrics; until then every metric uses the bars.
   return (
     <>
       <Header modeLabel={modeLabel} top={top} />
@@ -69,7 +70,7 @@ export function RoundShell({ modeLabel, top, metric, refFighter, target, refValu
         <h1 className="font-display text-[30px] font-bold leading-[1.05]">{copy.question}</h1>
       </div>
       <div className={panel}>
-        <BarStage metric={metric} refValue={refValue} value={guess} onChange={setGuess} />
+        {metric.round === "silhouette" ? <SilhouetteStage {...stage} /> : <BarStage {...stage} />}
         <FighterRows metric={metric} refFighter={refFighter} target={target} refValue={refValue} />
       </div>
       <div className="flex items-center justify-center gap-5">

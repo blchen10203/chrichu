@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { BarStage } from "@/components/BarStage";
+import { SilhouetteStage } from "@/components/SilhouetteStage";
 import { bigButton, FighterRows, Header, panel } from "@/components/RoundShell";
 import { metricCopy } from "@/lib/copy";
 import { formatValue, snapValue } from "@/lib/engine/scale";
@@ -21,9 +22,9 @@ type Props = {
 
 export function Reveal({ modeLabel, top, metric, refFighter, target, refValue, guess, actual, score, nextLabel, onNext }: Props) {
   const copy = metricCopy(metric, target.name);
+  const stage = { metric, refValue, value: guess, actual };
   const spotOn = guess === snapValue(metric, actual);
 
-  // Task 3 picks SilhouetteStage here for silhouette metrics; until then every metric uses the bars.
   return (
     <>
       <Header modeLabel={modeLabel} top={top} />
@@ -48,7 +49,7 @@ export function Reveal({ modeLabel, top, metric, refFighter, target, refValue, g
         </div>
       </div>
       <div className={panel}>
-        <BarStage metric={metric} refValue={refValue} value={guess} actual={actual} />
+        {metric.round === "silhouette" ? <SilhouetteStage {...stage} /> : <BarStage {...stage} />}
         <FighterRows metric={metric} refFighter={refFighter} target={target} refValue={refValue} />
         <div className="flex gap-2 px-1.5">
           <div className="flex flex-1 flex-col gap-0.5 rounded-[10px] bg-bg px-3 py-2.5">
