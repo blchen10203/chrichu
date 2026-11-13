@@ -22,19 +22,25 @@ it("a player who always guesses the median survives fewer than 12 rounds on aver
   };
   const rand = rng("survival-balance");
   const RUNS = 500;
+  const CAP = 1000;
+  let capped = 0;
   let total = 0;
   for (let run = 0; run < RUNS; run++) {
     let hp = SURVIVAL_HP;
     let last: string | undefined;
-    for (;;) {
+    let rounds = 0;
+    while (rounds < CAP) {
       const round = randomRound(rand, fighters, metrics, last);
       last = round.metric;
       const metric = metrics.find((m) => m.id === round.metric)!;
       const target = fighters.find((f) => f.id === round.target)!;
       hp = takeHit(hp, metric, median(metric.id), target.metrics[metric.id]).hp;
-      if (hp === 0) break;
+      if (!(hp > 0)) break;
       total++;
+      rounds++;
     }
+    if (rounds >= CAP) capped++;
   }
+  expect(capped).toBe(0);
   expect(total / RUNS).toBeLessThan(12);
 });
