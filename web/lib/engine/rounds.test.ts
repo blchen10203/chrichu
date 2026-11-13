@@ -2,8 +2,10 @@ import { describe, expect, it } from "vitest";
 import { fighters, metrics } from "@/lib/engine/data";
 import { rng } from "@/lib/engine/rng";
 import {
-  actualValue, ageOn, dailySet, isValidRound, localDate, puzzleNumber, randomRound, repairRounds,
+  MIN_REF_FRACTION, actualValue, ageOn, dailySet, isValidRound, localDate, puzzleNumber, randomRound, repairRounds,
 } from "@/lib/engine/rounds";
+import { toFraction } from "@/lib/engine/scale";
+import type { Round } from "@/lib/engine/types";
 
 const DAY = "2026-12-01";
 const byId = new Map(fighters.map((f) => [f.id, f]));
@@ -74,6 +76,27 @@ describe("randomRound", () => {
   it("never repeats the avoided metric", () => {
     const rand = rng("y");
     for (let i = 0; i < 200; i++) expect(randomRound(rand, fighters, metrics, "reach").metric).not.toBe("reach");
+  });
+});
+
+describe("reference fighters", () => {
+  // With no axis numbers, the blue bar is the only scale: it must be tall enough to judge by.
+  const visible = (r: Round) => {
+    const m = metrics.find((x) => x.id === r.metric)!;
+    return m.round === "silhouette" || toFraction(m, byId.get(r.ref)!.metrics[m.id]) >= MIN_REF_FRACTION;
+  };
+  it("never gives a bar round a reference too short to judge by", () => {
+    const rand = rng("refs");
+    for (let i = 0; i < 2000; i++) expect(visible(randomRound(rand, fighters, metrics))).toBe(true);
+    for (let i = 0; i < 365; i++) {
+      for (const r of dailySet(localDate(new Date(2026, 11, 1 + i)), fighters, metrics)) expect(visible(r)).toBe(true);
+    }
+  });
+  it("still lets the target be any eligible fighter, a zero included", () => {
+    const rand = rng("targets");
+    const zero = Array.from({ length: 2000 }, () => randomRound(rand, fighters, metrics))
+      .some((r) => byId.get(r.target)!.metrics[r.metric] === 0);
+    expect(zero).toBe(true);
   });
 });
 

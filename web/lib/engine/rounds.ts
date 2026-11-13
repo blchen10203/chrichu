@@ -1,4 +1,5 @@
 import { rng } from "@/lib/engine/rng";
+import { toFraction } from "@/lib/engine/scale";
 import type { Fighter, FighterId, Metric, MetricId, Round } from "@/lib/engine/types";
 
 const DAY_MS = 86_400_000;
@@ -29,18 +30,22 @@ export function actualValue(fighter: Fighter, metricId: MetricId, date: string):
   return metricId === "age" ? ageOn(fighter.dob!, date) : fighter.metrics[metricId];
 }
 
-// Picks a metric and two different eligible fighters (none of `used`).
-function roundFor(rand: () => number, metric: MetricId, fighters: Fighter[], used: Set<FighterId>): Round {
-  const pool = eligible(fighters, metric).filter((f) => !used.has(f.id));
-  if (pool.length < 2) throw new Error(`Not enough fighters for metric ${metric}`);
-  const ref = pick(rand, pool);
+// With no axis numbers, the blue reference bar is the player's only scale, so it must be tall enough to judge by.
+export const MIN_REF_FRACTION = 0.15;
+
+// Picks two different eligible fighters (none of `used`); in a bar round the reference must be visible.
+function roundFor(rand: () => number, metric: Metric, fighters: Fighter[], used: Set<FighterId>): Round {
+  const pool = eligible(fighters, metric.id).filter((f) => !used.has(f.id));
+  const refs = metric.round === "bar" ? pool.filter((f) => toFraction(metric, f.metrics[metric.id]) >= MIN_REF_FRACTION) : pool;
+  if (refs.length < 1 || pool.length < 2) throw new Error(`Not enough fighters for metric ${metric.id}`);
+  const ref = pick(rand, refs);
   const target = pick(rand, pool.filter((f) => f !== ref));
-  return { metric, ref: ref.id, target: target.id };
+  return { metric: metric.id, ref: ref.id, target: target.id };
 }
 
 export function randomRound(rand: () => number, fighters: Fighter[], metrics: Metric[], avoidMetric?: MetricId): Round {
   const choices = byId(metrics).filter((m) => m.id !== avoidMetric);
-  return roundFor(rand, pick(rand, choices).id, byId(fighters), new Set());
+  return roundFor(rand, pick(rand, choices), byId(fighters), new Set());
 }
 
 export function dailySet(date: string, fighters: Fighter[], metrics: Metric[]): Round[] {
@@ -61,7 +66,7 @@ export function dailySet(date: string, fighters: Fighter[], metrics: Metric[]): 
 
   const used = new Set<FighterId>();
   return chosen.map((m) => {
-    const round = roundFor(rand, m.id, sortedFighters, used);
+    const round = roundFor(rand, m, sortedFighters, used);
     used.add(round.ref).add(round.target);
     return round;
   });

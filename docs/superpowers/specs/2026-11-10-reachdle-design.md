@@ -205,6 +205,8 @@ The player sees the reference fighter's real value and estimates the target's.
 Selection rules:
 
 - Both fighters are eligible for the metric and are different people.
+- In a bar round the reference's bar is at least 15% of the axis tall. With
+  no axis numbers it is the player's only scale. The target can be any value.
 - No metric appears twice in a row (Infinite, Survival).
 - A Daily set has 5 different metrics, at least one of them height or reach,
   and no fighter appears twice in the set.
