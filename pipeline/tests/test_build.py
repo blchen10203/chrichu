@@ -143,8 +143,70 @@ def test_main_writes_the_site_data(tmp_path, monkeypatch):
     (tmp_path / "pipeline" / "shipped.json").write_text(json.dumps(SHIP))
     monkeypatch.setattr(build, "ROOT", tmp_path)
     monkeypatch.setattr(build, "SOURCE", DATA)
+    monkeypatch.setattr(build, "MIN_FIGHTERS", 2)
     monkeypatch.setattr(build, "build", functools.partial(build.build, min_eligible=2))
     assert build.main() == 0
     for name in ("fighters.json", "metrics.json"):
         assert len(json.loads((tmp_path / "web" / "data" / name).read_text(encoding="utf-8"))) == 2
     assert (tmp_path / "pipeline" / "report.txt").exists()
+
+
+def roster_of(n):
+    return [{"id": f"f{i}", "metrics": {"height": 70.0, "reach": 72.0}} for i in range(n)]
+
+
+def test_too_few_fighters_stops():
+    with pytest.raises(build.BuildError, match="149 fighters, need 150"):
+        build.validate(None, roster_of(149), SHIP)
+
+
+def test_first_build_has_nothing_to_compare():
+    build.validate(None, roster_of(150), SHIP)
+
+
+def test_up_to_15_percent_changed_passes():
+    new = roster_of(150)
+    for f in new[:45]:            # 45 of 300 values
+        f["metrics"]["height"] = 71.0
+    build.validate(roster_of(150), new, SHIP)
+
+
+def test_more_than_15_percent_changed_stops():
+    new = roster_of(150)
+    for f in new[:46]:
+        f["metrics"]["height"] = 71.0
+    with pytest.raises(build.BuildError, match=r"15\.3% of values changed"):
+        build.validate(roster_of(150), new, SHIP)
+
+
+def test_a_lost_value_counts_as_changed():
+    new = roster_of(150)
+    for f in new[:46]:
+        del f["metrics"]["reach"]
+    with pytest.raises(build.BuildError, match="changed"):
+        build.validate(roster_of(150), new, SHIP)
+
+
+def test_roster_and_shipped_edits_do_not_count():
+    old = roster_of(200)          # 50 fighters since removed from the roster
+    for f in old:
+        f["metrics"]["slpm"] = 4.0  # a metric since removed from shipped.json
+    build.validate(old, roster_of(150), SHIP)
+
+
+def test_main_keeps_the_old_data_when_too_much_changed(tmp_path, monkeypatch, capsys):
+    (tmp_path / "pipeline").mkdir()
+    (tmp_path / "web" / "data").mkdir(parents=True)
+    (tmp_path / "pipeline" / "roster.csv").write_text(
+        "name,ufcstats_id,ufc_slug,deceased\nA One,aaaa,a-one,0\nB Two,bbbb,b-two,0\n")
+    (tmp_path / "pipeline" / "shipped.json").write_text(json.dumps(SHIP))
+    old = tmp_path / "web" / "data" / "fighters.json"
+    old_text = json.dumps([{"id": i, "metrics": {"height": 1, "reach": 1}} for i in ("a-one", "b-two")])
+    old.write_text(old_text)
+    monkeypatch.setattr(build, "ROOT", tmp_path)
+    monkeypatch.setattr(build, "SOURCE", DATA)
+    monkeypatch.setattr(build, "MIN_FIGHTERS", 2)
+    monkeypatch.setattr(build, "build", functools.partial(build.build, min_eligible=2))
+    assert build.main() == 1
+    assert old.read_text() == old_text
+    assert "changed" in capsys.readouterr().err

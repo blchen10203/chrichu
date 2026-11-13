@@ -17,6 +17,8 @@ import parse
 
 ROOT = Path(__file__).resolve().parent.parent
 SOURCE = "https://raw.githubusercontent.com/Greco1899/scrape_ufc_stats/main/"
+MIN_FIGHTERS = 150
+MAX_CHANGED = 0.15
 FILES = ("ufc_fighter_tott", "ufc_event_details", "ufc_fight_results", "ufc_fight_stats")
 
 
@@ -110,6 +112,20 @@ def build(rows, roster, shipped, today, image_dir, min_eligible=30):
     return fighters, metrics_out, "\n".join(lines) + "\n"
 
 
+def validate(old, new, shipped):
+    if len(new) < MIN_FIGHTERS:
+        raise BuildError(f"Only {len(new)} fighters, need {MIN_FIGHTERS}.")
+    if old is None:
+        return
+    now = {f["id"]: f["metrics"] for f in new}
+    pairs = [(f["id"], m, v) for f in old if f["id"] in now
+             for m, v in f["metrics"].items() if m in shipped["ship"]]
+    changed = sum(now[i].get(m) != v for i, m, v in pairs)
+    if pairs and changed / len(pairs) > MAX_CHANGED:
+        raise BuildError(f"{changed / len(pairs):.1%} of values changed since the last build (limit 15%). "
+                         "If this is expected, delete web/data/fighters.json and run the build again.")
+
+
 def main():
     try:
         with open(ROOT / "pipeline" / "roster.csv", newline="", encoding="utf-8-sig") as f:
@@ -117,7 +133,10 @@ def main():
         shipped = json.loads((ROOT / "pipeline" / "shipped.json").read_text(encoding="utf-8"))
         fighters, metrics_out, report = build(read_csvs(SOURCE), roster, shipped, date.today(),
                                               ROOT / "web/public/img/fighters")
-    except (BuildError, OSError) as e:
+        old_file = ROOT / "web" / "data" / "fighters.json"
+        validate(json.loads(old_file.read_text(encoding="utf-8")) if old_file.exists() else None,
+                 fighters, shipped)
+    except (BuildError, OSError, ValueError) as e:
         print(e, file=sys.stderr)
         return 1
     out = ROOT / "web" / "data"
