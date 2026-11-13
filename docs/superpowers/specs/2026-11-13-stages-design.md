@@ -1,7 +1,7 @@
 # Reachdle: interactive stages design
 
 Date: 2026-11-13
-Status: awaiting owner approval
+Status: approved by the owner 2026-11-13
 Builds on: `docs/superpowers/specs/2026-11-10-reachdle-design.md` (the main spec)
 
 ## Intent
