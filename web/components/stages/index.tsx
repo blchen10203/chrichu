@@ -3,6 +3,7 @@ import { SilhouetteStage } from "@/components/SilhouetteStage";
 import { DialStage } from "@/components/stages/DialStage";
 import { StackStage } from "@/components/stages/StackStage";
 import { TachStage } from "@/components/stages/TachStage";
+import { TimelineStage } from "@/components/stages/TimelineStage";
 import { fromFraction } from "@/lib/engine/scale";
 import type { Metric, MetricId } from "@/lib/engine/types";
 
@@ -15,6 +16,7 @@ export const STAGE_BY_METRIC: Partial<Record<MetricId, StageKind>> = {
   finish_rate: "dial",
   slpm: "tach",
   td_avg: "tach",
+  age: "timeline",
 };
 
 export function stageKind(metric: Metric): StageKind {
@@ -34,6 +36,8 @@ export function Stage(props: StageProps) {
       return <DialStage {...props} />;
     case "tach":
       return <TachStage {...props} />;
+    case "timeline":
+      return <TimelineStage {...props} />;
     case "stack":
       return <StackStage {...props} />;
     default:
