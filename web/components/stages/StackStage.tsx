@@ -1,4 +1,4 @@
-import type { KeyboardEvent } from "react";
+import type { KeyboardEvent, MouseEvent } from "react";
 import type { StageProps } from "@/components/BarStage";
 import { formatValue, fromFraction, nudge } from "@/lib/engine/scale";
 
@@ -33,14 +33,15 @@ function TapHand({ dashed }: { dashed?: boolean }) {
   );
 }
 
-// Rows of 6 that grow upward from the baseline.
-function Pile({ n, metricId, dashed }: { n: number; metricId: string; dashed?: boolean }) {
-  const Icon = metricId === "knockdowns" ? Glove : TapHand;
+// Rows of 6 that grow upward from the baseline. The pile is only as wide as its drawn columns,
+// so its box (and any tap handler on it) covers drawn icons plus the blank cells of the top row.
+function Pile({ n, metricId, dashed, ...rest }: { n: number; metricId: string; dashed?: boolean; "data-testid"?: string; onClick?: (e: MouseEvent) => void }) {
+  const cols = Math.min(n, 6) || 1;
   return (
-    <div className="flex w-full flex-wrap-reverse content-start">
+    <div className="flex flex-wrap-reverse content-start" style={{ width: `${(cols / 6) * 100}%` }} {...rest}>
       {Array.from({ length: n }, (_, i) => (
-        <div key={i} className="aspect-square w-1/6">
-          <Icon dashed={dashed} />
+        <div key={i} className="aspect-square" style={{ width: `${100 / cols}%` }}>
+          {metricId === "knockdowns" ? <Glove dashed={dashed} /> : <TapHand dashed={dashed} />}
         </div>
       ))}
     </div>
@@ -56,7 +57,6 @@ export function StackStage({ metric, refValue, value, onChange, actual }: StageP
     e.preventDefault();
     onChange(nudge(metric, value, dir as 1 | -1));
   };
-  const redPile = <Pile n={Math.round(value)} metricId={metric.id} />;
 
   // Fixed height: 4 rows of icons (knockdowns reach 22) still leave a 44 px+ add area at the axis maximum.
   return (
@@ -75,20 +75,26 @@ export function StackStage({ metric, refValue, value, onChange, actual }: StageP
           aria-valuenow={value}
           aria-valuetext={formatValue(metric, value)}
           onKeyDown={key}
+          // Any tap that is not on a drawn icon adds one; the pile stops its own taps.
+          onClick={() => onChange(nudge(metric, value, 1))}
           className="flex flex-1 touch-none flex-col border-b border-tick text-red focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text"
         >
-          <div
-            data-testid="stack-add"
-            className="min-h-11 flex-1"
-            onClick={() => onChange(nudge(metric, value, 1))}
+          <div data-testid="stack-add" className="min-h-11 flex-1" />
+          <Pile
+            n={Math.round(value)}
+            metricId={metric.id}
+            data-testid="stack-pile"
+            onClick={(e) => {
+              // The blank cells of a partial top row are part of the pile's box but belong to the add area.
+              if (e.target === e.currentTarget) return;
+              e.stopPropagation();
+              onChange(nudge(metric, value, -1));
+            }}
           />
-          <div data-testid="stack-pile" className="w-full" onClick={() => onChange(nudge(metric, value, -1))}>
-            {redPile}
-          </div>
         </div>
       ) : (
         <div className="relative flex flex-1 flex-col justify-end border-b border-tick text-red">
-          {redPile}
+          <Pile n={Math.round(value)} metricId={metric.id} />
           {reveal && (
             <div data-testid="true-value" className="absolute inset-0 flex flex-col justify-end text-text">
               <Pile n={Math.round(actual)} metricId={metric.id} dashed />

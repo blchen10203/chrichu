@@ -22,8 +22,9 @@ export async function expectGuessing(page: Page, stage: Locator): Promise<number
   const before = Number(await slider.getAttribute("aria-valuenow"));
   await slider.focus();
   await page.keyboard.press("ArrowUp");
+  await expect(slider).not.toHaveAttribute("aria-valuenow", String(before));
   const after = Number(await slider.getAttribute("aria-valuenow"));
-  expect(after).not.toBe(before);
+  expect(after).toBeGreaterThan(before); // ArrowUp is +1
   return after;
 }
 
