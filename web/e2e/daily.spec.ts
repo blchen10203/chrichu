@@ -64,3 +64,20 @@ test("sharing copies the result", async ({ page, context }) => {
   const text = await page.evaluate(() => navigator.clipboard.readText());
   expect(text).toMatch(/\/500\r?\n[🟩🟨🟥]{5}\r?\nhttps:\/\//u);
 });
+
+test("results left open past midnight offer today's puzzle instead of a countdown", async ({ page }) => {
+  const late = new Date();
+  late.setHours(23, 58, 0, 0);
+  await page.clock.install({ time: late });
+  await page.goto("/daily");
+  for (let round = 1; round <= 5; round++) {
+    await playRound(page);
+    await page.getByRole("button", { name: round < 5 ? "Next round" : "See results" }).click();
+  }
+  await expect(page.getByText(/Next daily in/)).toBeVisible();
+
+  await page.clock.fastForward(3 * 60_000);
+  const link = page.getByRole("link", { name: "Today's puzzle is ready" });
+  await expect(link).toHaveAttribute("href", "/daily");
+  await expect(page.getByText(/Next daily in/)).toHaveCount(0);
+});

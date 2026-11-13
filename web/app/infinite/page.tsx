@@ -8,6 +8,7 @@ import { actualValue, localDate, randomRound } from "@/lib/engine/rounds";
 import { dailyScore } from "@/lib/engine/scoring";
 import type { Fighter, Metric } from "@/lib/engine/types";
 import { browserStorage, load, recordInfinite, save, type State } from "@/lib/storage";
+import { useStorageSync } from "@/lib/storage/useStorageSync";
 
 type Play = { metric: Metric; refFighter: Fighter; target: Fighter; refValue: number; actual: number };
 type Result = { guess: number; score: number };
@@ -26,6 +27,8 @@ export default function InfinitePage() {
   const [play, setPlay] = useState<Play | null>(null);
   const [result, setResult] = useState<Result | null>(null);
   const [session, setSession] = useState({ n: 0, total: 0 });
+
+  useStorageSync(setState);
 
   // Storage and Math.random exist only after mount, so the first round is picked here.
   useEffect(() => {

@@ -7,6 +7,7 @@ import { ShareButton } from "@/components/ShareButton";
 import { config } from "@/lib/config";
 import { metricCopy } from "@/lib/copy";
 import { fighters, metrics } from "@/lib/engine/data";
+import { localDate } from "@/lib/engine/rounds";
 import { shareText } from "@/lib/engine/share";
 import { currentStreak, dailyStats, type DayState, type State } from "@/lib/storage";
 
@@ -32,14 +33,18 @@ type Props = { puzzle: number; day: DayState; state: State; today: string };
 
 export function Results({ puzzle, day, state, today }: Props) {
   const [left, setLeft] = useState<string | null>(null);
+  const [newDay, setNewDay] = useState(false);
 
   // The clock exists only after mount.
   useEffect(() => {
-    const tick = () => setLeft(untilMidnight());
+    const tick = () => {
+      setLeft(untilMidnight());
+      setNewDay(localDate(new Date()) !== today);
+    };
     tick();
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
-  }, []);
+  }, [today]);
 
   const total = day.scores.reduce((a, b) => a + b, 0);
   const streak = currentStreak(state, today);
@@ -85,7 +90,13 @@ export function Results({ puzzle, day, state, today }: Props) {
       <Link href="/survival" className="flex h-12 items-center justify-center rounded-xl border border-line text-[15px] font-semibold">
         Play Survival
       </Link>
-      <div className="text-center text-xs text-muted">Next daily in {left ?? "--:--:--"}</div>
+      {newDay ? (
+        <Link href="/daily" className="flex h-12 items-center justify-center rounded-xl bg-red text-[15px] font-semibold">
+          Today&apos;s puzzle is ready
+        </Link>
+      ) : (
+        <div className="text-center text-xs text-muted">Next daily in {left ?? "--:--:--"}</div>
+      )}
     </>
   );
 }

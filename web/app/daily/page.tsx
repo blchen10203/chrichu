@@ -9,6 +9,7 @@ import { fighters, metrics } from "@/lib/engine/data";
 import { actualValue, dailySet, localDate, puzzleNumber, repairRounds } from "@/lib/engine/rounds";
 import { dailyScore } from "@/lib/engine/scoring";
 import { browserStorage, load, recordGuess, save, startDay, type State } from "@/lib/storage";
+import { useStorageSync } from "@/lib/storage/useStorageSync";
 
 type Shown = { i: number; guess: number; score: number };
 
@@ -16,6 +17,8 @@ export default function DailyPage() {
   const [today, setToday] = useState<string | null>(null);
   const [state, setState] = useState<State | null>(null);
   const [shown, setShown] = useState<Shown | null>(null);
+
+  useStorageSync(setState);
 
   // The date and storage exist only after mount.
   useEffect(() => {

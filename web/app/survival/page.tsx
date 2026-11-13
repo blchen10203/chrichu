@@ -10,6 +10,7 @@ import { actualValue, localDate, randomRound } from "@/lib/engine/rounds";
 import { dailyScore, SURVIVAL_HP, SURVIVAL_SECONDS, takeHit } from "@/lib/engine/scoring";
 import type { Fighter, Metric } from "@/lib/engine/types";
 import { browserStorage, load, recordSurvival, save, type State } from "@/lib/storage";
+import { useStorageSync } from "@/lib/storage/useStorageSync";
 
 type Play = { metric: Metric; refFighter: Fighter; target: Fighter; refValue: number; actual: number };
 type Result = { guess: number; score: number; lost: number };
@@ -32,6 +33,8 @@ export default function SurvivalPage() {
     setResult(null);
     locked.current = false;
   }
+
+  useStorageSync(setState);
 
   // The date, storage and Math.random exist only after mount.
   useEffect(() => {

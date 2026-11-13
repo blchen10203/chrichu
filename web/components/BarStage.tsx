@@ -11,6 +11,8 @@ export type StageProps = {
 };
 
 const TICKS = [0, 0.2, 0.4, 0.6, 0.8, 1];
+// The label is 40px tall (mt-2 + text-2xl) in a plot at least 240px tall: below ~17% it would spill under the baseline.
+const SHORT_BAR = 0.18;
 const pct = (metric: Metric, v: number) => `${Math.min(1, Math.max(0, toFraction(metric, v))) * 100}%`;
 
 export function BarStage({ metric, refValue, value, onChange, actual }: StageProps) {
@@ -53,8 +55,16 @@ export function BarStage({ metric, refValue, value, onChange, actual }: StagePro
           <div key={t} className="absolute inset-x-0 border-t border-line" style={{ bottom: `${t * 100}%` }} />
         ))}
         <div className="absolute inset-0 flex items-end justify-around">
-          <div className="flex w-24 justify-center rounded-t-lg bg-blue" style={{ height: pct(metric, refValue) }}>
-            <span className="mt-2 font-display text-2xl font-bold text-bg">{formatValue(metric, refValue)}</span>
+          <div className="relative flex w-24 justify-center rounded-t-lg bg-blue" style={{ height: pct(metric, refValue) }}>
+            <span
+              className={
+                toFraction(metric, refValue) < SHORT_BAR
+                  ? "absolute bottom-full left-1/2 mb-1 -translate-x-1/2 font-display text-2xl font-bold text-blue"
+                  : "mt-2 font-display text-2xl font-bold text-bg"
+              }
+            >
+              {formatValue(metric, refValue)}
+            </span>
           </div>
           <div className="relative h-full w-24">
             <div className="absolute inset-x-0 bottom-0 rounded-t-lg bg-red" style={{ height: pct(metric, value) }}>
