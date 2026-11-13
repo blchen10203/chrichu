@@ -2,12 +2,11 @@
 
 import { useRef, useState, type ReactNode } from "react";
 import { Avatar } from "@/components/Avatar";
-import { BarStage } from "@/components/BarStage";
-import { SilhouetteStage } from "@/components/SilhouetteStage";
+import { Stage, startValue } from "@/components/stages";
 import { Timer } from "@/components/Timer";
 import { config } from "@/lib/config";
 import { metricCopy } from "@/lib/copy";
-import { formatValue, fromFraction, nudge } from "@/lib/engine/scale";
+import { formatValue, nudge } from "@/lib/engine/scale";
 import type { Fighter, Metric } from "@/lib/engine/types";
 
 
@@ -59,7 +58,7 @@ type Props = RowsProps & {
 };
 
 export function RoundShell({ modeLabel, top, seconds, metric, refFighter, target, refValue, onLockIn }: Props) {
-  const [guess, setGuess] = useState(() => fromFraction(metric, 0.5));
+  const [guess, setGuess] = useState(() => startValue(metric));
   // The timer fires from a stale closure, so it reads the latest estimate from here.
   const guessRef = useRef(guess);
   const change = (g: number) => {
@@ -84,7 +83,7 @@ export function RoundShell({ modeLabel, top, seconds, metric, refFighter, target
         <h1 className="font-display text-[30px] font-bold leading-[1.05]">{copy.question}</h1>
       </div>
       <div className={panel}>
-        {metric.round === "silhouette" ? <SilhouetteStage {...stage} /> : <BarStage {...stage} />}
+        <Stage {...stage} />
         <FighterRows metric={metric} refFighter={refFighter} target={target} refValue={refValue} />
       </div>
       <div className="flex items-center justify-center gap-5">

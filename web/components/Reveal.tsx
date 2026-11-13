@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
-import { BarStage } from "@/components/BarStage";
-import { SilhouetteStage } from "@/components/SilhouetteStage";
+import { Stage } from "@/components/stages";
 import { bigButton, FighterRows, Header, panel } from "@/components/RoundShell";
 import { metricCopy } from "@/lib/copy";
 import { formatValue, snapValue } from "@/lib/engine/scale";
@@ -51,7 +50,7 @@ export function Reveal({ modeLabel, top, metric, refFighter, target, refValue, g
         </div>
       </div>
       <div className={panel}>
-        {metric.round === "silhouette" ? <SilhouetteStage {...stage} /> : <BarStage {...stage} />}
+        <Stage {...stage} />
         <FighterRows metric={metric} refFighter={refFighter} target={target} refValue={refValue} />
         <div className="flex gap-2 px-1.5">
           <div className="flex flex-1 flex-col gap-0.5 rounded-[10px] bg-bg px-3 py-2.5">
