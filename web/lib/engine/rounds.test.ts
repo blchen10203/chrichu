@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { config } from "@/lib/config";
 import { fighters, metrics } from "@/lib/engine/data";
 import { rng } from "@/lib/engine/rng";
 import {
@@ -15,9 +16,13 @@ describe("dates", () => {
     expect(localDate(new Date(2026, 11, 1, 23, 59))).toBe("2026-12-01");
     expect(localDate(new Date(2026, 0, 5, 0, 0))).toBe("2026-01-05");
   });
-  it("numbers puzzles from launch day", () => {
-    expect(puzzleNumber("2026-12-01", "2026-12-01")).toBe(1);
-    expect(puzzleNumber("2027-01-11", "2026-12-01")).toBe(42);
+  it("numbers puzzles from the first puzzle day", () => {
+    expect(puzzleNumber("2026-11-13", "2026-11-13")).toBe(1);
+    expect(puzzleNumber("2026-12-24", "2026-11-13")).toBe(42);
+  });
+  it("counts Daily #1 from a fixed first puzzle day", () => {
+    expect(config).not.toHaveProperty("launchDate");
+    expect(config.firstPuzzle).toBe("2026-11-13");
   });
   it("counts whole years of age", () => {
     expect(ageOn("1987-07-19", "2026-07-18")).toBe(38);

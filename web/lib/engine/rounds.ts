@@ -16,8 +16,8 @@ export function localDate(d: Date): string {
   return `${d.getFullYear()}-${mm}-${dd}`;
 }
 
-export function puzzleNumber(date: string, launchDate: string): number {
-  return Math.round((utcDay(date) - utcDay(launchDate)) / DAY_MS) + 1;
+export function puzzleNumber(date: string, firstPuzzle: string): number {
+  return Math.round((utcDay(date) - utcDay(firstPuzzle)) / DAY_MS) + 1;
 }
 
 export function ageOn(dob: string, date: string): number {

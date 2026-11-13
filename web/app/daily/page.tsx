@@ -43,7 +43,7 @@ export default function DailyPage() {
   const day = today && state ? state.daily.days[today] : null;
   if (!today || !state || !day) return <Header modeLabel="DAILY" />;
 
-  const puzzle = puzzleNumber(today, config.launchDate);
+  const puzzle = puzzleNumber(today, config.firstPuzzle);
   if (day.done && !shown) return <Results puzzle={puzzle} day={day} state={state} today={today} />;
 
   const i = shown ? shown.i : day.guesses.length;

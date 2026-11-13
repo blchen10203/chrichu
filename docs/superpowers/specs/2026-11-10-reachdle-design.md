@@ -63,7 +63,7 @@ pipeline/                    Python. Never deployed.
 web/                         Next.js (App Router, output: 'export'), TypeScript, Tailwind
   data/                      fighters.json, metrics.json (committed)
   public/img/                fighters/<id>.png, ufc-logo.svg, fallback.svg
-  lib/config.ts              game name, site URL, launch date, image switches
+  lib/config.ts              game name, site URL, first puzzle date, image switches
   lib/engine/                pure TypeScript, no React: rounds, scoring, damage
   lib/storage/               localStorage wrapper
   lib/images/                fighterImage(id) -> URL
@@ -251,7 +251,7 @@ balance target in section 12.
 - The engine builds the 5 rounds in the browser from a random generator seeded
   with the date. The result depends only on the date and the current data, so
   every player gets the same set with no schedule file.
-- The puzzle number is the number of days since the launch date in
+- The puzzle number is the number of days since `firstPuzzle` in
   `lib/config.ts`, starting at 1.
 - The date is the player's local date. The puzzle changes at local midnight.
 - One attempt per day. The day's rounds are saved the first time Daily is
@@ -416,7 +416,7 @@ is untouched.
 - Pipeline (pytest): `build.py` runs against small sample CSVs. Covers
   eligibility, the log minimum, and the stop on a shared name.
 - Storage (Vitest): blocked storage and corrupt values.
-- End to end (Playwright): one smoke test for the first release, which
+- End to end (Playwright): one smoke test, which
   finishes a Daily with a reload part-way. "Die in Survival" is added when
   Survival ships.
 - By hand: drag feel on a real phone.
@@ -450,6 +450,6 @@ is untouched.
 1. Make the GitHub repo private, before any headshot is committed.
 2. Pipeline: roster, `build.py` and its report. The owner picks the shipped
    metrics. Updates are run by hand.
-3. Engine, Daily and Infinite. Deploy. This is the first release.
+3. Engine, Daily and Infinite. Deploy.
 4. Survival.
 5. Weekly Action, once the hand-run update has worked a few times.
