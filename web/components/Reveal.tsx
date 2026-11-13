@@ -16,11 +16,12 @@ type Props = {
   guess: number;
   actual: number;
   score: number;
+  hpLost?: number;
   nextLabel: string;
   onNext: () => void;
 };
 
-export function Reveal({ modeLabel, top, metric, refFighter, target, refValue, guess, actual, score, nextLabel, onNext }: Props) {
+export function Reveal({ modeLabel, top, metric, refFighter, target, refValue, guess, actual, score, hpLost, nextLabel, onNext }: Props) {
   const copy = metricCopy(metric, target.name);
   const stage = { metric, refValue, value: guess, actual };
   const spotOn = guess === snapValue(metric, actual);
@@ -46,6 +47,7 @@ export function Reveal({ modeLabel, top, metric, refFighter, target, refValue, g
             </>
           )}
           {spotOn ? "Spot on" : guess < actual ? "too low" : "too high"}
+          {hpLost !== undefined && <div className="font-semibold text-red">−{hpLost.toFixed(1)} HP</div>}
         </div>
       </div>
       <div className={panel}>
@@ -54,7 +56,7 @@ export function Reveal({ modeLabel, top, metric, refFighter, target, refValue, g
         <div className="flex gap-2 px-1.5">
           <div className="flex flex-1 flex-col gap-0.5 rounded-[10px] bg-bg px-3 py-2.5">
             <div className="text-xs text-muted">Your estimate</div>
-            <div className="font-display text-[28px] font-bold text-red">{formatValue(metric, guess)}</div>
+            <div data-testid="your-estimate" className="font-display text-[28px] font-bold text-red">{formatValue(metric, guess)}</div>
           </div>
           <div className="flex flex-1 flex-col gap-0.5 rounded-[10px] border border-dashed border-text bg-bg px-3 py-2.5">
             <div className="text-xs text-muted">Actual</div>

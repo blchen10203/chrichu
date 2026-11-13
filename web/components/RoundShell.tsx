@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useRef, useState, type ReactNode } from "react";
 import { Avatar } from "@/components/Avatar";
 import { BarStage } from "@/components/BarStage";
 import { SilhouetteStage } from "@/components/SilhouetteStage";
+import { Timer } from "@/components/Timer";
 import { config } from "@/lib/config";
 import { metricCopy } from "@/lib/copy";
 import { formatValue, fromFraction, nudge } from "@/lib/engine/scale";
@@ -53,18 +54,31 @@ export const bigButton =
 type Props = RowsProps & {
   modeLabel: string;
   top?: ReactNode;
+  seconds?: number;
   onLockIn: (guess: number) => void;
 };
 
-export function RoundShell({ modeLabel, top, metric, refFighter, target, refValue, onLockIn }: Props) {
+export function RoundShell({ modeLabel, top, seconds, metric, refFighter, target, refValue, onLockIn }: Props) {
   const [guess, setGuess] = useState(() => fromFraction(metric, 0.5));
+  // The timer fires from a stale closure, so it reads the latest estimate from here.
+  const guessRef = useRef(guess);
+  const change = (g: number) => {
+    guessRef.current = g;
+    setGuess(g);
+  };
   const copy = metricCopy(metric, target.name);
-  const stage = { metric, refValue, value: guess, onChange: setGuess };
+  const stage = { metric, refValue, value: guess, onChange: change };
   const circle = "flex size-12 items-center justify-center rounded-full border border-line bg-panel text-text";
 
   return (
     <>
-      <Header modeLabel={modeLabel} top={top} />
+      <Header modeLabel={modeLabel} />
+      {(top || seconds) && (
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex-1">{top}</div>
+          {seconds && <Timer seconds={seconds} onExpire={() => onLockIn(guessRef.current)} />}
+        </div>
+      )}
       <div className="flex flex-col gap-1">
         <div className="text-xs font-semibold tracking-[1.5px] text-red">{copy.category}</div>
         <h1 className="font-display text-[30px] font-bold leading-[1.05]">{copy.question}</h1>
@@ -74,13 +88,13 @@ export function RoundShell({ modeLabel, top, metric, refFighter, target, refValu
         <FighterRows metric={metric} refFighter={refFighter} target={target} refValue={refValue} />
       </div>
       <div className="flex items-center justify-center gap-5">
-        <button type="button" aria-label="Decrease" className={circle} onClick={() => setGuess(nudge(metric, guess, -1))}>
+        <button type="button" aria-label="Decrease" className={circle} onClick={() => change(nudge(metric, guess, -1))}>
           <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
             <path d="M3 9 H15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
         </button>
         <div className="font-display text-[56px] font-bold leading-none text-red">{formatValue(metric, guess)}</div>
-        <button type="button" aria-label="Increase" className={circle} onClick={() => setGuess(nudge(metric, guess, 1))}>
+        <button type="button" aria-label="Increase" className={circle} onClick={() => change(nudge(metric, guess, 1))}>
           <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
             <path d="M3 9 H15 M9 3 V15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
