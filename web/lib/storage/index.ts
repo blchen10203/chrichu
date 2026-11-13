@@ -97,6 +97,12 @@ export function recordInfinite(state: State, score: number): State {
   return { ...state, infinite: { rounds: rounds + 1, totalScore: totalScore + score } };
 }
 
+export function recordSurvival(state: State, survived: number): State {
+  if (!Number.isFinite(survived) || survived < 0) return state;
+  const { best, runs } = state.survival;
+  return { ...state, survival: { best: Math.max(best, survived), runs: runs + 1 } };
+}
+
 export function currentStreak(state: State, today: string): number {
   const { lastDone, streak } = state.daily;
   return lastDone === today || lastDone === dayBefore(today) ? streak : 0;

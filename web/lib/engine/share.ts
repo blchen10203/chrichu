@@ -10,3 +10,7 @@ export function shareText(name: string, puzzle: number, scores: number[], siteUr
   const max = scores.length * 100;
   return `${name} #${puzzle} — ${total}/${max}\n${scores.map(square).join("")}\n${siteUrl}`;
 }
+
+export function survivalShareText(name: string, rounds: number, siteUrl: string): string {
+  return `${name} Survival — ${rounds} ${rounds === 1 ? "round" : "rounds"}\n${siteUrl}`;
+}

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
-  STORAGE_KEY, currentStreak, dailyStats, emptyState, load, recordGuess, recordInfinite, save, startDay,
+  STORAGE_KEY, currentStreak, dailyStats, emptyState, load, recordGuess, recordInfinite, recordSurvival, save, startDay,
 } from "@/lib/storage";
 import type { Round } from "@/lib/engine/types";
 
@@ -112,5 +112,19 @@ describe("non-finite input", () => {
     expect(recordGuess(state, "2026-12-01", NaN, 50)).toBe(state);
     expect(recordGuess(state, "2026-12-01", 70, Infinity)).toBe(state);
     expect(recordInfinite(state, NaN)).toBe(state);
+  });
+});
+
+describe("survival", () => {
+  it("counts the run and keeps the best", () => {
+    let s = recordSurvival(emptyState(), 6);
+    s = recordSurvival(s, 4);
+    expect(s.survival).toEqual({ best: 6, runs: 2 });
+    expect(recordSurvival(s, 9).survival).toEqual({ best: 9, runs: 3 });
+  });
+  it("ignores a non-finite or negative count", () => {
+    const s = emptyState();
+    expect(recordSurvival(s, NaN)).toBe(s);
+    expect(recordSurvival(s, -1)).toBe(s);
   });
 });
