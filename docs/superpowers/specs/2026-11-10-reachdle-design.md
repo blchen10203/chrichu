@@ -44,7 +44,10 @@ Out of v1:
   from the build report (5.5).
 - Career record is shown as win percentage, not a win:loss ratio. It covers
   UFC fights only; the data source has no full pro record (11.1).
-- A live number is shown while dragging.
+- No number gives the estimate away while guessing: no live number, no axis
+  values, no ruler scale. The player judges the red bar or figure against the
+  blue reference by eye. All numbers appear on the reveal. (Changed
+  2026-11-13; this replaced "a live number is shown while dragging".)
 - Stats refresh weekly by GitHub Action.
 
 ## 4. Architecture
@@ -285,7 +288,8 @@ Every round uses one shell:
    the running score. Survival adds the HP bar and the timer.
 2. Question: metric category and a one-line prompt naming the target.
 3. Stage: silhouette or bar (below).
-4. Live readout with minus and plus buttons that move one snap.
+4. Minus and plus buttons that move one snap. No number is shown for the
+   estimate until the reveal.
 5. Lock In button.
 
 Silhouette stage:
@@ -436,7 +440,8 @@ is untouched.
   from one who started before it. Players who already started keep their
   saved set. Accepted for v1.
 - **Silhouette differences are small on a phone** (about 4 pixels per inch).
-  The live number, ruler and nudge buttons carry the precision.
+  The unlabelled ruler and the nudge buttons help; the estimate is meant to
+  be visual.
 
 ## 14. Build order
 

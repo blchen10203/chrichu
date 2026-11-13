@@ -25,3 +25,24 @@ test("a keyboard-only player can play Infinite rounds", async ({ page }) => {
 
   expect(errors).toEqual([]);
 });
+
+test("no numbers give the estimate away while guessing, and they return on the reveal", async ({ page }) => {
+  await page.goto("/infinite");
+  for (let round = 1; round <= 8; round++) {
+    await expect(page.getByText(`INFINITE · ROUND ${round}`)).toBeVisible();
+    const slider = page.getByRole("slider").first();
+    await slider.focus();
+    await page.keyboard.press("ArrowUp");
+    await page.keyboard.press("ArrowUp");
+
+    await expect(page.getByTestId("axis-labels")).toHaveCount(0);
+    await expect(page.getByText("each tick")).toHaveCount(0);
+    const estimate = (await slider.getAttribute("aria-valuetext"))!;
+    const ref = await page.getByTestId("ref-value").textContent();
+    if (estimate !== ref) await expect(page.getByText(estimate, { exact: true })).toHaveCount(0);
+
+    await page.getByRole("button", { name: "Lock in" }).click();
+    await expect(page.getByTestId("your-estimate")).toHaveText(estimate);
+    await page.getByRole("button", { name: "Next round" }).click();
+  }
+});

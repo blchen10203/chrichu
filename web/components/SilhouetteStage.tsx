@@ -92,7 +92,7 @@ export function SilhouetteStage({ metric, refValue, value, onChange, actual }: S
               </g>
               {armBar(refValue, BLUE_TOP, "#5B9BFF")}
               <Ticks x={cx % (4 * ppi)} y={150} n={Math.ceil(W / (4 * ppi)) + 1} step={4 * ppi} />
-              <text x={cx} y={168} textAnchor="middle" fontSize="11" fill="#A0A6B2">each tick = 4 in</text>
+              {reveal && <text x={cx} y={168} textAnchor="middle" fontSize="11" fill="#A0A6B2">each tick = 4 in</text>}
               <g transform={`translate(${cx} ${RED_TOP})`}>
                 <Figure fill="#FF5A5F" />
               </g>

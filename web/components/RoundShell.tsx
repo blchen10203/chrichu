@@ -34,7 +34,7 @@ export function FighterRows({ metric, refFighter, target, refValue }: RowsProps)
           <div className="text-[15px] font-semibold">{refFighter.name}</div>
           <div className="text-xs text-muted">Blue corner · reference</div>
         </div>
-        <div className="font-display text-2xl font-bold text-blue">{formatValue(metric, refValue)}</div>
+        <div data-testid="ref-value" className="font-display text-2xl font-bold text-blue">{formatValue(metric, refValue)}</div>
       </div>
       <div className="flex items-center gap-2.5">
         <Avatar fighter={target} corner="red" />
@@ -93,7 +93,6 @@ export function RoundShell({ modeLabel, top, seconds, metric, refFighter, target
             <path d="M3 9 H15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
         </button>
-        <div className="font-display text-[56px] font-bold leading-none text-red">{formatValue(metric, guess)}</div>
         <button type="button" aria-label="Increase" className={circle} onClick={() => change(nudge(metric, guess, 1))}>
           <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
             <path d="M3 9 H15 M9 3 V15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />

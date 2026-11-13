@@ -32,12 +32,14 @@ export function BarStage({ metric, refValue, value, onChange, actual }: StagePro
 
   return (
     <div className="flex min-h-64 flex-1 gap-2">
-      <div className="relative my-2 w-12 shrink-0 text-[11px] text-muted">
-        {TICKS.map((t) => (
-          <div key={t} className="absolute right-0 translate-y-1/2" style={{ bottom: `${t * 100}%` }}>
-            {formatValue(metric, fromFraction(metric, t))}
-          </div>
-        ))}
+      {/* Axis numbers would let the player read the answer off; they appear only on the reveal. */}
+      <div data-testid={reveal ? "axis-labels" : undefined} className="relative my-2 w-12 shrink-0 text-[11px] text-muted">
+        {reveal &&
+          TICKS.map((t) => (
+            <div key={t} className="absolute right-0 translate-y-1/2" style={{ bottom: `${t * 100}%` }}>
+              {formatValue(metric, fromFraction(metric, t))}
+            </div>
+          ))}
       </div>
       <div
         className="relative my-2 flex-1 touch-none border-b border-tick"
