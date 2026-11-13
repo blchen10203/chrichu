@@ -1,26 +1,23 @@
 import Link from "next/link";
+import { HomeModes } from "@/components/HomeModes";
 import { config } from "@/lib/config";
-
-// TODO: mode cards and current streak (spec section 8).
-const links = [
-  ["/daily", "Daily"],
-  ["/infinite", "Infinite"],
-  ["/survival", "Survival"],
-  ["/how-to-play", "How to Play"],
-  ["/faq", "FAQ"],
-];
 
 export default function Home() {
   return (
-    <main className="p-6">
-      <h1 className="text-3xl font-bold">{config.name}</h1>
-      <nav className="mt-4 flex flex-col gap-2">
-        {links.map(([href, label]) => (
-          <Link key={href} href={href} className="underline">
-            {label}
-          </Link>
-        ))}
+    <>
+      <div>
+        <h1 className="font-display text-5xl font-bold tracking-wider">{config.name}</h1>
+        <p className="text-muted">Guess the numbers behind UFC fighters.</p>
+      </div>
+      <HomeModes />
+      <nav className="flex gap-6 text-sm">
+        <Link href="/how-to-play" className="flex min-h-11 items-center underline">
+          How to Play
+        </Link>
+        <Link href="/faq" className="flex min-h-11 items-center underline">
+          FAQ
+        </Link>
       </nav>
-    </main>
+    </>
   );
 }
