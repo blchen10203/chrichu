@@ -6,7 +6,7 @@ const DASH = "3 2";
 
 function Glove({ dashed }: { dashed?: boolean }) {
   return (
-    <svg viewBox="0 0 24 24" className="size-full p-[2px]" aria-hidden="true">
+    <svg viewBox="4 3 16 20" className="size-full" aria-hidden="true">
       <path
         d="M6 11a6 6 0 0 1 12 0v4a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4zM9 19v3h6v-3"
         fill={dashed ? "none" : "currentColor"}
@@ -20,7 +20,7 @@ function Glove({ dashed }: { dashed?: boolean }) {
 
 function TapHand({ dashed }: { dashed?: boolean }) {
   return (
-    <svg viewBox="0 0 24 24" className="size-full p-[2px]" aria-hidden="true">
+    <svg viewBox="4 3 16 20" className="size-full" aria-hidden="true">
       <path
         d="M5 12V7h3v-3h3v3h2V4h3v3h2v8a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6z"
         fill={dashed ? "none" : "currentColor"}

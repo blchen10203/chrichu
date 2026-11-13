@@ -45,6 +45,7 @@ export function SilhouetteStage({ metric, refValue, value, onChange, actual }: S
   const pointers = useRef(new Map<number, { x: number; y: number }>());
   const pinch = useRef<{ d0: number; v0: number } | null>(null);
   const pinched = useRef(false);
+  const before = useRef(value); // the value before the first finger landed
   const spread = () => {
     const [a, b] = [...pointers.current.values()];
     return Math.hypot(a.x - b.x, a.y - b.y);
@@ -91,13 +92,19 @@ export function SilhouetteStage({ metric, refValue, value, onChange, actual }: S
         onPointerDown={
           interactive
             ? (e) => {
-                e.currentTarget.setPointerCapture(e.pointerId);
+                try {
+                  e.currentTarget.setPointerCapture(e.pointerId);
+                } catch {} // untracked (synthetic) pointers throw; the gesture still works
                 if (reach) return drag(e);
                 pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
                 if (pointers.current.size === 2) {
-                  pinch.current = { d0: spread() || 1, v0: value };
+                  onChange?.(before.current); // undo the first finger's snap
+                  pinch.current = { d0: spread() || 1, v0: before.current };
                   pinched.current = true;
-                } else if (pointers.current.size === 1) drag(e);
+                } else if (pointers.current.size === 1) {
+                  before.current = value;
+                  drag(e);
+                }
               }
             : undefined
         }

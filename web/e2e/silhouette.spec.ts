@@ -47,3 +47,26 @@ test("height scales the red figure from its feet with the corner handle", async 
   expect(await valueOf(page)).toBeGreaterThan(before);
   await expectReveal(page, stage);
 });
+
+test("a pinch on the height figure does not first snap to the first finger", async ({ page }) => {
+  await page.goto("/infinite");
+  const stage = await findStage(page, "silhouette-stage");
+  for (let i = 0; i < 60 && (await page.getByRole("heading", { level: 1 }).textContent())?.startsWith("How tall") !== true; i++) {
+    await page.getByRole("button", { name: "Lock in" }).click();
+    await page.getByRole("button", { name: "Next round" }).click();
+  }
+  const before = await valueOf(page);
+  await stage.evaluate((el) => {
+    const plot = el.firstElementChild as HTMLElement;
+    const r = plot.getBoundingClientRect();
+    const fire = (type: string, id: number, fx: number, fy: number) =>
+      plot.dispatchEvent(new PointerEvent(type, { pointerId: id, isPrimary: id === 1, clientX: r.left + r.width * fx, clientY: r.top + r.height * fy, bubbles: true }));
+    fire("pointerdown", 1, 0.75, 0.9); // low on the plot: a snap would clamp to the minimum
+    fire("pointerdown", 2, 0.6, 0.5);
+  });
+  expect(await valueOf(page)).toBe(before);
+  await stage.evaluate((el) => {
+    const plot = el.firstElementChild as HTMLElement;
+    for (const id of [1, 2]) plot.dispatchEvent(new PointerEvent("pointerup", { pointerId: id, isPrimary: id === 1, bubbles: true }));
+  });
+});
