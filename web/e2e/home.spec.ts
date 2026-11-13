@@ -4,7 +4,7 @@ test("home shows the modes, and today's result once Daily is done", async ({ pag
   await page.goto("/");
   await expect(page.getByRole("link", { name: /Daily/ })).toBeVisible();
   await expect(page.getByRole("link", { name: /Infinite/ })).toBeVisible();
-  await expect(page.getByRole("link", { name: /Survival/ })).toHaveCount(0);
+  await expect(page.getByRole("link", { name: /Survival/ })).toBeVisible();
   await expect(page.getByText("Streak: 0 days")).toBeVisible();
 
   await page.getByRole("link", { name: /Daily/ }).click();
@@ -20,4 +20,8 @@ test("home shows the modes, and today's result once Daily is done", async ({ pag
   await expect(page.getByRole("heading", { name: "How to Play" })).toBeVisible();
   await page.goto("/faq");
   await expect(page.getByText("No. It is an unofficial fan project.")).toBeVisible();
+
+  await page.goto("/");
+  await page.getByRole("link", { name: /Survival/ }).click();
+  await expect(page.getByText("SURVIVAL · ROUND 1")).toBeVisible();
 });

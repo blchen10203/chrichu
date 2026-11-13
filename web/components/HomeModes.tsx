@@ -32,10 +32,10 @@ export function HomeModes() {
         <span className={title}>Infinite</span>
         <span className="text-sm text-muted">Endless practice. No pressure.</span>
       </Link>
-      <div className={`${card} opacity-50`} aria-disabled="true">
+      <Link href="/survival" className={card}>
         <span className={title}>Survival</span>
-        <span className="text-sm text-muted">Coming soon.</span>
-      </div>
+        <span className="text-sm text-muted">10 HP. 15 seconds a round.</span>
+      </Link>
       <p className="min-h-5 text-sm text-muted">
         {live && `Streak: ${live.streak} ${live.streak === 1 ? "day" : "days"}`}
       </p>

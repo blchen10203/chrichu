@@ -82,6 +82,9 @@ export function Results({ puzzle, day, state, today }: Props) {
       <Link href="/infinite" className="flex h-12 items-center justify-center rounded-xl border border-line text-[15px] font-semibold">
         Play Infinite
       </Link>
+      <Link href="/survival" className="flex h-12 items-center justify-center rounded-xl border border-line text-[15px] font-semibold">
+        Play Survival
+      </Link>
       <div className="text-center text-xs text-muted">Next daily in {left ?? "--:--:--"}</div>
     </>
   );
