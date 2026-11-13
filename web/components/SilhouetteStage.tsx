@@ -1,4 +1,4 @@
-import type { KeyboardEvent, PointerEvent } from "react";
+import { useRef, type KeyboardEvent, type PointerEvent } from "react";
 import type { StageProps } from "@/components/BarStage";
 import { formatValue, fromFraction, nudge, snapValue } from "@/lib/engine/scale";
 
@@ -41,6 +41,20 @@ export function SilhouetteStage({ metric, refValue, value, onChange, actual }: S
   const cx = W / 2;
   const ppi = reach ? W / metric.max : (GROUND - 20) / metric.max;
 
+  // Height only: active pointers, and the pinch's starting distance and value.
+  const pointers = useRef(new Map<number, { x: number; y: number }>());
+  const pinch = useRef<{ d0: number; v0: number } | null>(null);
+  const pinched = useRef(false);
+  const spread = () => {
+    const [a, b] = [...pointers.current.values()];
+    return Math.hypot(a.x - b.x, a.y - b.y);
+  };
+  const lift = (e: PointerEvent) => {
+    pointers.current.delete(e.pointerId);
+    pinch.current = null;
+    if (!pointers.current.size) pinched.current = false;
+  };
+
   const drag = (e: PointerEvent<HTMLDivElement>) => {
     const r = e.currentTarget.getBoundingClientRect();
     const x = ((e.clientX - r.left) / r.width) * W;
@@ -59,7 +73,7 @@ export function SilhouetteStage({ metric, refValue, value, onChange, actual }: S
         { label: "Your estimate, left hand", x: cx - (value * ppi) / 2, y: RED_TOP + 38 },
         { label: "Your estimate, right hand", x: cx + (value * ppi) / 2, y: RED_TOP + 38 },
       ]
-    : [{ label: "Your estimate", x: (W * 3) / 4, y: GROUND - value * ppi }];
+    : [{ label: "Your estimate", x: (W * 3) / 4 + (20 * value * ppi) / FIG, y: GROUND - value * ppi }];
   const armBar = (v: number, top: number, fill: string, props = {}) => (
     <rect x={cx - (v * ppi) / 2} y={top + 32} width={v * ppi} height="12" rx="6" fill={fill} {...props} />
   );
@@ -78,11 +92,29 @@ export function SilhouetteStage({ metric, refValue, value, onChange, actual }: S
           interactive
             ? (e) => {
                 e.currentTarget.setPointerCapture(e.pointerId);
-                drag(e);
+                if (reach) return drag(e);
+                pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+                if (pointers.current.size === 2) {
+                  pinch.current = { d0: spread() || 1, v0: value };
+                  pinched.current = true;
+                } else if (pointers.current.size === 1) drag(e);
               }
             : undefined
         }
-        onPointerMove={interactive ? (e) => e.currentTarget.hasPointerCapture(e.pointerId) && drag(e) : undefined}
+        onPointerMove={
+          interactive
+            ? (e) => {
+                if (!e.currentTarget.hasPointerCapture(e.pointerId)) return;
+                if (reach) return drag(e);
+                if (!pointers.current.has(e.pointerId)) return;
+                pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+                if (pinch.current) onChange?.(snapValue(metric, (pinch.current.v0 * spread()) / pinch.current.d0));
+                else if (!pinched.current) drag(e);
+              }
+            : undefined
+        }
+        onPointerUp={interactive && !reach ? lift : undefined}
+        onPointerCancel={interactive && !reach ? lift : undefined}
       >
         <svg viewBox={`0 0 ${W} ${H}`} className="absolute inset-0 size-full" role="img" aria-label={reach ? "Arm spans of both fighters" : "Heights of both fighters"}>
           {reach ? (
@@ -97,7 +129,7 @@ export function SilhouetteStage({ metric, refValue, value, onChange, actual }: S
                 <Figure fill="#FF5A5F" />
               </g>
               {armBar(value, RED_TOP, "#FF5A5F")}
-              {reveal && armBar(actual, RED_TOP, "none", { ...OUTLINE, rx: 6 })}
+              {reveal && armBar(actual, RED_TOP, "none", { ...OUTLINE, rx: 6, "data-testid": "true-value" })}
             </>
           ) : (
             <>
@@ -106,7 +138,7 @@ export function SilhouetteStage({ metric, refValue, value, onChange, actual }: S
               {figure(refValue, W / 4, "#5B9BFF")}
               {figure(value, (W * 3) / 4, "#FF5A5F")}
               {reveal && (
-                <rect x={(W * 3) / 4 - 30} y={GROUND - actual * ppi} width="60" height={actual * ppi} {...OUTLINE} />
+                <rect x={(W * 3) / 4 - 30} y={GROUND - actual * ppi} width="60" height={actual * ppi} data-testid="true-value" {...OUTLINE} />
               )}
             </>
           )}
@@ -116,6 +148,7 @@ export function SilhouetteStage({ metric, refValue, value, onChange, actual }: S
             <div
               key={h.label}
               role="slider"
+              data-testid={reach ? undefined : "height-handle"}
               tabIndex={0}
               aria-label={h.label}
               aria-orientation={reach ? "horizontal" : "vertical"}
