@@ -5,12 +5,13 @@ import type { Metric } from "@/lib/engine/types";
 
 export const clamp = (t: number) => Math.min(1, Math.max(0, t));
 
-// Pointer and key handling shared by the dial and the tachometer. Pass no onChange for no handlers.
-export function useGaugeInput(metric: Metric, value: number, sweep: number, onChange?: (v: number) => void) {
-  const drag = (e: PointerEvent<HTMLDivElement>) => {
-    const r = e.currentTarget.getBoundingClientRect();
-    onChange?.(fromFraction(metric, fractionAt(e.clientX - (r.left + r.width / 2), e.clientY - (r.top + r.height / 2), sweep)));
-  };
+// Where a pointer sits on a round face, as a fraction of the sweep.
+export const arcAt = (sweep: number) => (e: PointerEvent, r: DOMRect) =>
+  fractionAt(e.clientX - (r.left + r.width / 2), e.clientY - (r.top + r.height / 2), sweep);
+
+// Pointer and key handling shared by the gauge-like stages. `at` maps a pointer to a 0..1 fraction. Pass no onChange for no handlers.
+export function useGaugeInput(metric: Metric, value: number, at: (e: PointerEvent, r: DOMRect) => number, onChange?: (v: number) => void) {
+  const drag = (e: PointerEvent<HTMLDivElement>) => onChange?.(fromFraction(metric, at(e, e.currentTarget.getBoundingClientRect())));
   const onKeyDown = (e: KeyboardEvent) => {
     const dir = { ArrowUp: 1, ArrowRight: 1, ArrowDown: -1, ArrowLeft: -1 }[e.key];
     if (!dir || !onChange) return;
@@ -30,12 +31,13 @@ export function useGaugeInput(metric: Metric, value: number, sweep: number, onCh
 }
 
 // The one focusable slider: a 44 px hit area around the visible knob, at x/y percent of the face.
-export function GaugeSlider({ metric, value, x, y, onKeyDown }: { metric: Metric; value: number; x: number; y: number; onKeyDown: (e: KeyboardEvent) => void }) {
+export function GaugeSlider({ metric, value, x, y, onKeyDown, orientation }: { metric: Metric; value: number; x: number; y: number; onKeyDown: (e: KeyboardEvent) => void; orientation?: "horizontal" }) {
   return (
     <div
       role="slider"
       tabIndex={0}
       aria-label="Your estimate"
+      aria-orientation={orientation}
       aria-valuemin={fromFraction(metric, 0)}
       aria-valuemax={fromFraction(metric, 1)}
       aria-valuenow={value}

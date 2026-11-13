@@ -1,5 +1,5 @@
 import type { StageProps } from "@/components/BarStage";
-import { GaugeSlider, clamp, useGaugeInput } from "@/components/stages/gauge";
+import { GaugeSlider, arcAt, clamp, useGaugeInput } from "@/components/stages/gauge";
 import { pointAt } from "@/lib/arc";
 import { toFraction } from "@/lib/engine/scale";
 
@@ -24,7 +24,7 @@ export function DialStage({ metric, refValue, value, onChange, actual }: StagePr
   const interactive = onChange && !reveal;
   const t = clamp(toFraction(metric, value));
 
-  const { face, onKeyDown } = useGaugeInput(metric, value, SWEEP, interactive ? onChange : undefined);
+  const { face, onKeyDown } = useGaugeInput(metric, value, arcAt(SWEEP), interactive ? onChange : undefined);
 
   const knob = pointAt(t, SWEEP);
   const tick = pointAt(clamp(toFraction(metric, actual ?? 0)), SWEEP);
