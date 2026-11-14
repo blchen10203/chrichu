@@ -3,9 +3,7 @@
     "id": "jon-jones",
     "name": "Jon Jones",
     "dob": "1987-07-19",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 24,
     "metrics": {
       "height": 76,
       "reach": 84.0,
@@ -23,9 +21,7 @@
     "id": "randy-couture",
     "name": "Randy Couture",
     "dob": "1963-06-22",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 24,
     "metrics": {
       "height": 73,
       "reach": 75.0,
@@ -43,9 +39,7 @@
     "id": "georges-st-pierre",
     "name": "Georges St-Pierre",
     "dob": "1981-05-19",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 22,
     "metrics": {
       "height": 71,
       "reach": 76.0,
@@ -63,9 +57,7 @@
     "id": "valentina-shevchenko",
     "name": "Valentina Shevchenko",
     "dob": "1988-03-07",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 19,
     "metrics": {
       "height": 65,
       "reach": 66.0,
@@ -83,9 +75,7 @@
     "id": "demetrious-johnson",
     "name": "Demetrious Johnson",
     "dob": "1986-08-13",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 18,
     "metrics": {
       "height": 63,
       "reach": 66.0,
@@ -103,9 +93,7 @@
     "id": "anderson-silva",
     "name": "Anderson Silva",
     "dob": "1975-04-14",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 25,
     "metrics": {
       "height": 74,
       "reach": 77.0,
@@ -123,9 +111,7 @@
     "id": "matt-hughes",
     "name": "Matt Hughes",
     "dob": "1973-10-13",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 25,
     "metrics": {
       "height": 69,
       "reach": 73.0,
@@ -143,9 +129,7 @@
     "id": "jose-aldo",
     "name": "Jose Aldo",
     "dob": "1986-09-09",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 23,
     "metrics": {
       "height": 67,
       "reach": 70.0,
@@ -163,9 +147,7 @@
     "id": "alexander-volkanovski",
     "name": "Alexander Volkanovski",
     "dob": "1988-09-29",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 19,
     "metrics": {
       "height": 66,
       "reach": 71.0,
@@ -183,9 +165,7 @@
     "id": "israel-adesanya",
     "name": "Israel Adesanya",
     "dob": "1989-07-22",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 19,
     "metrics": {
       "height": 76,
       "reach": 80.0,
@@ -203,9 +183,7 @@
     "id": "amanda-nunes",
     "name": "Amanda Nunes",
     "dob": "1988-05-30",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 18,
     "metrics": {
       "height": 68,
       "reach": 69.0,
@@ -223,9 +201,7 @@
     "id": "bj-penn",
     "name": "BJ Penn",
     "dob": "1978-12-13",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 27,
     "metrics": {
       "height": 69,
       "reach": 70.0,
@@ -243,9 +219,7 @@
     "id": "max-holloway",
     "name": "Max Holloway",
     "dob": "1991-12-04",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 33,
     "metrics": {
       "height": 71,
       "reach": 69.0,
@@ -263,9 +237,7 @@
     "id": "tito-ortiz",
     "name": "Tito Ortiz",
     "dob": "1975-01-23",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 27,
     "metrics": {
       "height": 75,
       "reach": 74.0,
@@ -283,9 +255,7 @@
     "id": "daniel-cormier",
     "name": "Daniel Cormier",
     "dob": "1979-03-20",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 15,
     "metrics": {
       "height": 71,
       "reach": 72.0,
@@ -303,9 +273,7 @@
     "id": "joanna-jedrzejczyk",
     "name": "Joanna Jedrzejczyk",
     "dob": "1987-08-18",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 15,
     "metrics": {
       "height": 66,
       "reach": 65.0,
@@ -323,9 +291,7 @@
     "id": "frankie-edgar",
     "name": "Frankie Edgar",
     "dob": "1981-10-16",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 30,
     "metrics": {
       "height": 66,
       "reach": 68.0,
@@ -343,9 +309,7 @@
     "id": "kamaru-usman",
     "name": "Kamaru Usman",
     "dob": "1987-05-11",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 20,
     "metrics": {
       "height": 72,
       "reach": 76.0,
@@ -363,9 +327,7 @@
     "id": "stipe-miocic",
     "name": "Stipe Miocic",
     "dob": "1982-08-19",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 19,
     "metrics": {
       "height": 76,
       "reach": 80.0,
@@ -383,9 +345,7 @@
     "id": "tj-dillashaw",
     "name": "TJ Dillashaw",
     "dob": "1986-02-07",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 18,
     "metrics": {
       "height": 66,
       "reach": 67.0,
@@ -403,9 +363,7 @@
     "id": "alex-pereira",
     "name": "Alex Pereira",
     "dob": "1987-07-07",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 13,
     "metrics": {
       "height": 76,
       "reach": 79.0,
@@ -423,9 +381,7 @@
     "id": "tim-sylvia",
     "name": "Tim Sylvia",
     "dob": "1976-03-05",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 13,
     "metrics": {
       "height": 80,
       "reach": 80.0,
@@ -443,9 +399,7 @@
     "id": "zhang-weili",
     "name": "Zhang Weili",
     "dob": "1989-08-13",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 13,
     "metrics": {
       "height": 64,
       "reach": 63.0,
@@ -463,9 +417,7 @@
     "id": "ronda-rousey",
     "name": "Ronda Rousey",
     "dob": "1987-02-01",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 8,
     "metrics": {
       "height": 67,
       "reach": 66.0,
@@ -483,9 +435,7 @@
     "id": "chuck-liddell",
     "name": "Chuck Liddell",
     "dob": "1969-12-17",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 23,
     "metrics": {
       "height": 74,
       "reach": 76.0,
@@ -503,9 +453,7 @@
     "id": "alexandre-pantoja",
     "name": "Alexandre Pantoja",
     "dob": "1990-04-16",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 19,
     "metrics": {
       "height": 65,
       "reach": 67.0,
@@ -523,9 +471,7 @@
     "id": "islam-makhachev",
     "name": "Islam Makhachev",
     "dob": "1991-10-27",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 19,
     "metrics": {
       "height": 70,
       "reach": 70.0,
@@ -543,9 +489,7 @@
     "id": "rose-namajunas",
     "name": "Rose Namajunas",
     "dob": "1992-06-29",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 19,
     "metrics": {
       "height": 65,
       "reach": 65.0,
@@ -563,9 +507,7 @@
     "id": "deiveson-figueiredo",
     "name": "Deiveson Figueiredo",
     "dob": "1987-12-18",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 23,
     "metrics": {
       "height": 65,
       "reach": 68.0,
@@ -583,9 +525,7 @@
     "id": "brandon-moreno",
     "name": "Brandon Moreno",
     "dob": "1993-12-07",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 21,
     "metrics": {
       "height": 67,
       "reach": 70.0,
@@ -603,9 +543,7 @@
     "id": "merab-dvalishvili",
     "name": "Merab Dvalishvili",
     "dob": "1991-01-10",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 18,
     "metrics": {
       "height": 66,
       "reach": 68.0,
@@ -623,9 +561,7 @@
     "id": "petr-yan",
     "name": "Petr Yan",
     "dob": "1993-02-11",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 17,
     "metrics": {
       "height": 67,
       "reach": 67.0,
@@ -643,9 +579,7 @@
     "id": "renan-barao",
     "name": "Renan Barao",
     "dob": "1987-01-31",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 17,
     "metrics": {
       "height": 66,
       "reach": 70.0,
@@ -663,9 +597,7 @@
     "id": "henry-cejudo",
     "name": "Henry Cejudo",
     "dob": "1987-02-09",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 16,
     "metrics": {
       "height": 64,
       "reach": 64.0,
@@ -683,9 +615,7 @@
     "id": "tyron-woodley",
     "name": "Tyron Woodley",
     "dob": "1982-04-07",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 16,
     "metrics": {
       "height": 69,
       "reach": 74.0,
@@ -703,9 +633,7 @@
     "id": "cain-velasquez",
     "name": "Cain Velasquez",
     "dob": "1982-07-28",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 15,
     "metrics": {
       "height": 73,
       "reach": 77.0,
@@ -723,9 +651,7 @@
     "id": "dominick-cruz",
     "name": "Dominick Cruz",
     "dob": "1985-03-09",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 10,
     "metrics": {
       "height": 68,
       "reach": 68.0,
@@ -743,9 +669,7 @@
     "id": "pat-miletich",
     "name": "Pat Miletich",
     "dob": "1968-03-09",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 10,
     "metrics": {
       "height": 70,
       "slpm": 1.3,
@@ -762,9 +686,7 @@
     "id": "andrei-arlovski",
     "name": "Andrei Arlovski",
     "dob": "1979-02-04",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 42,
     "metrics": {
       "height": 75,
       "reach": 77.0,
@@ -782,9 +704,7 @@
     "id": "frank-mir",
     "name": "Frank Mir",
     "dob": "1979-05-24",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 27,
     "metrics": {
       "height": 75,
       "reach": 79.0,
@@ -802,9 +722,7 @@
     "id": "vitor-belfort",
     "name": "Vitor Belfort",
     "dob": "1977-04-01",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 26,
     "metrics": {
       "height": 72,
       "reach": 74.0,
@@ -822,9 +740,7 @@
     "id": "robbie-lawler",
     "name": "Robbie Lawler",
     "dob": "1982-03-20",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 25,
     "metrics": {
       "height": 71,
       "reach": 74.0,
@@ -842,9 +758,7 @@
     "id": "lyoto-machida",
     "name": "Lyoto Machida",
     "dob": "1978-05-30",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 24,
     "metrics": {
       "height": 73,
       "reach": 74.0,
@@ -862,9 +776,7 @@
     "id": "aljamain-sterling",
     "name": "Aljamain Sterling",
     "dob": "1989-07-31",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 23,
     "metrics": {
       "height": 67,
       "reach": 71.0,
@@ -882,9 +794,7 @@
     "id": "junior-dos-santos",
     "name": "Junior Dos Santos",
     "dob": "1984-01-30",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 23,
     "metrics": {
       "height": 76,
       "reach": 77.0,
@@ -902,9 +812,7 @@
     "id": "chris-weidman",
     "name": "Chris Weidman",
     "dob": "1984-06-17",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 20,
     "metrics": {
       "height": 74,
       "reach": 78.0,
@@ -922,9 +830,7 @@
     "id": "rich-franklin",
     "name": "Rich Franklin",
     "dob": "1974-10-05",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 20,
     "metrics": {
       "height": 73,
       "reach": 76.0,
@@ -942,9 +848,7 @@
     "id": "holly-holm",
     "name": "Holly Holm",
     "dob": "1981-10-17",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 16,
     "metrics": {
       "height": 68,
       "reach": 69.0,
@@ -962,9 +866,7 @@
     "id": "benson-henderson",
     "name": "Benson Henderson",
     "dob": "1983-11-16",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 14,
     "metrics": {
       "height": 69,
       "reach": 70.0,
@@ -982,9 +884,7 @@
     "id": "ciryl-gane",
     "name": "Ciryl Gane",
     "dob": "1990-04-12",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 14,
     "metrics": {
       "height": 76,
       "reach": 81.0,
@@ -1002,9 +902,7 @@
     "id": "julianna-pena",
     "name": "Julianna Pena",
     "dob": "1989-08-19",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 12,
     "metrics": {
       "height": 66,
       "reach": 69.0,
@@ -1022,9 +920,7 @@
     "id": "frank-shamrock",
     "name": "Frank Shamrock",
     "dob": "1972-12-08",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 5,
     "metrics": {
       "height": 70,
       "slpm": 1.7,
@@ -1041,9 +937,7 @@
     "id": "charles-oliveira",
     "name": "Charles Oliveira",
     "dob": "1989-10-17",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 37,
     "metrics": {
       "height": 70,
       "reach": 74.0,
@@ -1061,9 +955,7 @@
     "id": "rafael-dos-anjos",
     "name": "Rafael Dos Anjos",
     "dob": "1984-10-26",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 37,
     "metrics": {
       "height": 68,
       "reach": 70.0,
@@ -1081,9 +973,7 @@
     "id": "dustin-poirier",
     "name": "Dustin Poirier",
     "dob": "1989-01-19",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 32,
     "metrics": {
       "height": 69,
       "reach": 72.0,
@@ -1101,9 +991,7 @@
     "id": "jessica-andrade",
     "name": "Jessica Andrade",
     "dob": "1991-09-25",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 30,
     "metrics": {
       "height": 61,
       "reach": 62.0,
@@ -1121,9 +1009,7 @@
     "id": "michael-bisping",
     "name": "Michael Bisping",
     "dob": "1979-02-28",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 29,
     "metrics": {
       "height": 73,
       "reach": 75.0,
@@ -1141,9 +1027,7 @@
     "id": "robert-whittaker",
     "name": "Robert Whittaker",
     "dob": "1990-12-20",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 25,
     "metrics": {
       "height": 72,
       "reach": 73.0,
@@ -1161,9 +1045,7 @@
     "id": "sean-strickland",
     "name": "Sean Strickland",
     "dob": "1991-02-27",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 25,
     "metrics": {
       "height": 73,
       "reach": 76.0,
@@ -1181,9 +1063,7 @@
     "id": "glover-teixeira",
     "name": "Glover Teixeira",
     "dob": "1979-10-28",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 23,
     "metrics": {
       "height": 74,
       "reach": 76.0,
@@ -1201,9 +1081,7 @@
     "id": "jan-blachowicz",
     "name": "Jan Blachowicz",
     "dob": "1983-02-24",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 23,
     "metrics": {
       "height": 74,
       "reach": 78.0,
@@ -1221,9 +1099,7 @@
     "id": "rashad-evans",
     "name": "Rashad Evans",
     "dob": "1979-09-25",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 23,
     "metrics": {
       "height": 72,
       "reach": 75.0,
@@ -1241,9 +1117,7 @@
     "id": "anthony-pettis",
     "name": "Anthony Pettis",
     "dob": "1987-01-27",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 20,
     "metrics": {
       "height": 70,
       "reach": 72.0,
@@ -1261,9 +1135,7 @@
     "id": "leon-edwards",
     "name": "Leon Edwards",
     "dob": "1991-08-25",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 20,
     "metrics": {
       "height": 74,
       "reach": 74.0,
@@ -1281,9 +1153,7 @@
     "id": "dan-henderson",
     "name": "Dan Henderson",
     "dob": "1970-08-24",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 18,
     "metrics": {
       "height": 71,
       "reach": 74.0,
@@ -1301,9 +1171,7 @@
     "id": "urijah-faber",
     "name": "Urijah Faber",
     "dob": "1979-05-14",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 18,
     "metrics": {
       "height": 66,
       "reach": 67.0,
@@ -1321,9 +1189,7 @@
     "id": "alexa-grasso",
     "name": "Alexa Grasso",
     "dob": "1993-08-09",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 16,
     "metrics": {
       "height": 65,
       "reach": 66.0,
@@ -1341,9 +1207,7 @@
     "id": "colby-covington",
     "name": "Colby Covington",
     "dob": "1988-02-22",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 17,
     "metrics": {
       "height": 71,
       "reach": 72.0,
@@ -1361,9 +1225,7 @@
     "id": "kenny-florian",
     "name": "Kenny Florian",
     "dob": "1976-05-26",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 17,
     "metrics": {
       "height": 70,
       "reach": 74.0,
@@ -1381,9 +1243,7 @@
     "id": "carla-esparza",
     "name": "Carla Esparza",
     "dob": "1987-10-10",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 16,
     "metrics": {
       "height": 61,
       "reach": 63.0,
@@ -1401,9 +1261,7 @@
     "id": "justin-gaethje",
     "name": "Justin Gaethje",
     "dob": "1988-11-14",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 16,
     "metrics": {
       "height": 71,
       "reach": 70.0,
@@ -1421,9 +1279,7 @@
     "id": "sean-o-malley",
     "name": "Sean O'Malley",
     "dob": "1994-10-24",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 16,
     "metrics": {
       "height": 71,
       "reach": 72.0,
@@ -1441,9 +1297,7 @@
     "id": "conor-mcgregor",
     "name": "Conor McGregor",
     "dob": "1988-07-14",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 15,
     "metrics": {
       "height": 69,
       "reach": 74.0,
@@ -1461,9 +1315,7 @@
     "id": "dan-severn",
     "name": "Dan Severn",
     "dob": "1958-06-08",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 13,
     "metrics": {
       "height": 74,
       "slpm": 1.0,
@@ -1480,9 +1332,7 @@
     "id": "khabib-nurmagomedov",
     "name": "Khabib Nurmagomedov",
     "dob": "1988-09-20",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 13,
     "metrics": {
       "height": 70,
       "reach": 70.0,
@@ -1500,9 +1350,7 @@
     "id": "quinton-jackson",
     "name": "Quinton Jackson",
     "dob": "1978-06-20",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 13,
     "metrics": {
       "height": 73,
       "reach": 73.0,
@@ -1520,9 +1368,7 @@
     "id": "sean-sherk",
     "name": "Sean Sherk",
     "dob": "1973-08-05",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 12,
     "metrics": {
       "height": 66,
       "reach": 67.0,
@@ -1540,9 +1386,7 @@
     "id": "dricus-du-plessis",
     "name": "Dricus Du Plessis",
     "dob": "1994-01-14",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 11,
     "metrics": {
       "height": 73,
       "reach": 76.0,
@@ -1560,9 +1404,7 @@
     "id": "ilia-topuria",
     "name": "Ilia Topuria",
     "dob": "1997-01-21",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 10,
     "metrics": {
       "height": 67,
       "reach": 69.0,
@@ -1580,9 +1422,7 @@
     "id": "jiri-prochazka",
     "name": "Jiri Prochazka",
     "dob": "1992-10-14",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 9,
     "metrics": {
       "height": 75,
       "reach": 80.0,
@@ -1600,9 +1440,7 @@
     "id": "brock-lesnar",
     "name": "Brock Lesnar",
     "dob": "1977-07-12",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 8,
     "metrics": {
       "height": 75,
       "reach": 81.0,
@@ -1619,9 +1457,7 @@
     "id": "carlos-newton",
     "name": "Carlos Newton",
     "dob": "1976-08-17",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 7,
     "metrics": {
       "height": 69,
       "slpm": 0.6,
@@ -1637,9 +1473,7 @@
     "id": "cristiane-justino",
     "name": "Cristiane Justino",
     "dob": "1985-07-09",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 7,
     "metrics": {
       "height": 68,
       "reach": 68.0,
@@ -1657,9 +1491,7 @@
     "id": "kevin-randleman",
     "name": "Kevin Randleman",
     "dob": "1971-08-10",
-    "deceased": true,
     "hasImage": false,
-    "trackedFights": 7,
     "metrics": {
       "height": 70,
       "slpm": 0.8,
@@ -1674,9 +1506,7 @@
     "id": "mauricio-rua",
     "name": "Mauricio Rua",
     "dob": "1981-11-25",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 24,
     "metrics": {
       "height": 73,
       "reach": 76.0,
@@ -1694,9 +1524,7 @@
     "id": "tony-ferguson",
     "name": "Tony Ferguson",
     "dob": "1984-02-12",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 24,
     "metrics": {
       "height": 71,
       "reach": 76.0,
@@ -1714,9 +1542,7 @@
     "id": "johny-hendricks",
     "name": "Johny Hendricks",
     "dob": "1983-09-12",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 21,
     "metrics": {
       "height": 69,
       "reach": 69.0,
@@ -1734,9 +1560,7 @@
     "id": "joseph-benavidez",
     "name": "Joseph Benavidez",
     "dob": "1984-07-31",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 21,
     "metrics": {
       "height": 64,
       "reach": 65.0,
@@ -1754,9 +1578,7 @@
     "id": "carlos-condit",
     "name": "Carlos Condit",
     "dob": "1984-04-26",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 19,
     "metrics": {
       "height": 74,
       "reach": 75.0,
@@ -1774,9 +1596,7 @@
     "id": "raquel-pennington",
     "name": "Raquel Pennington",
     "dob": "1988-09-05",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 19,
     "metrics": {
       "height": 67,
       "reach": 67.0,
@@ -1794,9 +1614,7 @@
     "id": "alexander-gustafsson",
     "name": "Alexander Gustafsson",
     "dob": "1987-01-15",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 18,
     "metrics": {
       "height": 77,
       "reach": 79.0,
@@ -1814,9 +1632,7 @@
     "id": "cody-garbrandt",
     "name": "Cody Garbrandt",
     "dob": "1991-07-07",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 18,
     "metrics": {
       "height": 68,
       "reach": 65.0,
@@ -1834,9 +1650,7 @@
     "id": "david-abbott",
     "name": "David Abbott",
     "dob": "1965-04-26",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 18,
     "metrics": {
       "height": 72,
       "slpm": 1.5,
@@ -1853,9 +1667,7 @@
     "id": "fabricio-werdum",
     "name": "Fabricio Werdum",
     "dob": "1977-07-30",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 18,
     "metrics": {
       "height": 76,
       "reach": 77.0,
@@ -1873,9 +1685,7 @@
     "id": "evan-tanner",
     "name": "Evan Tanner",
     "dob": "1971-02-11",
-    "deceased": true,
     "hasImage": false,
-    "trackedFights": 17,
     "metrics": {
       "height": 72,
       "reach": 74.0,
@@ -1892,9 +1702,7 @@
     "id": "john-dodson",
     "name": "John Dodson",
     "dob": "1984-09-26",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 17,
     "metrics": {
       "height": 63,
       "reach": 66.0,
@@ -1912,9 +1720,7 @@
     "id": "magomed-ankalaev",
     "name": "Magomed Ankalaev",
     "dob": "1992-06-02",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 17,
     "metrics": {
       "height": 75,
       "reach": 75.0,
@@ -1932,9 +1738,7 @@
     "id": "yair-rodriguez",
     "name": "Yair Rodriguez",
     "dob": "1992-10-06",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 16,
     "metrics": {
       "height": 71,
       "reach": 71.0,
@@ -1952,9 +1756,7 @@
     "id": "forrest-griffin",
     "name": "Forrest Griffin",
     "dob": "1979-03-16",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 15,
     "metrics": {
       "height": 75,
       "reach": 77.0,
@@ -1972,9 +1774,7 @@
     "id": "chad-mendes",
     "name": "Chad Mendes",
     "dob": "1985-05-01",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 14,
     "metrics": {
       "height": 66,
       "reach": 66.0,
@@ -1992,9 +1792,7 @@
     "id": "chael-sonnen",
     "name": "Chael Sonnen",
     "dob": "1977-04-03",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 14,
     "metrics": {
       "height": 73,
       "reach": 73.0,
@@ -2012,9 +1810,7 @@
     "id": "francis-ngannou",
     "name": "Francis Ngannou",
     "dob": "1986-09-05",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 14,
     "metrics": {
       "height": 76,
       "reach": 83.0,
@@ -2032,9 +1828,7 @@
     "id": "matt-serra",
     "name": "Matt Serra",
     "dob": "1974-06-02",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 14,
     "metrics": {
       "height": 66,
       "reach": 68.0,
@@ -2052,9 +1846,7 @@
     "id": "miesha-tate",
     "name": "Miesha Tate",
     "dob": "1986-08-18",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 14,
     "metrics": {
       "height": 66,
       "reach": 65.0,
@@ -2072,9 +1864,7 @@
     "id": "pedro-rizzo",
     "name": "Pedro Rizzo",
     "dob": "1974-05-03",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 14,
     "metrics": {
       "height": 73,
       "slpm": 1.7,
@@ -2091,9 +1881,7 @@
     "id": "joshua-van",
     "name": "Joshua Van",
     "dob": "2001-10-10",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 12,
     "metrics": {
       "height": 65,
       "reach": 65.0,
@@ -2111,9 +1899,7 @@
     "id": "mark-coleman",
     "name": "Mark Coleman",
     "dob": "1964-12-20",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 12,
     "metrics": {
       "height": 73,
       "reach": 75.0,
@@ -2131,9 +1917,7 @@
     "id": "don-frye",
     "name": "Don Frye",
     "dob": "1965-11-23",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 10,
     "metrics": {
       "height": 73,
       "slpm": 2.4,
@@ -2150,9 +1934,7 @@
     "id": "tom-aspinall",
     "name": "Tom Aspinall",
     "dob": "1993-04-11",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 10,
     "metrics": {
       "height": 77,
       "reach": 78.0,
@@ -2170,9 +1952,7 @@
     "id": "jens-pulver",
     "name": "Jens Pulver",
     "dob": "1974-12-06",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 9,
     "metrics": {
       "height": 67,
       "reach": 70.0,
@@ -2190,9 +1970,7 @@
     "id": "maurice-smith",
     "name": "Maurice Smith",
     "dob": "1961-12-13",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 7,
     "metrics": {
       "height": 74,
       "slpm": 1.4,
@@ -2208,9 +1986,7 @@
     "id": "demian-maia",
     "name": "Demian Maia",
     "dob": "1977-11-06",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 33,
     "metrics": {
       "height": 73,
       "reach": 72.0,
@@ -2228,9 +2004,7 @@
     "id": "derrick-lewis",
     "name": "Derrick Lewis",
     "dob": "1985-02-07",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 32,
     "metrics": {
       "height": 75,
       "reach": 79.0,
@@ -2248,9 +2022,7 @@
     "id": "diego-sanchez",
     "name": "Diego Sanchez",
     "dob": "1981-12-31",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 32,
     "metrics": {
       "height": 70,
       "reach": 72.0,
@@ -2268,9 +2040,7 @@
     "id": "kelvin-gastelum",
     "name": "Kelvin Gastelum",
     "dob": "1991-10-24",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 26,
     "metrics": {
       "height": 69,
       "reach": 71.0,
@@ -2288,9 +2058,7 @@
     "id": "nate-diaz",
     "name": "Nate Diaz",
     "dob": "1985-04-16",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 27,
     "metrics": {
       "height": 72,
       "reach": 76.0,
@@ -2308,9 +2076,7 @@
     "id": "belal-muhammad",
     "name": "Belal Muhammad",
     "dob": "1988-07-09",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 22,
     "metrics": {
       "height": 71,
       "reach": 72.0,
@@ -2328,9 +2094,7 @@
     "id": "jorge-masvidal",
     "name": "Jorge Masvidal",
     "dob": "1984-11-12",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 22,
     "metrics": {
       "height": 71,
       "reach": 74.0,
@@ -2348,9 +2112,7 @@
     "id": "stephen-thompson",
     "name": "Stephen Thompson",
     "dob": "1983-02-11",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 22,
     "metrics": {
       "height": 72,
       "reach": 75.0,
@@ -2368,9 +2130,7 @@
     "id": "gray-maynard",
     "name": "Gray Maynard",
     "dob": "1979-05-09",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 20,
     "metrics": {
       "height": 69,
       "reach": 70.0,
@@ -2388,9 +2148,7 @@
     "id": "anthony-johnson",
     "name": "Anthony Johnson",
     "dob": "1984-03-06",
-    "deceased": true,
     "hasImage": false,
-    "trackedFights": 19,
     "metrics": {
       "height": 74,
       "reach": 78.0,
@@ -2407,9 +2165,7 @@
     "id": "khalil-rountree-jr",
     "name": "Khalil Rountree Jr.",
     "dob": "1990-02-26",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 18,
     "metrics": {
       "height": 73,
       "reach": 76.0,
@@ -2427,9 +2183,7 @@
     "id": "cory-sandhagen",
     "name": "Cory Sandhagen",
     "dob": "1992-04-20",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 17,
     "metrics": {
       "height": 71,
       "reach": 70.0,
@@ -2447,9 +2201,7 @@
     "id": "mackenzie-dern",
     "name": "Mackenzie Dern",
     "dob": "1993-03-24",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 17,
     "metrics": {
       "height": 64,
       "reach": 63.0,
@@ -2467,9 +2219,7 @@
     "id": "dominick-reyes",
     "name": "Dominick Reyes",
     "dob": "1989-12-26",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 16,
     "metrics": {
       "height": 76,
       "reach": 77.0,
@@ -2487,9 +2237,7 @@
     "id": "al-iaquinta",
     "name": "Al Iaquinta",
     "dob": "1987-04-30",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 15,
     "metrics": {
       "height": 70,
       "reach": 70.0,
@@ -2507,9 +2255,7 @@
     "id": "nick-diaz",
     "name": "Nick Diaz",
     "dob": "1983-08-02",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 15,
     "metrics": {
       "height": 73,
       "reach": 76.0,
@@ -2527,9 +2273,7 @@
     "id": "brian-ortega",
     "name": "Brian Ortega",
     "dob": "1991-02-21",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 14,
     "metrics": {
       "height": 68,
       "reach": 69.0,
@@ -2547,9 +2291,7 @@
     "id": "kai-kara-france",
     "name": "Kai Kara-France",
     "dob": "1993-03-26",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 13,
     "metrics": {
       "height": 64,
       "reach": 69.0,
@@ -2567,9 +2309,7 @@
     "id": "yoel-romero",
     "name": "Yoel Romero",
     "dob": "1977-04-30",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 13,
     "metrics": {
       "height": 72,
       "reach": 73.0,
@@ -2587,9 +2327,7 @@
     "id": "chan-sung-jung",
     "name": "Chan Sung Jung",
     "dob": "1987-03-17",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 12,
     "metrics": {
       "height": 67,
       "reach": 72.0,
@@ -2607,9 +2345,7 @@
     "id": "tatiana-suarez",
     "name": "Tatiana Suarez",
     "dob": "1990-12-19",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 11,
     "metrics": {
       "height": 65,
       "reach": 66.0,
@@ -2627,9 +2363,7 @@
     "id": "antonio-rodrigo-nogueira",
     "name": "Antonio Rodrigo Nogueira",
     "dob": "1976-06-02",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 11,
     "metrics": {
       "height": 75,
       "reach": 77.0,
@@ -2647,9 +2381,7 @@
     "id": "diego-lopes",
     "name": "Diego Lopes",
     "dob": "1994-12-30",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 10,
     "metrics": {
       "height": 71,
       "reach": 72.0,
@@ -2667,9 +2399,7 @@
     "id": "jack-della-maddalena",
     "name": "Jack Della Maddalena",
     "dob": "1996-09-10",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 10,
     "metrics": {
       "height": 71,
       "reach": 73.0,
@@ -2687,9 +2417,7 @@
     "id": "jamahal-hill",
     "name": "Jamahal Hill",
     "dob": "1991-05-19",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 11,
     "metrics": {
       "height": 76,
       "reach": 79.0,
@@ -2707,9 +2435,7 @@
     "id": "luke-rockhold",
     "name": "Luke Rockhold",
     "dob": "1984-10-17",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 11,
     "metrics": {
       "height": 75,
       "reach": 77.0,
@@ -2727,9 +2453,7 @@
     "id": "germaine-de-randamie",
     "name": "Germaine de Randamie",
     "dob": "1984-04-24",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 10,
     "metrics": {
       "height": 69,
       "reach": 71.0,
@@ -2747,9 +2471,7 @@
     "id": "khamzat-chimaev",
     "name": "Khamzat Chimaev",
     "dob": "1994-05-01",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 10,
     "metrics": {
       "height": 74,
       "reach": 75.0,
@@ -2767,9 +2489,7 @@
     "id": "liz-carmouche",
     "name": "Liz Carmouche",
     "dob": "1984-02-19",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 10,
     "metrics": {
       "height": 66,
       "reach": 66.0,
@@ -2787,9 +2507,7 @@
     "id": "royce-gracie",
     "name": "Royce Gracie",
     "dob": "1966-12-12",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 10,
     "metrics": {
       "height": 73,
       "slpm": 0.5,
@@ -2806,9 +2524,7 @@
     "id": "eddie-alvarez",
     "name": "Eddie Alvarez",
     "dob": "1984-01-11",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 8,
     "metrics": {
       "height": 69,
       "reach": 69.0,
@@ -2825,9 +2541,7 @@
     "id": "gilbert-melendez",
     "name": "Gilbert Melendez",
     "dob": "1982-04-12",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 7,
     "metrics": {
       "height": 69,
       "reach": 73.0,
@@ -2844,9 +2558,7 @@
     "id": "ricco-rodriguez",
     "name": "Ricco Rodriguez",
     "dob": "1977-08-19",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 7,
     "metrics": {
       "height": 76,
       "slpm": 2.1,
@@ -2863,9 +2575,7 @@
     "id": "dave-menne",
     "name": "Dave Menne",
     "dob": "1974-07-29",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 6,
     "metrics": {
       "height": 70,
       "slpm": 2.2,
@@ -2881,9 +2591,7 @@
     "id": "shane-carwin",
     "name": "Shane Carwin",
     "dob": "1975-01-04",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 6,
     "metrics": {
       "height": 74,
       "reach": 80.0,
@@ -2900,9 +2608,7 @@
     "id": "donald-cerrone",
     "name": "Donald Cerrone",
     "dob": "1983-03-29",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 38,
     "metrics": {
       "height": 73,
       "reach": 73.0,
@@ -2920,9 +2626,7 @@
     "id": "ovince-saint-preux",
     "name": "Ovince Saint Preux",
     "dob": "1983-04-08",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 28,
     "metrics": {
       "height": 75,
       "reach": 80.0,
@@ -2940,9 +2644,7 @@
     "id": "marlon-vera",
     "name": "Marlon Vera",
     "dob": "1992-12-02",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 27,
     "metrics": {
       "height": 68,
       "reach": 70.0,
@@ -2960,9 +2662,7 @@
     "id": "thiago-alves",
     "name": "Thiago Alves",
     "dob": "1983-10-03",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 27,
     "metrics": {
       "height": 69,
       "reach": 70.0,
@@ -2980,9 +2680,7 @@
     "id": "anthony-smith",
     "name": "Anthony Smith",
     "dob": "1988-07-26",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 25,
     "metrics": {
       "height": 76,
       "reach": 76.0,
@@ -3000,9 +2698,7 @@
     "id": "gilbert-burns",
     "name": "Gilbert Burns",
     "dob": "1986-07-20",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 25,
     "metrics": {
       "height": 70,
       "reach": 71.0,
@@ -3020,9 +2716,7 @@
     "id": "josh-koscheck",
     "name": "Josh Koscheck",
     "dob": "1977-11-30",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 25,
     "metrics": {
       "height": 70,
       "reach": 73.0,
@@ -3040,9 +2734,7 @@
     "id": "nate-marquardt",
     "name": "Nate Marquardt",
     "dob": "1979-04-20",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 25,
     "metrics": {
       "height": 72,
       "reach": 74.0,
@@ -3060,9 +2752,7 @@
     "id": "thiago-santos",
     "name": "Thiago Santos",
     "dob": "1984-01-07",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 24,
     "metrics": {
       "height": 74,
       "reach": 76.0,
@@ -3080,9 +2770,7 @@
     "id": "tim-elliott",
     "name": "Tim Elliott",
     "dob": "1986-12-24",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 23,
     "metrics": {
       "height": 67,
       "reach": 66.0,
@@ -3100,9 +2788,7 @@
     "id": "curtis-blaydes",
     "name": "Curtis Blaydes",
     "dob": "1991-02-18",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 22,
     "metrics": {
       "height": 76,
       "reach": 80.0,
@@ -3120,9 +2806,7 @@
     "id": "gabriel-gonzaga",
     "name": "Gabriel Gonzaga",
     "dob": "1979-05-18",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 22,
     "metrics": {
       "height": 74,
       "reach": 76.0,
@@ -3140,9 +2824,7 @@
     "id": "michael-chiesa",
     "name": "Michael Chiesa",
     "dob": "1987-12-07",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 22,
     "metrics": {
       "height": 73,
       "reach": 75.0,
@@ -3160,9 +2842,7 @@
     "id": "gillian-robertson",
     "name": "Gillian Robertson",
     "dob": "1995-05-17",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 21,
     "metrics": {
       "height": 65,
       "reach": 63.0,
@@ -3180,9 +2860,7 @@
     "id": "jared-cannonier",
     "name": "Jared Cannonier",
     "dob": "1984-03-16",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 21,
     "metrics": {
       "height": 71,
       "reach": 77.0,
@@ -3200,9 +2878,7 @@
     "id": "renato-moicano",
     "name": "Renato Moicano",
     "dob": "1989-05-21",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 21,
     "metrics": {
       "height": 71,
       "reach": 72.0,
@@ -3220,9 +2896,7 @@
     "id": "yushin-okami",
     "name": "Yushin Okami",
     "dob": "1981-07-21",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 21,
     "metrics": {
       "height": 74,
       "reach": 75.0,
@@ -3240,9 +2914,7 @@
     "id": "alistair-overeem",
     "name": "Alistair Overeem",
     "dob": "1980-05-17",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 20,
     "metrics": {
       "height": 76,
       "reach": 80.0,
@@ -3260,9 +2932,7 @@
     "id": "chris-lytle",
     "name": "Chris Lytle",
     "dob": "1974-08-18",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 20,
     "metrics": {
       "height": 71,
       "reach": 68.0,
@@ -3280,9 +2950,7 @@
     "id": "ryan-bader",
     "name": "Ryan Bader",
     "dob": "1983-06-07",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 20,
     "metrics": {
       "height": 74,
       "reach": 74.0,
@@ -3300,9 +2968,7 @@
     "id": "kevin-lee",
     "name": "Kevin Lee",
     "dob": "1992-09-04",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 19,
     "metrics": {
       "height": 69,
       "reach": 77.0,
@@ -3320,9 +2986,7 @@
     "id": "marvin-vettori",
     "name": "Marvin Vettori",
     "dob": "1993-09-20",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 19,
     "metrics": {
       "height": 72,
       "reach": 74.0,
@@ -3340,9 +3004,7 @@
     "id": "roy-nelson",
     "name": "Roy Nelson",
     "dob": "1976-06-20",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 19,
     "metrics": {
       "height": 72,
       "reach": 73.0,
@@ -3360,9 +3022,7 @@
     "id": "uriah-hall",
     "name": "Uriah Hall",
     "dob": "1984-07-31",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 19,
     "metrics": {
       "height": 72,
       "reach": 79.0,
@@ -3380,9 +3040,7 @@
     "id": "jon-fitch",
     "name": "Jon Fitch",
     "dob": "1978-02-24",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 18,
     "metrics": {
       "height": 72,
       "reach": 74.0,
@@ -3400,9 +3058,7 @@
     "id": "katlyn-cerminara",
     "name": "Katlyn Cerminara",
     "dob": "1988-12-28",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 18,
     "metrics": {
       "height": 69,
       "reach": 68.0,
@@ -3420,9 +3076,7 @@
     "id": "mark-hunt",
     "name": "Mark Hunt",
     "dob": "1974-03-23",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 18,
     "metrics": {
       "height": 70,
       "reach": 72.0,
@@ -3440,9 +3094,7 @@
     "id": "amanda-lemos",
     "name": "Amanda Lemos",
     "dob": "1987-05-22",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 16,
     "metrics": {
       "height": 64,
       "reach": 65.0,
@@ -3460,9 +3112,7 @@
     "id": "davey-grant",
     "name": "Davey Grant",
     "dob": "1985-12-18",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 17,
     "metrics": {
       "height": 68,
       "reach": 69.0,
@@ -3480,9 +3130,7 @@
     "id": "josh-emmett",
     "name": "Josh Emmett",
     "dob": "1985-03-04",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 17,
     "metrics": {
       "height": 66,
       "reach": 70.0,
@@ -3500,9 +3148,7 @@
     "id": "ricardo-lamas",
     "name": "Ricardo Lamas",
     "dob": "1982-05-21",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 17,
     "metrics": {
       "height": 68,
       "reach": 71.0,
@@ -3520,9 +3166,7 @@
     "id": "alex-perez",
     "name": "Alex Perez",
     "dob": "1992-03-21",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 16,
     "metrics": {
       "height": 66,
       "reach": 65.0,
@@ -3540,9 +3184,7 @@
     "id": "volkan-oezdemir",
     "name": "Volkan Oezdemir",
     "dob": "1989-09-19",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 16,
     "metrics": {
       "height": 74,
       "reach": 75.0,
@@ -3560,9 +3202,7 @@
     "id": "corey-anderson",
     "name": "Corey Anderson",
     "dob": "1989-09-22",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 15,
     "metrics": {
       "height": 75,
       "reach": 79.0,
@@ -3580,9 +3220,7 @@
     "id": "stephan-bonnar",
     "name": "Stephan Bonnar",
     "dob": "1977-04-04",
-    "deceased": true,
     "hasImage": false,
-    "trackedFights": 15,
     "metrics": {
       "height": 76,
       "reach": 79.0,
@@ -3599,9 +3237,7 @@
     "id": "irene-aldana",
     "name": "Irene Aldana",
     "dob": "1988-03-26",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 14,
     "metrics": {
       "height": 69,
       "reach": 68.0,
@@ -3619,9 +3255,7 @@
     "id": "macy-chiasson",
     "name": "Macy Chiasson",
     "dob": "1991-07-27",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 14,
     "metrics": {
       "height": 71,
       "reach": 72.0,
@@ -3639,9 +3273,7 @@
     "id": "mayra-bueno-silva",
     "name": "Mayra Bueno Silva",
     "dob": "1991-08-22",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 14,
     "metrics": {
       "height": 66,
       "reach": 66.0,
@@ -3659,9 +3291,7 @@
     "id": "virna-jandiroba",
     "name": "Virna Jandiroba",
     "dob": "1988-05-30",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 14,
     "metrics": {
       "height": 63,
       "reach": 64.0,
@@ -3679,9 +3309,7 @@
     "id": "yan-xiaonan",
     "name": "Yan Xiaonan",
     "dob": "1989-06-16",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 14,
     "metrics": {
       "height": 65,
       "reach": 63.0,
@@ -3699,9 +3327,7 @@
     "id": "brandon-royval",
     "name": "Brandon Royval",
     "dob": "1992-08-16",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 13,
     "metrics": {
       "height": 69,
       "reach": 68.0,
@@ -3719,9 +3345,7 @@
     "id": "ken-shamrock",
     "name": "Ken Shamrock",
     "dob": "1964-02-11",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 13,
     "metrics": {
       "height": 73,
       "reach": 72.0,
@@ -3739,9 +3363,7 @@
     "id": "rory-macdonald",
     "name": "Rory MacDonald",
     "dob": "1989-07-22",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 13,
     "metrics": {
       "height": 72,
       "reach": 76.0,
@@ -3759,9 +3381,7 @@
     "id": "bethe-correia",
     "name": "Bethe Correia",
     "dob": "1983-06-22",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 12,
     "metrics": {
       "height": 65,
       "reach": 64.0,
@@ -3779,9 +3399,7 @@
     "id": "claudia-gadelha",
     "name": "Claudia Gadelha",
     "dob": "1988-12-07",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 12,
     "metrics": {
       "height": 64,
       "reach": 63.0,
@@ -3799,9 +3417,7 @@
     "id": "darren-till",
     "name": "Darren Till",
     "dob": "1992-12-24",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 12,
     "metrics": {
       "height": 72,
       "reach": 74.0,
@@ -3819,9 +3435,7 @@
     "id": "ian-machado-garry",
     "name": "Ian Machado Garry",
     "dob": "1997-11-17",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 12,
     "metrics": {
       "height": 75,
       "reach": 74.0,
@@ -3839,9 +3453,7 @@
     "id": "paulo-costa",
     "name": "Paulo Costa",
     "dob": "1991-04-21",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 12,
     "metrics": {
       "height": 73,
       "reach": 72.0,
@@ -3859,9 +3471,7 @@
     "id": "sergei-pavlovich",
     "name": "Sergei Pavlovich",
     "dob": "1992-05-13",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 12,
     "metrics": {
       "height": 75,
       "reach": 84.0,
@@ -3879,9 +3489,7 @@
     "id": "wanderlei-silva",
     "name": "Wanderlei Silva",
     "dob": "1976-07-03",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 12,
     "metrics": {
       "height": 71,
       "reach": 74.0,
@@ -3899,9 +3507,7 @@
     "id": "antonio-silva",
     "name": "Antonio Silva",
     "dob": "1979-09-14",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 11,
     "metrics": {
       "height": 76,
       "reach": 82.0,
@@ -3918,9 +3524,7 @@
     "id": "brendan-schaub",
     "name": "Brendan Schaub",
     "dob": "1983-03-18",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 11,
     "metrics": {
       "height": 76,
       "reach": 78.0,
@@ -3938,9 +3542,7 @@
     "id": "carlos-ulberg",
     "name": "Carlos Ulberg",
     "dob": "1990-11-07",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 11,
     "metrics": {
       "height": 76,
       "reach": 77.0,
@@ -3958,9 +3560,7 @@
     "id": "kyoji-horiguchi",
     "name": "Kyoji Horiguchi",
     "dob": "1990-10-12",
-    "deceased": false,
     "hasImage": false,
-    "trackedFights": 11,
     "metrics": {
       "height": 65,
       "reach": 66.0,

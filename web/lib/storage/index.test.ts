@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
-  STORAGE_KEY, currentStreak, dailyStats, emptyState, load, recordGuess, recordInfinite, recordSurvival, save, startDay,
+  STORAGE_KEY, currentStreak, dailyStats, emptyState, load, recordGuess, recordSurvival, save, startDay,
 } from "@/lib/storage";
 import type { Round } from "@/lib/engine/types";
 
@@ -31,7 +31,6 @@ describe("load and save", () => {
     ["a day entry that is empty", (s) => { s.daily.days["2026-12-01"] = {}; }],
     ["guesses that is not an array", (s) => { s.daily.days["2026-12-01"].guesses = "x"; }],
     ["a round missing target", (s) => { delete s.daily.days["2026-12-01"].rounds[0].target; }],
-    ["an empty infinite", (s) => { s.infinite = {}; }],
     ["a string survival best", (s) => { s.survival.best = "1"; }],
     ["a numeric lastDone", (s) => { s.daily.lastDone = 5; }],
   ])("gives an empty state for %s", (_name, patch) => {
@@ -101,17 +100,13 @@ describe("stats", () => {
     expect(dailyStats(s)).toEqual({ played: 2, average: 371, best: 441 });
     expect(dailyStats(emptyState())).toEqual({ played: 0, average: 0, best: 0 });
   });
-  it("totals Infinite rounds", () => {
-    expect(recordInfinite(recordInfinite(emptyState(), 80), 40).infinite).toEqual({ rounds: 2, totalScore: 120 });
-  });
 });
 
 describe("non-finite input", () => {
-  it("ignores a NaN guess, an Infinity score and a NaN infinite score", () => {
+  it("ignores a NaN guess and an Infinity score", () => {
     const state = startDay(emptyState(), "2026-12-01", rounds);
     expect(recordGuess(state, "2026-12-01", NaN, 50)).toBe(state);
     expect(recordGuess(state, "2026-12-01", 70, Infinity)).toBe(state);
-    expect(recordInfinite(state, NaN)).toBe(state);
   });
 });
 

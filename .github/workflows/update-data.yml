@@ -2,9 +2,10 @@ name: Update data
 
 on:
   workflow_dispatch:
-  # Turn on at build-order step 5 (spec section 14):
+  # Turn on at build-order step 5 (spec section 14).
+  # New data changes the Daily for anyone who has not started it yet, so deploy near midnight US Eastern.
   # schedule:
-  #   - cron: "0 10 * * 2" # Tuesdays 10:00 UTC
+  #   - cron: "0 5 * * 2" # Tuesdays 05:00 UTC
 
 permissions:
   contents: write

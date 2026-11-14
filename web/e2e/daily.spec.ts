@@ -77,7 +77,7 @@ test("results left open past midnight offer today's puzzle instead of a countdow
   await expect(page.getByText(/Next daily in/)).toBeVisible();
 
   await page.clock.fastForward(3 * 60_000);
-  const link = page.getByRole("link", { name: "Today's puzzle is ready" });
-  await expect(link).toHaveAttribute("href", "/daily");
   await expect(page.getByText(/Next daily in/)).toHaveCount(0);
+  await page.getByRole("button", { name: "Today's puzzle is ready" }).click();
+  await expect(page.getByText("Round 1 of 5")).toBeVisible();
 });

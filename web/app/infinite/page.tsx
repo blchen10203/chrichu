@@ -7,8 +7,6 @@ import { fighters, metrics } from "@/lib/engine/data";
 import { actualValue, localDate, randomRound } from "@/lib/engine/rounds";
 import { dailyScore } from "@/lib/engine/scoring";
 import type { Fighter, Metric } from "@/lib/engine/types";
-import { browserStorage, load, recordInfinite, save, type State } from "@/lib/storage";
-import { useStorageSync } from "@/lib/storage/useStorageSync";
 
 type Play = { metric: Metric; refFighter: Fighter; target: Fighter; refValue: number; actual: number };
 type Result = { guess: number; score: number };
@@ -23,21 +21,17 @@ function newRound(avoid?: string): Play {
 }
 
 export default function InfinitePage() {
-  const [state, setState] = useState<State | null>(null);
   const [play, setPlay] = useState<Play | null>(null);
   const [result, setResult] = useState<Result | null>(null);
   const [session, setSession] = useState({ n: 0, total: 0 });
 
-  useStorageSync(setState);
-
-  // Storage and Math.random exist only after mount, so the first round is picked here.
+  // Math.random exists only after mount, so the first round is picked here.
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    setState(load(browserStorage()));
     setPlay(newRound());
   }, []);
 
-  if (!state || !play) return <Header modeLabel="Infinite" />;
+  if (!play) return <Header modeLabel="Infinite" />;
 
   const modeLabel = `Round ${session.n + 1}`;
   const top =
@@ -71,11 +65,7 @@ export default function InfinitePage() {
       top={top}
       {...play}
       onLockIn={(guess) => {
-        const score = dailyScore(play.metric, guess, play.actual);
-        const next = recordInfinite(state, score);
-        save(next, browserStorage());
-        setState(next);
-        setResult({ guess, score });
+        setResult({ guess, score: dailyScore(play.metric, guess, play.actual) });
       }}
     />
   );

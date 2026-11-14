@@ -4,7 +4,6 @@ export type DayState = { rounds: Round[]; guesses: number[]; scores: number[]; d
 export type State = {
   daily: { days: Record<string, DayState>; streak: number; maxStreak: number; lastDone: string | null };
   survival: { best: number; runs: number };
-  infinite: { rounds: number; totalScore: number };
 };
 
 export const STORAGE_KEY = "reachdle:v1";
@@ -13,7 +12,6 @@ const ROUNDS_PER_DAY = 5;
 export const emptyState = (): State => ({
   daily: { days: {}, streak: 0, maxStreak: 0, lastDone: null },
   survival: { best: 0, runs: 0 },
-  infinite: { rounds: 0, totalScore: 0 },
 });
 
 // The only function allowed to touch `window`.
@@ -38,13 +36,12 @@ const isDay = (v: unknown): boolean =>
 
 // All-or-nothing: any mismatch anywhere means a fresh state, so later code can trust the shape.
 function isState(v: unknown): v is State {
-  if (!isObject(v) || !isObject(v.daily) || !isObject(v.survival) || !isObject(v.infinite)) return false;
+  if (!isObject(v) || !isObject(v.daily) || !isObject(v.survival)) return false;
   const { days, streak, maxStreak, lastDone } = v.daily;
   return (
     isObject(days) && Object.values(days).every(isDay) &&
     isNum(streak) && isNum(maxStreak) && (lastDone === null || typeof lastDone === "string") &&
-    isNum(v.survival.best) && isNum(v.survival.runs) &&
-    isNum(v.infinite.rounds) && isNum(v.infinite.totalScore)
+    isNum(v.survival.best) && isNum(v.survival.runs)
   );
 }
 
@@ -89,12 +86,6 @@ export function recordGuess(state: State, date: string, guess: number, score: nu
     ...state,
     daily: { days, streak, maxStreak: Math.max(state.daily.maxStreak, streak), lastDone: date },
   };
-}
-
-export function recordInfinite(state: State, score: number): State {
-  if (!Number.isFinite(score)) return state;
-  const { rounds, totalScore } = state.infinite;
-  return { ...state, infinite: { rounds: rounds + 1, totalScore: totalScore + score } };
 }
 
 export function recordSurvival(state: State, survived: number): State {

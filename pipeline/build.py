@@ -29,7 +29,7 @@ class BuildError(Exception):
 def read_csvs(base_url):
     out = {}
     for name in FILES:
-        with urllib.request.urlopen(f"{base_url}{name}.csv") as resp:
+        with urllib.request.urlopen(f"{base_url}{name}.csv", timeout=60) as resp:
             out[name] = list(csv.DictReader(io.StringIO(resp.read().decode("utf-8"), newline="")))
     return out
 
@@ -66,9 +66,8 @@ def build(rows, roster, shipped, today, image_dir, min_eligible=30):
                                     dob, deceased, today)
         per_fighter.append(values)
         fighters.append({
-            "id": fighter_id, "name": name, "dob": dob, "deceased": deceased,
+            "id": fighter_id, "name": name, "dob": dob,
             "hasImage": (image_dir / f"{fighter_id}.png").exists(),
-            "trackedFights": sum(f["tracked"] for f in fights[name]),
             "metrics": values,
         })
 

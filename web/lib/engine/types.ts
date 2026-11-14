@@ -8,9 +8,7 @@ export type Fighter = {
   id: FighterId;
   name: string;
   dob: string | null; // YYYY-MM-DD
-  deceased: boolean;
   hasImage: boolean;
-  trackedFights: number;
   metrics: Record<MetricId, number>; // a key is present only when eligible
 };
 

@@ -1,5 +1,6 @@
-import type { KeyboardEvent, PointerEvent } from "react";
-import { formatValue, fromFraction, nudge, toFraction } from "@/lib/engine/scale";
+import type { PointerEvent } from "react";
+import { arrowKeys } from "@/components/stages/gauge";
+import { formatValue, fromFraction, toFraction } from "@/lib/engine/scale";
 import type { Metric } from "@/lib/engine/types";
 
 export type StageProps = {
@@ -25,12 +26,7 @@ export function BarStage({ metric, refValue, value, onChange, actual }: StagePro
     const r = e.currentTarget.getBoundingClientRect();
     onChange?.(fromFraction(metric, 1 - (e.clientY - r.top) / r.height));
   };
-  const key = (e: KeyboardEvent) => {
-    const dir = { ArrowUp: 1, ArrowRight: 1, ArrowDown: -1, ArrowLeft: -1 }[e.key];
-    if (!dir || !onChange) return;
-    e.preventDefault();
-    onChange(nudge(metric, value, dir as 1 | -1));
-  };
+  const key = arrowKeys(metric, value, onChange);
 
   return (
     <div className="flex min-h-64 flex-1 gap-2">

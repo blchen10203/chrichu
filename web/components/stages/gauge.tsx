@@ -9,15 +9,18 @@ export const clamp = (t: number) => Math.min(1, Math.max(0, t));
 export const arcAt = (sweep: number) => (e: PointerEvent, r: DOMRect) =>
   fractionAt(e.clientX - (r.left + r.width / 2), e.clientY - (r.top + r.height / 2), sweep);
 
+// Every stage's slider: up/right nudges the estimate up a step, down/left down a step.
+export const arrowKeys = (metric: Metric, value: number, onChange?: (v: number) => void) => (e: KeyboardEvent) => {
+  const dir = { ArrowUp: 1, ArrowRight: 1, ArrowDown: -1, ArrowLeft: -1 }[e.key];
+  if (!dir || !onChange) return;
+  e.preventDefault();
+  onChange(nudge(metric, value, dir as 1 | -1));
+};
+
 // Pointer and key handling shared by the gauge-like stages. `at` maps a pointer to a 0..1 fraction. Pass no onChange for no handlers.
 export function useGaugeInput(metric: Metric, value: number, at: (e: PointerEvent, r: DOMRect) => number, onChange?: (v: number) => void) {
   const drag = (e: PointerEvent<HTMLDivElement>) => onChange?.(fromFraction(metric, at(e, e.currentTarget.getBoundingClientRect())));
-  const onKeyDown = (e: KeyboardEvent) => {
-    const dir = { ArrowUp: 1, ArrowRight: 1, ArrowDown: -1, ArrowLeft: -1 }[e.key];
-    if (!dir || !onChange) return;
-    e.preventDefault();
-    onChange(nudge(metric, value, dir as 1 | -1));
-  };
+  const onKeyDown = arrowKeys(metric, value, onChange);
   const face = onChange
     ? {
         onPointerDown: (e: PointerEvent<HTMLDivElement>) => {

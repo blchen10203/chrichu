@@ -1,8 +1,9 @@
-import { useId, useRef, type KeyboardEvent, type PointerEvent } from "react";
+import { useId, useRef, type PointerEvent } from "react";
 import type { StageProps } from "@/components/BarStage";
+import { arrowKeys } from "@/components/stages/gauge";
 import outlinesJson from "@/data/outlines.json";
 import { fighters } from "@/lib/engine/data";
-import { formatValue, fromFraction, nudge, snapValue } from "@/lib/engine/scale";
+import { formatValue, fromFraction, snapValue } from "@/lib/engine/scale";
 
 // SVG user units. A figure is FIG tall: head at y 0, floor at y FIG, centred on x 0.
 const W = 320;
@@ -150,12 +151,7 @@ export function SilhouetteStage({ metric, refValue, value, onChange, actual, ref
     const y = ((e.clientY - r.top) / r.height) * H;
     onChange?.(snapValue(metric, reach ? (2 * Math.abs(x - cx)) / ppi : (GROUND - y) / ppi));
   };
-  const key = (e: KeyboardEvent) => {
-    const dir = { ArrowUp: 1, ArrowRight: 1, ArrowDown: -1, ArrowLeft: -1 }[e.key];
-    if (!dir || !onChange) return;
-    e.preventDefault();
-    onChange(nudge(metric, value, dir as 1 | -1));
-  };
+  const key = arrowKeys(metric, value, onChange);
 
   const handles = reach
     ? [

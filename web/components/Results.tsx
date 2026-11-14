@@ -94,9 +94,10 @@ export function Results({ puzzle, day, state, today }: Props) {
           </Link>
         </div>
         {newDay ? (
-          <Link href="/daily" className={bigButton}>
+          // A reload, not a Link: a client-side hop to the page we are on keeps yesterday's date in state.
+          <button type="button" className={bigButton} onClick={() => location.reload()}>
             Today&apos;s puzzle is ready
-          </Link>
+          </button>
         ) : (
           <div className="text-center text-xs text-muted tabular-nums">Next daily in {left ?? "--:--:--"}</div>
         )}

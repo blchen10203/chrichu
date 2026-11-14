@@ -22,10 +22,9 @@ def run(roster=(A, B), shipped=SHIP, image_dir=Path("no-such-dir"), min_eligible
 
 def test_fighters_json_shape():
     fighters, _, _ = run()
-    assert fighters[0] == {"id": "a-one", "name": "A One", "dob": "1987-07-19", "deceased": False,
-                           "hasImage": False, "trackedFights": 1, "metrics": {"height": 76, "reach": 84.0}}
+    assert fighters[0] == {"id": "a-one", "name": "A One", "dob": "1987-07-19",
+                           "hasImage": False, "metrics": {"height": 76, "reach": 84.0}}
     assert fighters[1]["dob"] is None
-    assert fighters[1]["trackedFights"] == 2
 
 
 def test_metrics_json_entry():
@@ -53,8 +52,11 @@ def test_has_image_follows_the_file(tmp_path):
     assert [f["hasImage"] for f in fighters] == [True, False]
 
 
-def test_deceased_flag():
-    assert run(roster=({**A, "deceased": "1"}, B))[0][0]["deceased"] is True
+def test_deceased_flag_reaches_the_metrics(monkeypatch):
+    seen, real = [], derive.metrics_for
+    monkeypatch.setattr(derive, "metrics_for", lambda *a: seen.append(a[4]) or real(*a))
+    run(roster=({**A, "deceased": "1"}, B))
+    assert seen == [True, False]
 
 
 @pytest.mark.parametrize("roster, shipped, min_eligible, message", [

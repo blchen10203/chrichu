@@ -1,5 +1,6 @@
-import type { KeyboardEvent, MouseEvent } from "react";
+import type { MouseEvent } from "react";
 import type { StageProps } from "@/components/BarStage";
+import { arrowKeys } from "@/components/stages/gauge";
 import { formatValue, fromFraction, nudge } from "@/lib/engine/scale";
 
 const DASH = "3 2";
@@ -51,12 +52,7 @@ function Pile({ n, metricId, dashed, ...rest }: { n: number; metricId: string; d
 export function StackStage({ metric, refValue, value, onChange, actual }: StageProps) {
   const reveal = actual !== undefined;
   const interactive = onChange && !reveal;
-  const key = (e: KeyboardEvent) => {
-    const dir = { ArrowUp: 1, ArrowRight: 1, ArrowDown: -1, ArrowLeft: -1 }[e.key];
-    if (!dir || !onChange) return;
-    e.preventDefault();
-    onChange(nudge(metric, value, dir as 1 | -1));
-  };
+  const key = arrowKeys(metric, value, onChange);
 
   // Fixed height: 4 rows of icons (knockdowns reach 22) still leave a 44 px+ add area at the axis maximum.
   return (

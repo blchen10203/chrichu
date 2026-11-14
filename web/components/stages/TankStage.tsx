@@ -1,6 +1,6 @@
 import { useEffect, useRef, type PointerEvent } from "react";
 import type { StageProps } from "@/components/BarStage";
-import { GaugeSlider, clamp, useGaugeInput } from "@/components/stages/gauge";
+import { GaugeSlider, arrowKeys, clamp } from "@/components/stages/gauge";
 import { fromFraction, toFraction } from "@/lib/engine/scale";
 
 export const TANK_FILL_SECONDS = 3;
@@ -12,7 +12,7 @@ export function TankStage({ metric, refValue, value, onChange, actual }: StagePr
   const reveal = actual !== undefined;
   const interactive = onChange && !reveal;
   const t = clamp(toFraction(metric, value));
-  const { onKeyDown } = useGaugeInput(metric, value, () => 0, interactive ? onChange : undefined);
+  const onKeyDown = arrowKeys(metric, value, interactive ? onChange : undefined);
 
   const timer = useRef<ReturnType<typeof setInterval>>(undefined);
   const hold = useRef({ t: 0, at: 0, y: 0, dragging: false });
