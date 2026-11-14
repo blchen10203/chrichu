@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { formatValue, fromFraction, nudge, snapValue, toFraction } from "@/lib/engine/scale";
+import { axisTicks, formatValue, fromFraction, nudge, snapValue, toFraction } from "@/lib/engine/scale";
 import type { Metric } from "@/lib/engine/types";
 
 const m = (over: Partial<Metric>): Metric => ({
@@ -56,6 +56,15 @@ describe("axis position", () => {
   it("clamps positions outside the axis", () => {
     expect(fromFraction(reach, -1)).toBe(60);
     expect(fromFraction(reach, 2)).toBe(86);
+  });
+});
+
+describe("axisTicks", () => {
+  it("picks round values inside a log range", () => {
+    expect(axisTicks(strikes)).toEqual([25, 50, 100, 250, 500, 1000, 2500, 5000]);
+  });
+  it("splits a linear range into quarters", () => {
+    expect(axisTicks(m({ min: 0, max: 20 }))).toEqual([0, 5, 10, 15, 20]);
   });
 });
 

@@ -5,7 +5,8 @@ test("holding fills the tank, letting go stops it, and a drag stops the filling"
   await page.clock.install();
   await page.goto("/infinite");
   const stage = await findStage(page, "tank-stage");
-  await expectGuessing(page, stage);
+  await expectGuessing(page, stage, true);
+  await expect(stage.getByTestId("tank-axis")).toContainText("1,000");
   const tank = stage.getByTestId("tank-red");
   const box = (await tank.boundingBox())!;
   const cx = box.x + box.width / 2;

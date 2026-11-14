@@ -82,6 +82,10 @@ def build(rows, roster, shipped, today, image_dir, min_eligible=30):
         if metric_id not in metrics.CANDIDATES:
             raise BuildError(f"Unknown metric {metric_id} in shipped.json.")
         summary, (lo, hi) = stats.get(metric_id, ({"n": 0, "step": 0}, (0, 0)))
+        # A range override widens the slider past the data, so a guess can go well off either end.
+        lo, hi = shipped.get("range", {}).get(metric_id, (lo, hi))
+        if not all(isinstance(x, (int, float)) and not isinstance(x, bool) for x in (lo, hi)) or lo >= hi:
+            raise BuildError(f"{metric_id}: range override must be two numbers, low then high.")
         step = shipped.get("step", {}).get(metric_id, summary["step"])
         if metric_id in shipped.get("step", {}) and (isinstance(step, bool) or not isinstance(step, (int, float)) or step <= 0):
             raise BuildError(f"{metric_id}: step override must be a number greater than 0.")

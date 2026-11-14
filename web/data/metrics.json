@@ -6,8 +6,8 @@
     "round": "silhouette",
     "scale": "linear",
     "snap": 1,
-    "min": 59.1,
-    "max": 81.9,
+    "min": 48,
+    "max": 96,
     "step": 1.5264
   },
   {
@@ -17,8 +17,8 @@
     "round": "silhouette",
     "scale": "linear",
     "snap": 0.5,
-    "min": 59.8,
-    "max": 86.2,
+    "min": 48,
+    "max": 96,
     "step": 1.9587
   },
   {

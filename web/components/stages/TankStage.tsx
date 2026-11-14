@@ -1,7 +1,7 @@
 import { useEffect, useRef, type PointerEvent } from "react";
 import type { StageProps } from "@/components/BarStage";
 import { GaugeSlider, arrowKeys, clamp } from "@/components/stages/gauge";
-import { fromFraction, toFraction } from "@/lib/engine/scale";
+import { axisTicks, formatValue, fromFraction, toFraction } from "@/lib/engine/scale";
 
 export const TANK_FILL_SECONDS = 3;
 export const DRAG_THRESHOLD_PX = 8;
@@ -37,6 +37,13 @@ export function TankStage({ metric, refValue, value, onChange, actual }: StagePr
 
   return (
     <div data-testid="tank-stage" className="flex flex-none items-end justify-center gap-8 px-6 py-4">
+      <div data-testid="tank-axis" aria-hidden="true" className="relative -mr-5 h-64 w-12 text-right text-[11px] text-muted tabular-nums">
+        {axisTicks(metric).map((v) => (
+          <div key={v} className="absolute right-0 translate-y-1/2" style={{ bottom: `${clamp(toFraction(metric, v)) * 100}%` }}>
+            {formatValue(metric, v)} —
+          </div>
+        ))}
+      </div>
       <div className={TANK}>
         <div className="absolute inset-x-0 bottom-0 overflow-hidden rounded-[0.875rem]" style={{ height: `${clamp(toFraction(metric, refValue)) * 100}%` }}>
           <div className="size-full bg-blue opacity-40" />

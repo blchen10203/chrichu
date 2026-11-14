@@ -7,7 +7,8 @@ test("the stack starts empty, grows with a tap, shrinks with a tap on the pile, 
   const slider = page.getByRole("slider").first();
   expect(await valueOf(page)).toBe(Number(await slider.getAttribute("aria-valuemin")));
 
-  const afterKey = await expectGuessing(page, stage);
+  const afterKey = await expectGuessing(page, stage, true);
+  await expect(stage).toContainText("12"); // a count beside every full row of 6
   await stage.getByTestId("stack-add").click();
   expect(await valueOf(page)).toBe(afterKey + 1);
   await stage.getByTestId("stack-pile").click();

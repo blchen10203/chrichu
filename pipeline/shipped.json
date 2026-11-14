@@ -1,5 +1,6 @@
 {
   "ship": ["height", "reach", "slpm", "career_sig", "knockdowns", "td_avg",
            "sub_wins", "win_pct", "finish_rate", "age"],
-  "step": {}
+  "step": {},
+  "range": {"height": [48, 96], "reach": [48, 96]}
 }

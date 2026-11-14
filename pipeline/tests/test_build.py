@@ -35,6 +35,12 @@ def test_metrics_json_entry():
     assert [m["id"] for m in run()[1]] == ["height", "reach"]  # shipped only, in ship order
 
 
+def test_range_override():
+    shipped = {"ship": ["height", "reach"], "step": {}, "range": {"reach": [48, 96]}}
+    reach = next(m for m in run(shipped=shipped)[1] if m["id"] == "reach")
+    assert (reach["min"], reach["max"]) == (48, 96)
+
+
 def test_step_override():
     reach = next(m for m in run(shipped={"ship": ["height", "reach"], "step": {"reach": 2}})[1] if m["id"] == "reach")
     assert reach["step"] == 2
@@ -70,6 +76,7 @@ def test_deceased_flag_reaches_the_metrics(monkeypatch):
     ((A, B), SHIP, 3, "height"),                                            # too few eligible
     (({**A, "deceased": "yes"}, B), SHIP, 2, "A One"),                      # deceased is not 0 or 1
     ((A, B), {"ship": ["height", "reach"], "step": {"reach": 0}}, 2, "reach"),  # override must be above 0
+    ((A, B), {"ship": ["height", "reach"], "step": {}, "range": {"reach": [90, 50]}}, 2, "reach"),  # low then high
 ])
 def test_build_stops(roster, shipped, min_eligible, message):
     with pytest.raises(build.BuildError, match=message):

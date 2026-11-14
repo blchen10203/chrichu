@@ -49,15 +49,32 @@ function Pile({ n, metricId, dashed, ...rest }: { n: number; metricId: string; d
   );
 }
 
+// A line at every full row of 6, so a pile can be counted at a glance; `labels` writes the counts on the left.
+function Rows({ max, labels }: { max: number; labels?: boolean }) {
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 flex flex-col-reverse">
+      {Array.from({ length: Math.floor(max / 6) }, (_, i) => (
+        <div key={i} className="relative aspect-[6/1] w-full shrink-0 border-t border-line">
+          {labels && (
+            <span className="absolute -left-8 top-0 w-6 -translate-y-1/2 text-right text-[11px] text-muted tabular-nums">{(i + 1) * 6}</span>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export function StackStage({ metric, refValue, value, onChange, actual }: StageProps) {
   const reveal = actual !== undefined;
   const interactive = onChange && !reveal;
   const key = arrowKeys(metric, value, onChange);
+  const max = fromFraction(metric, 1);
 
   // Fixed height: 4 rows of icons (knockdowns reach 22) still leave a 44 px+ add area at the axis maximum.
   return (
-    <div data-testid="stack-stage" className="flex h-56 flex-none gap-3 px-2">
-      <div className="flex flex-1 flex-col justify-end border-b border-tick text-blue">
+    <div data-testid="stack-stage" className="flex h-56 flex-none gap-3 pr-2 pl-9">
+      <div className="relative flex flex-1 flex-col justify-end border-b border-tick text-blue">
+        <Rows max={max} labels />
         <Pile n={Math.round(refValue)} metricId={metric.id} />
       </div>
       {interactive ? (
@@ -67,14 +84,15 @@ export function StackStage({ metric, refValue, value, onChange, actual }: StageP
           aria-label="Your estimate"
           aria-orientation="vertical"
           aria-valuemin={fromFraction(metric, 0)}
-          aria-valuemax={fromFraction(metric, 1)}
+          aria-valuemax={max}
           aria-valuenow={value}
           aria-valuetext={formatValue(metric, value)}
           onKeyDown={key}
           // Any tap that is not on a drawn icon adds one; the pile stops its own taps.
           onClick={() => onChange(nudge(metric, value, 1))}
-          className="flex flex-1 touch-none flex-col border-b border-tick text-red focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text"
+          className="relative flex flex-1 touch-none flex-col border-b border-tick text-red focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text"
         >
+          <Rows max={max} />
           <div data-testid="stack-add" className="min-h-11 flex-1" />
           <Pile
             n={Math.round(value)}
@@ -90,6 +108,7 @@ export function StackStage({ metric, refValue, value, onChange, actual }: StageP
         </div>
       ) : (
         <div className="relative flex flex-1 flex-col justify-end border-b border-tick text-red">
+          <Rows max={max} />
           <Pile n={Math.round(value)} metricId={metric.id} />
           {reveal && (
             <div data-testid="true-value" className="absolute inset-0 flex flex-col justify-end text-truth">

@@ -46,6 +46,16 @@ export function fromFraction(metric: Metric, t: number): number {
   return snapValue(metric, metric.scale === "log" ? Math.exp(x) : x);
 }
 
+// Round values to label an axis with: 1, 2.5 and 5 of each power of ten on a log axis, quarters on a linear one.
+export function axisTicks(metric: Metric): number[] {
+  if (metric.scale === "linear") return [0, 0.25, 0.5, 0.75, 1].map((t) => fromFraction(metric, t));
+  const out: number[] = [];
+  for (let p = 10 ** Math.floor(Math.log10(metric.min)); p <= metric.max; p *= 10) {
+    for (const k of [1, 2.5, 5]) if (k * p >= metric.min && k * p <= metric.max) out.push(k * p);
+  }
+  return out;
+}
+
 // `feet` writes inch metrics as 6' 2" (under a foot, just 3"); half inches keep their decimal.
 export function formatValue(metric: Metric, value: number, feet = false): string {
   if (metric.scale === "log") return Math.round(value).toLocaleString("en-US");

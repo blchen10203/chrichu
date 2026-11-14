@@ -14,8 +14,9 @@ export async function findStage(page: Page, testId: string): Promise<Locator> {
 
 export const valueOf = async (page: Page) => Number(await page.getByRole("slider").first().getAttribute("aria-valuenow"));
 
-export async function expectGuessing(page: Page, stage: Locator): Promise<number> {
-  await expect(stage).not.toContainText(/\d/);
+// Stages with a printed scale (tank, stack) pass `scaled`; the rest must show no numbers while guessing.
+export async function expectGuessing(page: Page, stage: Locator, scaled = false): Promise<number> {
+  if (!scaled) await expect(stage).not.toContainText(/\d/);
   expect(await stage.evaluate((el) => [el, ...el.querySelectorAll("*")].some((n) => getComputedStyle(n).touchAction === "none"))).toBe(true);
   const slider = stage.getByRole("slider");
   await expect(slider).toHaveCount(1);
