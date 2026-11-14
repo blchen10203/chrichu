@@ -75,7 +75,7 @@ export function Reveal({ modeLabel, top, metric, refFighter, target, refValue, g
           </div>
           <div className="flex flex-1 flex-col gap-1">
             <div className="text-xs text-muted">Actual</div>
-            <div className="self-start border-b border-dashed border-text font-display text-[32px] font-light leading-none">{formatValue(metric, actual)}</div>
+            <div className="self-start border-b border-dashed border-truth text-truth font-display text-[32px] font-light leading-none">{formatValue(metric, actual)}</div>
           </div>
         </div>
       </div>

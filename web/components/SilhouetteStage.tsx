@@ -215,7 +215,7 @@ export function SilhouetteStage({ metric, refValue, value, onChange, actual, ref
               <Ticks x={cx % (4 * ppi)} y={150} n={Math.ceil(W / (4 * ppi)) + 1} step={4 * ppi} />
               {reveal && <text x={cx} y={140} textAnchor="middle" fontSize="11" fill="var(--color-muted)">each tick = 4 in</text>}
               <Reacher id={targetId} top={RED_TOP} span={value} ppi={ppi} color="var(--color-red)" />
-              {reveal && <Reacher id={targetId} top={RED_TOP} span={actual} ppi={ppi} color="var(--color-text)" dashed />}
+              {reveal && <Reacher id={targetId} top={RED_TOP} span={actual} ppi={ppi} color="var(--color-truth)" dashed />}
             </>
           ) : (
             <>
@@ -225,7 +225,7 @@ export function SilhouetteStage({ metric, refValue, value, onChange, actual, ref
               {figure(value, (W * 3) / 4, "var(--color-red)", targetId)}
               {reveal && (
                 <g data-testid="true-value" strokeDasharray="4 3">
-                  {figure(actual, (W * 3) / 4, "var(--color-text)", targetId)}
+                  {figure(actual, (W * 3) / 4, "var(--color-truth)", targetId)}
                 </g>
               )}
             </>

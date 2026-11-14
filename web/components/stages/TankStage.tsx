@@ -56,7 +56,7 @@ export function TankStage({ metric, refValue, value, onChange, actual }: StagePr
             viewBox="0 0 40 4"
             preserveAspectRatio="none"
             aria-hidden="true"
-            className="pointer-events-none absolute -inset-x-2 h-1 -translate-y-1/2 text-text"
+            className="pointer-events-none absolute -inset-x-2 h-1 -translate-y-1/2 text-truth"
             style={{ top: `${(1 - clamp(toFraction(metric, actual))) * 100}%` }}
           >
             <line x1="0" y1="2" x2="40" y2="2" stroke="currentColor" strokeWidth="2" strokeLinecap="butt" strokeDasharray="4 3" />

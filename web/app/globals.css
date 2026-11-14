@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-/* Black on white. The corner tokens keep their UFC names: blue is the reference fighter (grey), red is your estimate (black). */
+/* Black on white, with two quiet accents for the reveal's three roles. The corner tokens keep their UFC names:
+   blue is the reference fighter, red is your estimate (black); truth is where the answer really was. */
 @theme {
   --color-bg: #FFFFFF;
   --color-panel: #FFFFFF;
@@ -8,7 +9,8 @@
   --color-tick: #BDBDBD;
   --color-text: #000000;
   --color-muted: #737373;
-  --color-blue: #8A8A8A;
+  --color-blue: #4A6FAF;
+  --color-truth: #1B7F45;
   --color-red: #000000;
   --font-sans: var(--font-archivo), system-ui, sans-serif;
   --font-display: var(--font-archivo), system-ui, sans-serif;

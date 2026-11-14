@@ -77,7 +77,7 @@ export function LegStage({ metric, refValue, value, onChange, actual }: StagePro
           <line x1="0" x2={W} y1="280" y2="280" stroke="var(--color-tick)" />
           <Grip t={clamp(toFraction(metric, refValue))} side="right" className="text-blue" />
           <Grip testId="guess-grip" t={t} side="left" className="text-red" />
-          {reveal && <Grip testId="true-value" t={clamp(toFraction(metric, actual))} side="left" className="text-text" dashed />}
+          {reveal && <Grip testId="true-value" t={clamp(toFraction(metric, actual))} side="left" className="text-truth" dashed />}
         </svg>
         {interactive && <GaugeSlider metric={metric} value={value} x={50} y={(yOf(t) / H) * 100} onKeyDown={onKeyDown} />}
       </div>

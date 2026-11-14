@@ -34,7 +34,7 @@ export function FighterRows({ metric, refFighter, target, refValue }: RowsProps)
       <div className="flex items-center gap-3">
         <Avatar fighter={refFighter} corner="blue" />
         <div className="flex-1 text-[15px] text-muted">{refFighter.name}</div>
-        <div data-testid="ref-value" className="font-display text-[28px] font-light">{formatValue(metric, refValue)}</div>
+        <div data-testid="ref-value" className="font-display text-[28px] font-light text-blue">{formatValue(metric, refValue)}</div>
       </div>
       <div className="flex items-center gap-3">
         <Avatar fighter={target} corner="red" />

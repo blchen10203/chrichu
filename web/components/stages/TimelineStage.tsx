@@ -31,7 +31,7 @@ export function TimelineStage({ metric, refValue, value, onChange, actual }: Sta
         <div className="absolute inset-x-0 top-1/2 h-1 -translate-y-1/2 rounded-full bg-line" />
         <Pin t={clamp(toFraction(metric, refValue))} className="text-blue" opacity={0.4} />
         <Pin testId="guess-pin" t={t} className="text-red" />
-        {reveal && <Pin testId="true-value" t={clamp(toFraction(metric, actual))} className="text-text" dash="4 3" />}
+        {reveal && <Pin testId="true-value" t={clamp(toFraction(metric, actual))} className="text-truth" dash="4 3" />}
         {interactive && <GaugeSlider metric={metric} value={value} x={t * 100} y={50} orientation="horizontal" onKeyDown={onKeyDown} />}
       </div>
       <div className="flex justify-between text-sm text-muted">

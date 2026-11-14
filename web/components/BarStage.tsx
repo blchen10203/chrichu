@@ -93,7 +93,7 @@ export function BarStage({ metric, refValue, value, onChange, actual }: StagePro
             </div>
             {reveal && (
               <div
-                className="absolute inset-x-0 bottom-0 rounded-t-lg border-2 border-dashed border-text"
+                className="absolute inset-x-0 bottom-0 rounded-t-lg border-2 border-dashed border-truth"
                 style={{ height: pct(metric, actual) }}
               />
             )}

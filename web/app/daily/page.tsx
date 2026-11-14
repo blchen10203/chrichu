@@ -60,7 +60,7 @@ export default function DailyPage() {
   };
 
   const played = day.guesses.length;
-  const pip = (n: number) => (n < played ? "bg-text" : n === played ? "bg-blue" : "bg-line");
+  const pip = (n: number) => (n < played ? "bg-text" : n === played ? "bg-muted" : "bg-line");
   const top = (
     <div className="flex items-center justify-between">
       <div className="flex gap-1.5">

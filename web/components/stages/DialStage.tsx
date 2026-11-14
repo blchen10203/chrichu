@@ -51,7 +51,7 @@ export function DialStage({ metric, refValue, value, onChange, actual }: StagePr
               stroke="currentColor"
               strokeWidth="2"
               strokeDasharray="3 2"
-              className="text-text"
+              className="text-truth"
             />
           )}
         </svg>

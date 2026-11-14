@@ -96,7 +96,7 @@ export function StackStage({ metric, refValue, value, onChange, actual }: StageP
         <div className="relative flex flex-1 flex-col justify-end border-b border-tick text-red">
           <Pile n={Math.round(value)} metricId={metric.id} />
           {reveal && (
-            <div data-testid="true-value" className="absolute inset-0 flex flex-col justify-end text-text">
+            <div data-testid="true-value" className="absolute inset-0 flex flex-col justify-end text-truth">
               <Pile n={Math.round(actual)} metricId={metric.id} dashed />
             </div>
           )}

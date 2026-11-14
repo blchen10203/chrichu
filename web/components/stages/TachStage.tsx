@@ -60,7 +60,7 @@ export function TachStage({ metric, refValue, value, onChange, actual }: StagePr
           })}
           <Needle t={clamp(toFraction(metric, refValue))} width={3} opacity={0.4} className="text-blue" />
           <Needle testId="guess-needle" t={t} width={3} className="text-red" />
-          {reveal && <Needle testId="true-value" t={clamp(toFraction(metric, actual))} width={2} dash="4 3" className="text-text" />}
+          {reveal && <Needle testId="true-value" t={clamp(toFraction(metric, actual))} width={2} dash="4 3" className="text-truth" />}
           <circle cx="50" cy="50" r="3" fill="currentColor" className="text-red" />
         </svg>
         {interactive && <GaugeSlider metric={metric} value={value} x={50 + R_NEEDLE * tip.dx} y={50 + R_NEEDLE * tip.dy} onKeyDown={onKeyDown} />}
