@@ -34,9 +34,38 @@
   }
 }
 
+/* The reveal's red-to-green score: how light the hue is, so it reads on either background. */
+:root {
+  --quality-text: 34%;
+  --quality-bar: 46%;
+}
+
+/* Dark mode: set on <html> by the theme script in layout.tsx and the toggle. Same roles, light on near-black. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #0A0A0A;
+  --color-panel: #0A0A0A;
+  --color-line: #2A2A2A;
+  --color-tick: #4D4D4D;
+  --color-text: #F5F5F5;
+  --color-muted: #9A9A9A;
+  --color-blue: #8FA9DB;
+  --color-truth: #4CC27E;
+  --color-red: #F5F5F5;
+  --quality-text: 64%;
+  --quality-bar: 52%;
+}
+
 body {
   background: var(--color-bg);
   color: var(--color-text);
+}
+
+/* The theme toggle grows the new theme out of the button as a circle (ThemeToggle.tsx); no cross-fade underneath. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
 
 /* Condensed cut of the same family for numbers; tabular figures keep them from jumping. */

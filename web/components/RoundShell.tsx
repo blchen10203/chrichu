@@ -16,7 +16,8 @@ import { useTween } from "@/lib/useTween";
 export function Header({ modeLabel, top }: { modeLabel: string; top?: ReactNode }) {
   return (
     <>
-      <div className="flex items-center justify-between text-[15px]">
+      {/* pr-10 keeps the mode label clear of the theme toggle in the corner. */}
+      <div className="flex items-center justify-between pr-10 text-[15px]">
         <Link href="/" className="flex min-h-11 items-center font-semibold">
           {config.name}
         </Link>

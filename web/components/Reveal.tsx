@@ -21,8 +21,8 @@ type Props = {
   onNext: () => void;
 };
 
-// A score's colour: red at 0, through amber, to green at 100. `lightness` keeps text dark enough to read on white.
-const quality = (score: number, lightness: number) => `hsl(${Math.round(score * 1.3)} 75% ${lightness}%)`;
+// A score's colour: red at 0, through amber, to green at 100. `lightness` (a CSS variable per theme) keeps it readable.
+const quality = (score: number, lightness: string) => `hsl(${Math.round(score * 1.3)} 75% ${lightness})`;
 
 // The answer's entrance: the dashed marker leaves your guess and travels to the real value
 // while the score counts up beside it, both on one clock.
@@ -51,7 +51,7 @@ export function Reveal({ modeLabel, top, metric, refFighter, target, refValue, g
             <div
               data-testid="score"
               className={`origin-bottom-left font-display text-[120px] font-extralight leading-[0.8] ${good ? "motion-safe:animate-pop" : ""}`}
-              style={{ color: quality(shown, 34) }}
+              style={{ color: quality(shown, "var(--quality-text)") }}
             >
               {shown}
             </div>
@@ -64,7 +64,7 @@ export function Reveal({ modeLabel, top, metric, refFighter, target, refValue, g
         </div>
         {/* How good the guess was, red to green, filling in step with the count. */}
         <div aria-hidden="true" className="h-1.5 rounded-full bg-line">
-          <div className="h-full rounded-full" style={{ width: `${shown}%`, background: quality(shown, 46) }} />
+          <div className="h-full rounded-full" style={{ width: `${shown}%`, background: quality(shown, "var(--quality-bar)") }} />
         </div>
       </div>
       <div className={`${panel} ${spotOn ? "motion-safe:animate-ring" : ""}`}>
