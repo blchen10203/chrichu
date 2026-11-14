@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type MouseEvent, type PointerEvent, type ReactNode } from "react";
 import { Avatar } from "@/components/Avatar";
 import { Stage, startValue } from "@/components/stages";
 import { Timer } from "@/components/Timer";
@@ -83,6 +83,10 @@ type Props = RowsProps & {
   onLockIn: (guess: number) => void;
 };
 
+// Holding − or +: one step at once, then after a beat a steady run (about 13 a second) until let go.
+export const HOLD_DELAY_MS = 400;
+export const HOLD_EVERY_MS = 75;
+
 export function RoundShell({ modeLabel, top, seconds, metric, refFighter, target, refValue, onLockIn }: Props) {
   const [guess, setGuess] = useState(() => startValue(metric));
   // The timer fires from a stale closure, so it reads the latest estimate from here.
@@ -93,11 +97,38 @@ export function RoundShell({ modeLabel, top, seconds, metric, refFighter, target
   };
   const copy = metricCopy(metric, target.name);
   const format = useFormat();
+
+  const repeat = useRef(0);
+  const stopHold = () => {
+    clearTimeout(repeat.current);
+    clearInterval(repeat.current);
+  };
+  useEffect(() => stopHold, []); // a Survival timer can end the round mid-hold
+  // Each nudge button carries its direction in data-dir; the handlers are shared.
+  const dirOf = (e: { currentTarget: HTMLElement }) => Number(e.currentTarget.dataset.dir) as 1 | -1;
+  const step = (dir: 1 | -1) => change(nudge(metric, guessRef.current, dir));
+  const holdStart = (e: PointerEvent<HTMLButtonElement>) => {
+    const dir = dirOf(e);
+    e.currentTarget.setPointerCapture(e.pointerId);
+    stopHold();
+    step(dir);
+    repeat.current = window.setTimeout(() => (repeat.current = window.setInterval(() => step(dir), HOLD_EVERY_MS)), HOLD_DELAY_MS);
+  };
+  // The pointer already stepped; only a keyboard press (Enter, Space: detail 0) steps on click.
+  const keyStep = (e: MouseEvent<HTMLButtonElement>) => e.detail === 0 && step(dirOf(e));
+  const nudger = {
+    onPointerDown: holdStart,
+    onPointerUp: stopHold,
+    onPointerCancel: stopHold,
+    onLostPointerCapture: stopHold,
+    onContextMenu: (e: MouseEvent) => e.preventDefault(), // a long press must not open a menu
+    onClick: keyStep,
+  };
   // The reference arrives first: it sweeps up from the bottom of the scale to the other fighter's value.
   const refShown = useTween(fromFraction(metric, 0), refValue, 700, 100);
   const stage = { metric, refValue: refShown, value: guess, onChange: change, refId: refFighter.id, targetId: target.id };
   const circle =
-    "flex size-12 items-center justify-center rounded-full border border-line text-text active:bg-line focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text";
+    "flex size-12 touch-none select-none items-center justify-center rounded-full border border-line text-text active:bg-line focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text";
 
   return (
     <>
@@ -114,7 +145,7 @@ export function RoundShell({ modeLabel, top, seconds, metric, refFighter, target
         <FighterRows metric={metric} refFighter={refFighter} target={target} refValue={refValue} />
       </div>
       <div className="flex items-center justify-center gap-5">
-        <button type="button" aria-label="Decrease" className={circle} onClick={() => change(nudge(metric, guess, -1))}>
+        <button type="button" aria-label="Decrease" className={circle} data-dir="-1" {...nudger}>
           <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
             <path d="M3 9 H15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
@@ -123,7 +154,7 @@ export function RoundShell({ modeLabel, top, seconds, metric, refFighter, target
         <div data-testid="guess-value" aria-hidden="true" className="min-w-28 text-center font-display text-[32px] font-light leading-none">
           {format(metric, guess)}
         </div>
-        <button type="button" aria-label="Increase" className={circle} onClick={() => change(nudge(metric, guess, 1))}>
+        <button type="button" aria-label="Increase" className={circle} data-dir="1" {...nudger}>
           <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
             <path d="M3 9 H15 M9 3 V15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
