@@ -1,6 +1,7 @@
 import { BarStage, type StageProps } from "@/components/BarStage";
 import { SilhouetteStage } from "@/components/SilhouetteStage";
 import { DialStage } from "@/components/stages/DialStage";
+import { LegStage } from "@/components/stages/LegStage";
 import { StackStage } from "@/components/stages/StackStage";
 import { TachStage } from "@/components/stages/TachStage";
 import { TankStage } from "@/components/stages/TankStage";
@@ -8,7 +9,7 @@ import { TimelineStage } from "@/components/stages/TimelineStage";
 import { fromFraction } from "@/lib/engine/scale";
 import type { Metric, MetricId } from "@/lib/engine/types";
 
-export type StageKind = "bar" | "silhouette" | "stack" | "dial" | "tach" | "timeline" | "tank";
+export type StageKind = "bar" | "silhouette" | "stack" | "dial" | "tach" | "timeline" | "tank" | "leg";
 
 export const STAGE_BY_METRIC: Partial<Record<MetricId, StageKind>> = {
   knockdowns: "stack",
@@ -16,7 +17,7 @@ export const STAGE_BY_METRIC: Partial<Record<MetricId, StageKind>> = {
   win_pct: "dial",
   finish_rate: "dial",
   slpm: "tach",
-  td_avg: "tach",
+  td_avg: "leg",
   age: "timeline",
   career_sig: "tank",
 };
@@ -42,6 +43,8 @@ export function Stage(props: StageProps) {
       return <TimelineStage {...props} />;
     case "tank":
       return <TankStage {...props} />;
+    case "leg":
+      return <LegStage {...props} />;
     case "stack":
       return <StackStage {...props} />;
     default:
