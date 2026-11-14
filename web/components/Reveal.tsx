@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 import { Stage } from "@/components/stages";
 import { bigButton, FighterRows, Header, panel } from "@/components/RoundShell";
 import { metricCopy } from "@/lib/copy";
@@ -24,6 +24,12 @@ export function Reveal({ modeLabel, top, metric, refFighter, target, refValue, g
   const copy = metricCopy(metric, target.name);
   const stage = { metric, refValue, value: guess, actual };
   const spotOn = guess === snapValue(metric, actual);
+  const good = score >= 80;
+
+  // Haptic confirmation; navigator.vibrate is missing on iOS Safari, so it's a no-op there.
+  useEffect(() => {
+    if (good) navigator.vibrate?.(spotOn ? [30, 60, 30, 60, 90] : 40);
+  }, [good, spotOn]);
 
   return (
     <>
@@ -34,7 +40,12 @@ export function Reveal({ modeLabel, top, metric, refFighter, target, refValue, g
             {copy.category} · {target.name.toUpperCase()}
           </div>
           <div className="flex items-baseline gap-1.5">
-            <div className="font-display text-[96px] font-bold leading-[0.9]">{score}</div>
+            <div
+              data-testid="score"
+              className={`origin-bottom-left font-display text-[96px] font-bold leading-[0.9] ${good ? "motion-safe:animate-pop" : ""} ${spotOn ? "text-blue" : ""}`}
+            >
+              {score}
+            </div>
             <div className="font-display text-[28px] font-semibold text-muted">/ 100</div>
           </div>
         </div>
@@ -49,7 +60,7 @@ export function Reveal({ modeLabel, top, metric, refFighter, target, refValue, g
           {hpLost !== undefined && <div className="font-semibold text-red">−{hpLost.toFixed(1)} HP</div>}
         </div>
       </div>
-      <div className={panel}>
+      <div className={`${panel} ${spotOn ? "motion-safe:animate-ring" : ""}`}>
         <Stage {...stage} />
         <FighterRows metric={metric} refFighter={refFighter} target={target} refValue={refValue} />
         <div className="flex gap-2 px-1.5">

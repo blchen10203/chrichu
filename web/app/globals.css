@@ -13,6 +13,18 @@
   --color-action: #D92D35;
   --font-sans: var(--font-inter), system-ui, sans-serif;
   --font-display: var(--font-barlow-condensed), system-ui, sans-serif;
+
+  /* Reveal feedback: score pops in on a good guess, panel rings on a spot-on one. */
+  --animate-pop: pop 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  --animate-ring: ring 900ms ease-out;
+  @keyframes pop {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  @keyframes ring {
+    0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-blue) 70%, transparent); }
+    100% { box-shadow: 0 0 0 20px transparent; }
+  }
 }
 
 body {
