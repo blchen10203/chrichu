@@ -1,7 +1,8 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 import { Stage } from "@/components/stages";
 import { bigButton, FighterRows, Header, panel } from "@/components/RoundShell";
 import { formatValue, snapValue } from "@/lib/engine/scale";
+import { useTween } from "@/lib/useTween";
 import type { Fighter, Metric } from "@/lib/engine/types";
 
 type Props = {
@@ -22,34 +23,17 @@ type Props = {
 // A score's colour: red at 0, through amber, to green at 100. `lightness` keeps text dark enough to read on white.
 const quality = (score: number, lightness: number) => `hsl(${Math.round(score * 1.3)} 75% ${lightness}%)`;
 
-// Counts up from 0 to `target` with an ease-out, or shows it at once when the viewer prefers less motion.
-function useCountUp(target: number, ms = 600) {
-  const [n, setN] = useState(0);
-  useEffect(() => {
-    if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setN(target);
-      return;
-    }
-    let raf = 0;
-    const t0 = performance.now();
-    const tick = (t: number) => {
-      const p = Math.min(1, (t - t0) / ms);
-      setN(Math.round(target * (1 - (1 - p) ** 3)));
-      if (p < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [target, ms]);
-  return n;
-}
+// The answer's entrance: the dashed marker leaves your guess and travels to the real value
+// while the score counts up beside it, both on one clock.
+const REVEAL = { delay: 150, ms: 850 };
 
 export function Reveal({ modeLabel, top, metric, refFighter, target, refValue, guess, actual, score, hpLost, nextLabel, onNext }: Props) {
-  const stage = { metric, refValue, value: guess, actual, refId: refFighter.id, targetId: target.id };
   const spotOn = guess === snapValue(metric, actual);
   const good = score >= 80;
 
-  const shown = useCountUp(score);
+  const truth = useTween(guess, actual, REVEAL.ms, REVEAL.delay);
+  const shown = Math.round(useTween(0, score, REVEAL.ms, REVEAL.delay));
+  const stage = { metric, refValue, value: guess, actual: truth, refId: refFighter.id, targetId: target.id };
 
   // Haptic confirmation on every answer, stronger on good ones; navigator.vibrate is missing on iOS Safari, so it's a no-op there.
   useEffect(() => {

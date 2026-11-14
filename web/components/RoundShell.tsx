@@ -7,8 +7,9 @@ import { Stage, startValue } from "@/components/stages";
 import { Timer } from "@/components/Timer";
 import { config } from "@/lib/config";
 import { metricCopy } from "@/lib/copy";
-import { formatValue, nudge } from "@/lib/engine/scale";
+import { formatValue, fromFraction, nudge } from "@/lib/engine/scale";
 import type { Fighter, Metric } from "@/lib/engine/types";
+import { useTween } from "@/lib/useTween";
 
 
 export function Header({ modeLabel, top }: { modeLabel: string; top?: ReactNode }) {
@@ -65,7 +66,9 @@ export function RoundShell({ modeLabel, top, seconds, metric, refFighter, target
     setGuess(g);
   };
   const copy = metricCopy(metric, target.name);
-  const stage = { metric, refValue, value: guess, onChange: change, refId: refFighter.id, targetId: target.id };
+  // The reference arrives first: it sweeps up from the bottom of the scale to the other fighter's value.
+  const refShown = useTween(fromFraction(metric, 0), refValue, 700, 100);
+  const stage = { metric, refValue: refShown, value: guess, onChange: change, refId: refFighter.id, targetId: target.id };
   const circle =
     "flex size-12 items-center justify-center rounded-full border border-line text-text active:bg-line focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text";
 
