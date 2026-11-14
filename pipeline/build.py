@@ -67,7 +67,7 @@ def build(rows, roster, shipped, today, image_dir, min_eligible=30):
         per_fighter.append(values)
         fighters.append({
             "id": fighter_id, "name": name, "dob": dob,
-            "hasImage": (image_dir / f"{fighter_id}.png").exists(),
+            "hasImage": (image_dir / f"{fighter_id}.webp").exists(),
             "metrics": values,
         })
 

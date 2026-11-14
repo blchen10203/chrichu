@@ -9,8 +9,8 @@ export default function CreditsPage() {
     <>
       <h1 className="text-[26px] font-normal tracking-tight">Photo credits</h1>
       <p className="text-muted">
-        Most fighter outlines are traced from ufc.com athlete photos. The {photos.length} below are traced from Wikimedia Commons
-        photos and shared under the same licence.
+        Most fighter outlines and headshots come from ufc.com athlete photos. The {photos.length} below come from Wikimedia
+        Commons photos and are shared under the same licence.
       </p>
       <ul className="flex flex-col gap-1 text-sm text-muted">
         {photos.map((p) => (

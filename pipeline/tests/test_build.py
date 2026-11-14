@@ -53,7 +53,7 @@ def test_report_lists_every_candidate():
 
 
 def test_has_image_follows_the_file(tmp_path):
-    (tmp_path / "a-one.png").write_bytes(b"x")
+    (tmp_path / "a-one.webp").write_bytes(b"x")
     fighters, _, _ = run(image_dir=tmp_path)
     assert [f["hasImage"] for f in fighters] == [True, False]
 
