@@ -13,9 +13,20 @@
   --font-sans: var(--font-archivo), system-ui, sans-serif;
   --font-display: var(--font-archivo), system-ui, sans-serif;
 
-  /* Reveal feedback: score pops in on a good guess, panel rings on a spot-on one. */
+  /* Reveal feedback: a shutter flash on every answer, the verdict settles in after the score counts up,
+     the score pops in on a good guess, the panel rings on a spot-on one. */
+  --animate-shutter: shutter 420ms ease-out;
+  --animate-settle: settle 300ms ease-out 550ms both;
   --animate-pop: pop 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
   --animate-ring: ring 900ms ease-out;
+  @keyframes shutter {
+    0% { opacity: 0.9; }
+    100% { opacity: 0; }
+  }
+  @keyframes settle {
+    0% { opacity: 0; transform: translateY(4px); }
+    100% { opacity: 1; transform: none; }
+  }
   @keyframes pop {
     0% { transform: scale(0.5); opacity: 0; }
     100% { transform: scale(1); opacity: 1; }
