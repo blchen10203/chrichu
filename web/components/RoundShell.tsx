@@ -7,8 +7,9 @@ import { Stage, startValue } from "@/components/stages";
 import { Timer } from "@/components/Timer";
 import { config } from "@/lib/config";
 import { metricCopy } from "@/lib/copy";
-import { formatValue, fromFraction, nudge } from "@/lib/engine/scale";
+import { fromFraction, nudge } from "@/lib/engine/scale";
 import type { Fighter, Metric } from "@/lib/engine/types";
+import { setFeet, useFeet, useFormat } from "@/lib/units";
 import { useTween } from "@/lib/useTween";
 
 
@@ -28,18 +29,42 @@ export function Header({ modeLabel, top }: { modeLabel: string; top?: ReactNode 
 
 type RowsProps = { metric: Metric; refFighter: Fighter; target: Fighter; refValue: number };
 
+// Switches height and reach between 6' 2" and 74 in; remembered in this browser.
+function UnitToggle() {
+  const feet = useFeet();
+  const option = (on: boolean, label: string, name: string) => (
+    <button
+      type="button"
+      aria-pressed={feet === on}
+      aria-label={name}
+      onClick={() => setFeet(on)}
+      className={`flex min-h-11 items-center px-3 ${feet === on ? "font-medium text-text" : "text-muted"} focus-visible:outline-2 focus-visible:outline-text`}
+    >
+      {label}
+    </button>
+  );
+  return (
+    <div role="group" aria-label="Units" className="flex self-end text-sm">
+      {option(true, "ft·in", "Feet and inches")}
+      {option(false, "in", "Inches")}
+    </div>
+  );
+}
+
 export function FighterRows({ metric, refFighter, target, refValue }: RowsProps) {
+  const format = useFormat();
   return (
     <div className="flex flex-col gap-3">
       <div className="flex items-center gap-3">
         <Avatar fighter={refFighter} corner="blue" />
         <div className="flex-1 text-[15px] text-muted">{refFighter.name}</div>
-        <div data-testid="ref-value" className="font-display text-[28px] font-light text-blue">{formatValue(metric, refValue)}</div>
+        <div data-testid="ref-value" className="font-display text-[28px] font-light text-blue">{format(metric, refValue)}</div>
       </div>
       <div className="flex items-center gap-3">
         <Avatar fighter={target} corner="red" />
         <div className="flex-1 text-[15px] font-medium">{target.name}</div>
       </div>
+      {metric.unit === "in" && <UnitToggle />}
     </div>
   );
 }

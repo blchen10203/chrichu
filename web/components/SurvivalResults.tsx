@@ -4,9 +4,9 @@ import { Stat } from "@/components/Results";
 import { ShareButton } from "@/components/ShareButton";
 import { config } from "@/lib/config";
 import { metricCopy } from "@/lib/copy";
-import { formatValue } from "@/lib/engine/scale";
 import { survivalShareText } from "@/lib/engine/share";
 import type { Fighter, Metric } from "@/lib/engine/types";
+import { useFormat } from "@/lib/units";
 
 type Props = {
   survived: number;
@@ -17,6 +17,7 @@ type Props = {
 
 export function SurvivalResults({ survived, best, fatal, onPlayAgain }: Props) {
   const { metric, target, guess, actual, lost } = fatal;
+  const formatValue = useFormat();
   return (
     <>
       <Header modeLabel="Survival" />

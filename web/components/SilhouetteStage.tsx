@@ -3,7 +3,8 @@ import type { StageProps } from "@/components/BarStage";
 import { arrowKeys } from "@/components/stages/gauge";
 import outlinesJson from "@/data/outlines.json";
 import { fighters } from "@/lib/engine/data";
-import { formatValue, fromFraction, snapValue } from "@/lib/engine/scale";
+import { fromFraction, snapValue } from "@/lib/engine/scale";
+import { useFormat } from "@/lib/units";
 
 // SVG user units. A figure is FIG tall: head at y 0, floor at y FIG, centred on x 0.
 const W = 320;
@@ -125,6 +126,7 @@ function Ticks({ x, y, n, step, vertical }: { x: number; y: number; n: number; s
 
 export function SilhouetteStage({ metric, refValue, value, onChange, actual, refId, targetId }: StageProps) {
   const reach = metric.id === "reach";
+  const formatValue = useFormat();
   const reveal = actual !== undefined;
   const interactive = onChange && !reveal;
   const cx = W / 2;

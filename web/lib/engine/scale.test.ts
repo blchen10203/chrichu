@@ -67,6 +67,15 @@ describe("formatValue", () => {
     expect(formatValue(m({ unit: "%", snap: 1 }), 96)).toBe("96%");
     expect(formatValue(m({ unit: "years", snap: 1 }), 39)).toBe("39");
   });
+  it("writes inches as feet and inches when asked", () => {
+    const height = m({ unit: "in", snap: 1 });
+    expect(formatValue(height, 74, true)).toBe(`6' 2"`);
+    expect(formatValue(height, 72, true)).toBe(`6' 0"`);
+    expect(formatValue(height, 71.6, true)).toBe(`6' 0"`); // rounds before splitting
+    expect(formatValue(reach, 84.5, true)).toBe(`7' 0.5"`);
+    expect(formatValue(reach, 2.5, true)).toBe(`2.5"`); // a gap under a foot
+    expect(formatValue(m({ unit: "%", snap: 1 }), 96, true)).toBe("96%"); // other units ignore it
+  });
   it("groups thousands on log metrics", () => {
     expect(formatValue(strikes, 1600)).toBe("1,600");
   });

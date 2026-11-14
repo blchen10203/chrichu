@@ -1,7 +1,8 @@
 import { useEffect, type ReactNode } from "react";
 import { Stage } from "@/components/stages";
 import { bigButton, FighterRows, Header, panel } from "@/components/RoundShell";
-import { formatValue, snapValue } from "@/lib/engine/scale";
+import { snapValue } from "@/lib/engine/scale";
+import { useFormat } from "@/lib/units";
 import { useTween } from "@/lib/useTween";
 import type { Fighter, Metric } from "@/lib/engine/types";
 
@@ -29,6 +30,7 @@ const REVEAL = { delay: 150, ms: 850 };
 
 export function Reveal({ modeLabel, top, metric, refFighter, target, refValue, guess, actual, score, hpLost, nextLabel, onNext }: Props) {
   const spotOn = guess === snapValue(metric, actual);
+  const formatValue = useFormat();
   const good = score >= 80;
 
   const truth = useTween(guess, actual, REVEAL.ms, REVEAL.delay);

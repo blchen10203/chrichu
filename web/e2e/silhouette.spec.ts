@@ -29,6 +29,23 @@ test("height and reach rounds use a silhouette with a working handle", async ({ 
   await expect(page.getByRole("slider")).toHaveCount(0);
 });
 
+test("height and reach show feet and inches, switch to inches, and remember it", async ({ page }) => {
+  await page.goto("/infinite");
+  await findStage(page, "silhouette-stage");
+  const ref = page.getByTestId("ref-value");
+  await expect(ref).toHaveText(/^\d+' [\d.]+"$/);
+
+  await page.getByRole("button", { name: "Inches", exact: true }).click();
+  await expect(ref).toHaveText(/^[\d.]+ in$/);
+  await page.getByRole("button", { name: "Lock in" }).click();
+  await expect(page.getByTestId("your-estimate")).toHaveText(/ in$/);
+
+  await page.reload();
+  await findStage(page, "silhouette-stage");
+  await expect(page.getByTestId("ref-value")).toHaveText(/ in$/);
+  await expect(page.getByRole("button", { name: "Inches", exact: true })).toHaveAttribute("aria-pressed", "true");
+});
+
 test("height scales the red figure from its feet with the corner handle", async ({ page }) => {
   await page.goto("/infinite");
   let stage = await findStage(page, "silhouette-stage");

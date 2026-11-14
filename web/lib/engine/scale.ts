@@ -46,9 +46,16 @@ export function fromFraction(metric: Metric, t: number): number {
   return snapValue(metric, metric.scale === "log" ? Math.exp(x) : x);
 }
 
-export function formatValue(metric: Metric, value: number): string {
+// `feet` writes inch metrics as 6' 2" (under a foot, just 3"); half inches keep their decimal.
+export function formatValue(metric: Metric, value: number, feet = false): string {
   if (metric.scale === "log") return Math.round(value).toLocaleString("en-US");
   const decimals = String(metric.snap ?? 1).split(".")[1]?.length ?? 0;
+  if (feet && metric.unit === "in") {
+    const total = Number(value.toFixed(decimals));
+    const ft = Math.floor(total / 12);
+    const inches = `${Number((total - ft * 12).toFixed(decimals))}"`;
+    return ft ? `${ft}' ${inches}` : inches;
+  }
   const suffix = metric.unit === "in" ? " in" : metric.unit === "%" ? "%" : "";
   return value.toFixed(decimals) + suffix;
 }
