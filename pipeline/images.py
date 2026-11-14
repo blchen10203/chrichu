@@ -30,6 +30,8 @@ WAIST, SHIN = 0.42, 0.85
 HEAD = 0.093  # head width with ears, as a share of standing height
 STEP = 2  # trace every 2nd pixel; the figure is drawn ~100 px tall
 EPSILON = 1.2  # simplification tolerance, in traced pixels
+# Where the arms join when a photo's pose hides it: centre line and half shoulder width, in FIG units.
+ARM_Y, ARM_X = 23.0, 14.5
 
 
 def read_alpha(data):
@@ -97,22 +99,42 @@ def largest(mask):
     return out
 
 
-def framing(mask):
-    """The share of standing height a ufc.com cutout cut off by the frame shows, judged from head width."""
+def head_scan(mask):
+    """The top row, the head's width and the row where the shoulders start (None if not found)."""
     widths = [sum(r) for r in mask]
     top = next(y for y, w in enumerate(widths) if w)
     head, neck = 0, False
-    for w in widths[top:]:
+    for y in range(top, len(widths)):
+        w = widths[y]
         if not head and w < 0.12 * len(mask[0]):
             continue  # hair above the head
         if neck and w > 1.3 * head:
-            break  # shoulders
+            return top, head, y
         if not neck:
             head = max(head, w)
         neck = neck or w < 0.85 * head
+    return top, head, None
+
+
+def framing(mask):
+    """The share of standing height a ufc.com cutout cut off by the frame shows, judged from head width."""
+    top, head, _ = head_scan(mask)
     shown = (len(mask) - top) * HEAD / head
     # Long hair widens the head and reads as a tiny share; such photos are waist crops.
     return SHIN if shown > 0.6 else WAIST
+
+
+def arms(mask, s, cx):
+    """Where the arms join the body: centre line height and the left and right shoulder edges, in FIG units."""
+    _, _, start = head_scan(mask)
+    if start is not None:
+        rows = range(start, min(len(mask), start + round(0.08 * FIG / s)))  # the deltoids, above hanging elbows
+        y = max(rows, key=lambda r: sum(mask[r]))
+        xs = [x for x, v in enumerate(mask[y]) if v]
+        sy, sl, sr = y * s, (xs[0] - cx) * s, (xs[-1] + 1 - cx) * s
+        if 0.12 * FIG <= sy <= 0.3 * FIG and 0.16 * FIG <= sr - sl <= 0.4 * FIG:
+            return round(sy, 1), round(sl, 1), round(sr, 1)
+    return ARM_Y, -ARM_X, ARM_X
 
 
 def body(rows, shown=None):
@@ -203,7 +225,8 @@ def runs(loop, cut):
 
 
 def outline(rows, shown=None):
-    """An SVG path with the head at y 0 and the floor at y FIG, centred on x 0, and where the photo stops (FIG when whole)."""
+    """An SVG path with the head at y 0 and the floor at y FIG, centred on x 0; where the photo stops (FIG when whole);
+    and where the arms join (see arms)."""
     mask, shown = body(rows, shown)
     xs = [x for r in mask for x, v in enumerate(r) if v]
     cx, s = sum(xs) / len(xs), FIG * shown / len(mask)
@@ -216,7 +239,7 @@ def outline(rows, shown=None):
             closed = pts[0] == pts[-1]
             pts = pts[:-1] if closed else pts
             parts.append("M" + "L".join(f"{round((x - cx) * s, 1):g} {round(y * s, 1):g}" for x, y in pts) + ("Z" if closed else ""))
-    return "".join(parts), round(FIG * shown, 1)
+    return "".join(parts), round(FIG * shown, 1), arms(mask, s, cx)
 
 
 def fetch(url):
@@ -263,8 +286,8 @@ def main():
             try:
                 data = cutout(fighter_id, r["ufc_slug"], offline)
                 if data:
-                    d, cut = outline(read_alpha(data), judged.get(fighter_id))
-                    out[fighter_id] = {"d": d, "cut": cut}
+                    d, cut, (sy, sl, sr) = outline(read_alpha(data), judged.get(fighter_id))
+                    out[fighter_id] = {"d": d, "cut": cut, "sy": sy, "sl": sl, "sr": sr}
                 print(f"{n}/{len(roster)} {fighter_id}: {'traced' if data else 'no cutout'}", flush=True)
             except urllib.error.HTTPError as e:
                 if e.code in (403, 429):  # refused: stop asking, but trace what is cached

@@ -37,7 +37,7 @@ def test_a_hole_is_its_own_loop():
 
 def test_a_photo_cut_by_the_frame_stays_open_at_the_cut():
     rows = [bytes([0] * 8)] * 4 + [bytes([0, 0, 255, 255, 255, 255, 0, 0])] * 12  # touches the bottom edge
-    d, cut = images.outline(rows)
+    d, cut, _ = images.outline(rows)
     assert "Z" not in d and cut < images.FIG
     ys = [float(v) for v in d.replace("M", " ").replace("L", " ").split()[1::2]]
     assert min(ys) == 0 and max(ys) == cut
@@ -45,7 +45,7 @@ def test_a_photo_cut_by_the_frame_stays_open_at_the_cut():
 
 def test_a_whole_body_spans_head_to_floor():
     rows = [bytes([0] * 8)] * 4 + [bytes([0, 0, 255, 255, 255, 255, 0, 0])] * 12 + [bytes([0] * 8)] * 2
-    d, cut = images.outline(rows)
+    d, cut, _ = images.outline(rows)
     ys = [float(v) for v in d.replace("M", " ").replace("L", " ").replace("Z", " ").split()[1::2]]
     assert d.endswith("Z") and cut == images.FIG and min(ys) == 0 and max(ys) == images.FIG
 
@@ -57,3 +57,21 @@ def test_long_hair_reads_as_a_waist_crop():
 def test_a_bystander_is_dropped():
     mask = [[True, True, False, False, True]] * 3
     assert images.largest(mask) == [[True, True, False, False, False]] * 3
+
+
+def test_arms_join_at_the_shoulders():
+    # Head 4 wide, neck 2 wide, shoulders 12 wide from row 8.
+    mask = [[False] * 16 for _ in range(30)]
+    for y in range(0, 6):
+        mask[y][6:10] = [True] * 4
+    for y in range(6, 8):
+        mask[y][7:9] = [True] * 2
+    for y in range(8, 30):
+        mask[y][2:14] = [True] * 12
+    s = images.FIG / 30 * 0.5  # the mask shows half the standing height
+    assert images.arms(mask, s, 8) == (16.0, -12.0, 12.0)
+
+
+def test_arms_fall_back_when_no_shoulders_show():
+    mask = [[True] * 10] * 20  # no neck
+    assert images.arms(mask, 1.0, 5) == (images.ARM_Y, -images.ARM_X, images.ARM_X)
