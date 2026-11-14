@@ -92,6 +92,7 @@ export function RoundShell({ modeLabel, top, seconds, metric, refFighter, target
     setGuess(g);
   };
   const copy = metricCopy(metric, target.name);
+  const format = useFormat();
   // The reference arrives first: it sweeps up from the bottom of the scale to the other fighter's value.
   const refShown = useTween(fromFraction(metric, 0), refValue, 700, 100);
   const stage = { metric, refValue: refShown, value: guess, onChange: change, refId: refFighter.id, targetId: target.id };
@@ -118,6 +119,10 @@ export function RoundShell({ modeLabel, top, seconds, metric, refFighter, target
             <path d="M3 9 H15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
         </button>
+        {/* The live estimate, between the nudges: it follows every drag, tap and key. The slider already speaks it. */}
+        <div data-testid="guess-value" aria-hidden="true" className="min-w-28 text-center font-display text-[32px] font-light leading-none">
+          {format(metric, guess)}
+        </div>
         <button type="button" aria-label="Increase" className={circle} onClick={() => change(nudge(metric, guess, 1))}>
           <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
             <path d="M3 9 H15 M9 3 V15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />

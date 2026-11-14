@@ -23,6 +23,7 @@ test("height and reach rounds use a silhouette with a working handle", async ({ 
   await page.mouse.move(box.x + box.width / 2 + 20, box.y + box.height / 2 - 20, { steps: 4 });
   await page.mouse.up();
   expect(Number(await slider.getAttribute("aria-valuenow"))).not.toBe(afterKey);
+  await expect(page.getByTestId("guess-value")).toHaveText((await slider.getAttribute("aria-valuetext"))!); // follows a drag
 
   await page.getByRole("button", { name: "Lock in" }).click();
   await expect(page.getByTestId("silhouette-stage")).toBeVisible(); // reveal keeps the silhouette
