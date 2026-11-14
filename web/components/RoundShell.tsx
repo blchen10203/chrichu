@@ -65,7 +65,7 @@ export function RoundShell({ modeLabel, top, seconds, metric, refFighter, target
     setGuess(g);
   };
   const copy = metricCopy(metric, target.name);
-  const stage = { metric, refValue, value: guess, onChange: change };
+  const stage = { metric, refValue, value: guess, onChange: change, refId: refFighter.id, targetId: target.id };
   const circle =
     "flex size-12 items-center justify-center rounded-full border border-line text-text active:bg-line focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text";
 

@@ -20,7 +20,7 @@ type Props = {
 };
 
 export function Reveal({ modeLabel, top, metric, refFighter, target, refValue, guess, actual, score, hpLost, nextLabel, onNext }: Props) {
-  const stage = { metric, refValue, value: guess, actual };
+  const stage = { metric, refValue, value: guess, actual, refId: refFighter.id, targetId: target.id };
   const spotOn = guess === snapValue(metric, actual);
   const good = score >= 80;
 

@@ -8,6 +8,8 @@ export type StageProps = {
   value: number;
   onChange?: (value: number) => void;
   actual?: number;
+  refId?: string; // fighter ids, for stages that draw the fighters themselves
+  targetId?: string;
 };
 
 const TICKS = [0, 0.2, 0.4, 0.6, 0.8, 1];

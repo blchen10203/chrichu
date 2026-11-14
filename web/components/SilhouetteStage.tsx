@@ -1,6 +1,10 @@
-import { useRef, type KeyboardEvent, type PointerEvent } from "react";
+import { useId, useRef, type KeyboardEvent, type PointerEvent } from "react";
 import type { StageProps } from "@/components/BarStage";
+import outlinesJson from "@/data/outlines.json";
 import { formatValue, fromFraction, nudge, snapValue } from "@/lib/engine/scale";
+
+// Traced from ufc.com photos by pipeline/images.py: head at y 0, floor at y FIG; `cut` is where the photo stops.
+const outlines: Record<string, { d: string; cut: number }> = outlinesJson;
 
 // SVG user units. The figure is 120 tall: head at the top, arm bar at y 32..44.
 const W = 320;
@@ -22,6 +26,35 @@ function Figure({ fill }: { fill: string }) {
   );
 }
 
+// One fighter, head at y 0 and floor at y FIG: their traced outline, fading out where the photo stops, else the generic figure.
+function Body({ id, color, filled }: { id?: string; color: string; filled?: boolean }) {
+  const fade = `fade${useId().replace(/[^\w-]/g, "")}`;
+  const o = id ? outlines[id] : undefined;
+  if (!o) return <Figure fill={color} />;
+  const cropped = o.cut < FIG;
+  return (
+    <>
+      {cropped && (
+        <linearGradient id={fade} gradientUnits="userSpaceOnUse" x1="0" y1={o.cut - 18} x2="0" y2={o.cut}>
+          <stop offset="0" stopColor={color} />
+          <stop offset="1" stopColor={color} stopOpacity="0" />
+        </linearGradient>
+      )}
+      <path
+        d={o.d}
+        fill={filled ? "var(--color-bg)" : "none"}
+        stroke={cropped ? `url(#${fade})` : color}
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+        vectorEffect="non-scaling-stroke"
+      />
+    </>
+  );
+}
+
+// Where a fighter's span bar starts, below the head: shoulder height on a traced outline, chest on the generic figure.
+const shoulders = (id?: string) => (id && outlines[id] ? 18 : 32);
+
 function Ticks({ x, y, n, step, vertical }: { x: number; y: number; n: number; step: number; vertical?: boolean }) {
   return Array.from({ length: n }, (_, i) => (
     <line
@@ -34,7 +67,7 @@ function Ticks({ x, y, n, step, vertical }: { x: number; y: number; n: number; s
   ));
 }
 
-export function SilhouetteStage({ metric, refValue, value, onChange, actual }: StageProps) {
+export function SilhouetteStage({ metric, refValue, value, onChange, actual, refId, targetId }: StageProps) {
   const reach = metric.id === "reach";
   const reveal = actual !== undefined;
   const interactive = onChange && !reveal;
@@ -71,16 +104,16 @@ export function SilhouetteStage({ metric, refValue, value, onChange, actual }: S
 
   const handles = reach
     ? [
-        { label: "Your estimate, left hand", x: cx - (value * ppi) / 2, y: RED_TOP + 38 },
-        { label: "Your estimate, right hand", x: cx + (value * ppi) / 2, y: RED_TOP + 38 },
+        { label: "Your estimate, left hand", x: cx - (value * ppi) / 2, y: RED_TOP + shoulders(targetId) + 6 },
+        { label: "Your estimate, right hand", x: cx + (value * ppi) / 2, y: RED_TOP + shoulders(targetId) + 6 },
       ]
     : [{ label: "Your estimate", x: (W * 3) / 4 + (20 * value * ppi) / FIG, y: GROUND - value * ppi }];
-  const armBar = (v: number, top: number, fill: string, props = {}) => (
-    <rect x={cx - (v * ppi) / 2} y={top + 32} width={v * ppi} height="12" rx="6" fill={fill} {...props} />
+  const armBar = (v: number, y: number, fill: string, props = {}) => (
+    <rect x={cx - (v * ppi) / 2} y={y} width={v * ppi} height="12" rx="6" fill={fill} {...props} />
   );
-  const figure = (v: number, x: number, fill: string) => (
+  const figure = (v: number, x: number, color: string, id?: string) => (
     <g transform={`translate(${x} ${GROUND}) scale(${(v * ppi) / FIG}) translate(0 ${-FIG})`}>
-      <Figure fill={fill} />
+      <Body id={id} color={color} />
     </g>
   );
 
@@ -126,27 +159,33 @@ export function SilhouetteStage({ metric, refValue, value, onChange, actual }: S
         <svg viewBox={`0 0 ${W} ${H}`} className="absolute inset-0 size-full" role="img" aria-label={reach ? "Arm spans of both fighters" : "Heights of both fighters"}>
           {reach ? (
             <>
+              {/* Span bars first: the bodies are filled, so each span runs behind its fighter. */}
+              {armBar(refValue, BLUE_TOP + shoulders(refId), "var(--color-blue)")}
               <g transform={`translate(${cx} ${BLUE_TOP})`}>
-                <Figure fill="var(--color-blue)" />
+                <Body id={refId} color="var(--color-blue)" filled />
               </g>
-              {armBar(refValue, BLUE_TOP, "var(--color-blue)")}
               <Ticks x={cx % (4 * ppi)} y={150} n={Math.ceil(W / (4 * ppi)) + 1} step={4 * ppi} />
               {reveal && <text x={cx} y={168} textAnchor="middle" fontSize="11" fill="var(--color-muted)">each tick = 4 in</text>}
+              {armBar(value, RED_TOP + shoulders(targetId), "var(--color-red)")}
+              {reveal && armBar(actual, RED_TOP + shoulders(targetId), "none", { ...OUTLINE, rx: 6, "data-testid": "true-value" })}
               <g transform={`translate(${cx} ${RED_TOP})`}>
-                <Figure fill="var(--color-red)" />
+                <Body id={targetId} color="var(--color-red)" filled />
               </g>
-              {armBar(value, RED_TOP, "var(--color-red)")}
-              {reveal && armBar(actual, RED_TOP, "none", { ...OUTLINE, rx: 6, "data-testid": "true-value" })}
             </>
           ) : (
             <>
               <line x1="0" x2={W} y1={GROUND} y2={GROUND} stroke="var(--color-tick)" />
               <Ticks x={cx} y={GROUND} n={Math.floor(metric.max / 4) + 1} step={4 * ppi} vertical />
-              {figure(refValue, W / 4, "var(--color-blue)")}
-              {figure(value, (W * 3) / 4, "var(--color-red)")}
-              {reveal && (
-                <rect x={(W * 3) / 4 - 30} y={GROUND - actual * ppi} width="60" height={actual * ppi} data-testid="true-value" {...OUTLINE} />
-              )}
+              {figure(refValue, W / 4, "var(--color-blue)", refId)}
+              {figure(value, (W * 3) / 4, "var(--color-red)", targetId)}
+              {reveal &&
+                (targetId && outlines[targetId] ? (
+                  <g data-testid="true-value" strokeDasharray="4 3">
+                    {figure(actual, (W * 3) / 4, "var(--color-text)", targetId)}
+                  </g>
+                ) : (
+                  <rect x={(W * 3) / 4 - 30} y={GROUND - actual * ppi} width="60" height={actual * ppi} data-testid="true-value" {...OUTLINE} />
+                ))}
             </>
           )}
         </svg>
