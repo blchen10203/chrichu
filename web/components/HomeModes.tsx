@@ -5,8 +5,9 @@ import { useEffect, useState } from "react";
 import { localDate } from "@/lib/engine/rounds";
 import { browserStorage, currentStreak, load } from "@/lib/storage";
 
-const card = "flex min-h-[72px] flex-col justify-center rounded-2xl border border-line bg-panel px-4 py-3";
-const title = "font-display text-2xl font-bold tracking-wider";
+const mode =
+  "group flex items-baseline justify-between py-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-text";
+const word = "font-display text-[88px] font-extralight leading-[0.95] tracking-tight motion-safe:transition-[font-weight] motion-safe:duration-300 group-hover:font-normal";
 
 export function HomeModes() {
   // The date and storage exist only after mount.
@@ -21,24 +22,20 @@ export function HomeModes() {
   }, []);
 
   return (
-    <>
-      <Link href="/daily" className={card}>
-        <span className={title}>Daily</span>
-        <span className="text-sm text-muted">
-          {live?.total != null ? `Done today · ${live.total} / 500` : "5 rounds. One try a day."}
-        </span>
+    <div className="flex flex-1 flex-col justify-center gap-2">
+      <Link href="/daily" className={mode}>
+        <span className={word}>Daily</span>
+        {live?.total != null && <span className="text-sm text-muted">{live.total} / 500</span>}
       </Link>
-      <Link href="/infinite" className={card}>
-        <span className={title}>Infinite</span>
-        <span className="text-sm text-muted">Endless practice. No pressure.</span>
+      <Link href="/infinite" className={mode}>
+        <span className={word}>Infinite</span>
       </Link>
-      <Link href="/survival" className={card}>
-        <span className={title}>Survival</span>
-        <span className="text-sm text-muted">10 HP. 15 seconds a round.</span>
+      <Link href="/survival" className={mode}>
+        <span className={word}>Survival</span>
       </Link>
-      <p className="min-h-5 text-sm text-muted">
+      <p className="mt-4 min-h-5 text-sm text-muted">
         {live && `Streak: ${live.streak} ${live.streak === 1 ? "day" : "days"}`}
       </p>
-    </>
+    </div>
   );
 }

@@ -41,7 +41,7 @@ export default function DailyPage() {
   }, []);
 
   const day = today && state ? state.daily.days[today] : null;
-  if (!today || !state || !day) return <Header modeLabel="DAILY" />;
+  if (!today || !state || !day) return <Header modeLabel="Daily" />;
 
   const puzzle = puzzleNumber(today, config.firstPuzzle);
   if (day.done && !shown) return <Results puzzle={puzzle} day={day} state={state} today={today} />;
@@ -60,18 +60,18 @@ export default function DailyPage() {
   };
 
   const played = day.guesses.length;
-  const pip = (n: number) => (n < played ? "bg-text" : n === played ? "bg-red" : "bg-line");
+  const pip = (n: number) => (n < played ? "bg-text" : n === played ? "bg-blue" : "bg-line");
   const top = (
     <div className="flex items-center justify-between">
       <div className="flex gap-1.5">
         {[0, 1, 2, 3, 4].map((n) => (
-          <div key={n} className={`h-1.5 w-6 rounded-full ${pip(n)}`} />
+          <div key={n} className={`h-0.5 w-6 ${pip(n)}`} />
         ))}
       </div>
       <div className="text-xs text-muted">Score {day.scores.reduce((a, b) => a + b, 0)}</div>
     </div>
   );
-  const modeLabel = `DAILY · ROUND ${i + 1} / 5`;
+  const modeLabel = `Round ${i + 1} of 5`;
 
   if (shown) {
     return (
@@ -81,7 +81,7 @@ export default function DailyPage() {
         {...play}
         guess={shown.guess}
         score={shown.score}
-        nextLabel={day.done ? "SEE RESULTS" : "NEXT ROUND"}
+        nextLabel={day.done ? "See results" : "Next round"}
         onNext={() => setShown(null)}
       />
     );

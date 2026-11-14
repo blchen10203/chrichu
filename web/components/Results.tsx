@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Header, panel } from "@/components/RoundShell";
+import { bigButton, Header, panel, quietButton } from "@/components/RoundShell";
 import { ShareButton } from "@/components/ShareButton";
 import { config } from "@/lib/config";
 import { metricCopy } from "@/lib/copy";
@@ -20,11 +20,11 @@ function untilMidnight(): string {
   return `${two(Math.floor(s / 3600))}:${two(Math.floor(s / 60) % 60)}:${two(s % 60)}`;
 }
 
-function Stat({ label, value }: { label: string; value: string }) {
+export function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex flex-1 flex-col gap-0.5 rounded-xl border border-line bg-panel p-3">
+    <div className="flex flex-1 flex-col gap-1">
       <div className="text-xs text-muted">{label}</div>
-      <div className="font-display text-[30px] font-bold">{value}</div>
+      <div className="font-display text-[32px] font-light leading-none">{value}</div>
     </div>
   );
 }
@@ -52,51 +52,55 @@ export function Results({ puzzle, day, state, today }: Props) {
 
   return (
     <>
-      <Header modeLabel={puzzle < 1 ? "DAILY · DONE" : `DAILY #${puzzle} · DONE`} />
-      <div className="flex flex-col gap-0.5">
-        <div className="text-xs font-semibold tracking-[1.5px] text-red">FINAL SCORE</div>
-        <div className="flex items-baseline gap-2">
-          <div data-testid="daily-total" className="font-display text-[104px] font-bold leading-[0.9]">{total}</div>
-          <div className="font-display text-[30px] font-semibold text-muted">/ 500</div>
-        </div>
+      <Header modeLabel={puzzle < 1 ? "Daily" : `Daily #${puzzle}`} />
+      <div className="flex items-baseline gap-2">
+        <div data-testid="daily-total" className="font-display text-[136px] font-extralight leading-[0.8]">{total}</div>
+        <div className="font-display text-[28px] font-light text-muted">/ 500</div>
       </div>
-      <div className={`${panel} flex-none gap-3.5`}>
+      <div className={`${panel} flex-none gap-4`}>
         {day.scores.map((score, i) => {
           const round = day.rounds[i];
           const metric = metrics.find((m) => m.id === round?.metric);
           const target = fighters.find((f) => f.id === round?.target);
           return (
             <div key={i} className="flex flex-col gap-1.5">
-              <div className="flex justify-between text-[13px]">
-                <div>{metric && target ? `${metricCopy(metric, target.name).short} · ${target.name}` : `Round ${i + 1}`}</div>
-                <div className="font-semibold">{score}</div>
+              <div className="flex justify-between gap-3 text-[13px]">
+                <div className="text-muted">
+                  {target?.name ?? `Round ${i + 1}`}
+                  {metric && target && <span className="text-text"> {metricCopy(metric, target.name).short.toLowerCase()}</span>}
+                </div>
+                <div className="font-display text-base tabular-nums">{score}</div>
               </div>
-              <div className="flex h-2.5 rounded-[5px] bg-line">
-                <div className="rounded-[5px] bg-text" style={{ width: `${score}%` }} />
+              <div className="flex h-0.5 bg-line">
+                <div className="bg-text" style={{ width: `${score}%` }} />
               </div>
             </div>
           );
         })}
       </div>
-      <div className="flex gap-2">
+      <div className="flex gap-6">
         <Stat label="Streak" value={`${streak} ${streak === 1 ? "day" : "days"}`} />
-        <Stat label="Your average" value={String(stats.average)} />
-        <Stat label="Your best" value={String(stats.best)} />
+        <Stat label="Average" value={String(stats.average)} />
+        <Stat label="Best" value={String(stats.best)} />
       </div>
-      <ShareButton text={shareText(config.name, puzzle, day.scores, config.siteUrl)} />
-      <Link href="/infinite" className="flex h-12 items-center justify-center rounded-xl border border-line text-[15px] font-semibold">
-        Play Infinite
-      </Link>
-      <Link href="/survival" className="flex h-12 items-center justify-center rounded-xl border border-line text-[15px] font-semibold">
-        Play Survival
-      </Link>
-      {newDay ? (
-        <Link href="/daily" className="flex h-12 items-center justify-center rounded-xl bg-red text-[15px] font-semibold">
-          Today&apos;s puzzle is ready
-        </Link>
-      ) : (
-        <div className="text-center text-xs text-muted">Next daily in {left ?? "--:--:--"}</div>
-      )}
+      <div className="flex flex-col gap-3">
+        <ShareButton text={shareText(config.name, puzzle, day.scores, config.siteUrl)} />
+        <div className="flex gap-3">
+          <Link href="/infinite" className={quietButton}>
+            Infinite
+          </Link>
+          <Link href="/survival" className={quietButton}>
+            Survival
+          </Link>
+        </div>
+        {newDay ? (
+          <Link href="/daily" className={bigButton}>
+            Today&apos;s puzzle is ready
+          </Link>
+        ) : (
+          <div className="text-center text-xs text-muted tabular-nums">Next daily in {left ?? "--:--:--"}</div>
+        )}
+      </div>
     </>
   );
 }

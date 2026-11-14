@@ -1,19 +1,14 @@
 import type { Metadata } from "next";
-import { Barlow_Condensed, Inter } from "next/font/google";
+import { Archivo } from "next/font/google";
 import { config } from "@/lib/config";
 import { Footer } from "@/components/Footer";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+// Variable weight and width: body at normal width, display condensed (globals.css).
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-});
-
-const barlowCondensed = Barlow_Condensed({
-  variable: "--font-barlow-condensed",
-  subsets: ["latin"],
-  weight: ["600", "700"],
+  axes: ["wdth"],
 });
 
 export const metadata: Metadata = {
@@ -25,10 +20,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${barlowCondensed.variable} h-full antialiased`}
+      className={`${archivo.variable} h-full antialiased`}
     >
-      <body className="mx-auto flex min-h-dvh w-full max-w-[430px] flex-col gap-4 bg-bg px-4 pt-5 pb-6 font-sans text-text">
-        <main className="flex flex-1 flex-col gap-4">{children}</main>
+      <body className="mx-auto flex min-h-dvh w-full max-w-[430px] flex-col gap-10 bg-bg px-5 pt-6 pb-6 font-sans text-text">
+        <main className="flex flex-1 flex-col gap-6">{children}</main>
         <Footer />
       </body>
     </html>

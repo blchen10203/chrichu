@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { bigButton } from "@/components/RoundShell";
+import { bigButton, quietButton } from "@/components/RoundShell";
 
-export function ShareButton({ text }: { text: string }) {
+export function ShareButton({ text, quiet }: { text: string; quiet?: boolean }) {
   const [status, setStatus] = useState<"idle" | "copied" | "failed">("idle");
 
   async function share() {
@@ -22,21 +22,15 @@ export function ShareButton({ text }: { text: string }) {
 
   return (
     <>
-      <button type="button" aria-label="Share result" className={bigButton} onClick={share}>
-        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
-          <circle cx="5" cy="10" r="2.2" fill="none" stroke="currentColor" strokeWidth="2" />
-          <circle cx="15" cy="4.5" r="2.2" fill="none" stroke="currentColor" strokeWidth="2" />
-          <circle cx="15" cy="15.5" r="2.2" fill="none" stroke="currentColor" strokeWidth="2" />
-          <path d="M7 9 L13 5.5 M7 11 L13 14.5" stroke="currentColor" strokeWidth="2" />
-        </svg>
-        SHARE RESULT
+      <button type="button" className={quiet ? quietButton : bigButton} onClick={share}>
+        Share result
       </button>
       <div role="status" className="text-center text-xs text-muted empty:hidden">
         {status === "copied" && "Copied"}
         {status === "failed" && "Could not copy"}
       </div>
       {status === "failed" && (
-        <textarea readOnly rows={4} value={text} className="w-full rounded-xl border border-line bg-panel p-3 text-sm" onFocus={(e) => e.currentTarget.select()} />
+        <textarea readOnly rows={4} value={text} className="w-full border border-line p-3 text-sm" onFocus={(e) => e.currentTarget.select()} />
       )}
     </>
   );

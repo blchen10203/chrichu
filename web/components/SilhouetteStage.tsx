@@ -9,7 +9,7 @@ const FIG = 120;
 const BLUE_TOP = 8;
 const RED_TOP = 170;
 const GROUND = 280;
-const OUTLINE = { fill: "none", stroke: "#F2F3F5", strokeWidth: 2, strokeDasharray: "6 4" } as const;
+const OUTLINE = { fill: "none", stroke: "var(--color-text)", strokeWidth: 2, strokeDasharray: "6 4" } as const;
 
 function Figure({ fill }: { fill: string }) {
   return (
@@ -26,7 +26,7 @@ function Ticks({ x, y, n, step, vertical }: { x: number; y: number; n: number; s
   return Array.from({ length: n }, (_, i) => (
     <line
       key={i}
-      stroke="#4A5060"
+      stroke="var(--color-tick)"
       {...(vertical
         ? { x1: x - 4, x2: x + 4, y1: y - i * step, y2: y - i * step }
         : { x1: x + i * step, x2: x + i * step, y1: y - 4, y2: y + 4 })}
@@ -127,23 +127,23 @@ export function SilhouetteStage({ metric, refValue, value, onChange, actual }: S
           {reach ? (
             <>
               <g transform={`translate(${cx} ${BLUE_TOP})`}>
-                <Figure fill="#5B9BFF" />
+                <Figure fill="var(--color-blue)" />
               </g>
-              {armBar(refValue, BLUE_TOP, "#5B9BFF")}
+              {armBar(refValue, BLUE_TOP, "var(--color-blue)")}
               <Ticks x={cx % (4 * ppi)} y={150} n={Math.ceil(W / (4 * ppi)) + 1} step={4 * ppi} />
-              {reveal && <text x={cx} y={168} textAnchor="middle" fontSize="11" fill="#A0A6B2">each tick = 4 in</text>}
+              {reveal && <text x={cx} y={168} textAnchor="middle" fontSize="11" fill="var(--color-muted)">each tick = 4 in</text>}
               <g transform={`translate(${cx} ${RED_TOP})`}>
-                <Figure fill="#FF5A5F" />
+                <Figure fill="var(--color-red)" />
               </g>
-              {armBar(value, RED_TOP, "#FF5A5F")}
+              {armBar(value, RED_TOP, "var(--color-red)")}
               {reveal && armBar(actual, RED_TOP, "none", { ...OUTLINE, rx: 6, "data-testid": "true-value" })}
             </>
           ) : (
             <>
-              <line x1="0" x2={W} y1={GROUND} y2={GROUND} stroke="#4A5060" />
+              <line x1="0" x2={W} y1={GROUND} y2={GROUND} stroke="var(--color-tick)" />
               <Ticks x={cx} y={GROUND} n={Math.floor(metric.max / 4) + 1} step={4 * ppi} vertical />
-              {figure(refValue, W / 4, "#5B9BFF")}
-              {figure(value, (W * 3) / 4, "#FF5A5F")}
+              {figure(refValue, W / 4, "var(--color-blue)")}
+              {figure(value, (W * 3) / 4, "var(--color-red)")}
               {reveal && (
                 <rect x={(W * 3) / 4 - 30} y={GROUND - actual * ppi} width="60" height={actual * ppi} data-testid="true-value" {...OUTLINE} />
               )}

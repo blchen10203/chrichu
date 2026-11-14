@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 test("the timer locks in the current estimate, even after the phone slept", async ({ page }) => {
   await page.clock.install();
   await page.goto("/survival");
-  await expect(page.getByText("SURVIVAL · ROUND 1")).toBeVisible();
+  await expect(page.getByText("Round 1", { exact: true })).toBeVisible();
   await expect(page.getByText("10.0 HP")).toBeVisible();
   await expect(page.getByRole("timer")).toHaveText(/^\d+s$/);
 
@@ -18,7 +18,7 @@ test("the timer locks in the current estimate, even after the phone slept", asyn
   await expect(page.getByText(/^−\d+\.\d HP$/)).toBeVisible();
 
   await page.clock.fastForward(30_000); // the timer is gone: the Reveal waits
-  await expect(page.getByText("SURVIVAL · ROUND 1")).toBeVisible();
+  await expect(page.getByText("Round 1", { exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: /Next round|See results/ })).toBeVisible();
 });
 
@@ -45,7 +45,7 @@ test("a run ends, is saved at once, and can be played again", async ({ page }) =
   await expect(page.getByRole("button", { name: "Share result" })).toBeVisible();
 
   await page.getByRole("button", { name: "Play again" }).click();
-  await expect(page.getByText("SURVIVAL · ROUND 1")).toBeVisible();
+  await expect(page.getByText("Round 1", { exact: true })).toBeVisible();
   await expect(page.getByText("10.0 HP")).toBeVisible();
   expect(errors).toEqual([]);
 });

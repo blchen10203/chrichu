@@ -9,7 +9,7 @@ export function Avatar({ fighter, corner }: { fighter: Fighter; corner: "blue" |
       alt={fighter.name}
       width={44}
       height={44}
-      className={`size-11 shrink-0 rounded-full border object-cover ${corner === "blue" ? "border-blue" : "border-red"}`}
+      className={`size-11 shrink-0 rounded-full border object-cover grayscale ${corner === "blue" ? "border-blue" : "border-red"}`}
     />
   );
 }

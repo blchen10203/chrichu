@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRef, useState, type ReactNode } from "react";
 import { Avatar } from "@/components/Avatar";
 import { Stage, startValue } from "@/components/stages";
@@ -13,9 +14,11 @@ import type { Fighter, Metric } from "@/lib/engine/types";
 export function Header({ modeLabel, top }: { modeLabel: string; top?: ReactNode }) {
   return (
     <>
-      <div className="flex items-center justify-between">
-        <div className="font-display text-[22px] font-bold tracking-wider">{config.name}</div>
-        <div className="rounded-full border border-line px-3 py-1.5 text-xs font-semibold tracking-wider text-muted">{modeLabel}</div>
+      <div className="flex items-center justify-between text-[15px]">
+        <Link href="/" className="flex min-h-11 items-center font-semibold">
+          {config.name}
+        </Link>
+        <div className="text-muted">{modeLabel}</div>
       </div>
       {top}
     </>
@@ -26,29 +29,25 @@ type RowsProps = { metric: Metric; refFighter: Fighter; target: Fighter; refValu
 
 export function FighterRows({ metric, refFighter, target, refValue }: RowsProps) {
   return (
-    <div className="flex flex-col gap-2 px-1.5">
-      <div className="flex items-center gap-2.5">
+    <div className="flex flex-col gap-3">
+      <div className="flex items-center gap-3">
         <Avatar fighter={refFighter} corner="blue" />
-        <div className="flex-1">
-          <div className="text-[15px] font-semibold">{refFighter.name}</div>
-          <div className="text-xs text-muted">Blue corner · reference</div>
-        </div>
-        <div data-testid="ref-value" className="font-display text-2xl font-bold text-blue">{formatValue(metric, refValue)}</div>
+        <div className="flex-1 text-[15px] text-muted">{refFighter.name}</div>
+        <div data-testid="ref-value" className="font-display text-[28px] font-light">{formatValue(metric, refValue)}</div>
       </div>
-      <div className="flex items-center gap-2.5">
+      <div className="flex items-center gap-3">
         <Avatar fighter={target} corner="red" />
-        <div className="flex-1">
-          <div className="text-[15px] font-semibold">{target.name}</div>
-          <div className="text-xs text-muted">Red corner · your estimate</div>
-        </div>
+        <div className="flex-1 text-[15px] font-medium">{target.name}</div>
       </div>
     </div>
   );
 }
 
-export const panel = "flex flex-1 flex-col gap-3 rounded-2xl border border-line bg-panel px-3 py-4";
+export const panel = "flex flex-1 flex-col gap-6 rounded-sm";
 export const bigButton =
-  "flex h-14 w-full items-center justify-center gap-2.5 rounded-[14px] bg-action font-display text-2xl font-bold tracking-wider text-white";
+  "flex h-14 w-full items-center justify-center rounded-full bg-text text-[17px] font-medium text-bg active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text";
+export const quietButton =
+  "flex h-14 w-full items-center justify-center rounded-full border border-text text-[17px] font-medium active:bg-line focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text";
 
 type Props = RowsProps & {
   modeLabel: string;
@@ -67,7 +66,8 @@ export function RoundShell({ modeLabel, top, seconds, metric, refFighter, target
   };
   const copy = metricCopy(metric, target.name);
   const stage = { metric, refValue, value: guess, onChange: change };
-  const circle = "flex size-12 items-center justify-center rounded-full border border-line bg-panel text-text";
+  const circle =
+    "flex size-12 items-center justify-center rounded-full border border-line text-text active:bg-line focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text";
 
   return (
     <>
@@ -78,10 +78,7 @@ export function RoundShell({ modeLabel, top, seconds, metric, refFighter, target
           {seconds && <Timer seconds={seconds} onExpire={() => onLockIn(guessRef.current)} />}
         </div>
       )}
-      <div className="flex flex-col gap-1">
-        <div className="text-xs font-semibold tracking-[1.5px] text-red">{copy.category}</div>
-        <h1 className="font-display text-[30px] font-bold leading-[1.05]">{copy.question}</h1>
-      </div>
+      <h1 className="text-[26px] font-normal leading-[1.15] tracking-tight text-balance">{copy.question}</h1>
       <div className={panel}>
         <Stage {...stage} />
         <FighterRows metric={metric} refFighter={refFighter} target={target} refValue={refValue} />
@@ -98,9 +95,8 @@ export function RoundShell({ modeLabel, top, seconds, metric, refFighter, target
           </svg>
         </button>
       </div>
-      <p className="text-center text-xs text-muted">Drag, or tap − and + to fine-tune</p>
-      <button type="button" aria-label="Lock in" className={bigButton} onClick={() => onLockIn(guess)}>
-        LOCK IN
+      <button type="button" className={bigButton} onClick={() => onLockIn(guess)}>
+        Lock in
       </button>
     </>
   );

@@ -13,7 +13,7 @@ test("a Daily survives a reload and can only be played once", async ({ page }) =
   page.on("pageerror", (e) => errors.push(e.message));
 
   await page.goto("/daily");
-  await expect(page.getByText("ROUND 1 / 5")).toBeVisible();
+  await expect(page.getByText("Round 1 of 5")).toBeVisible();
   const firstQuestion = await page.getByRole("heading", { level: 1 }).textContent();
 
   await playRound(page);
@@ -21,7 +21,7 @@ test("a Daily survives a reload and can only be played once", async ({ page }) =
   await playRound(page); // locked in, reveal showing
 
   await page.reload();
-  await expect(page.getByText("ROUND 3 / 5")).toBeVisible();
+  await expect(page.getByText("Round 3 of 5")).toBeVisible();
   expect(await page.getByRole("heading", { level: 1 }).textContent()).not.toBe(firstQuestion);
 
   for (let round = 3; round <= 5; round++) {

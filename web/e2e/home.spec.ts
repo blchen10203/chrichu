@@ -13,7 +13,7 @@ test("home shows the modes, and today's result once Daily is done", async ({ pag
     await page.getByRole("button", { name: round < 5 ? "Next round" : "See results" }).click();
   }
   await page.goto("/");
-  await expect(page.getByText(/Done today · \d+ \/ 500/)).toBeVisible();
+  await expect(page.getByText(/^\d+ \/ 500$/)).toBeVisible();
   await expect(page.getByText("Streak: 1 day")).toBeVisible();
 
   await page.getByRole("link", { name: "How to Play" }).click();
@@ -23,5 +23,5 @@ test("home shows the modes, and today's result once Daily is done", async ({ pag
 
   await page.goto("/");
   await page.getByRole("link", { name: /Survival/ }).click();
-  await expect(page.getByText("SURVIVAL · ROUND 1")).toBeVisible();
+  await expect(page.getByText("Round 1", { exact: true })).toBeVisible();
 });

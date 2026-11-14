@@ -37,9 +37,9 @@ export default function InfinitePage() {
     setPlay(newRound());
   }, []);
 
-  if (!state || !play) return <Header modeLabel="INFINITE" />;
+  if (!state || !play) return <Header modeLabel="Infinite" />;
 
-  const modeLabel = `INFINITE · ROUND ${session.n + 1}`;
+  const modeLabel = `Round ${session.n + 1}`;
   const top =
     session.n > 0 ? (
       <div className="text-xs text-muted">
@@ -54,7 +54,7 @@ export default function InfinitePage() {
         top={top}
         {...play}
         {...result}
-        nextLabel="NEXT ROUND"
+        nextLabel="Next round"
         onNext={() => {
           setSession({ n: session.n + 1, total: session.total + result.score });
           setPlay(newRound(play.metric.id));

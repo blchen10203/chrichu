@@ -45,10 +45,10 @@ export default function SurvivalPage() {
     pick(date);
   }, []);
 
-  if (!state || !today || !play) return <Header modeLabel="SURVIVAL" />;
+  if (!state || !today || !play) return <Header modeLabel="Survival" />;
 
   const dead = result !== null && run.hp === 0;
-  const modeLabel = `SURVIVAL · ROUND ${run.n}`;
+  const modeLabel = `Round ${run.n}`;
 
   if (results && result) {
     return (
@@ -73,7 +73,7 @@ export default function SurvivalPage() {
         {...play}
         {...result}
         hpLost={result.lost}
-        nextLabel={dead ? "SEE RESULTS" : "NEXT ROUND"}
+        nextLabel={dead ? "See results" : "Next round"}
         onNext={() => {
           if (dead) return setResults(true);
           setRun({ ...run, n: run.n + 1 });

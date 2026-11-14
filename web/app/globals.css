@@ -1,18 +1,17 @@
 @import "tailwindcss";
 
-/* Dark theme only (screens plan, Global Constraints). */
+/* Black on white. The corner tokens keep their UFC names: blue is the reference fighter (grey), red is your estimate (black). */
 @theme {
-  --color-bg: #0F1115;
-  --color-panel: #181B22;
-  --color-line: #2A2E38;
-  --color-tick: #4A5060;
-  --color-text: #F2F3F5;
-  --color-muted: #A0A6B2;
-  --color-blue: #5B9BFF;
-  --color-red: #FF5A5F;
-  --color-action: #D92D35;
-  --font-sans: var(--font-inter), system-ui, sans-serif;
-  --font-display: var(--font-barlow-condensed), system-ui, sans-serif;
+  --color-bg: #FFFFFF;
+  --color-panel: #FFFFFF;
+  --color-line: #E6E6E6;
+  --color-tick: #BDBDBD;
+  --color-text: #000000;
+  --color-muted: #737373;
+  --color-blue: #8A8A8A;
+  --color-red: #000000;
+  --font-sans: var(--font-archivo), system-ui, sans-serif;
+  --font-display: var(--font-archivo), system-ui, sans-serif;
 
   /* Reveal feedback: score pops in on a good guess, panel rings on a spot-on one. */
   --animate-pop: pop 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -22,7 +21,7 @@
     100% { transform: scale(1); opacity: 1; }
   }
   @keyframes ring {
-    0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-blue) 70%, transparent); }
+    0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-text) 25%, transparent); }
     100% { box-shadow: 0 0 0 20px transparent; }
   }
 }
@@ -30,4 +29,10 @@
 body {
   background: var(--color-bg);
   color: var(--color-text);
+}
+
+/* Condensed cut of the same family for numbers; tabular figures keep them from jumping. */
+.font-display {
+  font-variation-settings: "wdth" 62;
+  font-variant-numeric: tabular-nums;
 }

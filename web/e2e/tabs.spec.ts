@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 test("a stale Survival tab does not erase a Daily finished in another tab", async ({ context }) => {
   const a = await context.newPage();
   await a.goto("/survival");
-  await expect(a.getByText("SURVIVAL · ROUND 1")).toBeVisible();
+  await expect(a.getByText("Round 1", { exact: true })).toBeVisible();
 
   const b = await context.newPage();
   await b.goto("/daily");

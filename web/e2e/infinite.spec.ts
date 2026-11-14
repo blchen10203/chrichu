@@ -6,7 +6,7 @@ test("a keyboard-only player can play Infinite rounds", async ({ page }) => {
   page.on("pageerror", (e) => errors.push(e.message));
 
   await page.goto("/infinite");
-  await expect(page.getByText("INFINITE · ROUND 1")).toBeVisible();
+  await expect(page.getByText("Round 1", { exact: true })).toBeVisible();
 
   const slider = page.getByRole("slider").first();
   const before = await slider.getAttribute("aria-valuenow");
@@ -20,7 +20,7 @@ test("a keyboard-only player can play Infinite rounds", async ({ page }) => {
   await expect(page.getByText("Actual")).toBeVisible();
 
   await page.getByRole("button", { name: "Next round" }).click();
-  await expect(page.getByText("INFINITE · ROUND 2")).toBeVisible();
+  await expect(page.getByText("Round 2", { exact: true })).toBeVisible();
   await expect(page.getByText(/Average \d+ over 1 round/)).toBeVisible();
 
   expect(errors).toEqual([]);
@@ -29,7 +29,7 @@ test("a keyboard-only player can play Infinite rounds", async ({ page }) => {
 test("no numbers give the estimate away while guessing, and they return on the reveal", async ({ page }) => {
   await page.goto("/infinite");
   for (let round = 1; round <= 8; round++) {
-    await expect(page.getByText(`INFINITE · ROUND ${round}`)).toBeVisible();
+    await expect(page.getByText(`Round ${round}`, { exact: true })).toBeVisible();
     const slider = page.getByRole("slider").first();
     await slider.focus();
     await page.keyboard.press("ArrowUp");

@@ -11,14 +11,14 @@ const faq = [
 export default function FaqPage() {
   return (
     <>
-      <h1 className="font-display text-4xl font-bold tracking-wider">FAQ</h1>
+      <h1 className="text-[26px] font-normal tracking-tight">FAQ</h1>
       {faq.map(([q, a]) => (
-        <section key={q}>
-          <h2 className="font-semibold">{q}</h2>
+        <section key={q} className="flex flex-col gap-1">
+          <h2 className="font-medium">{q}</h2>
           <p className="text-muted">{a}</p>
         </section>
       ))}
-      <Link href="/" className="flex min-h-11 items-center underline">
+      <Link href="/" className="flex min-h-11 items-center text-sm text-muted hover:text-text">
         Home
       </Link>
     </>
