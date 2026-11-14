@@ -19,6 +19,9 @@ type Props = {
   onNext: () => void;
 };
 
+// A score's colour: red at 0, through amber, to green at 100. `lightness` keeps text dark enough to read on white.
+const quality = (score: number, lightness: number) => `hsl(${Math.round(score * 1.3)} 75% ${lightness}%)`;
+
 // Counts up from 0 to `target` with an ease-out, or shows it at once when the viewer prefers less motion.
 function useCountUp(target: number, ms = 600) {
   const [n, setN] = useState(0);
@@ -55,22 +58,27 @@ export function Reveal({ modeLabel, top, metric, refFighter, target, refValue, g
 
   return (
     <>
-      {/* The shutter: one black flash that makes it unmistakable the answer went in. */}
-      <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-50 bg-text opacity-0 motion-safe:animate-shutter" />
       <Header modeLabel={modeLabel} top={top} />
-      <div className="flex items-end justify-between">
-        <div className="flex items-baseline gap-2">
-          <div
-            data-testid="score"
-            className={`origin-bottom-left font-display text-[120px] font-extralight leading-[0.8] ${good ? "motion-safe:animate-pop" : ""}`}
-          >
-            {shown}
+      <div className="flex flex-col gap-4">
+        <div className="flex items-end justify-between">
+          <div className="flex items-baseline gap-2">
+            <div
+              data-testid="score"
+              className={`origin-bottom-left font-display text-[120px] font-extralight leading-[0.8] ${good ? "motion-safe:animate-pop" : ""}`}
+              style={{ color: quality(shown, 34) }}
+            >
+              {shown}
+            </div>
+            <div className="font-display text-[28px] font-light text-muted">/ 100</div>
           </div>
-          <div className="font-display text-[28px] font-light text-muted">/ 100</div>
+          <div className="text-right text-sm text-muted motion-safe:animate-settle">
+            {spotOn ? "Spot on" : `${formatValue(metric, Math.abs(guess - actual))} ${guess < actual ? "too low" : "too high"}`}
+            {hpLost !== undefined && <div className="text-text">−{hpLost.toFixed(1)} HP</div>}
+          </div>
         </div>
-        <div className="text-right text-sm text-muted motion-safe:animate-settle">
-          {spotOn ? "Spot on" : `${formatValue(metric, Math.abs(guess - actual))} ${guess < actual ? "too low" : "too high"}`}
-          {hpLost !== undefined && <div className="text-text">−{hpLost.toFixed(1)} HP</div>}
+        {/* How good the guess was, red to green, filling in step with the count. */}
+        <div aria-hidden="true" className="h-1.5 rounded-full bg-line">
+          <div className="h-full rounded-full" style={{ width: `${shown}%`, background: quality(shown, 46) }} />
         </div>
       </div>
       <div className={`${panel} ${spotOn ? "motion-safe:animate-ring" : ""}`}>
