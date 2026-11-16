@@ -4,21 +4,13 @@ import { useEffect, useState } from "react";
 import { Reveal } from "@/components/Reveal";
 import { Header, RoundShell } from "@/components/RoundShell";
 import { fighters, metrics } from "@/lib/engine/data";
-import { actualValue, localDate, randomRound } from "@/lib/engine/rounds";
+import { localDate, playOf, randomRound, type Play } from "@/lib/engine/rounds";
 import { dailyScore } from "@/lib/engine/scoring";
-import type { Fighter, Metric } from "@/lib/engine/types";
 
-type Play = { metric: Metric; refFighter: Fighter; target: Fighter; refValue: number; actual: number };
 type Result = { guess: number; score: number };
 
-function newRound(avoid?: string): Play {
-  const r = randomRound(Math.random, fighters, metrics, avoid);
-  const metric = metrics.find((m) => m.id === r.metric)!;
-  const refFighter = fighters.find((f) => f.id === r.ref)!;
-  const target = fighters.find((f) => f.id === r.target)!;
-  const today = localDate(new Date());
-  return { metric, refFighter, target, refValue: actualValue(refFighter, metric.id, today), actual: actualValue(target, metric.id, today) };
-}
+const newRound = (avoid?: string): Play =>
+  playOf(randomRound(Math.random, fighters, metrics, avoid), localDate(new Date()), fighters, metrics);
 
 export default function InfinitePage() {
   const [play, setPlay] = useState<Play | null>(null);

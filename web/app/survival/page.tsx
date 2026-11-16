@@ -6,13 +6,11 @@ import { Reveal } from "@/components/Reveal";
 import { Header, RoundShell } from "@/components/RoundShell";
 import { SurvivalResults } from "@/components/SurvivalResults";
 import { fighters, metrics } from "@/lib/engine/data";
-import { actualValue, localDate, randomRound } from "@/lib/engine/rounds";
+import { localDate, playOf, randomRound, type Play } from "@/lib/engine/rounds";
 import { dailyScore, SURVIVAL_HP, SURVIVAL_SECONDS, takeHit } from "@/lib/engine/scoring";
-import type { Fighter, Metric } from "@/lib/engine/types";
 import { browserStorage, load, recordSurvival, save, type State } from "@/lib/storage";
 import { useStorageSync } from "@/lib/storage/useStorageSync";
 
-type Play = { metric: Metric; refFighter: Fighter; target: Fighter; refValue: number; actual: number };
 type Result = { guess: number; score: number; lost: number };
 
 export default function SurvivalPage() {
@@ -25,11 +23,7 @@ export default function SurvivalPage() {
   const locked = useRef(false); // a tap and a timer expiry in one tick must not score twice
 
   function pick(date: string, avoid?: string) {
-    const r = randomRound(Math.random, fighters, metrics, avoid);
-    const metric = metrics.find((m) => m.id === r.metric)!;
-    const refFighter = fighters.find((f) => f.id === r.ref)!;
-    const target = fighters.find((f) => f.id === r.target)!;
-    setPlay({ metric, refFighter, target, refValue: actualValue(refFighter, metric.id, date), actual: actualValue(target, metric.id, date) });
+    setPlay(playOf(randomRound(Math.random, fighters, metrics, avoid), date, fighters, metrics));
     setResult(null);
     locked.current = false;
   }

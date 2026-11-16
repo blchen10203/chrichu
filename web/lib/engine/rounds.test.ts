@@ -3,7 +3,7 @@ import { config } from "@/lib/config";
 import { fighters, metrics } from "@/lib/engine/data";
 import { rng } from "@/lib/engine/rng";
 import {
-  MIN_REF_FRACTION, actualValue, ageOn, dailySet, isValidRound, localDate, puzzleNumber, randomRound, repairRounds,
+  MIN_REF_FRACTION, actualValue, ageOn, dailySet, isValidRound, localDate, playOf, puzzleNumber, randomRound, repairRounds,
 } from "@/lib/engine/rounds";
 import { toFraction } from "@/lib/engine/scale";
 import type { Round } from "@/lib/engine/types";
@@ -115,18 +115,43 @@ describe("saved rounds", () => {
   it("keeps a healthy saved set as it is", () => {
     expect(repairRounds(set, 2, DAY, fighters, metrics)).toEqual(set);
   });
+  // A repaired set must still follow every Daily rule, the played rounds included.
+  const followsRules = (s: Round[], fs = fighters) => {
+    expect(s).toHaveLength(5);
+    expect(new Set(s.map((r) => r.metric)).size).toBe(5);
+    expect(new Set(s.flatMap((r) => [r.ref, r.target])).size).toBe(10);
+    expect(s.some((r) => r.metric === "height" || r.metric === "reach")).toBe(true);
+    for (const r of s.slice(2)) expect(isValidRound(r, fs, metrics)).toBe(true);
+  };
   it("keeps played rounds and rebuilds the unplayed ones when one is broken", () => {
     const saved = set.map((r, i) => (i === 3 ? { ...r, target: "nobody" } : r));
     const fixed = repairRounds(saved, 2, DAY, fighters, metrics);
     expect(fixed.slice(0, 2)).toEqual(saved.slice(0, 2));
-    expect(fixed.slice(2)).toEqual(set.slice(2));
+    followsRules(fixed);
   });
   it("repairs unplayed rounds when a fighter is removed from the data", () => {
     const smaller = fighters.filter((f) => f.id !== set[3].target);
     const fixed = repairRounds(set, 2, DAY, smaller, metrics);
     expect(fixed.slice(0, 2)).toEqual(set.slice(0, 2));
-    expect(fixed).toHaveLength(5);
-    for (const r of fixed.slice(2)) expect(isValidRound(r, smaller, metrics)).toBe(true);
+    followsRules(fixed, smaller);
+  });
+  it("never repeats a played metric or fighter, across a year of repairs", () => {
+    for (let i = 0; i < 365; i++) {
+      const date = localDate(new Date(2026, 11, 1 + i));
+      const s = dailySet(date, fighters, metrics);
+      for (const played of [1, 2, 4]) {
+        const fixed = repairRounds(s.map((r, k) => (k === 4 ? { ...r, target: "nobody" } : r)), played, date, fighters, metrics);
+        expect(fixed.slice(0, played)).toEqual(s.slice(0, played));
+        followsRules(fixed);
+      }
+    }
+  });
+  it("turns a round into what its screen shows", () => {
+    const p = playOf(set[0], DAY, fighters, metrics);
+    expect(p.metric.id).toBe(set[0].metric);
+    expect([p.refFighter.id, p.target.id]).toEqual([set[0].ref, set[0].target]);
+    expect(p.actual).toBe(actualValue(p.target, p.metric.id, DAY));
+    expect(p.refValue).toBe(actualValue(p.refFighter, p.metric.id, DAY));
   });
   it("leaves a broken round alone once it has been played", () => {
     const saved = set.map((r, i) => (i === 0 ? { ...r, target: "nobody" } : r));

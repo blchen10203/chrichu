@@ -330,15 +330,16 @@ One localStorage key, `reachdle:v1`:
   "daily": {
     "days": { "2026-12-01": {
       "rounds": [{ "metric": "reach", "ref": "...", "target": "..." }],
-      "guesses": [81.0], "scores": [50], "done": false } },
-    "streak": 4, "maxStreak": 9, "lastDone": "2026-11-30"
+      "guesses": [81.0], "scores": [50], "done": false } }
   },
   "survival": { "best": 14, "runs": 6 },
   "infinite": { "rounds": 120, "totalScore": 7900 }
 }
 ```
 
-- Streak counts consecutive local dates with a finished Daily.
+- Streak counts consecutive local dates with a finished Daily, worked out from
+  `days` each time it is shown (no stored counter), so a Daily finished late in
+  a tab left open overnight still joins the run.
 - If storage is blocked, or the saved value fails to parse, the game plays
   normally with empty state and does not crash.
 

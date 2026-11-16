@@ -2,7 +2,7 @@ import type { Round } from "@/lib/engine/types";
 
 export type DayState = { rounds: Round[]; guesses: number[]; scores: number[]; done: boolean };
 export type State = {
-  daily: { days: Record<string, DayState>; streak: number; maxStreak: number; lastDone: string | null };
+  daily: { days: Record<string, DayState> }; // every day ever started, so the streak can be counted from it
   survival: { best: number; runs: number };
 };
 
@@ -10,7 +10,7 @@ export const STORAGE_KEY = "reachdle:v1";
 const ROUNDS_PER_DAY = 5;
 
 export const emptyState = (): State => ({
-  daily: { days: {}, streak: 0, maxStreak: 0, lastDone: null },
+  daily: { days: {} },
   survival: { best: 0, runs: 0 },
 });
 
@@ -37,12 +37,9 @@ const isDay = (v: unknown): boolean =>
 // All-or-nothing: any mismatch anywhere means a fresh state, so later code can trust the shape.
 function isState(v: unknown): v is State {
   if (!isObject(v) || !isObject(v.daily) || !isObject(v.survival)) return false;
-  const { days, streak, maxStreak, lastDone } = v.daily;
-  return (
-    isObject(days) && Object.values(days).every(isDay) &&
-    isNum(streak) && isNum(maxStreak) && (lastDone === null || typeof lastDone === "string") &&
-    isNum(v.survival.best) && isNum(v.survival.runs)
-  );
+  // Older saves also carry streak, maxStreak and lastDone; they are ignored.
+  const { days } = v.daily;
+  return isObject(days) && Object.values(days).every(isDay) && isNum(v.survival.best) && isNum(v.survival.runs);
 }
 
 export function load(storage: Pick<Storage, "getItem"> | null): State {
@@ -79,13 +76,7 @@ export function recordGuess(state: State, date: string, guess: number, score: nu
   const guesses = [...day.guesses, guess];
   const scores = [...day.scores, score];
   const done = scores.length >= ROUNDS_PER_DAY;
-  const days = { ...state.daily.days, [date]: { ...day, guesses, scores, done } };
-  if (!done) return { ...state, daily: { ...state.daily, days } };
-  const streak = state.daily.lastDone === dayBefore(date) ? state.daily.streak + 1 : 1;
-  return {
-    ...state,
-    daily: { days, streak, maxStreak: Math.max(state.daily.maxStreak, streak), lastDone: date },
-  };
+  return { ...state, daily: { ...state.daily, days: { ...state.daily.days, [date]: { ...day, guesses, scores, done } } } };
 }
 
 export function recordSurvival(state: State, survived: number): State {
@@ -94,9 +85,13 @@ export function recordSurvival(state: State, survived: number): State {
   return { ...state, survival: { best: Math.max(best, survived), runs: runs + 1 } };
 }
 
+// Finished days in a row, ending today or, while today is unplayed, yesterday. Counted from `days`,
+// so a day finished late (a tab left open overnight) still joins the run.
 export function currentStreak(state: State, today: string): number {
-  const { lastDone, streak } = state.daily;
-  return lastDone === today || lastDone === dayBefore(today) ? streak : 0;
+  const { days } = state.daily;
+  let n = 0;
+  for (let d = days[today]?.done ? today : dayBefore(today); days[d]?.done; d = dayBefore(d)) n++;
+  return n;
 }
 
 export function dailyStats(state: State): { played: number; average: number; best: number } {

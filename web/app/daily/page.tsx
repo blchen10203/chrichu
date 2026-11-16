@@ -6,7 +6,7 @@ import { Reveal } from "@/components/Reveal";
 import { Header, RoundShell } from "@/components/RoundShell";
 import { config } from "@/lib/config";
 import { fighters, metrics } from "@/lib/engine/data";
-import { actualValue, dailySet, localDate, puzzleNumber, repairRounds } from "@/lib/engine/rounds";
+import { dailySet, localDate, playOf, puzzleNumber, repairRounds } from "@/lib/engine/rounds";
 import { dailyScore } from "@/lib/engine/scoring";
 import { browserStorage, load, recordGuess, save, startDay, type State } from "@/lib/storage";
 import { useStorageSync } from "@/lib/storage/useStorageSync";
@@ -47,17 +47,7 @@ export default function DailyPage() {
   if (day.done && !shown) return <Results puzzle={puzzle} day={day} state={state} today={today} />;
 
   const i = shown ? shown.i : day.guesses.length;
-  const round = day.rounds[i];
-  const metric = metrics.find((m) => m.id === round.metric)!;
-  const refFighter = fighters.find((f) => f.id === round.ref)!;
-  const target = fighters.find((f) => f.id === round.target)!;
-  const play = {
-    metric,
-    refFighter,
-    target,
-    refValue: actualValue(refFighter, metric.id, today),
-    actual: actualValue(target, metric.id, today),
-  };
+  const play = playOf(day.rounds[i], today, fighters, metrics);
 
   const played = day.guesses.length;
   const pip = (n: number) => (n < played ? "bg-text" : n === played ? "bg-muted" : "bg-line");
@@ -94,7 +84,7 @@ export default function DailyPage() {
       top={top}
       {...play}
       onLockIn={(guess) => {
-        const score = dailyScore(metric, guess, play.actual);
+        const score = dailyScore(play.metric, guess, play.actual);
         const next = recordGuess(state, today, guess, score);
         save(next, browserStorage());
         setState(next);

@@ -48,28 +48,36 @@ export function randomRound(rand: () => number, fighters: Fighter[], metrics: Me
   return roundFor(rand, pick(rand, choices), byId(fighters), new Set());
 }
 
-export function dailySet(date: string, fighters: Fighter[], metrics: Metric[]): Round[] {
-  const rand = rng(date);
-  const sortedFighters = byId(fighters);
-  const sortedMetrics = byId(metrics);
-  const silhouettes = sortedMetrics.filter((m) => m.id === "height" || m.id === "reach");
-  if (sortedMetrics.length < SET_SIZE || silhouettes.length === 0) throw new Error("Not enough metrics for a Daily set");
+const isSilhouette = (id: MetricId) => id === "height" || id === "reach";
 
-  const first = pick(rand, silhouettes);
-  const rest = sortedMetrics.filter((m) => m !== first);
-  const chosen = [first];
-  while (chosen.length < SET_SIZE) chosen.push(...rest.splice(Math.floor(rand() * rest.length), 1));
+// The rounds that follow `kept` up to a full set: metrics and fighters `kept` has not used, and a height
+// or reach round unless `kept` has one. With nothing kept this draws exactly what the Daily always has.
+function fill(rand: () => number, kept: Round[], fighters: Fighter[], metrics: Metric[]): Round[] {
+  const rest = byId(metrics).filter((m) => !kept.some((r) => r.metric === m.id));
+  const silhouettes = rest.filter((m) => isSilhouette(m.id));
+  const needSilhouette = !kept.some((r) => isSilhouette(r.metric));
+  if (kept.length + rest.length < SET_SIZE || (needSilhouette && silhouettes.length === 0)) {
+    throw new Error("Not enough metrics for a Daily set");
+  }
+
+  const chosen = needSilhouette ? rest.splice(rest.indexOf(pick(rand, silhouettes)), 1) : [];
+  while (kept.length + chosen.length < SET_SIZE) chosen.push(...rest.splice(Math.floor(rand() * rest.length), 1));
   for (let i = chosen.length - 1; i > 0; i--) {
     const j = Math.floor(rand() * (i + 1));
     [chosen[i], chosen[j]] = [chosen[j], chosen[i]];
   }
 
-  const used = new Set<FighterId>();
+  const sortedFighters = byId(fighters);
+  const used = new Set<FighterId>(kept.flatMap((r) => [r.ref, r.target]));
   return chosen.map((m) => {
     const round = roundFor(rand, m, sortedFighters, used);
     used.add(round.ref).add(round.target);
     return round;
   });
+}
+
+export function dailySet(date: string, fighters: Fighter[], metrics: Metric[]): Round[] {
+  return fill(rng(date), [], fighters, metrics);
 }
 
 export function isValidRound(round: Round, fighters: Fighter[], metrics: Metric[]): boolean {
@@ -78,7 +86,18 @@ export function isValidRound(round: Round, fighters: Fighter[], metrics: Metric[
   return ok(round.ref) && ok(round.target);
 }
 
+// New data can break a saved round; the unplayed ones are then drawn again, around what was already played.
 export function repairRounds(saved: Round[], played: number, date: string, fighters: Fighter[], metrics: Metric[]): Round[] {
   if (saved.slice(played).every((r) => isValidRound(r, fighters, metrics))) return saved;
-  return [...saved.slice(0, played), ...dailySet(date, fighters, metrics).slice(played)];
+  const kept = saved.slice(0, played);
+  return [...kept, ...fill(rng(date), kept, fighters, metrics)];
+}
+
+// Everything a round's screen needs. Only call it with a valid round.
+export type Play = { metric: Metric; refFighter: Fighter; target: Fighter; refValue: number; actual: number };
+export function playOf(round: Round, date: string, fighters: Fighter[], metrics: Metric[]): Play {
+  const metric = metrics.find((m) => m.id === round.metric)!;
+  const refFighter = fighters.find((f) => f.id === round.ref)!;
+  const target = fighters.find((f) => f.id === round.target)!;
+  return { metric, refFighter, target, refValue: actualValue(refFighter, metric.id, date), actual: actualValue(target, metric.id, date) };
 }

@@ -32,7 +32,6 @@ describe("load and save", () => {
     ["guesses that is not an array", (s) => { s.daily.days["2026-12-01"].guesses = "x"; }],
     ["a round missing target", (s) => { delete s.daily.days["2026-12-01"].rounds[0].target; }],
     ["a string survival best", (s) => { s.survival.best = "1"; }],
-    ["a numeric lastDone", (s) => { s.daily.lastDone = 5; }],
   ])("gives an empty state for %s", (_name, patch) => {
     expect(load(fake(broken(patch)))).toEqual(emptyState());
   });
@@ -56,10 +55,15 @@ describe("daily progress", () => {
   it("records each guess and finishes on the fifth", () => {
     const four = playDay(emptyState(), "2026-12-01", [10, 20, 30, 40]);
     expect(four.daily.days["2026-12-01"].done).toBe(false);
-    expect(four.daily.streak).toBe(0);
+    expect(currentStreak(four, "2026-12-01")).toBe(0);
     const five = recordGuess(four, "2026-12-01", 70, 50);
     expect(five.daily.days["2026-12-01"]).toMatchObject({ guesses: [70, 70, 70, 70, 70], scores: [10, 20, 30, 40, 50], done: true });
-    expect(five.daily).toMatchObject({ streak: 1, maxStreak: 1, lastDone: "2026-12-01" });
+    expect(currentStreak(five, "2026-12-01")).toBe(1);
+  });
+  it("loads an older save that still carries streak fields", () => {
+    const s = playDay(emptyState(), "2026-12-01");
+    const old = { ...s, daily: { ...s.daily, streak: 4, maxStreak: 9, lastDone: "2026-12-01" } };
+    expect(currentStreak(load(fake(JSON.stringify(old))), "2026-12-01")).toBe(1);
   });
   it("ignores a guess on a finished or unstarted day", () => {
     const done = playDay(emptyState(), "2026-12-01");
@@ -77,11 +81,24 @@ describe("daily progress", () => {
 describe("streak", () => {
   it("grows on consecutive days, across a month end", () => {
     const s = playDay(playDay(playDay(emptyState(), "2026-12-30"), "2026-12-31"), "2027-01-01");
-    expect(s.daily).toMatchObject({ streak: 3, maxStreak: 3, lastDone: "2027-01-01" });
+    expect(currentStreak(s, "2027-01-01")).toBe(3);
   });
-  it("resets after a missed day but keeps the record", () => {
+  it("resets after a missed day", () => {
     const s = playDay(playDay(playDay(emptyState(), "2026-12-01"), "2026-12-02"), "2026-12-04");
-    expect(s.daily).toMatchObject({ streak: 1, maxStreak: 2 });
+    expect(currentStreak(s, "2026-12-04")).toBe(1);
+  });
+  it("does not count an unfinished day", () => {
+    const s = recordGuess(startDay(playDay(emptyState(), "2026-12-01"), "2026-12-02", rounds), "2026-12-02", 70, 50);
+    expect(currentStreak(s, "2026-12-03")).toBe(0);
+  });
+  it("joins a day finished late, after a newer one, into the run", () => {
+    let s = playDay(playDay(emptyState(), "2026-12-01"), "2026-12-02");
+    s = startDay(s, "2026-12-03", rounds); // a tab left open overnight on the 3rd...
+    s = playDay(s, "2026-12-04"); // ...while the 4th is played in a new tab
+    expect(currentStreak(s, "2026-12-04")).toBe(1);
+    s = [1, 2, 3, 4, 5].reduce((acc) => recordGuess(acc, "2026-12-03", 70, 50), s); // the old tab finishes the 3rd
+    expect(currentStreak(s, "2026-12-04")).toBe(4);
+    expect(currentStreak(s, "2026-12-05")).toBe(4);
   });
   it("shows zero once a day has been missed", () => {
     const s = playDay(emptyState(), "2026-12-01");
