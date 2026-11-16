@@ -2,12 +2,38 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { localDate } from "@/lib/engine/rounds";
+import { ACTIVE_YEARS, localDate } from "@/lib/engine/rounds";
+import { activeOnly } from "@/lib/prefs";
 import { browserStorage, currentStreak, load } from "@/lib/storage";
 
 const mode =
   "group flex items-baseline justify-between py-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-text";
 const word = "font-display text-[88px] font-extralight leading-[0.95] tracking-tight motion-safe:transition-[font-weight] motion-safe:duration-300 group-hover:font-normal";
+
+// Infinite and Survival with active fighters only; the note says the Daily is never filtered.
+function ActiveToggle() {
+  const on = activeOnly.useValue();
+  return (
+    <div className="mt-4 flex flex-col gap-1">
+      <button
+        type="button"
+        role="switch"
+        aria-checked={on}
+        aria-describedby="active-note"
+        onClick={() => activeOnly.set(!on)}
+        className="flex min-h-11 items-center gap-3 self-start text-[15px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-text"
+      >
+        <span className={`relative h-6 w-10 shrink-0 rounded-full motion-safe:transition-colors ${on ? "bg-text" : "bg-line"}`}>
+          <span className={`absolute top-0.5 left-0.5 size-5 rounded-full bg-bg shadow-sm motion-safe:transition-transform ${on ? "translate-x-4" : ""}`} />
+        </span>
+        Active fighters only
+      </button>
+      <p id="active-note" className="text-xs text-muted">
+        Infinite and Survival only: fighters with a UFC fight in the last {ACTIVE_YEARS} years. The Daily always uses every fighter.
+      </p>
+    </div>
+  );
+}
 
 export function HomeModes() {
   // The date and storage exist only after mount.
@@ -33,7 +59,8 @@ export function HomeModes() {
       <Link href="/survival" className={mode}>
         <span className={word}>Survival</span>
       </Link>
-      <p className="mt-4 min-h-5 text-sm text-muted">
+      <ActiveToggle />
+      <p className="mt-2 min-h-5 text-sm text-muted">
         {live && `Streak: ${live.streak} ${live.streak === 1 ? "day" : "days"}`}
       </p>
     </div>

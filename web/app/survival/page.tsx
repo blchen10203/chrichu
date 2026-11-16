@@ -6,8 +6,9 @@ import { Reveal } from "@/components/Reveal";
 import { Header, RoundShell } from "@/components/RoundShell";
 import { SurvivalResults } from "@/components/SurvivalResults";
 import { fighters, metrics } from "@/lib/engine/data";
-import { localDate, playOf, randomRound, type Play } from "@/lib/engine/rounds";
+import { activeFighters, localDate, playOf, randomRound, type Play } from "@/lib/engine/rounds";
 import { dailyScore, SURVIVAL_HP, SURVIVAL_SECONDS, takeHit } from "@/lib/engine/scoring";
+import { activeOnly } from "@/lib/prefs";
 import { browserStorage, load, recordSurvival, save, type State } from "@/lib/storage";
 import { useStorageSync } from "@/lib/storage/useStorageSync";
 
@@ -22,8 +23,11 @@ export default function SurvivalPage() {
   const [results, setResults] = useState(false);
   const locked = useRef(false); // a tap and a timer expiry in one tick must not score twice
 
+  const active = activeOnly.useValue();
+
   function pick(date: string, avoid?: string) {
-    setPlay(playOf(randomRound(Math.random, fighters, metrics, avoid), date, fighters, metrics));
+    const pool = activeOnly.get() ? activeFighters(fighters, date) : fighters;
+    setPlay(playOf(randomRound(Math.random, pool, metrics, avoid), date, fighters, metrics));
     setResult(null);
     locked.current = false;
   }
@@ -42,7 +46,7 @@ export default function SurvivalPage() {
   if (!state || !today || !play) return <Header modeLabel="Survival" />;
 
   const dead = result !== null && run.hp === 0;
-  const modeLabel = `Round ${run.n}`;
+  const modeLabel = `Round ${run.n}${active ? " · Active" : ""}`;
 
   if (results && result) {
     return (

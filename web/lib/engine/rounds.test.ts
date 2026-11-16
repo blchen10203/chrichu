@@ -3,7 +3,7 @@ import { config } from "@/lib/config";
 import { fighters, metrics } from "@/lib/engine/data";
 import { rng } from "@/lib/engine/rng";
 import {
-  MIN_REF_FRACTION, actualValue, ageOn, dailySet, isValidRound, localDate, playOf, puzzleNumber, randomRound, repairRounds,
+  MIN_REF_FRACTION, activeFighters, actualValue, ageOn, dailySet, isValidRound, localDate, playOf, puzzleNumber, randomRound, repairRounds,
 } from "@/lib/engine/rounds";
 import { toFraction } from "@/lib/engine/scale";
 import type { Round } from "@/lib/engine/types";
@@ -81,6 +81,26 @@ describe("randomRound", () => {
   it("never repeats the avoided metric", () => {
     const rand = rng("y");
     for (let i = 0; i < 200; i++) expect(randomRound(rand, fighters, metrics, "reach").metric).not.toBe("reach");
+  });
+});
+
+describe("active fighters", () => {
+  const f = (lastFight: string | null) => ({ ...fighters[0], id: String(lastFight), lastFight });
+  it("keeps fighters with a fight in the last two years, the boundary day included", () => {
+    const pool = [f("2024-11-15"), f("2024-11-14"), f("2026-11-01"), f(null)];
+    expect(activeFighters(pool, "2026-11-15").map((x) => x.lastFight)).toEqual(["2024-11-15", "2026-11-01"]);
+  });
+  it("is enough to play every metric in Infinite and Survival", () => {
+    const pool = activeFighters(fighters, localDate(new Date()));
+    expect(pool.length).toBeGreaterThanOrEqual(30);
+    const rand = rng("active");
+    const seen = new Set<string>();
+    for (let i = 0; i < 1000; i++) {
+      const r = randomRound(rand, pool, metrics);
+      expect(pool.some((x) => x.id === r.ref) && pool.some((x) => x.id === r.target)).toBe(true);
+      seen.add(r.metric);
+    }
+    expect(seen.size).toBe(metrics.length);
   });
 });
 

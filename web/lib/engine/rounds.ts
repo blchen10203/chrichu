@@ -26,6 +26,13 @@ export function ageOn(dob: string, date: string): number {
   return y - by - (m < bm || (m === bm && d < bd) ? 1 : 0);
 }
 
+// Active: a UFC fight in the ACTIVE_YEARS before `date`. Infinite and Survival can play only these; the Daily uses everyone.
+export const ACTIVE_YEARS = 2;
+export function activeFighters(fighters: Fighter[], date: string): Fighter[] {
+  const cutoff = `${Number(date.slice(0, 4)) - ACTIVE_YEARS}${date.slice(4)}`;
+  return fighters.filter((f) => f.lastFight !== null && f.lastFight >= cutoff);
+}
+
 export function actualValue(fighter: Fighter, metricId: MetricId, date: string): number {
   return metricId === "age" ? ageOn(fighter.dob!, date) : fighter.metrics[metricId];
 }

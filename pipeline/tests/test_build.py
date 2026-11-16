@@ -22,7 +22,7 @@ def run(roster=(A, B), shipped=SHIP, image_dir=Path("no-such-dir"), min_eligible
 
 def test_fighters_json_shape():
     fighters, _, _ = run()
-    assert fighters[0] == {"id": "a-one", "name": "A One", "dob": "1987-07-19",
+    assert fighters[0] == {"id": "a-one", "name": "A One", "dob": "1987-07-19", "lastFight": "2020-01-10",
                            "hasImage": False, "metrics": {"height": 76, "reach": 84.0}}
     assert fighters[1]["dob"] is None
 

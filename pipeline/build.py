@@ -65,8 +65,10 @@ def build(rows, roster, shipped, today, image_dir, min_eligible=30):
         values = derive.metrics_for(fights[name], parse.height_in(t["HEIGHT"]), parse.reach_in(t["REACH"]),
                                     dob, deceased, today)
         per_fighter.append(values)
+        dated = [f["date"] for f in fights[name] if f["date"]]
         fighters.append({
             "id": fighter_id, "name": name, "dob": dob,
+            "lastFight": max(dated, default=None),  # the site counts a recent one as active
             "hasImage": (image_dir / f"{fighter_id}.webp").exists(),
             "metrics": values,
         })

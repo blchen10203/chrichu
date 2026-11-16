@@ -25,3 +25,25 @@ test("home shows the modes, and today's result once Daily is done", async ({ pag
   await page.getByRole("link", { name: /Survival/ }).click();
   await expect(page.getByText("Round 1", { exact: true })).toBeVisible();
 });
+
+test("the active-only switch is remembered and marks Infinite and Survival, not the Daily", async ({ page }) => {
+  await page.goto("/");
+  const toggle = page.getByRole("switch", { name: "Active fighters only" });
+  await expect(toggle).toHaveAttribute("aria-checked", "false");
+  await expect(page.getByText("The Daily always uses every fighter.", { exact: false })).toBeVisible();
+  await toggle.click();
+  await expect(toggle).toHaveAttribute("aria-checked", "true");
+
+  await page.goto("/infinite");
+  await expect(page.getByText("Round 1 · Active", { exact: true })).toBeVisible();
+  await page.goto("/survival");
+  await expect(page.getByText("Round 1 · Active", { exact: true })).toBeVisible();
+  await page.goto("/daily");
+  await expect(page.getByText("Round 1 of 5", { exact: true })).toBeVisible();
+
+  await page.goto("/");
+  await expect(toggle).toHaveAttribute("aria-checked", "true");
+  await toggle.click();
+  await page.goto("/infinite");
+  await expect(page.getByText("Round 1", { exact: true })).toBeVisible();
+});
