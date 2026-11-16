@@ -2,10 +2,11 @@ name: Update data
 
 on:
   workflow_dispatch:
-  # Turn on at build-order step 5 (spec section 14).
-  # New data changes the Daily for anyone who has not started it yet, so deploy near midnight US Eastern.
-  # schedule:
-  #   - cron: "0 5 * * 2" # Tuesdays 05:00 UTC
+  # The source (Greco1899/scrape_ufc_stats) refreshes around 18:00 UTC, on Sundays and some weekdays,
+  # so a daily run at 19:00 UTC picks up a card about an hour after it lands. A refresh mid-day rarely moves
+  # the Daily (last week's changed none of the next 365): mostly a fighter who just fought gets new answers.
+  schedule:
+    - cron: "0 19 * * *"
 
 permissions:
   contents: write
@@ -19,9 +20,28 @@ jobs:
         with:
           python-version: "3.13"
       - run: python pipeline/build.py
+      - name: Stop if the site data did not change
+        id: changed
+        # report.txt carries the build date, so only web/data decides whether there is anything to ship.
+        run: git diff --quiet -- web/data && echo "data=no" >> "$GITHUB_OUTPUT" || echo "data=yes" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-node@v4
+        if: steps.changed.outputs.data == 'yes'
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Test the new data
+        # A failure here stops the run before the commit, so the site keeps the old data.
+        if: steps.changed.outputs.data == 'yes'
+        working-directory: web
+        run: |
+          npm ci
+          npm test
       - name: Commit the new data
+        if: steps.changed.outputs.data == 'yes'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add web/data pipeline/report.txt
-          git diff --cached --quiet || (git commit -m "Update fighter data" && git push)
+          git commit -m "Update fighter data"
+          git push
