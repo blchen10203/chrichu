@@ -170,8 +170,9 @@ export function SilhouetteStage({ metric, refValue, value, onChange, actual, ref
   return (
     <div data-testid="silhouette-stage" className="flex flex-1 items-center justify-center">
       <div
-        className="relative w-full touch-none"
-        style={{ aspectRatio: `${W} / ${H}`, maxHeight: "100%" }}
+        className="relative touch-none"
+        // Width follows the page but stops where the height would push the bottom button below the screen (the rest of a reveal is ~620px).
+        style={{ aspectRatio: `${W} / ${H}`, width: `min(100%, calc(max(320px, 100dvh - 620px) * ${W / H}))` }}
         onPointerDown={
           interactive
             ? (e) => {
