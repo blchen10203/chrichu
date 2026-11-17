@@ -18,7 +18,7 @@ SHIP = {"ship": ["height", "reach"], "step": {}}
 
 @pytest.fixture(autouse=True)
 def offline_roster(monkeypatch):
-    """main() never reaches roster.watch in tests: A One is on the roster, B Two is not."""
+    """main() never reaches Wikipedia in tests: A One is on the roster, B Two is not."""
     monkeypatch.setattr(build, "read_active", lambda url: {"a-one"})
 
 
@@ -34,13 +34,59 @@ def test_fighters_json_shape():
     assert fighters[1]["active"] is False
 
 
-def test_read_active_parses_every_name_form(tmp_path, monkeypatch):
-    page = tmp_path / "roster.html"
-    page.write_text('<tr data-fighter="José Aldo" data-dob=1986-09-09><tr data-fighter=Rongzhu data-dob=x>'
-                    "<tr data-fighter=\"Sean O&#39;Malley\"><tr data-fighter='Alex Pereira'>", encoding="utf-8")
+def test_main_keeps_the_previous_active_flags_when_the_roster_cannot_be_read(tmp_path, monkeypatch, capsys):
+    (tmp_path / "pipeline").mkdir()
+    (tmp_path / "web" / "data").mkdir(parents=True)
+    (tmp_path / "pipeline" / "roster.csv").write_text(
+        "name,ufcstats_id,ufc_slug,deceased\nA One,aaaa,a-one,0\nB Two,bbbb,b-two,0\n")
+    (tmp_path / "pipeline" / "shipped.json").write_text(json.dumps(SHIP))
+    data = tmp_path / "web" / "data" / "fighters.json"
+    data.write_text(json.dumps([{"id": "a-one", "name": "A One", "active": False, "metrics": {"height": 76, "reach": 84.0}},
+                                {"id": "b-two", "name": "B Two", "active": True, "metrics": {}}]))
+
+    def blocked(url):
+        raise OSError("HTTP Error 403: Forbidden")
+    monkeypatch.setattr(build, "read_active", blocked)
+    monkeypatch.setattr(build, "ROOT", tmp_path)
+    monkeypatch.setattr(build, "SOURCE", DATA)
+    monkeypatch.setattr(build, "MIN_FIGHTERS", 2)
+    monkeypatch.setattr(build, "build", functools.partial(build.build, min_eligible=2))
+    assert build.main() == 0
+    assert [f["active"] for f in json.loads(data.read_text(encoding="utf-8"))] == [False, True]
+    assert "403" in capsys.readouterr().err
+
+
+WIKITEXT = """== Recent releases and retirements ==
+|-
+|{{#invoke:flag|icon|BRA}}
+|{{sortname|José|Aldo}}
+==Debuted fighters==
+==Lightweights (155 lb, 70 kg)==
+|-
+|{{#invoke:flag|icon|RUS}}
+|{{sortname|Islam|Makhachev}} (c)
+|{{age nts|1991|10|27}}
+|-
+|{{#invoke:flag|icon|GEO}}<br>{{#invoke:flag|icon|ESP}}
+|{{sortname|Ilia|Topuria|Ilia Topuria (fighter)}}
+|-
+|{{#invoke:flag|icon|POL}}
+|[[Jan Błachowicz (fighter)|Jan Błachowicz]] '''*'''
+|-
+|{{#invoke:flag|icon|USA}}
+|Sean O&#39;Malley <ref name="x"/>
+==See also==
+|{{#invoke:flag|icon|USA}}
+|Not A Fighter
+"""
+
+
+def test_read_active_reads_only_the_weight_class_tables(tmp_path, monkeypatch):
+    page = tmp_path / "roster.json"
+    page.write_text(json.dumps({"parse": {"wikitext": WIKITEXT}}), encoding="utf-8")
     monkeypatch.undo()  # the real read_active, against a local file
     monkeypatch.setattr(build, "MIN_ACTIVE", 4)
-    assert build.read_active(page.as_uri()) == {"jose-aldo", "rongzhu", "sean-o-malley", "alex-pereira"}
+    assert build.read_active(page.as_uri()) == {"islam-makhachev", "ilia-topuria", "jan-blachowicz", "sean-o-malley"}
     monkeypatch.setattr(build, "MIN_ACTIVE", 5)
     with pytest.raises(build.BuildError, match="Only 4 fighters"):
         build.read_active(page.as_uri())
@@ -119,15 +165,15 @@ def test_failed_run_leaves_files_untouched(tmp_path, monkeypatch, capsys):
     (tmp_path / "pipeline" / "roster.csv").write_text("name,ufcstats_id,ufc_slug,deceased\n")
     (tmp_path / "pipeline" / "shipped.json").write_text(json.dumps(SHIP))
     old = tmp_path / "web" / "data" / "fighters.json"
-    old.write_text("OLD")
+    old.write_text("[]")
     monkeypatch.setattr(build, "ROOT", tmp_path)
     monkeypatch.setattr(build, "SOURCE", DATA)
     assert build.main() == 1                      # empty roster
-    assert old.read_text() == "OLD"
+    assert old.read_text() == "[]"
     assert not (tmp_path / "pipeline" / "report.txt").exists()
     monkeypatch.setattr(build, "SOURCE", (tmp_path / "missing").as_uri() + "/")
     assert build.main() == 1                      # download fails
-    assert old.read_text() == "OLD"
+    assert old.read_text() == "[]"
     assert "roster" in capsys.readouterr().err
 
 

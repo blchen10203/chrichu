@@ -23,9 +23,13 @@ SOURCE = "https://raw.githubusercontent.com/Greco1899/scrape_ufc_stats/main/"
 MIN_FIGHTERS = 150
 MAX_CHANGED = 0.15
 FILES = ("ufc_fighter_tott", "ufc_event_details", "ufc_fight_results", "ufc_fight_stats")
-# The current UFC roster, for the site's active-only setting.
-ROSTER_URL = "https://www.roster.watch/"
-MIN_ACTIVE = 300  # it lists ~700; far fewer means the page changed, not the roster
+# The current UFC roster, for the site's active-only setting: Wikipedia's list, whose API lets build servers in
+# (roster.watch, which agrees on all but a fighter or two, refuses GitHub's).
+ROSTER_URL = ("https://en.wikipedia.org/w/api.php?action=parse&page=List_of_current_UFC_fighters"
+              "&prop=wikitext&format=json&formatversion=2")
+MIN_ACTIVE = 300  # it lists ~650; far fewer means the page changed, not the roster
+# Letters NFKD does not split into a base letter and an accent.
+PLAIN = str.maketrans("łŁøØđĐ", "lLoOdD")
 
 
 class BuildError(Exception):
@@ -33,20 +37,30 @@ class BuildError(Exception):
 
 
 def name_key(name):
-    """A name without accents, case or punctuation, so "José Aldo" and "Jose Aldo" match."""
-    return parse.slug(unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode())
+    """A name without accents, case or punctuation, so "Jan Błachowicz" and "Jan Blachowicz" match."""
+    return parse.slug(unicodedata.normalize("NFKD", name.translate(PLAIN)).encode("ascii", "ignore").decode())
+
+
+def roster_name(cell):
+    """The fighter's name from the table cell after the flag: {{sortname|First|Last}}, [[Link|Name]] or plain."""
+    if m := re.match(r"\{\{sortname\|([^|}]*)\|([^|}]*)", cell):
+        return f"{m[1]} {m[2]}"
+    if m := re.match(r"\[\[(?:[^|\]]*\|)?([^\]]*)\]\]", cell):
+        return m[1]
+    return re.split(r"\s*(?:\(|'''|<|\{\{)", cell)[0]  # drop a trailing (c) or note
 
 
 def read_active(url):
-    # The site refuses Python's default User-Agent.
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    req = urllib.request.Request(url, headers={"User-Agent": "roster-build/1.0 (python-urllib)"})
     with urllib.request.urlopen(req, timeout=60) as resp:
-        page = resp.read().decode("utf-8")
-    # One table row per fighter: data-fighter="Islam Makhachev", or unquoted for a single name.
-    names = re.findall(r"""data-fighter=(?:"([^"]*)"|'([^']*)'|([^\s"'>]+))""", page)
-    active = {name_key(html.unescape("".join(n))) for n in names}
+        text = json.loads(resp.read().decode("utf-8"))["parse"]["wikitext"]
+    # Only the weight-class tables: the page also lists recent releases, retirements and unsigned signings.
+    text = text[text.index("==Debuted fighters=="):text.index("==See also==")]
+    # Each fighter row starts with their flag (two for dual nationals), then their name.
+    cells = re.findall(r"^\|\{\{#invoke:flag\|icon[^\n]*\n\|([^\n]*)", text, re.M)
+    active = {name_key(html.unescape(roster_name(c.strip()))) for c in cells}
     if len(active) < MIN_ACTIVE:
-        raise BuildError(f"Only {len(active)} fighters on {url}, need {MIN_ACTIVE}: has the page changed?")
+        raise BuildError(f"Only {len(active)} fighters in the Wikipedia roster, need {MIN_ACTIVE}: has the page changed?")
     return active
 
 
@@ -159,11 +173,17 @@ def main():
         with open(ROOT / "pipeline" / "roster.csv", newline="", encoding="utf-8-sig") as f:
             roster = list(csv.DictReader(f))
         shipped = json.loads((ROOT / "pipeline" / "shipped.json").read_text(encoding="utf-8"))
-        fighters, metrics_out, report = build(read_csvs(SOURCE), roster, shipped, date.today(),
-                                              ROOT / "web/public/img/fighters", active=read_active(ROSTER_URL))
         old_file = ROOT / "web" / "data" / "fighters.json"
-        validate(json.loads(old_file.read_text(encoding="utf-8")) if old_file.exists() else None,
-                 fighters, shipped)
+        old = json.loads(old_file.read_text(encoding="utf-8")) if old_file.exists() else None
+        try:
+            active = read_active(ROSTER_URL)
+        except (BuildError, OSError, ValueError) as e:
+            # A failed or changed roster page must not stop the data update: keep the last build's flags.
+            print(f"Roster not read ({e}); keeping the previous active flags.", file=sys.stderr)
+            active = {name_key(f["name"]) for f in old or [] if f.get("active")}
+        fighters, metrics_out, report = build(read_csvs(SOURCE), roster, shipped, date.today(),
+                                              ROOT / "web/public/img/fighters", active=active)
+        validate(old, fighters, shipped)
     except (BuildError, OSError, ValueError) as e:
         print(e, file=sys.stderr)
         return 1

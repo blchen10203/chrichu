@@ -26,7 +26,7 @@ export function ageOn(dob: string, date: string): number {
   return y - by - (m < bm || (m === bm && d < bd) ? 1 : 0);
 }
 
-// Active: on the current UFC roster (roster.watch, at the last data build). Infinite and Survival can play only these; the Daily uses everyone.
+// Active: on the current UFC roster (Wikipedia's list, at the last data build). Infinite and Survival can play only these; the Daily uses everyone.
 export function activeFighters(fighters: Fighter[]): Fighter[] {
   return fighters.filter((f) => f.active);
 }

@@ -1685,7 +1685,7 @@
     "id": "raquel-pennington",
     "name": "Raquel Pennington",
     "dob": "1988-09-05",
-    "active": true,
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 67,
@@ -1949,7 +1949,7 @@
     "id": "miesha-tate",
     "name": "Miesha Tate",
     "dob": "1986-08-18",
-    "active": false,
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 66,
