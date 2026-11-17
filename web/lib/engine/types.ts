@@ -8,7 +8,7 @@ export type Fighter = {
   id: FighterId;
   name: string;
   dob: string | null; // YYYY-MM-DD
-  lastFight: string | null; // YYYY-MM-DD of the latest UFC fight, for the active-only setting
+  active: boolean; // on the current UFC roster, for the active-only setting
   hasImage: boolean;
   metrics: Record<MetricId, number>; // a key is present only when eligible
 };

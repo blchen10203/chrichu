@@ -4,9 +4,12 @@ Reads roster.csv and shipped.json. Writes web/data/fighters.json,
 web/data/metrics.json and a report. Spec sections 5 and 11.
 """
 import csv
+import html
 import io
 import json
+import re
 import sys
+import unicodedata
 import urllib.request
 from datetime import date
 from pathlib import Path
@@ -20,10 +23,31 @@ SOURCE = "https://raw.githubusercontent.com/Greco1899/scrape_ufc_stats/main/"
 MIN_FIGHTERS = 150
 MAX_CHANGED = 0.15
 FILES = ("ufc_fighter_tott", "ufc_event_details", "ufc_fight_results", "ufc_fight_stats")
+# The current UFC roster, for the site's active-only setting.
+ROSTER_URL = "https://www.roster.watch/"
+MIN_ACTIVE = 300  # it lists ~700; far fewer means the page changed, not the roster
 
 
 class BuildError(Exception):
     pass
+
+
+def name_key(name):
+    """A name without accents, case or punctuation, so "José Aldo" and "Jose Aldo" match."""
+    return parse.slug(unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode())
+
+
+def read_active(url):
+    # The site refuses Python's default User-Agent.
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    with urllib.request.urlopen(req, timeout=60) as resp:
+        page = resp.read().decode("utf-8")
+    # One table row per fighter: data-fighter="Islam Makhachev", or unquoted for a single name.
+    names = re.findall(r"""data-fighter=(?:"([^"]*)"|'([^']*)'|([^\s"'>]+))""", page)
+    active = {name_key(html.unescape("".join(n))) for n in names}
+    if len(active) < MIN_ACTIVE:
+        raise BuildError(f"Only {len(active)} fighters on {url}, need {MIN_ACTIVE}: has the page changed?")
+    return active
 
 
 def read_csvs(base_url):
@@ -34,7 +58,7 @@ def read_csvs(base_url):
     return out
 
 
-def build(rows, roster, shipped, today, image_dir, min_eligible=30):
+def build(rows, roster, shipped, today, image_dir, min_eligible=30, *, active=frozenset()):
     if not roster:
         raise BuildError("The roster is empty.")
     names = [r["name"] for r in roster]
@@ -65,10 +89,9 @@ def build(rows, roster, shipped, today, image_dir, min_eligible=30):
         values = derive.metrics_for(fights[name], parse.height_in(t["HEIGHT"]), parse.reach_in(t["REACH"]),
                                     dob, deceased, today)
         per_fighter.append(values)
-        dated = [f["date"] for f in fights[name] if f["date"]]
         fighters.append({
             "id": fighter_id, "name": name, "dob": dob,
-            "lastFight": max(dated, default=None),  # the site counts a recent one as active
+            "active": name_key(name) in active,  # on the current UFC roster
             "hasImage": (image_dir / f"{fighter_id}.webp").exists(),
             "metrics": values,
         })
@@ -137,7 +160,7 @@ def main():
             roster = list(csv.DictReader(f))
         shipped = json.loads((ROOT / "pipeline" / "shipped.json").read_text(encoding="utf-8"))
         fighters, metrics_out, report = build(read_csvs(SOURCE), roster, shipped, date.today(),
-                                              ROOT / "web/public/img/fighters")
+                                              ROOT / "web/public/img/fighters", active=read_active(ROSTER_URL))
         old_file = ROOT / "web" / "data" / "fighters.json"
         validate(json.loads(old_file.read_text(encoding="utf-8")) if old_file.exists() else None,
                  fighters, shipped)

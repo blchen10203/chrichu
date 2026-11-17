@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ACTIVE_YEARS, localDate } from "@/lib/engine/rounds";
+import { localDate } from "@/lib/engine/rounds";
 import { activeOnly } from "@/lib/prefs";
 import { browserStorage, currentStreak, load } from "@/lib/storage";
 
@@ -29,7 +29,7 @@ function ActiveToggle() {
         Active fighters only
       </button>
       <p id="active-note" className="text-xs text-muted">
-        Infinite and Survival only: fighters with a UFC fight in the last {ACTIVE_YEARS} years. The Daily always uses every fighter.
+        Infinite and Survival only: fighters on the current UFC roster. The Daily always uses every fighter.
       </p>
     </div>
   );

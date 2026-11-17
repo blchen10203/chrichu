@@ -3,7 +3,7 @@
     "id": "jon-jones",
     "name": "Jon Jones",
     "dob": "1987-07-19",
-    "lastFight": "2024-11-16",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -22,7 +22,7 @@
     "id": "randy-couture",
     "name": "Randy Couture",
     "dob": "1963-06-22",
-    "lastFight": "2011-04-30",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -41,7 +41,7 @@
     "id": "georges-st-pierre",
     "name": "Georges St-Pierre",
     "dob": "1981-05-19",
-    "lastFight": "2017-11-04",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -60,7 +60,7 @@
     "id": "valentina-shevchenko",
     "name": "Valentina Shevchenko",
     "dob": "1988-03-07",
-    "lastFight": "2025-11-15",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 65,
@@ -79,7 +79,7 @@
     "id": "demetrious-johnson",
     "name": "Demetrious Johnson",
     "dob": "1986-08-13",
-    "lastFight": "2018-08-04",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 63,
@@ -98,7 +98,7 @@
     "id": "anderson-silva",
     "name": "Anderson Silva",
     "dob": "1975-04-14",
-    "lastFight": "2020-10-31",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -117,7 +117,7 @@
     "id": "matt-hughes",
     "name": "Matt Hughes",
     "dob": "1973-10-13",
-    "lastFight": "2011-09-24",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -136,7 +136,7 @@
     "id": "jose-aldo",
     "name": "Jose Aldo",
     "dob": "1986-09-09",
-    "lastFight": "2025-05-10",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 67,
@@ -155,7 +155,7 @@
     "id": "alexander-volkanovski",
     "name": "Alexander Volkanovski",
     "dob": "1988-09-29",
-    "lastFight": "2026-10-24",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -174,7 +174,7 @@
     "id": "israel-adesanya",
     "name": "Israel Adesanya",
     "dob": "1989-07-22",
-    "lastFight": "2026-03-28",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -193,7 +193,7 @@
     "id": "amanda-nunes",
     "name": "Amanda Nunes",
     "dob": "1988-05-30",
-    "lastFight": "2026-11-14",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 68,
@@ -212,7 +212,7 @@
     "id": "bj-penn",
     "name": "BJ Penn",
     "dob": "1978-12-13",
-    "lastFight": "2019-05-11",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -231,7 +231,7 @@
     "id": "max-holloway",
     "name": "Max Holloway",
     "dob": "1991-12-04",
-    "lastFight": "2026-07-11",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -250,7 +250,7 @@
     "id": "tito-ortiz",
     "name": "Tito Ortiz",
     "dob": "1975-01-23",
-    "lastFight": "2012-07-07",
+    "active": false,
     "hasImage": false,
     "metrics": {
       "height": 75,
@@ -269,7 +269,7 @@
     "id": "daniel-cormier",
     "name": "Daniel Cormier",
     "dob": "1979-03-20",
-    "lastFight": "2020-08-15",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -288,7 +288,7 @@
     "id": "joanna-jedrzejczyk",
     "name": "Joanna Jedrzejczyk",
     "dob": "1987-08-18",
-    "lastFight": "2022-06-11",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -307,7 +307,7 @@
     "id": "frankie-edgar",
     "name": "Frankie Edgar",
     "dob": "1981-10-16",
-    "lastFight": "2022-11-12",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -326,7 +326,7 @@
     "id": "kamaru-usman",
     "name": "Kamaru Usman",
     "dob": "1987-05-11",
-    "lastFight": "2026-07-18",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -345,7 +345,7 @@
     "id": "stipe-miocic",
     "name": "Stipe Miocic",
     "dob": "1982-08-19",
-    "lastFight": "2024-11-16",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -364,7 +364,7 @@
     "id": "tj-dillashaw",
     "name": "TJ Dillashaw",
     "dob": "1986-02-07",
-    "lastFight": "2022-10-22",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -383,7 +383,7 @@
     "id": "alex-pereira",
     "name": "Alex Pereira",
     "dob": "1987-07-07",
-    "lastFight": "2026-06-14",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -402,7 +402,7 @@
     "id": "tim-sylvia",
     "name": "Tim Sylvia",
     "dob": "1976-03-05",
-    "lastFight": "2008-02-02",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 80,
@@ -421,7 +421,7 @@
     "id": "zhang-weili",
     "name": "Zhang Weili",
     "dob": "1989-08-13",
-    "lastFight": "2025-11-15",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 64,
@@ -440,7 +440,7 @@
     "id": "ronda-rousey",
     "name": "Ronda Rousey",
     "dob": "1987-02-01",
-    "lastFight": "2016-12-30",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 67,
@@ -459,7 +459,7 @@
     "id": "chuck-liddell",
     "name": "Chuck Liddell",
     "dob": "1969-12-17",
-    "lastFight": "2010-06-12",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -478,7 +478,7 @@
     "id": "alexandre-pantoja",
     "name": "Alexandre Pantoja",
     "dob": "1990-04-16",
-    "lastFight": "2026-09-19",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 65,
@@ -497,7 +497,7 @@
     "id": "islam-makhachev",
     "name": "Islam Makhachev",
     "dob": "1991-10-27",
-    "lastFight": "2026-08-15",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -516,7 +516,7 @@
     "id": "rose-namajunas",
     "name": "Rose Namajunas",
     "dob": "1992-06-29",
-    "lastFight": "2026-01-24",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 65,
@@ -535,7 +535,7 @@
     "id": "deiveson-figueiredo",
     "name": "Deiveson Figueiredo",
     "dob": "1987-12-18",
-    "lastFight": "2026-10-03",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 65,
@@ -554,7 +554,7 @@
     "id": "brandon-moreno",
     "name": "Brandon Moreno",
     "dob": "1993-12-07",
-    "lastFight": "2026-09-12",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 67,
@@ -573,7 +573,7 @@
     "id": "merab-dvalishvili",
     "name": "Merab Dvalishvili",
     "dob": "1991-01-10",
-    "lastFight": "2026-10-24",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -592,7 +592,7 @@
     "id": "petr-yan",
     "name": "Petr Yan",
     "dob": "1993-02-11",
-    "lastFight": "2026-10-24",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 67,
@@ -611,7 +611,7 @@
     "id": "renan-barao",
     "name": "Renan Barao",
     "dob": "1987-01-31",
-    "lastFight": "2019-11-16",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -630,7 +630,7 @@
     "id": "henry-cejudo",
     "name": "Henry Cejudo",
     "dob": "1987-02-09",
-    "lastFight": "2025-12-06",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 64,
@@ -649,7 +649,7 @@
     "id": "tyron-woodley",
     "name": "Tyron Woodley",
     "dob": "1982-04-07",
-    "lastFight": "2021-03-27",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -668,7 +668,7 @@
     "id": "cain-velasquez",
     "name": "Cain Velasquez",
     "dob": "1982-07-28",
-    "lastFight": "2019-02-17",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -687,7 +687,7 @@
     "id": "dominick-cruz",
     "name": "Dominick Cruz",
     "dob": "1985-03-09",
-    "lastFight": "2022-08-13",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 68,
@@ -706,7 +706,7 @@
     "id": "pat-miletich",
     "name": "Pat Miletich",
     "dob": "1968-03-09",
-    "lastFight": "2002-03-22",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -724,7 +724,7 @@
     "id": "andrei-arlovski",
     "name": "Andrei Arlovski",
     "dob": "1979-02-04",
-    "lastFight": "2024-06-29",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -743,7 +743,7 @@
     "id": "frank-mir",
     "name": "Frank Mir",
     "dob": "1979-05-24",
-    "lastFight": "2016-03-19",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -762,7 +762,7 @@
     "id": "vitor-belfort",
     "name": "Vitor Belfort",
     "dob": "1977-04-01",
-    "lastFight": "2018-05-12",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -781,7 +781,7 @@
     "id": "robbie-lawler",
     "name": "Robbie Lawler",
     "dob": "1982-03-20",
-    "lastFight": "2023-07-08",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -800,7 +800,7 @@
     "id": "lyoto-machida",
     "name": "Lyoto Machida",
     "dob": "1978-05-30",
-    "lastFight": "2018-05-12",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -819,7 +819,7 @@
     "id": "aljamain-sterling",
     "name": "Aljamain Sterling",
     "dob": "1989-07-31",
-    "lastFight": "2026-04-25",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 67,
@@ -838,7 +838,7 @@
     "id": "junior-dos-santos",
     "name": "Junior Dos Santos",
     "dob": "1984-01-30",
-    "lastFight": "2020-12-12",
+    "active": false,
     "hasImage": false,
     "metrics": {
       "height": 76,
@@ -857,7 +857,7 @@
     "id": "chris-weidman",
     "name": "Chris Weidman",
     "dob": "1984-06-17",
-    "lastFight": "2024-12-07",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -876,7 +876,7 @@
     "id": "rich-franklin",
     "name": "Rich Franklin",
     "dob": "1974-10-05",
-    "lastFight": "2012-11-10",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -895,7 +895,7 @@
     "id": "holly-holm",
     "name": "Holly Holm",
     "dob": "1981-10-17",
-    "lastFight": "2024-04-13",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 68,
@@ -914,7 +914,7 @@
     "id": "benson-henderson",
     "name": "Benson Henderson",
     "dob": "1983-11-16",
-    "lastFight": "2015-11-28",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -933,7 +933,7 @@
     "id": "ciryl-gane",
     "name": "Ciryl Gane",
     "dob": "1990-04-12",
-    "lastFight": "2026-11-14",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -952,7 +952,7 @@
     "id": "julianna-pena",
     "name": "Julianna Pena",
     "dob": "1989-08-19",
-    "lastFight": "2025-06-07",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -971,7 +971,7 @@
     "id": "frank-shamrock",
     "name": "Frank Shamrock",
     "dob": "1972-12-08",
-    "lastFight": "1999-09-24",
+    "active": false,
     "hasImage": false,
     "metrics": {
       "height": 70,
@@ -989,7 +989,7 @@
     "id": "charles-oliveira",
     "name": "Charles Oliveira",
     "dob": "1989-10-17",
-    "lastFight": "2026-03-07",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -1008,7 +1008,7 @@
     "id": "rafael-dos-anjos",
     "name": "Rafael Dos Anjos",
     "dob": "1984-10-26",
-    "lastFight": "2026-10-03",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 68,
@@ -1027,7 +1027,7 @@
     "id": "dustin-poirier",
     "name": "Dustin Poirier",
     "dob": "1989-01-19",
-    "lastFight": "2025-07-19",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -1046,7 +1046,7 @@
     "id": "jessica-andrade",
     "name": "Jessica Andrade",
     "dob": "1991-09-25",
-    "lastFight": "2025-08-16",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 61,
@@ -1065,7 +1065,7 @@
     "id": "michael-bisping",
     "name": "Michael Bisping",
     "dob": "1979-02-28",
-    "lastFight": "2017-11-25",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -1084,7 +1084,7 @@
     "id": "robert-whittaker",
     "name": "Robert Whittaker",
     "dob": "1990-12-20",
-    "lastFight": "2026-07-11",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -1103,7 +1103,7 @@
     "id": "sean-strickland",
     "name": "Sean Strickland",
     "dob": "1991-02-27",
-    "lastFight": "2026-05-09",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -1122,7 +1122,7 @@
     "id": "glover-teixeira",
     "name": "Glover Teixeira",
     "dob": "1979-10-28",
-    "lastFight": "2023-01-21",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -1141,7 +1141,7 @@
     "id": "jan-blachowicz",
     "name": "Jan Blachowicz",
     "dob": "1983-02-24",
-    "lastFight": "2026-08-01",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -1160,7 +1160,7 @@
     "id": "rashad-evans",
     "name": "Rashad Evans",
     "dob": "1979-09-25",
-    "lastFight": "2018-06-09",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -1179,7 +1179,7 @@
     "id": "anthony-pettis",
     "name": "Anthony Pettis",
     "dob": "1987-01-27",
-    "lastFight": "2020-12-19",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -1198,7 +1198,7 @@
     "id": "leon-edwards",
     "name": "Leon Edwards",
     "dob": "1991-08-25",
-    "lastFight": "2025-11-15",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -1217,7 +1217,7 @@
     "id": "dan-henderson",
     "name": "Dan Henderson",
     "dob": "1970-08-24",
-    "lastFight": "2016-10-08",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -1236,7 +1236,7 @@
     "id": "urijah-faber",
     "name": "Urijah Faber",
     "dob": "1979-05-14",
-    "lastFight": "2019-12-14",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -1255,7 +1255,7 @@
     "id": "alexa-grasso",
     "name": "Alexa Grasso",
     "dob": "1993-08-09",
-    "lastFight": "2026-09-12",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 65,
@@ -1274,7 +1274,7 @@
     "id": "colby-covington",
     "name": "Colby Covington",
     "dob": "1988-02-22",
-    "lastFight": "2024-12-14",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -1293,7 +1293,7 @@
     "id": "kenny-florian",
     "name": "Kenny Florian",
     "dob": "1976-05-26",
-    "lastFight": "2011-10-08",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -1312,7 +1312,7 @@
     "id": "carla-esparza",
     "name": "Carla Esparza",
     "dob": "1987-10-10",
-    "lastFight": "2024-10-05",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 61,
@@ -1331,7 +1331,7 @@
     "id": "justin-gaethje",
     "name": "Justin Gaethje",
     "dob": "1988-11-14",
-    "lastFight": "2026-06-14",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -1350,7 +1350,7 @@
     "id": "sean-o-malley",
     "name": "Sean O'Malley",
     "dob": "1994-10-24",
-    "lastFight": "2026-06-14",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -1369,7 +1369,7 @@
     "id": "conor-mcgregor",
     "name": "Conor McGregor",
     "dob": "1988-07-14",
-    "lastFight": "2026-07-11",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -1388,7 +1388,7 @@
     "id": "dan-severn",
     "name": "Dan Severn",
     "dob": "1958-06-08",
-    "lastFight": "2000-09-22",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -1406,7 +1406,7 @@
     "id": "khabib-nurmagomedov",
     "name": "Khabib Nurmagomedov",
     "dob": "1988-09-20",
-    "lastFight": "2020-10-24",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -1425,7 +1425,7 @@
     "id": "quinton-jackson",
     "name": "Quinton Jackson",
     "dob": "1978-06-20",
-    "lastFight": "2015-04-25",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -1444,7 +1444,7 @@
     "id": "sean-sherk",
     "name": "Sean Sherk",
     "dob": "1973-08-05",
-    "lastFight": "2010-09-25",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -1463,7 +1463,7 @@
     "id": "dricus-du-plessis",
     "name": "Dricus Du Plessis",
     "dob": "1994-01-14",
-    "lastFight": "2026-07-18",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -1482,7 +1482,7 @@
     "id": "ilia-topuria",
     "name": "Ilia Topuria",
     "dob": "1997-01-21",
-    "lastFight": "2026-06-14",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 67,
@@ -1501,7 +1501,7 @@
     "id": "jiri-prochazka",
     "name": "Jiri Prochazka",
     "dob": "1992-10-14",
-    "lastFight": "2026-04-11",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -1520,7 +1520,7 @@
     "id": "brock-lesnar",
     "name": "Brock Lesnar",
     "dob": "1977-07-12",
-    "lastFight": "2016-07-09",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -1538,7 +1538,7 @@
     "id": "carlos-newton",
     "name": "Carlos Newton",
     "dob": "1976-08-17",
-    "lastFight": "2004-01-31",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -1555,7 +1555,7 @@
     "id": "cristiane-justino",
     "name": "Cristiane Justino",
     "dob": "1985-07-09",
-    "lastFight": "2019-07-27",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 68,
@@ -1574,7 +1574,7 @@
     "id": "kevin-randleman",
     "name": "Kevin Randleman",
     "dob": "1971-08-10",
-    "lastFight": "2002-01-11",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -1590,7 +1590,7 @@
     "id": "mauricio-rua",
     "name": "Mauricio Rua",
     "dob": "1981-11-25",
-    "lastFight": "2023-01-21",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -1609,7 +1609,7 @@
     "id": "tony-ferguson",
     "name": "Tony Ferguson",
     "dob": "1984-02-12",
-    "lastFight": "2024-08-03",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -1628,7 +1628,7 @@
     "id": "johny-hendricks",
     "name": "Johny Hendricks",
     "dob": "1983-09-12",
-    "lastFight": "2017-11-04",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -1647,7 +1647,7 @@
     "id": "joseph-benavidez",
     "name": "Joseph Benavidez",
     "dob": "1984-07-31",
-    "lastFight": "2021-03-06",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 64,
@@ -1666,7 +1666,7 @@
     "id": "carlos-condit",
     "name": "Carlos Condit",
     "dob": "1984-04-26",
-    "lastFight": "2021-07-10",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -1685,7 +1685,7 @@
     "id": "raquel-pennington",
     "name": "Raquel Pennington",
     "dob": "1988-09-05",
-    "lastFight": "2024-10-05",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 67,
@@ -1704,7 +1704,7 @@
     "id": "alexander-gustafsson",
     "name": "Alexander Gustafsson",
     "dob": "1987-01-15",
-    "lastFight": "2022-07-23",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 77,
@@ -1723,7 +1723,7 @@
     "id": "cody-garbrandt",
     "name": "Cody Garbrandt",
     "dob": "1991-07-07",
-    "lastFight": "2026-07-11",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 68,
@@ -1742,7 +1742,7 @@
     "id": "david-abbott",
     "name": "David Abbott",
     "dob": "1965-04-26",
-    "lastFight": "2003-11-21",
+    "active": false,
     "hasImage": false,
     "metrics": {
       "height": 72,
@@ -1760,7 +1760,7 @@
     "id": "fabricio-werdum",
     "name": "Fabricio Werdum",
     "dob": "1977-07-30",
-    "lastFight": "2020-07-25",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -1779,7 +1779,7 @@
     "id": "evan-tanner",
     "name": "Evan Tanner",
     "dob": "1971-02-11",
-    "lastFight": "2008-06-21",
+    "active": false,
     "hasImage": false,
     "metrics": {
       "height": 72,
@@ -1797,7 +1797,7 @@
     "id": "john-dodson",
     "name": "John Dodson",
     "dob": "1984-09-26",
-    "lastFight": "2020-08-15",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 63,
@@ -1816,7 +1816,7 @@
     "id": "magomed-ankalaev",
     "name": "Magomed Ankalaev",
     "dob": "1992-06-02",
-    "lastFight": "2026-07-25",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -1835,7 +1835,7 @@
     "id": "yair-rodriguez",
     "name": "Yair Rodriguez",
     "dob": "1992-10-06",
-    "lastFight": "2025-04-12",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -1854,7 +1854,7 @@
     "id": "forrest-griffin",
     "name": "Forrest Griffin",
     "dob": "1979-03-16",
-    "lastFight": "2012-07-07",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -1873,7 +1873,7 @@
     "id": "chad-mendes",
     "name": "Chad Mendes",
     "dob": "1985-05-01",
-    "lastFight": "2018-12-29",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -1892,7 +1892,7 @@
     "id": "chael-sonnen",
     "name": "Chael Sonnen",
     "dob": "1977-04-03",
-    "lastFight": "2013-11-16",
+    "active": false,
     "hasImage": false,
     "metrics": {
       "height": 73,
@@ -1911,7 +1911,7 @@
     "id": "francis-ngannou",
     "name": "Francis Ngannou",
     "dob": "1986-09-05",
-    "lastFight": "2022-01-22",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -1930,7 +1930,7 @@
     "id": "matt-serra",
     "name": "Matt Serra",
     "dob": "1974-06-02",
-    "lastFight": "2010-09-25",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -1949,7 +1949,7 @@
     "id": "miesha-tate",
     "name": "Miesha Tate",
     "dob": "1986-08-18",
-    "lastFight": "2025-05-03",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -1968,7 +1968,7 @@
     "id": "pedro-rizzo",
     "name": "Pedro Rizzo",
     "dob": "1974-05-03",
-    "lastFight": "2003-11-21",
+    "active": false,
     "hasImage": false,
     "metrics": {
       "height": 73,
@@ -1986,7 +1986,7 @@
     "id": "joshua-van",
     "name": "Joshua Van",
     "dob": "2001-10-10",
-    "lastFight": "2026-09-19",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 65,
@@ -2005,7 +2005,7 @@
     "id": "mark-coleman",
     "name": "Mark Coleman",
     "dob": "1964-12-20",
-    "lastFight": "2010-02-06",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -2024,7 +2024,7 @@
     "id": "don-frye",
     "name": "Don Frye",
     "dob": "1965-11-23",
-    "lastFight": "1996-12-07",
+    "active": false,
     "hasImage": false,
     "metrics": {
       "height": 73,
@@ -2042,7 +2042,7 @@
     "id": "tom-aspinall",
     "name": "Tom Aspinall",
     "dob": "1993-04-11",
-    "lastFight": "2025-10-25",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 77,
@@ -2061,7 +2061,7 @@
     "id": "jens-pulver",
     "name": "Jens Pulver",
     "dob": "1974-12-06",
-    "lastFight": "2007-06-23",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 67,
@@ -2080,7 +2080,7 @@
     "id": "maurice-smith",
     "name": "Maurice Smith",
     "dob": "1961-12-13",
-    "lastFight": "2000-11-17",
+    "active": false,
     "hasImage": false,
     "metrics": {
       "height": 74,
@@ -2097,7 +2097,7 @@
     "id": "demian-maia",
     "name": "Demian Maia",
     "dob": "1977-11-06",
-    "lastFight": "2021-06-12",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -2116,7 +2116,7 @@
     "id": "derrick-lewis",
     "name": "Derrick Lewis",
     "dob": "1985-02-07",
-    "lastFight": "2026-06-14",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -2135,7 +2135,7 @@
     "id": "diego-sanchez",
     "name": "Diego Sanchez",
     "dob": "1981-12-31",
-    "lastFight": "2020-09-26",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -2154,7 +2154,7 @@
     "id": "kelvin-gastelum",
     "name": "Kelvin Gastelum",
     "dob": "1991-10-24",
-    "lastFight": "2026-04-11",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -2173,7 +2173,7 @@
     "id": "nate-diaz",
     "name": "Nate Diaz",
     "dob": "1985-04-16",
-    "lastFight": "2022-09-10",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -2192,7 +2192,7 @@
     "id": "belal-muhammad",
     "name": "Belal Muhammad",
     "dob": "1988-07-09",
-    "lastFight": "2026-06-06",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -2211,7 +2211,7 @@
     "id": "jorge-masvidal",
     "name": "Jorge Masvidal",
     "dob": "1984-11-12",
-    "lastFight": "2023-04-08",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -2230,7 +2230,7 @@
     "id": "stephen-thompson",
     "name": "Stephen Thompson",
     "dob": "1983-02-11",
-    "lastFight": "2026-11-14",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -2249,7 +2249,7 @@
     "id": "gray-maynard",
     "name": "Gray Maynard",
     "dob": "1979-05-09",
-    "lastFight": "2018-10-06",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -2268,7 +2268,7 @@
     "id": "anthony-johnson",
     "name": "Anthony Johnson",
     "dob": "1984-03-06",
-    "lastFight": "2017-04-08",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -2286,7 +2286,7 @@
     "id": "khalil-rountree-jr",
     "name": "Khalil Rountree Jr.",
     "dob": "1990-02-26",
-    "lastFight": "2025-10-04",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -2305,7 +2305,7 @@
     "id": "cory-sandhagen",
     "name": "Cory Sandhagen",
     "dob": "1992-04-20",
-    "lastFight": "2026-07-11",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -2324,7 +2324,7 @@
     "id": "mackenzie-dern",
     "name": "Mackenzie Dern",
     "dob": "1993-03-24",
-    "lastFight": "2026-08-15",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 64,
@@ -2343,7 +2343,7 @@
     "id": "dominick-reyes",
     "name": "Dominick Reyes",
     "dob": "1989-12-26",
-    "lastFight": "2026-10-24",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -2362,7 +2362,7 @@
     "id": "al-iaquinta",
     "name": "Al Iaquinta",
     "dob": "1987-04-30",
-    "lastFight": "2021-11-06",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -2381,7 +2381,7 @@
     "id": "nick-diaz",
     "name": "Nick Diaz",
     "dob": "1983-08-02",
-    "lastFight": "2021-09-25",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -2400,7 +2400,7 @@
     "id": "brian-ortega",
     "name": "Brian Ortega",
     "dob": "1991-02-21",
-    "lastFight": "2025-08-23",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 68,
@@ -2419,7 +2419,7 @@
     "id": "kai-kara-france",
     "name": "Kai Kara-France",
     "dob": "1993-03-26",
-    "lastFight": "2025-06-28",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 64,
@@ -2438,7 +2438,7 @@
     "id": "yoel-romero",
     "name": "Yoel Romero",
     "dob": "1977-04-30",
-    "lastFight": "2020-03-07",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -2457,7 +2457,7 @@
     "id": "chan-sung-jung",
     "name": "Chan Sung Jung",
     "dob": "1987-03-17",
-    "lastFight": "2023-08-26",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 67,
@@ -2476,7 +2476,7 @@
     "id": "tatiana-suarez",
     "name": "Tatiana Suarez",
     "dob": "1990-12-19",
-    "lastFight": "2026-11-07",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 65,
@@ -2495,7 +2495,7 @@
     "id": "antonio-rodrigo-nogueira",
     "name": "Antonio Rodrigo Nogueira",
     "dob": "1976-06-02",
-    "lastFight": "2015-08-01",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -2514,7 +2514,7 @@
     "id": "diego-lopes",
     "name": "Diego Lopes",
     "dob": "1994-12-30",
-    "lastFight": "2026-06-14",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -2533,7 +2533,7 @@
     "id": "jack-della-maddalena",
     "name": "Jack Della Maddalena",
     "dob": "1996-09-10",
-    "lastFight": "2026-05-02",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -2552,7 +2552,7 @@
     "id": "jamahal-hill",
     "name": "Jamahal Hill",
     "dob": "1991-05-19",
-    "lastFight": "2025-06-21",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -2571,7 +2571,7 @@
     "id": "luke-rockhold",
     "name": "Luke Rockhold",
     "dob": "1984-10-17",
-    "lastFight": "2022-08-20",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -2590,7 +2590,7 @@
     "id": "germaine-de-randamie",
     "name": "Germaine de Randamie",
     "dob": "1984-04-24",
-    "lastFight": "2024-04-06",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -2609,7 +2609,7 @@
     "id": "khamzat-chimaev",
     "name": "Khamzat Chimaev",
     "dob": "1994-05-01",
-    "lastFight": "2026-05-09",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -2628,7 +2628,7 @@
     "id": "liz-carmouche",
     "name": "Liz Carmouche",
     "dob": "1984-02-19",
-    "lastFight": "2019-08-10",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -2647,7 +2647,7 @@
     "id": "royce-gracie",
     "name": "Royce Gracie",
     "dob": "1966-12-12",
-    "lastFight": "2006-05-27",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -2665,7 +2665,7 @@
     "id": "eddie-alvarez",
     "name": "Eddie Alvarez",
     "dob": "1984-01-11",
-    "lastFight": "2018-07-28",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -2683,7 +2683,7 @@
     "id": "gilbert-melendez",
     "name": "Gilbert Melendez",
     "dob": "1982-04-12",
-    "lastFight": "2019-07-06",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -2701,7 +2701,7 @@
     "id": "ricco-rodriguez",
     "name": "Ricco Rodriguez",
     "dob": "1977-08-19",
-    "lastFight": "2003-11-21",
+    "active": false,
     "hasImage": false,
     "metrics": {
       "height": 76,
@@ -2719,7 +2719,7 @@
     "id": "dave-menne",
     "name": "Dave Menne",
     "dob": "1974-07-29",
-    "lastFight": "2006-12-13",
+    "active": false,
     "hasImage": false,
     "metrics": {
       "height": 70,
@@ -2736,7 +2736,7 @@
     "id": "shane-carwin",
     "name": "Shane Carwin",
     "dob": "1975-01-04",
-    "lastFight": "2011-06-11",
+    "active": false,
     "hasImage": false,
     "metrics": {
       "height": 74,
@@ -2754,7 +2754,7 @@
     "id": "donald-cerrone",
     "name": "Donald Cerrone",
     "dob": "1983-03-29",
-    "lastFight": "2022-07-02",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -2773,7 +2773,7 @@
     "id": "ovince-saint-preux",
     "name": "Ovince Saint Preux",
     "dob": "1983-04-08",
-    "lastFight": "2024-10-05",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -2792,7 +2792,7 @@
     "id": "marlon-vera",
     "name": "Marlon Vera",
     "dob": "1992-12-02",
-    "lastFight": "2026-09-19",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 68,
@@ -2811,7 +2811,7 @@
     "id": "thiago-alves",
     "name": "Thiago Alves",
     "dob": "1983-10-03",
-    "lastFight": "2019-12-07",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -2830,7 +2830,7 @@
     "id": "anthony-smith",
     "name": "Anthony Smith",
     "dob": "1988-07-26",
-    "lastFight": "2025-04-26",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -2849,7 +2849,7 @@
     "id": "gilbert-burns",
     "name": "Gilbert Burns",
     "dob": "1986-07-20",
-    "lastFight": "2026-04-18",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -2868,7 +2868,7 @@
     "id": "josh-koscheck",
     "name": "Josh Koscheck",
     "dob": "1977-11-30",
-    "lastFight": "2015-03-21",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -2887,7 +2887,7 @@
     "id": "nate-marquardt",
     "name": "Nate Marquardt",
     "dob": "1979-04-20",
-    "lastFight": "2017-11-11",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -2906,7 +2906,7 @@
     "id": "thiago-santos",
     "name": "Thiago Santos",
     "dob": "1984-01-07",
-    "lastFight": "2022-08-06",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -2925,7 +2925,7 @@
     "id": "tim-elliott",
     "name": "Tim Elliott",
     "dob": "1986-12-24",
-    "lastFight": "2026-09-12",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 67,
@@ -2944,7 +2944,7 @@
     "id": "curtis-blaydes",
     "name": "Curtis Blaydes",
     "dob": "1991-02-18",
-    "lastFight": "2026-09-12",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -2963,7 +2963,7 @@
     "id": "gabriel-gonzaga",
     "name": "Gabriel Gonzaga",
     "dob": "1979-05-18",
-    "lastFight": "2016-04-10",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -2982,7 +2982,7 @@
     "id": "michael-chiesa",
     "name": "Michael Chiesa",
     "dob": "1987-12-07",
-    "lastFight": "2026-03-28",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -3001,7 +3001,7 @@
     "id": "gillian-robertson",
     "name": "Gillian Robertson",
     "dob": "1995-05-17",
-    "lastFight": "2026-08-15",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 65,
@@ -3020,7 +3020,7 @@
     "id": "jared-cannonier",
     "name": "Jared Cannonier",
     "dob": "1984-03-16",
-    "lastFight": "2026-07-18",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -3039,7 +3039,7 @@
     "id": "renato-moicano",
     "name": "Renato Moicano",
     "dob": "1989-05-21",
-    "lastFight": "2026-10-31",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -3058,7 +3058,7 @@
     "id": "yushin-okami",
     "name": "Yushin Okami",
     "dob": "1981-07-21",
-    "lastFight": "2018-12-01",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -3077,7 +3077,7 @@
     "id": "alistair-overeem",
     "name": "Alistair Overeem",
     "dob": "1980-05-17",
-    "lastFight": "2021-02-06",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -3096,7 +3096,7 @@
     "id": "chris-lytle",
     "name": "Chris Lytle",
     "dob": "1974-08-18",
-    "lastFight": "2011-08-14",
+    "active": false,
     "hasImage": false,
     "metrics": {
       "height": 71,
@@ -3115,7 +3115,7 @@
     "id": "ryan-bader",
     "name": "Ryan Bader",
     "dob": "1983-06-07",
-    "lastFight": "2016-11-19",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -3134,7 +3134,7 @@
     "id": "kevin-lee",
     "name": "Kevin Lee",
     "dob": "1992-09-04",
-    "lastFight": "2023-07-01",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -3153,7 +3153,7 @@
     "id": "marvin-vettori",
     "name": "Marvin Vettori",
     "dob": "1993-09-20",
-    "lastFight": "2026-10-03",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -3172,7 +3172,7 @@
     "id": "roy-nelson",
     "name": "Roy Nelson",
     "dob": "1976-06-20",
-    "lastFight": "2017-04-15",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -3191,7 +3191,7 @@
     "id": "uriah-hall",
     "name": "Uriah Hall",
     "dob": "1984-07-31",
-    "lastFight": "2022-07-02",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -3210,7 +3210,7 @@
     "id": "jon-fitch",
     "name": "Jon Fitch",
     "dob": "1978-02-24",
-    "lastFight": "2013-02-02",
+    "active": false,
     "hasImage": false,
     "metrics": {
       "height": 72,
@@ -3229,7 +3229,7 @@
     "id": "katlyn-cerminara",
     "name": "Katlyn Cerminara",
     "dob": "1988-12-28",
-    "lastFight": "2026-10-17",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -3248,7 +3248,7 @@
     "id": "mark-hunt",
     "name": "Mark Hunt",
     "dob": "1974-03-23",
-    "lastFight": "2018-12-01",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -3267,7 +3267,7 @@
     "id": "amanda-lemos",
     "name": "Amanda Lemos",
     "dob": "1987-05-22",
-    "lastFight": "2026-08-08",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 64,
@@ -3286,7 +3286,7 @@
     "id": "davey-grant",
     "name": "Davey Grant",
     "dob": "1985-12-18",
-    "lastFight": "2026-11-07",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 68,
@@ -3305,7 +3305,7 @@
     "id": "josh-emmett",
     "name": "Josh Emmett",
     "dob": "1985-03-04",
-    "lastFight": "2026-03-14",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -3324,7 +3324,7 @@
     "id": "ricardo-lamas",
     "name": "Ricardo Lamas",
     "dob": "1982-05-21",
-    "lastFight": "2020-08-29",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 68,
@@ -3343,7 +3343,7 @@
     "id": "alex-perez",
     "name": "Alex Perez",
     "dob": "1992-03-21",
-    "lastFight": "2026-08-29",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -3362,7 +3362,7 @@
     "id": "volkan-oezdemir",
     "name": "Volkan Oezdemir",
     "dob": "1989-09-19",
-    "lastFight": "2025-11-22",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -3381,7 +3381,7 @@
     "id": "corey-anderson",
     "name": "Corey Anderson",
     "dob": "1989-09-22",
-    "lastFight": "2020-02-15",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -3400,7 +3400,7 @@
     "id": "stephan-bonnar",
     "name": "Stephan Bonnar",
     "dob": "1977-04-04",
-    "lastFight": "2012-10-13",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -3418,7 +3418,7 @@
     "id": "irene-aldana",
     "name": "Irene Aldana",
     "dob": "1988-03-26",
-    "lastFight": "2024-09-14",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -3437,7 +3437,7 @@
     "id": "macy-chiasson",
     "name": "Macy Chiasson",
     "dob": "1991-07-27",
-    "lastFight": "2026-11-14",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -3456,7 +3456,7 @@
     "id": "mayra-bueno-silva",
     "name": "Mayra Bueno Silva",
     "dob": "1991-08-22",
-    "lastFight": "2026-04-25",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -3475,7 +3475,7 @@
     "id": "virna-jandiroba",
     "name": "Virna Jandiroba",
     "dob": "1988-05-30",
-    "lastFight": "2026-11-07",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 63,
@@ -3494,7 +3494,7 @@
     "id": "yan-xiaonan",
     "name": "Yan Xiaonan",
     "dob": "1989-06-16",
-    "lastFight": "2026-08-29",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 65,
@@ -3513,7 +3513,7 @@
     "id": "brandon-royval",
     "name": "Brandon Royval",
     "dob": "1992-08-16",
-    "lastFight": "2026-07-11",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -3532,7 +3532,7 @@
     "id": "ken-shamrock",
     "name": "Ken Shamrock",
     "dob": "1964-02-11",
-    "lastFight": "2006-10-10",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -3551,7 +3551,7 @@
     "id": "rory-macdonald",
     "name": "Rory MacDonald",
     "dob": "1989-07-22",
-    "lastFight": "2016-06-18",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -3570,7 +3570,7 @@
     "id": "bethe-correia",
     "name": "Bethe Correia",
     "dob": "1983-06-22",
-    "lastFight": "2021-10-02",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 65,
@@ -3589,7 +3589,7 @@
     "id": "claudia-gadelha",
     "name": "Claudia Gadelha",
     "dob": "1988-12-07",
-    "lastFight": "2020-11-07",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 64,
@@ -3608,7 +3608,7 @@
     "id": "darren-till",
     "name": "Darren Till",
     "dob": "1992-12-24",
-    "lastFight": "2022-12-10",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -3627,7 +3627,7 @@
     "id": "ian-machado-garry",
     "name": "Ian Machado Garry",
     "dob": "1997-11-17",
-    "lastFight": "2026-08-15",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -3646,7 +3646,7 @@
     "id": "paulo-costa",
     "name": "Paulo Costa",
     "dob": "1991-04-21",
-    "lastFight": "2026-04-11",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -3665,7 +3665,7 @@
     "id": "sergei-pavlovich",
     "name": "Sergei Pavlovich",
     "dob": "1992-05-13",
-    "lastFight": "2026-05-30",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -3684,7 +3684,7 @@
     "id": "wanderlei-silva",
     "name": "Wanderlei Silva",
     "dob": "1976-07-03",
-    "lastFight": "2013-03-02",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -3703,7 +3703,7 @@
     "id": "antonio-silva",
     "name": "Antonio Silva",
     "dob": "1979-09-14",
-    "lastFight": "2016-09-24",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -3721,7 +3721,7 @@
     "id": "brendan-schaub",
     "name": "Brendan Schaub",
     "dob": "1983-03-18",
-    "lastFight": "2014-12-06",
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -3740,7 +3740,7 @@
     "id": "carlos-ulberg",
     "name": "Carlos Ulberg",
     "dob": "1990-11-07",
-    "lastFight": "2026-04-11",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -3759,7 +3759,7 @@
     "id": "kyoji-horiguchi",
     "name": "Kyoji Horiguchi",
     "dob": "1990-10-12",
-    "lastFight": "2026-06-20",
+    "active": true,
     "hasImage": true,
     "metrics": {
       "height": 65,

@@ -12,7 +12,7 @@ type Result = { guess: number; score: number };
 
 function newRound(avoid?: string): Play {
   const today = localDate(new Date());
-  const pool = activeOnly.get() ? activeFighters(fighters, today) : fighters;
+  const pool = activeOnly.get() ? activeFighters(fighters) : fighters;
   return playOf(randomRound(Math.random, pool, metrics, avoid), today, fighters, metrics);
 }
 

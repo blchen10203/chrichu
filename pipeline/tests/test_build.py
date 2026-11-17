@@ -16,15 +16,34 @@ B = {"name": "B Two", "ufcstats_id": "bbbb", "ufc_slug": "b-two", "deceased": "0
 SHIP = {"ship": ["height", "reach"], "step": {}}
 
 
-def run(roster=(A, B), shipped=SHIP, image_dir=Path("no-such-dir"), min_eligible=2):
-    return build.build(build.read_csvs(DATA), list(roster), shipped, TODAY, image_dir, min_eligible)
+@pytest.fixture(autouse=True)
+def offline_roster(monkeypatch):
+    """main() never reaches roster.watch in tests: A One is on the roster, B Two is not."""
+    monkeypatch.setattr(build, "read_active", lambda url: {"a-one"})
+
+
+def run(roster=(A, B), shipped=SHIP, image_dir=Path("no-such-dir"), min_eligible=2, active=frozenset({"a-one"})):
+    return build.build(build.read_csvs(DATA), list(roster), shipped, TODAY, image_dir, min_eligible, active=active)
 
 
 def test_fighters_json_shape():
     fighters, _, _ = run()
-    assert fighters[0] == {"id": "a-one", "name": "A One", "dob": "1987-07-19", "lastFight": "2020-01-10",
+    assert fighters[0] == {"id": "a-one", "name": "A One", "dob": "1987-07-19", "active": True,
                            "hasImage": False, "metrics": {"height": 76, "reach": 84.0}}
     assert fighters[1]["dob"] is None
+    assert fighters[1]["active"] is False
+
+
+def test_read_active_parses_every_name_form(tmp_path, monkeypatch):
+    page = tmp_path / "roster.html"
+    page.write_text('<tr data-fighter="José Aldo" data-dob=1986-09-09><tr data-fighter=Rongzhu data-dob=x>'
+                    "<tr data-fighter=\"Sean O&#39;Malley\"><tr data-fighter='Alex Pereira'>", encoding="utf-8")
+    monkeypatch.undo()  # the real read_active, against a local file
+    monkeypatch.setattr(build, "MIN_ACTIVE", 4)
+    assert build.read_active(page.as_uri()) == {"jose-aldo", "rongzhu", "sean-o-malley", "alex-pereira"}
+    monkeypatch.setattr(build, "MIN_ACTIVE", 5)
+    with pytest.raises(build.BuildError, match="Only 4 fighters"):
+        build.read_active(page.as_uri())
 
 
 def test_metrics_json_entry():

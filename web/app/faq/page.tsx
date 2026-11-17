@@ -4,7 +4,7 @@ const faq = [
   ["Where do the numbers come from?", "From official UFC fight statistics, through a public dataset that is refreshed after events. They cover UFC fights only."],
   ["How often is it updated?", "About once a week."],
   ["Why can I only play Daily once?", "So everyone gets one fair try at the same puzzle. Infinite is there for more."],
-  ["What does Active fighters only do?", "Infinite and Survival then pick only fighters with a UFC fight in the last two years. The Daily always uses every fighter, so everyone gets the same puzzle."],
+  ["What does Active fighters only do?", "Infinite and Survival then pick only fighters on the current UFC roster, as listed by roster.watch. The Daily always uses every fighter, so everyone gets the same puzzle."],
   ["Where is my progress saved?", "In this browser only. There are no accounts, so clearing your browser data clears your streak."],
   ["Is this an official UFC product?", "No. It is an unofficial fan project."],
 ];

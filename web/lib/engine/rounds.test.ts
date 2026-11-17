@@ -85,13 +85,12 @@ describe("randomRound", () => {
 });
 
 describe("active fighters", () => {
-  const f = (lastFight: string | null) => ({ ...fighters[0], id: String(lastFight), lastFight });
-  it("keeps fighters with a fight in the last two years, the boundary day included", () => {
-    const pool = [f("2024-11-15"), f("2024-11-14"), f("2026-11-01"), f(null)];
-    expect(activeFighters(pool, "2026-11-15").map((x) => x.lastFight)).toEqual(["2024-11-15", "2026-11-01"]);
+  it("keeps only fighters on the current roster", () => {
+    const pool = [{ ...fighters[0], id: "on", active: true }, { ...fighters[0], id: "off", active: false }];
+    expect(activeFighters(pool).map((x) => x.id)).toEqual(["on"]);
   });
   it("is enough to play every metric in Infinite and Survival", () => {
-    const pool = activeFighters(fighters, localDate(new Date()));
+    const pool = activeFighters(fighters);
     expect(pool.length).toBeGreaterThanOrEqual(30);
     const rand = rng("active");
     const seen = new Set<string>();

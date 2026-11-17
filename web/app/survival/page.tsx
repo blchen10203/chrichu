@@ -26,7 +26,7 @@ export default function SurvivalPage() {
   const active = activeOnly.useValue();
 
   function pick(date: string, avoid?: string) {
-    const pool = activeOnly.get() ? activeFighters(fighters, date) : fighters;
+    const pool = activeOnly.get() ? activeFighters(fighters) : fighters;
     setPlay(playOf(randomRound(Math.random, pool, metrics, avoid), date, fighters, metrics));
     setResult(null);
     locked.current = false;
