@@ -3475,7 +3475,7 @@
     "id": "virna-jandiroba",
     "name": "Virna Jandiroba",
     "dob": "1988-05-30",
-    "active": true,
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 63,
