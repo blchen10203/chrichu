@@ -2400,7 +2400,7 @@
     "id": "brian-ortega",
     "name": "Brian Ortega",
     "dob": "1991-02-21",
-    "active": true,
+    "active": false,
     "hasImage": true,
     "metrics": {
       "height": 68,
