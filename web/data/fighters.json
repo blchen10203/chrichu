@@ -824,12 +824,12 @@
     "metrics": {
       "height": 67,
       "reach": 71.0,
-      "slpm": 4.3,
-      "career_sig": 1407,
+      "slpm": 4.2,
+      "career_sig": 1439,
       "knockdowns": 0,
       "td_avg": 2.5,
       "sub_wins": 4,
-      "win_pct": 78,
+      "win_pct": 75,
       "finish_rate": 33,
       "age": 37
     }
@@ -1506,12 +1506,12 @@
     "metrics": {
       "height": 75,
       "reach": 80.0,
-      "slpm": 5.6,
-      "career_sig": 518,
+      "slpm": 5.3,
+      "career_sig": 541,
       "knockdowns": 5,
-      "td_avg": 0.5,
+      "td_avg": 0.4,
       "sub_wins": 1,
-      "win_pct": 67,
+      "win_pct": 60,
       "finish_rate": 100,
       "age": 34
     }
@@ -2405,12 +2405,12 @@
     "metrics": {
       "height": 68,
       "reach": 69.0,
-      "slpm": 3.8,
-      "career_sig": 742,
+      "slpm": 3.9,
+      "career_sig": 812,
       "knockdowns": 5,
-      "td_avg": 0.9,
+      "td_avg": 1.0,
       "sub_wins": 4,
-      "win_pct": 62,
+      "win_pct": 57,
       "finish_rate": 88,
       "age": 35
     }
@@ -3025,12 +3025,12 @@
     "metrics": {
       "height": 71,
       "reach": 77.0,
-      "slpm": 4.2,
-      "career_sig": 1245,
+      "slpm": 4.1,
+      "career_sig": 1265,
       "knockdowns": 7,
-      "td_avg": 0.8,
+      "td_avg": 0.7,
       "sub_wins": 0,
-      "win_pct": 52,
+      "win_pct": 50,
       "finish_rate": 64,
       "age": 42
     }
@@ -3764,13 +3764,13 @@
     "metrics": {
       "height": 65,
       "reach": 66.0,
-      "slpm": 3.6,
-      "career_sig": 555,
+      "slpm": 3.4,
+      "career_sig": 572,
       "knockdowns": 6,
-      "td_avg": 1.7,
+      "td_avg": 1.6,
       "sub_wins": 1,
-      "win_pct": 82,
-      "finish_rate": 33,
+      "win_pct": 83,
+      "finish_rate": 30,
       "age": 36
     }
   }
