@@ -1,6 +1,6 @@
 {
   "source": "https://www.ufc.com/rankings",
-  "fetched_at": "2026-11-23T19:29:26+00:00",
+  "fetched_at": "2026-11-23T19:44:38+00:00",
   "last_updated": "Tuesday, Nov. 17",
   "divisions": [
     {
@@ -101,7 +101,7 @@
           "name": "Arman Tsarukyan",
           "slug": "arman-tsarukyan",
           "change": null,
-          "id": null
+          "id": "arman-tsarukyan"
         },
         {
           "rank": 14,
@@ -140,7 +140,7 @@
           "name": "Manel Kape",
           "slug": "manel-kape",
           "change": null,
-          "id": null
+          "id": "manel-kape"
         },
         {
           "rank": 3,
@@ -154,7 +154,7 @@
           "name": "Tatsuro Taira",
           "slug": "tatsuro-taira",
           "change": null,
-          "id": null
+          "id": "tatsuro-taira"
         },
         {
           "rank": 5,
@@ -175,7 +175,7 @@
           "name": "Asu Almabayev",
           "slug": "asu-almabayev",
           "change": null,
-          "id": null
+          "id": "asu-almabayev"
         },
         {
           "rank": 8,
@@ -189,14 +189,14 @@
           "name": "Amir Albazi",
           "slug": "amir-albazi",
           "change": null,
-          "id": null
+          "id": "amir-albazi"
         },
         {
           "rank": 10,
           "name": "Ramazan Temirov",
           "slug": "ramazan-temirov",
           "change": null,
-          "id": null
+          "id": "ramazan-temirov"
         },
         {
           "rank": 11,
@@ -210,28 +210,28 @@
           "name": "Sumudaerji",
           "slug": "su-mudaerji",
           "change": null,
-          "id": null
+          "id": "sumudaerji"
         },
         {
           "rank": 12,
           "name": "Steve Erceg",
           "slug": "steve-erceg",
           "change": null,
-          "id": null
+          "id": "steve-erceg"
         },
         {
           "rank": 14,
           "name": "Charles Johnson",
           "slug": "charles-johnson",
           "change": null,
-          "id": null
+          "id": "charles-johnson"
         },
         {
           "rank": 15,
           "name": "Tagir Ulanbekov",
           "slug": "tagir-ulanbekov",
           "change": null,
-          "id": null
+          "id": "tagir-ulanbekov"
         }
       ]
     },
@@ -263,21 +263,21 @@
           "name": "Song Yadong",
           "slug": "song-yadong",
           "change": null,
-          "id": null
+          "id": "song-yadong"
         },
         {
           "rank": 4,
           "name": "Umar Nurmagomedov",
           "slug": "umar-nurmagomedov",
           "change": null,
-          "id": null
+          "id": "umar-nurmagomedov"
         },
         {
           "rank": 5,
           "name": "Mario Bautista",
           "slug": "mario-bautista",
           "change": null,
-          "id": null
+          "id": "mario-bautista"
         },
         {
           "rank": 6,
@@ -291,28 +291,28 @@
           "name": "Payton Talbott",
           "slug": "payton-talbott",
           "change": null,
-          "id": null
+          "id": "payton-talbott"
         },
         {
           "rank": 8,
           "name": "David Martinez",
           "slug": "david-martinez",
           "change": null,
-          "id": null
+          "id": "david-martinez"
         },
         {
           "rank": 9,
           "name": "Aiemann Zahabi",
           "slug": "aiemann-zahabi",
           "change": null,
-          "id": null
+          "id": "aiemann-zahabi"
         },
         {
           "rank": 10,
           "name": "Raul Rosas Jr.",
           "slug": "raul-rosas-jr",
           "change": null,
-          "id": null
+          "id": "raul-rosas-jr"
         },
         {
           "rank": 11,
@@ -333,21 +333,21 @@
           "name": "Marcus McGhee",
           "slug": "marcus-mcghee",
           "change": null,
-          "id": null
+          "id": "marcus-mcghee"
         },
         {
           "rank": 14,
           "name": "Raoni Barcelos",
           "slug": "raoni-barcelos",
           "change": null,
-          "id": null
+          "id": "raoni-barcelos"
         },
         {
           "rank": 15,
           "name": "Bryce Mitchell",
           "slug": "bryce-mitchell",
           "change": null,
-          "id": null
+          "id": "bryce-mitchell"
         }
       ]
     },
@@ -365,7 +365,7 @@
           "name": "Movsar Evloev",
           "slug": "movsar-evloev",
           "change": null,
-          "id": null
+          "id": "movsar-evloev"
         },
         {
           "rank": 2,
@@ -379,7 +379,7 @@
           "name": "Lerone Murphy",
           "slug": "lerone-murphy",
           "change": null,
-          "id": null
+          "id": "lerone-murphy"
         },
         {
           "rank": 4,
@@ -400,7 +400,7 @@
           "name": "Arnold Allen",
           "slug": "arnold-allen",
           "change": null,
-          "id": null
+          "id": "arnold-allen"
         },
         {
           "rank": 7,
@@ -414,35 +414,35 @@
           "name": "Youssef Zalal",
           "slug": "youssef-zalal",
           "change": null,
-          "id": null
+          "id": "youssef-zalal"
         },
         {
           "rank": 9,
           "name": "Kevin Vallejos",
           "slug": "kevin-vallejos",
           "change": null,
-          "id": null
+          "id": "kevin-vallejos"
         },
         {
           "rank": 10,
           "name": "Steve Garcia",
           "slug": "steve-garcia",
           "change": null,
-          "id": null
+          "id": "steve-garcia"
         },
         {
           "rank": 11,
           "name": "Aaron Pico",
           "slug": "aaron-pico",
           "change": null,
-          "id": null
+          "id": "aaron-pico"
         },
         {
           "rank": 12,
           "name": "Patricio Pitbull",
           "slug": "patricio-freire",
           "change": "+2",
-          "id": null
+          "id": "patricio-freire"
         },
         {
           "rank": 13,
@@ -456,14 +456,14 @@
           "name": "David Onama",
           "slug": "david-onama",
           "change": "+1",
-          "id": null
+          "id": "david-onama"
         },
         {
           "rank": 15,
           "name": "Pat Sabatini",
           "slug": "pat-sabatini",
           "change": "NR",
-          "id": null
+          "id": "pat-sabatini"
         }
       ]
     },
@@ -488,7 +488,7 @@
           "name": "Arman Tsarukyan",
           "slug": "arman-tsarukyan",
           "change": null,
-          "id": null
+          "id": "arman-tsarukyan"
         },
         {
           "rank": 3,
@@ -509,56 +509,56 @@
           "name": "Paddy Pimblett",
           "slug": "paddy-pimblett",
           "change": null,
-          "id": null
+          "id": "paddy-pimblett"
         },
         {
           "rank": 6,
           "name": "Benoît Saint Denis",
           "slug": "benoit-saint-denis",
           "change": null,
-          "id": null
+          "id": "benoit-saint-denis"
         },
         {
           "rank": 7,
           "name": "Quillan Salkilld",
           "slug": "quillan-salkilld",
           "change": null,
-          "id": null
+          "id": "quillan-salkilld"
         },
         {
           "rank": 8,
           "name": "Mauricio Ruffy",
           "slug": "mauricio-ruffy",
           "change": null,
-          "id": null
+          "id": "mauricio-ruffy"
         },
         {
           "rank": 9,
           "name": "Salahdine Parnasse",
           "slug": "salahdine-parnasse",
           "change": null,
-          "id": null
+          "id": "salahdine-parnasse"
         },
         {
           "rank": 10,
           "name": "Mateusz Gamrot",
           "slug": "mateusz-gamrot",
           "change": null,
-          "id": null
+          "id": "mateusz-gamrot"
         },
         {
           "rank": 11,
           "name": "Rafael Fiziev",
           "slug": "rafael-fiziev",
           "change": null,
-          "id": null
+          "id": "rafael-fiziev"
         },
         {
           "rank": 12,
           "name": "Tom Nolan",
           "slug": "tom-nolan",
           "change": null,
-          "id": null
+          "id": "tom-nolan"
         },
         {
           "rank": 13,
@@ -572,14 +572,14 @@
           "name": "Dan Hooker",
           "slug": "dan-hooker",
           "change": null,
-          "id": null
+          "id": "dan-hooker"
         },
         {
           "rank": 15,
           "name": "Grant Dawson",
           "slug": "grant-dawson",
           "change": null,
-          "id": null
+          "id": "grant-dawson"
         }
       ]
     },
@@ -604,14 +604,14 @@
           "name": "Carlos Prates",
           "slug": "carlos-prates",
           "change": null,
-          "id": null
+          "id": "carlos-prates"
         },
         {
           "rank": 3,
           "name": "Michael Morales",
           "slug": "michael-morales",
           "change": null,
-          "id": null
+          "id": "michael-morales"
         },
         {
           "rank": 4,
@@ -625,14 +625,14 @@
           "name": "Gabriel Bonfim",
           "slug": "gabriel-bonfim",
           "change": null,
-          "id": null
+          "id": "gabriel-bonfim"
         },
         {
           "rank": 6,
           "name": "Sean Brady",
           "slug": "sean-brady",
           "change": null,
-          "id": null
+          "id": "sean-brady"
         },
         {
           "rank": 7,
@@ -653,7 +653,7 @@
           "name": "Mike Malott",
           "slug": "mike-malott",
           "change": null,
-          "id": null
+          "id": "mike-malott"
         },
         {
           "rank": 10,
@@ -667,35 +667,35 @@
           "name": "Yaroslav Amosov",
           "slug": "yaroslav-amosov",
           "change": "+1",
-          "id": null
+          "id": "yaroslav-amosov"
         },
         {
           "rank": 12,
           "name": "Uroš Medić",
           "slug": "uros-medic",
           "change": "-1",
-          "id": null
+          "id": "uros-medic"
         },
         {
           "rank": 13,
           "name": "Joaquin Buckley",
           "slug": "joaquin-buckley",
           "change": null,
-          "id": null
+          "id": "joaquin-buckley"
         },
         {
           "rank": 14,
           "name": "Kevin Holland",
           "slug": "kevin-holland",
           "change": "+1",
-          "id": null
+          "id": "kevin-holland"
         },
         {
           "rank": 15,
           "name": "Daniel Rodriguez",
           "slug": "daniel-rodriguez",
           "change": "-1",
-          "id": null
+          "id": "daniel-rodriguez"
         }
       ]
     },
@@ -727,42 +727,42 @@
           "name": "Nassourdine Imavov",
           "slug": "nassourdine-imavov",
           "change": null,
-          "id": null
+          "id": "nassourdine-imavov"
         },
         {
           "rank": 4,
           "name": "Brendan Allen",
           "slug": "brendan-allen",
           "change": null,
-          "id": null
+          "id": "brendan-allen"
         },
         {
           "rank": 5,
           "name": "Caio Borralho",
           "slug": "caio-borralho",
           "change": null,
-          "id": null
+          "id": "caio-borralho"
         },
         {
           "rank": 6,
           "name": "Joe Pyfer",
           "slug": "joe-pyfer",
           "change": null,
-          "id": null
+          "id": "joe-pyfer"
         },
         {
           "rank": 7,
           "name": "Gregory Rodrigues",
           "slug": "gregory-rodrigues",
           "change": null,
-          "id": null
+          "id": "gregory-rodrigues"
         },
         {
           "rank": 8,
           "name": "Anthony Hernandez",
           "slug": "anthony-hernandez",
           "change": null,
-          "id": null
+          "id": "anthony-hernandez"
         },
         {
           "rank": 9,
@@ -776,14 +776,14 @@
           "name": "Christian Leroy Duncan",
           "slug": "christian-leroy-duncan",
           "change": null,
-          "id": null
+          "id": "christian-leroy-duncan"
         },
         {
           "rank": 11,
           "name": "Abus Magomedov",
           "slug": "abus-magomedov",
           "change": null,
-          "id": null
+          "id": "abus-magomedov"
         },
         {
           "rank": 12,
@@ -797,21 +797,21 @@
           "name": "Ikram Aliskerov",
           "slug": "ikram-aliskerov",
           "change": null,
-          "id": null
+          "id": "ikram-aliskerov"
         },
         {
           "rank": 14,
           "name": "Bo Nickal",
           "slug": "bo-nickal",
           "change": null,
-          "id": null
+          "id": "bo-nickal"
         },
         {
           "rank": 15,
           "name": "Shara Magomedov",
           "slug": "shara-magomedov",
           "change": null,
-          "id": null
+          "id": "shara-magomedov"
         }
       ]
     },
@@ -857,7 +857,7 @@
           "name": "Navajo Stirling",
           "slug": "navajo-stirling",
           "change": null,
-          "id": null
+          "id": "navajo-stirling"
         },
         {
           "rank": 6,
@@ -878,14 +878,14 @@
           "name": "Bogdan Guskov",
           "slug": "bogdan-guskov",
           "change": null,
-          "id": null
+          "id": "bogdan-guskov"
         },
         {
           "rank": 9,
           "name": "Azamat Murzakanov",
           "slug": "azamat-murzakanov",
           "change": null,
-          "id": null
+          "id": "azamat-murzakanov"
         },
         {
           "rank": 10,
@@ -906,28 +906,28 @@
           "name": "Abdul Rakhman Yakhyaev",
           "slug": "abdulrakhman-yakhyaev",
           "change": null,
-          "id": null
+          "id": "abdul-rakhman-yakhyaev"
         },
         {
           "rank": 13,
           "name": "Alonzo Menifield",
           "slug": "alonzo-menifield",
           "change": null,
-          "id": null
+          "id": "alonzo-menifield"
         },
         {
           "rank": 14,
           "name": "Reinier de Ridder",
           "slug": "reinier-de-ridder",
           "change": null,
-          "id": null
+          "id": "reinier-de-ridder"
         },
         {
           "rank": 15,
           "name": "Nikita Krylov",
           "slug": "nikita-krylov",
           "change": null,
-          "id": null
+          "id": "nikita-krylov"
         }
       ]
     },
@@ -952,7 +952,7 @@
           "name": "Alexander Volkov",
           "slug": "alexander-volkov",
           "change": null,
-          "id": null
+          "id": "alexander-volkov"
         },
         {
           "rank": 3,
@@ -966,7 +966,7 @@
           "name": "Josh Hokit",
           "slug": "josh-hokit",
           "change": null,
-          "id": null
+          "id": "josh-hokit"
         },
         {
           "rank": 5,
@@ -980,14 +980,14 @@
           "name": "Johnny Walker",
           "slug": "johnny-walker",
           "change": "+1",
-          "id": null
+          "id": "johnny-walker"
         },
         {
           "rank": 7,
           "name": "Rizvan Kuniev",
           "slug": "rizvan-kuniev",
           "change": "-1",
-          "id": null
+          "id": "rizvan-kuniev"
         },
         {
           "rank": 8,
@@ -1001,28 +1001,28 @@
           "name": "Vitor Petrino",
           "slug": "vitor-petrino",
           "change": null,
-          "id": null
+          "id": "vitor-petrino"
         },
         {
           "rank": 10,
           "name": "Serghei Spivac",
           "slug": "serghei-spivac",
           "change": null,
-          "id": null
+          "id": "serghei-spivac"
         },
         {
           "rank": 11,
           "name": "Ante Delija",
           "slug": "ante-delija",
           "change": null,
-          "id": null
+          "id": "ante-delija"
         },
         {
           "rank": 12,
           "name": "Valter Walker",
           "slug": "valter-walker",
           "change": null,
-          "id": null
+          "id": "valter-walker"
         },
         {
           "rank": 13,
@@ -1043,7 +1043,7 @@
           "name": "Aleksandar Rakić",
           "slug": "aleksandar-rakic",
           "change": null,
-          "id": null
+          "id": "aleksandar-rakic"
         }
       ]
     },
@@ -1053,7 +1053,7 @@
       "champion": {
         "name": "Kayla Harrison",
         "slug": "kayla-harrison",
-        "id": null
+        "id": "kayla-harrison"
       },
       "ranked": [
         {
@@ -1061,7 +1061,7 @@
           "name": "Kayla Harrison",
           "slug": "kayla-harrison",
           "change": "+1",
-          "id": null
+          "id": "kayla-harrison"
         },
         {
           "rank": 2,
@@ -1082,7 +1082,7 @@
           "name": "Natalia Silva",
           "slug": "natalia-silva",
           "change": null,
-          "id": null
+          "id": "natalia-silva"
         },
         {
           "rank": 5,
@@ -1103,7 +1103,7 @@
           "name": "Manon Fiorot",
           "slug": "manon-fiorot",
           "change": null,
-          "id": null
+          "id": "manon-fiorot"
         },
         {
           "rank": 8,
@@ -1117,7 +1117,7 @@
           "name": "Jasmine Jasudavicius",
           "slug": "jasmine-jasudavicius",
           "change": null,
-          "id": null
+          "id": "jasmine-jasudavicius"
         },
         {
           "rank": 10,
@@ -1131,7 +1131,7 @@
           "name": "Erin Blanchfield",
           "slug": "erin-blanchfield",
           "change": "-1",
-          "id": null
+          "id": "erin-blanchfield"
         },
         {
           "rank": 12,
@@ -1159,7 +1159,7 @@
           "name": "Denise Gomes",
           "slug": "denise-gomes",
           "change": "-1",
-          "id": null
+          "id": "denise-gomes"
         }
       ]
     },
@@ -1198,7 +1198,7 @@
           "name": "Denise Gomes",
           "slug": "denise-gomes",
           "change": null,
-          "id": null
+          "id": "denise-gomes"
         },
         {
           "rank": 5,
@@ -1212,7 +1212,7 @@
           "name": "Fatima Kline",
           "slug": "fatima-kline",
           "change": null,
-          "id": null
+          "id": "fatima-kline"
         },
         {
           "rank": 7,
@@ -1226,21 +1226,21 @@
           "name": "Loopy Godinez",
           "slug": "loopy-godinez",
           "change": null,
-          "id": null
+          "id": "loopy-godinez"
         },
         {
           "rank": 9,
           "name": "Alexia Thainara",
           "slug": "alexia-thainara",
           "change": null,
-          "id": null
+          "id": "alexia-thainara"
         },
         {
           "rank": 10,
           "name": "Tabatha Ricci",
           "slug": "tabatha-ricci",
           "change": null,
-          "id": null
+          "id": "tabatha-ricci"
         },
         {
           "rank": 11,
@@ -1261,21 +1261,21 @@
           "name": "Amanda Ribas",
           "slug": "amanda-ribas",
           "change": null,
-          "id": null
+          "id": "amanda-ribas"
         },
         {
           "rank": 14,
           "name": "Piera Rodriguez",
           "slug": "piera-rodriguez",
           "change": null,
-          "id": null
+          "id": "piera-rodriguez"
         },
         {
           "rank": 15,
           "name": "Angela Hill",
           "slug": "angela-hill",
           "change": null,
-          "id": null
+          "id": "angela-hill"
         }
       ]
     },
@@ -1285,7 +1285,7 @@
       "champion": {
         "name": "Natalia Silva",
         "slug": "natalia-silva",
-        "id": null
+        "id": "natalia-silva"
       },
       "ranked": [
         {
@@ -1307,21 +1307,21 @@
           "name": "Manon Fiorot",
           "slug": "manon-fiorot",
           "change": null,
-          "id": null
+          "id": "manon-fiorot"
         },
         {
           "rank": 4,
           "name": "Jasmine Jasudavicius",
           "slug": "jasmine-jasudavicius",
           "change": null,
-          "id": null
+          "id": "jasmine-jasudavicius"
         },
         {
           "rank": 5,
           "name": "Erin Blanchfield",
           "slug": "erin-blanchfield",
           "change": null,
-          "id": null
+          "id": "erin-blanchfield"
         },
         {
           "rank": 6,
@@ -1335,49 +1335,49 @@
           "name": "Maycee Barber",
           "slug": "maycee-barber",
           "change": null,
-          "id": null
+          "id": "maycee-barber"
         },
         {
           "rank": 8,
           "name": "Wang Cong",
           "slug": "wang-cong",
           "change": null,
-          "id": null
+          "id": "wang-cong"
         },
         {
           "rank": 9,
           "name": "Tracy Cortez",
           "slug": "tracy-cortez",
           "change": null,
-          "id": null
+          "id": "tracy-cortez"
         },
         {
           "rank": 10,
           "name": "Miranda Maverick",
           "slug": "miranda-maverick",
           "change": null,
-          "id": null
+          "id": "miranda-maverick"
         },
         {
           "rank": 11,
           "name": "Karine Silva",
           "slug": "karine-silva",
           "change": null,
-          "id": null
+          "id": "karine-silva"
         },
         {
           "rank": 12,
           "name": "Casey O'Neill",
           "slug": "casey-oneill",
           "change": null,
-          "id": null
+          "id": "casey-o-neill"
         },
         {
           "rank": 13,
           "name": "Eduarda Moura",
           "slug": "eduarda-moura",
           "change": null,
-          "id": null
+          "id": "eduarda-moura"
         },
         {
           "rank": 14,
@@ -1391,7 +1391,7 @@
           "name": "Gabriella Fernandes",
           "slug": "gabriella-fernandes",
           "change": null,
-          "id": null
+          "id": "gabriella-fernandes"
         }
       ]
     },
@@ -1401,7 +1401,7 @@
       "champion": {
         "name": "Kayla Harrison",
         "slug": "kayla-harrison",
-        "id": null
+        "id": "kayla-harrison"
       },
       "ranked": [
         {
@@ -1423,28 +1423,28 @@
           "name": "Joselyne Edwards",
           "slug": "joselyne-edwards",
           "change": "-1",
-          "id": null
+          "id": "joselyne-edwards"
         },
         {
           "rank": 4,
           "name": "Ailin Perez",
           "slug": "ailin-perez",
           "change": "-1",
-          "id": null
+          "id": "ailin-perez"
         },
         {
           "rank": 5,
           "name": "Luana Santos",
           "slug": "luana-santos",
           "change": null,
-          "id": null
+          "id": "luana-santos"
         },
         {
           "rank": 6,
           "name": "Yana Santos",
           "slug": "yana-santos",
           "change": null,
-          "id": null
+          "id": "yana-santos"
         },
         {
           "rank": 7,
@@ -1458,28 +1458,28 @@
           "name": "Bia Mesquita",
           "slug": "bia-mesquita",
           "change": "+3",
-          "id": null
+          "id": "bia-mesquita"
         },
         {
           "rank": 9,
           "name": "Jacqueline Cavalcanti",
           "slug": "jacqueline-cavalcanti",
           "change": "-1",
-          "id": null
+          "id": "jacqueline-cavalcanti"
         },
         {
           "rank": 10,
           "name": "Karol Rosa",
           "slug": "karol-rosa",
           "change": "-1",
-          "id": null
+          "id": "karol-rosa"
         },
         {
           "rank": 11,
           "name": "Michelle Montague",
           "slug": "michelle-montague",
           "change": "+1",
-          "id": null
+          "id": "michelle-montague"
         },
         {
           "rank": 12,
@@ -1493,21 +1493,21 @@
           "name": "Nora Cornolle",
           "slug": "nora-cornolle",
           "change": null,
-          "id": null
+          "id": "nora-cornolle"
         },
         {
           "rank": 14,
           "name": "Alice Pereira",
           "slug": "alice-pereira",
           "change": null,
-          "id": null
+          "id": "alice-pereira"
         },
         {
           "rank": 15,
           "name": "Chelsea Chandler",
           "slug": "chelsea-chandler",
           "change": null,
-          "id": null
+          "id": "chelsea-chandler"
         }
       ]
     }

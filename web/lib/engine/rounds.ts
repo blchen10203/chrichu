@@ -81,8 +81,11 @@ function fill(rand: () => number, kept: Round[], fighters: Fighter[], metrics: M
   });
 }
 
+// The Daily draws by position in this list, so a fighter joining it would change every future puzzle.
+const dailyPool = (fighters: Fighter[]) => fighters.filter((f) => f.daily);
+
 export function dailySet(date: string, fighters: Fighter[], metrics: Metric[]): Round[] {
-  return fill(rng(date), [], fighters, metrics);
+  return fill(rng(date), [], dailyPool(fighters), metrics);
 }
 
 export function isValidRound(round: Round, fighters: Fighter[], metrics: Metric[]): boolean {
@@ -95,7 +98,7 @@ export function isValidRound(round: Round, fighters: Fighter[], metrics: Metric[
 export function repairRounds(saved: Round[], played: number, date: string, fighters: Fighter[], metrics: Metric[]): Round[] {
   if (saved.slice(played).every((r) => isValidRound(r, fighters, metrics))) return saved;
   const kept = saved.slice(0, played);
-  return [...kept, ...fill(rng(date), kept, fighters, metrics)];
+  return [...kept, ...fill(rng(date), kept, dailyPool(fighters), metrics)];
 }
 
 // Everything a round's screen needs. Only call it with a valid round.

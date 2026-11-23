@@ -64,6 +64,37 @@ def read_active(url):
     return active
 
 
+def ranked_additions(rows, roster, divisions):
+    """Roster rows for ranked fighters (from rankings.json) not on the roster, when exactly one ufcstats fighter
+    matches and has fights. They get daily=0: the Daily draws by position in the fighter list, so a new fighter
+    in its pool would change every future puzzle. Returns (added rows, skipped descriptions)."""
+    have = {r["ufc_slug"] for r in roster} | {name_key(r["name"]) for r in roster}
+    fought = {n.strip() for r in rows["ufc_fight_results"] for n in " ".join(r["BOUT"].split()).split(" vs. ")}
+    by_key = {}
+    for t in rows["ufc_fighter_tott"]:
+        by_key.setdefault(name_key(t["FIGHTER"]), []).append(t)
+    added, skipped = [], []
+    for d in divisions:
+        for f in ([d["champion"]] if d["champion"] else []) + d["ranked"]:
+            keys = {name_key(f["name"]), f["slug"]}  # ufc.com slugs often carry the ufcstats name: patricio-freire
+            if keys & have:
+                continue
+            have |= keys
+            # Rows, not ids: build() rejects a name that appears twice in the fighter file.
+            matches = list({id(t): t for k in keys for t in by_key.get(k, [])}.values())
+            name = matches[0]["FIGHTER"].strip() if len(matches) == 1 else None
+            if name and name_key(name) in have - keys:
+                continue  # on the roster under the ufcstats spelling
+            if not name or name not in fought:
+                skipped.append(f"{f['name']} ({f['slug']}): {len(matches)} ufcstats matches"
+                               + ("" if not name else ", no fights"))
+                continue
+            added.append({"name": name, "ufcstats_id": parse.fighter_id(matches[0]["URL"]), "ufc_slug": f["slug"],
+                          "deceased": "0", "daily": "0"})
+            have.add(name_key(name))
+    return added, skipped
+
+
 def read_csvs(base_url):
     out = {}
     for name in FILES:
@@ -106,13 +137,17 @@ def build(rows, roster, shipped, today, image_dir, min_eligible=30, *, active=fr
         fighters.append({
             "id": fighter_id, "name": name, "dob": dob,
             "active": name_key(name) in active,  # on the current UFC roster
+            "daily": r.get("daily", "1").strip() != "0",  # in the Daily's pool; see ranked_additions
             "hasImage": (image_dir / f"{fighter_id}.webp").exists(),
             "metrics": values,
         })
 
+    # Ranges and steps come from the Daily's pool only: they decide its rounds and scores, so adding a
+    # non-Daily fighter must not move them.
     stats = {}
+    daily_values = [v for v, f in zip(per_fighter, fighters) if f["daily"]]
     for metric_id, (_, unit, _, scale, _) in metrics.CANDIDATES.items():
-        pool = [v[metric_id] for v in per_fighter if metric_id in v]
+        pool = [v[metric_id] for v in daily_values if metric_id in v]
         if pool:  # summarize and slider raise on an empty pool
             stats[metric_id] = (metrics.summarize(pool, scale), metrics.slider(pool, scale, unit))
 
@@ -136,8 +171,11 @@ def build(rows, roster, shipped, today, image_dir, min_eligible=30, *, active=fr
         metrics_out.append({"id": metric_id, "label": label, "unit": unit, "round": round_, "scale": scale,
                             "snap": snap, "min": round(lo, 4), "max": round(hi, 4), "step": round(step, 4)})
 
+    ranges = {m["id"]: (m["min"], m["max"]) for m in metrics_out}
     for f in fighters:
-        f["metrics"] = {m: metrics.round_value(m, f["metrics"][m]) for m in shipped["ship"] if m in f["metrics"]}
+        # A non-Daily fighter off the slider's scale could never be guessed, so they skip that metric.
+        f["metrics"] = {m: metrics.round_value(m, f["metrics"][m]) for m in shipped["ship"] if m in f["metrics"]
+                        and (f["daily"] or ranges[m][0] <= f["metrics"][m] <= ranges[m][1])}
 
     lines = [f"Metric report {today.isoformat()}, {len(fighters)} fighters",
              f"{'metric':<15}{'n':>4}{'min':>10}{'median':>10}{'max':>10}{'sd':>10}{'step':>10}"]
@@ -181,7 +219,15 @@ def main():
             # A failed or changed roster page must not stop the data update: keep the last build's flags.
             print(f"Roster not read ({e}); keeping the previous active flags.", file=sys.stderr)
             active = {name_key(f["name"]) for f in old or [] if f.get("active")}
-        fighters, metrics_out, report = build(read_csvs(SOURCE), roster, shipped, date.today(),
+        rows = read_csvs(SOURCE)
+        rankings_file = ROOT / "web" / "data" / "rankings.json"
+        divisions = json.loads(rankings_file.read_text(encoding="utf-8"))["divisions"] if rankings_file.exists() else []
+        added, skipped = ranked_additions(rows, roster, divisions)
+        roster += added
+        # Ranked means on the UFC roster, whatever Wikipedia calls them.
+        ranked_slugs = {f["slug"] for d in divisions for f in [d["champion"] or {}, *d["ranked"]] if f}
+        active |= {name_key(r["name"]) for r in roster if r["ufc_slug"] in ranked_slugs}
+        fighters, metrics_out, report = build(rows, roster, shipped, date.today(),
                                               ROOT / "web/public/img/fighters", active=active)
         validate(old, fighters, shipped)
     except (BuildError, OSError, ValueError) as e:
@@ -192,7 +238,15 @@ def main():
     for name, data in (("fighters.json", fighters), ("metrics.json", metrics_out)):
         (out / name).write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
     (ROOT / "pipeline" / "report.txt").write_text(report, encoding="utf-8")
+    if added:
+        with open(ROOT / "pipeline" / "roster.csv", "w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, ["name", "ufcstats_id", "ufc_slug", "deceased", "daily"], restval="1",
+                               lineterminator="\n")
+            w.writeheader()
+            w.writerows(roster)
     print(report, end="")
+    print("".join(f"Added from the rankings (not in the Daily): {r['name']}\n" for r in added), end="")
+    print("".join(f"Ranked but not added: {s}\n" for s in skipped), end="")
     print(f"Wrote {len(fighters)} fighters, {len(metrics_out)} metrics")
     return 0
 

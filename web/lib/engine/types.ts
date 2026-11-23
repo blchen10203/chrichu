@@ -9,6 +9,7 @@ export type Fighter = {
   name: string;
   dob: string | null; // YYYY-MM-DD
   active: boolean; // on the current UFC roster, for the active-only setting
+  daily: boolean; // in the Daily's pool; fighters added from the rankings are not, so the Daily never reshuffles
   hasImage: boolean;
   metrics: Record<MetricId, number>; // a key is present only when eligible
 };

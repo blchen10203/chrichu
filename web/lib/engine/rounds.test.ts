@@ -51,6 +51,12 @@ describe("dailySet", () => {
     expect(dailySet(DAY, fighters, metrics)).toEqual(set);
     expect(dailySet(DAY, [...fighters].reverse(), [...metrics].reverse())).toEqual(set);
   });
+  it("is not moved by fighters outside its pool", () => {
+    const daily = fighters.filter((f) => f.daily);
+    expect(daily.length).toBeLessThan(fighters.length); // the data has auto-added fighters
+    expect(dailySet(DAY, daily, metrics)).toEqual(set);
+    expect(dailySet(DAY, [...daily, { ...daily[0], id: "a-newcomer", daily: true }], metrics)).not.toEqual(set);
+  });
   it("changes from day to day", () => {
     expect(dailySet("2026-12-02", fighters, metrics)).not.toEqual(set);
   });

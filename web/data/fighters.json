@@ -4,6 +4,7 @@
     "name": "Jon Jones",
     "dob": "1987-07-19",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -23,6 +24,7 @@
     "name": "Randy Couture",
     "dob": "1963-06-22",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -42,6 +44,7 @@
     "name": "Georges St-Pierre",
     "dob": "1981-05-19",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -61,6 +64,7 @@
     "name": "Valentina Shevchenko",
     "dob": "1988-03-07",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 65,
@@ -80,6 +84,7 @@
     "name": "Demetrious Johnson",
     "dob": "1986-08-13",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 63,
@@ -99,6 +104,7 @@
     "name": "Anderson Silva",
     "dob": "1975-04-14",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -118,6 +124,7 @@
     "name": "Matt Hughes",
     "dob": "1973-10-13",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -137,6 +144,7 @@
     "name": "Jose Aldo",
     "dob": "1986-09-09",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 67,
@@ -156,6 +164,7 @@
     "name": "Alexander Volkanovski",
     "dob": "1988-09-29",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -175,6 +184,7 @@
     "name": "Israel Adesanya",
     "dob": "1989-07-22",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -194,6 +204,7 @@
     "name": "Amanda Nunes",
     "dob": "1988-05-30",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 68,
@@ -213,6 +224,7 @@
     "name": "BJ Penn",
     "dob": "1978-12-13",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -232,6 +244,7 @@
     "name": "Max Holloway",
     "dob": "1991-12-04",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -251,6 +264,7 @@
     "name": "Tito Ortiz",
     "dob": "1975-01-23",
     "active": false,
+    "daily": true,
     "hasImage": false,
     "metrics": {
       "height": 75,
@@ -270,6 +284,7 @@
     "name": "Daniel Cormier",
     "dob": "1979-03-20",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -289,6 +304,7 @@
     "name": "Joanna Jedrzejczyk",
     "dob": "1987-08-18",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -308,6 +324,7 @@
     "name": "Frankie Edgar",
     "dob": "1981-10-16",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -327,6 +344,7 @@
     "name": "Kamaru Usman",
     "dob": "1987-05-11",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -346,6 +364,7 @@
     "name": "Stipe Miocic",
     "dob": "1982-08-19",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -365,6 +384,7 @@
     "name": "TJ Dillashaw",
     "dob": "1986-02-07",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -384,6 +404,7 @@
     "name": "Alex Pereira",
     "dob": "1987-07-07",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -403,6 +424,7 @@
     "name": "Tim Sylvia",
     "dob": "1976-03-05",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 80,
@@ -422,6 +444,7 @@
     "name": "Zhang Weili",
     "dob": "1989-08-13",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 64,
@@ -441,6 +464,7 @@
     "name": "Ronda Rousey",
     "dob": "1987-02-01",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 67,
@@ -460,6 +484,7 @@
     "name": "Chuck Liddell",
     "dob": "1969-12-17",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -479,6 +504,7 @@
     "name": "Alexandre Pantoja",
     "dob": "1990-04-16",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 65,
@@ -498,6 +524,7 @@
     "name": "Islam Makhachev",
     "dob": "1991-10-27",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -517,6 +544,7 @@
     "name": "Rose Namajunas",
     "dob": "1992-06-29",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 65,
@@ -536,6 +564,7 @@
     "name": "Deiveson Figueiredo",
     "dob": "1987-12-18",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 65,
@@ -555,6 +584,7 @@
     "name": "Brandon Moreno",
     "dob": "1993-12-07",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 67,
@@ -574,6 +604,7 @@
     "name": "Merab Dvalishvili",
     "dob": "1991-01-10",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -593,6 +624,7 @@
     "name": "Petr Yan",
     "dob": "1993-02-11",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 67,
@@ -612,6 +644,7 @@
     "name": "Renan Barao",
     "dob": "1987-01-31",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -631,6 +664,7 @@
     "name": "Henry Cejudo",
     "dob": "1987-02-09",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 64,
@@ -650,6 +684,7 @@
     "name": "Tyron Woodley",
     "dob": "1982-04-07",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -669,6 +704,7 @@
     "name": "Cain Velasquez",
     "dob": "1982-07-28",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -688,6 +724,7 @@
     "name": "Dominick Cruz",
     "dob": "1985-03-09",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 68,
@@ -707,6 +744,7 @@
     "name": "Pat Miletich",
     "dob": "1968-03-09",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -725,6 +763,7 @@
     "name": "Andrei Arlovski",
     "dob": "1979-02-04",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -744,6 +783,7 @@
     "name": "Frank Mir",
     "dob": "1979-05-24",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -763,6 +803,7 @@
     "name": "Vitor Belfort",
     "dob": "1977-04-01",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -782,6 +823,7 @@
     "name": "Robbie Lawler",
     "dob": "1982-03-20",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -801,6 +843,7 @@
     "name": "Lyoto Machida",
     "dob": "1978-05-30",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -820,6 +863,7 @@
     "name": "Aljamain Sterling",
     "dob": "1989-07-31",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 67,
@@ -839,6 +883,7 @@
     "name": "Junior Dos Santos",
     "dob": "1984-01-30",
     "active": false,
+    "daily": true,
     "hasImage": false,
     "metrics": {
       "height": 76,
@@ -858,6 +903,7 @@
     "name": "Chris Weidman",
     "dob": "1984-06-17",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -877,6 +923,7 @@
     "name": "Rich Franklin",
     "dob": "1974-10-05",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -896,6 +943,7 @@
     "name": "Holly Holm",
     "dob": "1981-10-17",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 68,
@@ -915,6 +963,7 @@
     "name": "Benson Henderson",
     "dob": "1983-11-16",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -934,6 +983,7 @@
     "name": "Ciryl Gane",
     "dob": "1990-04-12",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -953,6 +1003,7 @@
     "name": "Julianna Pena",
     "dob": "1989-08-19",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -972,6 +1023,7 @@
     "name": "Frank Shamrock",
     "dob": "1972-12-08",
     "active": false,
+    "daily": true,
     "hasImage": false,
     "metrics": {
       "height": 70,
@@ -990,6 +1042,7 @@
     "name": "Charles Oliveira",
     "dob": "1989-10-17",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -1009,6 +1062,7 @@
     "name": "Rafael Dos Anjos",
     "dob": "1984-10-26",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 68,
@@ -1028,6 +1082,7 @@
     "name": "Dustin Poirier",
     "dob": "1989-01-19",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -1047,6 +1102,7 @@
     "name": "Jessica Andrade",
     "dob": "1991-09-25",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 61,
@@ -1066,6 +1122,7 @@
     "name": "Michael Bisping",
     "dob": "1979-02-28",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -1085,6 +1142,7 @@
     "name": "Robert Whittaker",
     "dob": "1990-12-20",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -1104,6 +1162,7 @@
     "name": "Sean Strickland",
     "dob": "1991-02-27",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -1123,6 +1182,7 @@
     "name": "Glover Teixeira",
     "dob": "1979-10-28",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -1142,6 +1202,7 @@
     "name": "Jan Blachowicz",
     "dob": "1983-02-24",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -1161,6 +1222,7 @@
     "name": "Rashad Evans",
     "dob": "1979-09-25",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -1180,6 +1242,7 @@
     "name": "Anthony Pettis",
     "dob": "1987-01-27",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -1199,6 +1262,7 @@
     "name": "Leon Edwards",
     "dob": "1991-08-25",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -1218,6 +1282,7 @@
     "name": "Dan Henderson",
     "dob": "1970-08-24",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -1237,6 +1302,7 @@
     "name": "Urijah Faber",
     "dob": "1979-05-14",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -1256,6 +1322,7 @@
     "name": "Alexa Grasso",
     "dob": "1993-08-09",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 65,
@@ -1275,6 +1342,7 @@
     "name": "Colby Covington",
     "dob": "1988-02-22",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -1294,6 +1362,7 @@
     "name": "Kenny Florian",
     "dob": "1976-05-26",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -1313,6 +1382,7 @@
     "name": "Carla Esparza",
     "dob": "1987-10-10",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 61,
@@ -1332,6 +1402,7 @@
     "name": "Justin Gaethje",
     "dob": "1988-11-14",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -1351,6 +1422,7 @@
     "name": "Sean O'Malley",
     "dob": "1994-10-24",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -1370,6 +1442,7 @@
     "name": "Conor McGregor",
     "dob": "1988-07-14",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -1389,6 +1462,7 @@
     "name": "Dan Severn",
     "dob": "1958-06-08",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -1407,6 +1481,7 @@
     "name": "Khabib Nurmagomedov",
     "dob": "1988-09-20",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -1426,6 +1501,7 @@
     "name": "Quinton Jackson",
     "dob": "1978-06-20",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -1445,6 +1521,7 @@
     "name": "Sean Sherk",
     "dob": "1973-08-05",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -1464,6 +1541,7 @@
     "name": "Dricus Du Plessis",
     "dob": "1994-01-14",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -1483,6 +1561,7 @@
     "name": "Ilia Topuria",
     "dob": "1997-01-21",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 67,
@@ -1502,6 +1581,7 @@
     "name": "Jiri Prochazka",
     "dob": "1992-10-14",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -1521,6 +1601,7 @@
     "name": "Brock Lesnar",
     "dob": "1977-07-12",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -1539,6 +1620,7 @@
     "name": "Carlos Newton",
     "dob": "1976-08-17",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -1556,6 +1638,7 @@
     "name": "Cristiane Justino",
     "dob": "1985-07-09",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 68,
@@ -1575,6 +1658,7 @@
     "name": "Kevin Randleman",
     "dob": "1971-08-10",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -1591,6 +1675,7 @@
     "name": "Mauricio Rua",
     "dob": "1981-11-25",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -1610,6 +1695,7 @@
     "name": "Tony Ferguson",
     "dob": "1984-02-12",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -1629,6 +1715,7 @@
     "name": "Johny Hendricks",
     "dob": "1983-09-12",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -1648,6 +1735,7 @@
     "name": "Joseph Benavidez",
     "dob": "1984-07-31",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 64,
@@ -1667,6 +1755,7 @@
     "name": "Carlos Condit",
     "dob": "1984-04-26",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -1685,7 +1774,8 @@
     "id": "raquel-pennington",
     "name": "Raquel Pennington",
     "dob": "1988-09-05",
-    "active": false,
+    "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 67,
@@ -1705,6 +1795,7 @@
     "name": "Alexander Gustafsson",
     "dob": "1987-01-15",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 77,
@@ -1724,6 +1815,7 @@
     "name": "Cody Garbrandt",
     "dob": "1991-07-07",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 68,
@@ -1743,6 +1835,7 @@
     "name": "David Abbott",
     "dob": "1965-04-26",
     "active": false,
+    "daily": true,
     "hasImage": false,
     "metrics": {
       "height": 72,
@@ -1761,6 +1854,7 @@
     "name": "Fabricio Werdum",
     "dob": "1977-07-30",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -1780,6 +1874,7 @@
     "name": "Evan Tanner",
     "dob": "1971-02-11",
     "active": false,
+    "daily": true,
     "hasImage": false,
     "metrics": {
       "height": 72,
@@ -1798,6 +1893,7 @@
     "name": "John Dodson",
     "dob": "1984-09-26",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 63,
@@ -1817,6 +1913,7 @@
     "name": "Magomed Ankalaev",
     "dob": "1992-06-02",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -1836,6 +1933,7 @@
     "name": "Yair Rodriguez",
     "dob": "1992-10-06",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -1855,6 +1953,7 @@
     "name": "Forrest Griffin",
     "dob": "1979-03-16",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -1874,6 +1973,7 @@
     "name": "Chad Mendes",
     "dob": "1985-05-01",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -1893,6 +1993,7 @@
     "name": "Chael Sonnen",
     "dob": "1977-04-03",
     "active": false,
+    "daily": true,
     "hasImage": false,
     "metrics": {
       "height": 73,
@@ -1912,6 +2013,7 @@
     "name": "Francis Ngannou",
     "dob": "1986-09-05",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -1931,6 +2033,7 @@
     "name": "Matt Serra",
     "dob": "1974-06-02",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -1950,6 +2053,7 @@
     "name": "Miesha Tate",
     "dob": "1986-08-18",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -1969,6 +2073,7 @@
     "name": "Pedro Rizzo",
     "dob": "1974-05-03",
     "active": false,
+    "daily": true,
     "hasImage": false,
     "metrics": {
       "height": 73,
@@ -1987,6 +2092,7 @@
     "name": "Joshua Van",
     "dob": "2001-10-10",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 65,
@@ -2006,6 +2112,7 @@
     "name": "Mark Coleman",
     "dob": "1964-12-20",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -2025,6 +2132,7 @@
     "name": "Don Frye",
     "dob": "1965-11-23",
     "active": false,
+    "daily": true,
     "hasImage": false,
     "metrics": {
       "height": 73,
@@ -2035,7 +2143,7 @@
       "sub_wins": 3,
       "win_pct": 90,
       "finish_rate": 100,
-      "age": 60
+      "age": 61
     }
   },
   {
@@ -2043,6 +2151,7 @@
     "name": "Tom Aspinall",
     "dob": "1993-04-11",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 77,
@@ -2062,6 +2171,7 @@
     "name": "Jens Pulver",
     "dob": "1974-12-06",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 67,
@@ -2081,6 +2191,7 @@
     "name": "Maurice Smith",
     "dob": "1961-12-13",
     "active": false,
+    "daily": true,
     "hasImage": false,
     "metrics": {
       "height": 74,
@@ -2098,6 +2209,7 @@
     "name": "Demian Maia",
     "dob": "1977-11-06",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -2117,6 +2229,7 @@
     "name": "Derrick Lewis",
     "dob": "1985-02-07",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -2136,6 +2249,7 @@
     "name": "Diego Sanchez",
     "dob": "1981-12-31",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -2155,6 +2269,7 @@
     "name": "Kelvin Gastelum",
     "dob": "1991-10-24",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -2174,6 +2289,7 @@
     "name": "Nate Diaz",
     "dob": "1985-04-16",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -2193,6 +2309,7 @@
     "name": "Belal Muhammad",
     "dob": "1988-07-09",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -2212,6 +2329,7 @@
     "name": "Jorge Masvidal",
     "dob": "1984-11-12",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -2231,6 +2349,7 @@
     "name": "Stephen Thompson",
     "dob": "1983-02-11",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -2250,6 +2369,7 @@
     "name": "Gray Maynard",
     "dob": "1979-05-09",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -2269,6 +2389,7 @@
     "name": "Anthony Johnson",
     "dob": "1984-03-06",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -2287,6 +2408,7 @@
     "name": "Khalil Rountree Jr.",
     "dob": "1990-02-26",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -2306,6 +2428,7 @@
     "name": "Cory Sandhagen",
     "dob": "1992-04-20",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -2325,6 +2448,7 @@
     "name": "Mackenzie Dern",
     "dob": "1993-03-24",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 64,
@@ -2344,6 +2468,7 @@
     "name": "Dominick Reyes",
     "dob": "1989-12-26",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -2363,6 +2488,7 @@
     "name": "Al Iaquinta",
     "dob": "1987-04-30",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -2382,6 +2508,7 @@
     "name": "Nick Diaz",
     "dob": "1983-08-02",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -2400,7 +2527,8 @@
     "id": "brian-ortega",
     "name": "Brian Ortega",
     "dob": "1991-02-21",
-    "active": false,
+    "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 68,
@@ -2420,6 +2548,7 @@
     "name": "Kai Kara-France",
     "dob": "1993-03-26",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 64,
@@ -2439,6 +2568,7 @@
     "name": "Yoel Romero",
     "dob": "1977-04-30",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -2458,6 +2588,7 @@
     "name": "Chan Sung Jung",
     "dob": "1987-03-17",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 67,
@@ -2477,6 +2608,7 @@
     "name": "Tatiana Suarez",
     "dob": "1990-12-19",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 65,
@@ -2496,6 +2628,7 @@
     "name": "Antonio Rodrigo Nogueira",
     "dob": "1976-06-02",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -2515,6 +2648,7 @@
     "name": "Diego Lopes",
     "dob": "1994-12-30",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -2534,6 +2668,7 @@
     "name": "Jack Della Maddalena",
     "dob": "1996-09-10",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -2553,6 +2688,7 @@
     "name": "Jamahal Hill",
     "dob": "1991-05-19",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -2572,6 +2708,7 @@
     "name": "Luke Rockhold",
     "dob": "1984-10-17",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -2591,6 +2728,7 @@
     "name": "Germaine de Randamie",
     "dob": "1984-04-24",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -2610,6 +2748,7 @@
     "name": "Khamzat Chimaev",
     "dob": "1994-05-01",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -2629,6 +2768,7 @@
     "name": "Liz Carmouche",
     "dob": "1984-02-19",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -2648,6 +2788,7 @@
     "name": "Royce Gracie",
     "dob": "1966-12-12",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -2666,6 +2807,7 @@
     "name": "Eddie Alvarez",
     "dob": "1984-01-11",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -2684,6 +2826,7 @@
     "name": "Gilbert Melendez",
     "dob": "1982-04-12",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -2702,6 +2845,7 @@
     "name": "Ricco Rodriguez",
     "dob": "1977-08-19",
     "active": false,
+    "daily": true,
     "hasImage": false,
     "metrics": {
       "height": 76,
@@ -2720,6 +2864,7 @@
     "name": "Dave Menne",
     "dob": "1974-07-29",
     "active": false,
+    "daily": true,
     "hasImage": false,
     "metrics": {
       "height": 70,
@@ -2737,6 +2882,7 @@
     "name": "Shane Carwin",
     "dob": "1975-01-04",
     "active": false,
+    "daily": true,
     "hasImage": false,
     "metrics": {
       "height": 74,
@@ -2755,6 +2901,7 @@
     "name": "Donald Cerrone",
     "dob": "1983-03-29",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -2774,6 +2921,7 @@
     "name": "Ovince Saint Preux",
     "dob": "1983-04-08",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -2793,6 +2941,7 @@
     "name": "Marlon Vera",
     "dob": "1992-12-02",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 68,
@@ -2812,6 +2961,7 @@
     "name": "Thiago Alves",
     "dob": "1983-10-03",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -2831,6 +2981,7 @@
     "name": "Anthony Smith",
     "dob": "1988-07-26",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -2850,6 +3001,7 @@
     "name": "Gilbert Burns",
     "dob": "1986-07-20",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -2869,6 +3021,7 @@
     "name": "Josh Koscheck",
     "dob": "1977-11-30",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -2888,6 +3041,7 @@
     "name": "Nate Marquardt",
     "dob": "1979-04-20",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -2907,6 +3061,7 @@
     "name": "Thiago Santos",
     "dob": "1984-01-07",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -2926,6 +3081,7 @@
     "name": "Tim Elliott",
     "dob": "1986-12-24",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 67,
@@ -2945,6 +3101,7 @@
     "name": "Curtis Blaydes",
     "dob": "1991-02-18",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -2964,6 +3121,7 @@
     "name": "Gabriel Gonzaga",
     "dob": "1979-05-18",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -2983,6 +3141,7 @@
     "name": "Michael Chiesa",
     "dob": "1987-12-07",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -3002,6 +3161,7 @@
     "name": "Gillian Robertson",
     "dob": "1995-05-17",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 65,
@@ -3021,6 +3181,7 @@
     "name": "Jared Cannonier",
     "dob": "1984-03-16",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -3040,6 +3201,7 @@
     "name": "Renato Moicano",
     "dob": "1989-05-21",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -3059,6 +3221,7 @@
     "name": "Yushin Okami",
     "dob": "1981-07-21",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -3078,6 +3241,7 @@
     "name": "Alistair Overeem",
     "dob": "1980-05-17",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -3097,6 +3261,7 @@
     "name": "Chris Lytle",
     "dob": "1974-08-18",
     "active": false,
+    "daily": true,
     "hasImage": false,
     "metrics": {
       "height": 71,
@@ -3116,6 +3281,7 @@
     "name": "Ryan Bader",
     "dob": "1983-06-07",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -3135,6 +3301,7 @@
     "name": "Kevin Lee",
     "dob": "1992-09-04",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -3154,6 +3321,7 @@
     "name": "Marvin Vettori",
     "dob": "1993-09-20",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -3173,6 +3341,7 @@
     "name": "Roy Nelson",
     "dob": "1976-06-20",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -3192,6 +3361,7 @@
     "name": "Uriah Hall",
     "dob": "1984-07-31",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -3211,6 +3381,7 @@
     "name": "Jon Fitch",
     "dob": "1978-02-24",
     "active": false,
+    "daily": true,
     "hasImage": false,
     "metrics": {
       "height": 72,
@@ -3230,6 +3401,7 @@
     "name": "Katlyn Cerminara",
     "dob": "1988-12-28",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -3249,6 +3421,7 @@
     "name": "Mark Hunt",
     "dob": "1974-03-23",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 70,
@@ -3268,6 +3441,7 @@
     "name": "Amanda Lemos",
     "dob": "1987-05-22",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 64,
@@ -3287,6 +3461,7 @@
     "name": "Davey Grant",
     "dob": "1985-12-18",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 68,
@@ -3306,6 +3481,7 @@
     "name": "Josh Emmett",
     "dob": "1985-03-04",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -3325,6 +3501,7 @@
     "name": "Ricardo Lamas",
     "dob": "1982-05-21",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 68,
@@ -3344,6 +3521,7 @@
     "name": "Alex Perez",
     "dob": "1992-03-21",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -3363,6 +3541,7 @@
     "name": "Volkan Oezdemir",
     "dob": "1989-09-19",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 74,
@@ -3382,6 +3561,7 @@
     "name": "Corey Anderson",
     "dob": "1989-09-22",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -3401,6 +3581,7 @@
     "name": "Stephan Bonnar",
     "dob": "1977-04-04",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -3419,6 +3600,7 @@
     "name": "Irene Aldana",
     "dob": "1988-03-26",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -3438,6 +3620,7 @@
     "name": "Macy Chiasson",
     "dob": "1991-07-27",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -3457,6 +3640,7 @@
     "name": "Mayra Bueno Silva",
     "dob": "1991-08-22",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 66,
@@ -3475,7 +3659,8 @@
     "id": "virna-jandiroba",
     "name": "Virna Jandiroba",
     "dob": "1988-05-30",
-    "active": false,
+    "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 63,
@@ -3495,6 +3680,7 @@
     "name": "Yan Xiaonan",
     "dob": "1989-06-16",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 65,
@@ -3514,6 +3700,7 @@
     "name": "Brandon Royval",
     "dob": "1992-08-16",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 69,
@@ -3533,6 +3720,7 @@
     "name": "Ken Shamrock",
     "dob": "1964-02-11",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -3552,6 +3740,7 @@
     "name": "Rory MacDonald",
     "dob": "1989-07-22",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -3571,6 +3760,7 @@
     "name": "Bethe Correia",
     "dob": "1983-06-22",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 65,
@@ -3590,6 +3780,7 @@
     "name": "Claudia Gadelha",
     "dob": "1988-12-07",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 64,
@@ -3609,6 +3800,7 @@
     "name": "Darren Till",
     "dob": "1992-12-24",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 72,
@@ -3628,6 +3820,7 @@
     "name": "Ian Machado Garry",
     "dob": "1997-11-17",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -3647,6 +3840,7 @@
     "name": "Paulo Costa",
     "dob": "1991-04-21",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 73,
@@ -3666,6 +3860,7 @@
     "name": "Sergei Pavlovich",
     "dob": "1992-05-13",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 75,
@@ -3685,6 +3880,7 @@
     "name": "Wanderlei Silva",
     "dob": "1976-07-03",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 71,
@@ -3704,6 +3900,7 @@
     "name": "Antonio Silva",
     "dob": "1979-09-14",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -3722,6 +3919,7 @@
     "name": "Brendan Schaub",
     "dob": "1983-03-18",
     "active": false,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -3741,6 +3939,7 @@
     "name": "Carlos Ulberg",
     "dob": "1990-11-07",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 76,
@@ -3760,6 +3959,7 @@
     "name": "Kyoji Horiguchi",
     "dob": "1990-10-12",
     "active": true,
+    "daily": true,
     "hasImage": true,
     "metrics": {
       "height": 65,
@@ -3771,6 +3971,2115 @@
       "sub_wins": 1,
       "win_pct": 83,
       "finish_rate": 30,
+      "age": 36
+    }
+  },
+  {
+    "id": "arman-tsarukyan",
+    "name": "Arman Tsarukyan",
+    "dob": "1996-10-11",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 67,
+      "reach": 72.0,
+      "slpm": 3.8,
+      "career_sig": 575,
+      "knockdowns": 4,
+      "td_avg": 3.3,
+      "sub_wins": 1,
+      "win_pct": 85,
+      "finish_rate": 55,
+      "age": 30
+    }
+  },
+  {
+    "id": "manel-kape",
+    "name": "Manel Kape",
+    "dob": "1993-11-14",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 65,
+      "reach": 68.0,
+      "slpm": 4.7,
+      "career_sig": 580,
+      "knockdowns": 8,
+      "td_avg": 0.4,
+      "sub_wins": 0,
+      "win_pct": 73,
+      "finish_rate": 75,
+      "age": 33
+    }
+  },
+  {
+    "id": "tatsuro-taira",
+    "name": "Tatsuro Taira",
+    "dob": "2000-01-27",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 67,
+      "reach": 70.0,
+      "slpm": 2.9,
+      "career_sig": 337,
+      "knockdowns": 3,
+      "td_avg": 3.6,
+      "sub_wins": 3,
+      "win_pct": 80,
+      "finish_rate": 75,
+      "age": 26
+    }
+  },
+  {
+    "id": "asu-almabayev",
+    "name": "Asu Almabayev",
+    "dob": "1994-01-25",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 64,
+      "reach": 65.0,
+      "slpm": 2.1,
+      "career_sig": 246,
+      "knockdowns": 1,
+      "td_avg": 5.0,
+      "sub_wins": 3,
+      "win_pct": 78,
+      "finish_rate": 43,
+      "age": 32
+    }
+  },
+  {
+    "id": "amir-albazi",
+    "name": "Amir Albazi",
+    "dob": "1993-10-27",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 65,
+      "reach": 68.0,
+      "slpm": 2.4,
+      "career_sig": 280,
+      "knockdowns": 2,
+      "td_avg": 1.9,
+      "sub_wins": 3,
+      "win_pct": 75,
+      "finish_rate": 67,
+      "age": 33
+    }
+  },
+  {
+    "id": "ramazan-temirov",
+    "name": "Ramazan Temirov",
+    "dob": "1997-01-31",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 64,
+      "reach": 63.0,
+      "career_sig": 123,
+      "knockdowns": 5,
+      "sub_wins": 0,
+      "age": 29
+    }
+  },
+  {
+    "id": "sumudaerji",
+    "name": "Sumudaerji",
+    "dob": "1996-01-20",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 68,
+      "reach": 72.0,
+      "slpm": 4.2,
+      "career_sig": 560,
+      "knockdowns": 3,
+      "td_avg": 0.7,
+      "sub_wins": 0,
+      "win_pct": 64,
+      "finish_rate": 14,
+      "age": 30
+    }
+  },
+  {
+    "id": "steve-erceg",
+    "name": "Steve Erceg",
+    "dob": "1995-07-27",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 68,
+      "reach": 68.0,
+      "slpm": 4.6,
+      "career_sig": 565,
+      "knockdowns": 1,
+      "td_avg": 1.1,
+      "sub_wins": 0,
+      "win_pct": 56,
+      "finish_rate": 20,
+      "age": 31
+    }
+  },
+  {
+    "id": "charles-johnson",
+    "name": "Charles Johnson",
+    "dob": "1991-01-10",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 69,
+      "reach": 70.0,
+      "slpm": 4.6,
+      "career_sig": 934,
+      "knockdowns": 4,
+      "td_avg": 0.4,
+      "sub_wins": 1,
+      "win_pct": 56,
+      "finish_rate": 44,
+      "age": 35
+    }
+  },
+  {
+    "id": "tagir-ulanbekov",
+    "name": "Tagir Ulanbekov",
+    "dob": "1991-08-07",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 67,
+      "reach": 70.0,
+      "slpm": 3.0,
+      "career_sig": 298,
+      "knockdowns": 1,
+      "td_avg": 2.7,
+      "sub_wins": 2,
+      "win_pct": 75,
+      "finish_rate": 33,
+      "age": 35
+    }
+  },
+  {
+    "id": "song-yadong",
+    "name": "Song Yadong",
+    "dob": "1997-12-02",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 68,
+      "reach": 67.0,
+      "slpm": 4.3,
+      "career_sig": 969,
+      "knockdowns": 8,
+      "td_avg": 0.8,
+      "sub_wins": 2,
+      "win_pct": 72,
+      "finish_rate": 62,
+      "age": 28
+    }
+  },
+  {
+    "id": "umar-nurmagomedov",
+    "name": "Umar Nurmagomedov",
+    "dob": "1996-01-03",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 68,
+      "reach": 69.0,
+      "slpm": 3.8,
+      "career_sig": 502,
+      "knockdowns": 1,
+      "td_avg": 3.9,
+      "sub_wins": 2,
+      "win_pct": 80,
+      "finish_rate": 38,
+      "age": 30
+    }
+  },
+  {
+    "id": "mario-bautista",
+    "name": "Mario Bautista",
+    "dob": "1993-07-01",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 69,
+      "reach": 69.0,
+      "slpm": 5.5,
+      "career_sig": 864,
+      "knockdowns": 3,
+      "td_avg": 2.5,
+      "sub_wins": 4,
+      "win_pct": 80,
+      "finish_rate": 42,
+      "age": 33
+    }
+  },
+  {
+    "id": "payton-talbott",
+    "name": "Payton Talbott",
+    "dob": "1998-09-09",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 70,
+      "reach": 70.0,
+      "slpm": 6.1,
+      "career_sig": 387,
+      "knockdowns": 5,
+      "td_avg": 0.9,
+      "sub_wins": 1,
+      "win_pct": 86,
+      "finish_rate": 67,
+      "age": 28
+    }
+  },
+  {
+    "id": "david-martinez",
+    "name": "David Martinez",
+    "dob": "1998-08-03",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 65,
+      "reach": 67.0,
+      "career_sig": 212,
+      "knockdowns": 1,
+      "sub_wins": 0,
+      "age": 28
+    }
+  },
+  {
+    "id": "aiemann-zahabi",
+    "name": "Aiemann Zahabi",
+    "dob": "1987-11-19",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 68,
+      "reach": 68.0,
+      "slpm": 4.5,
+      "career_sig": 582,
+      "knockdowns": 3,
+      "td_avg": 0.1,
+      "sub_wins": 0,
+      "win_pct": 73,
+      "finish_rate": 25,
+      "age": 39
+    }
+  },
+  {
+    "id": "raul-rosas-jr",
+    "name": "Raul Rosas Jr.",
+    "dob": "2004-10-08",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 69,
+      "reach": 67.0,
+      "slpm": 2.2,
+      "career_sig": 208,
+      "knockdowns": 1,
+      "td_avg": 5.3,
+      "sub_wins": 2,
+      "win_pct": 88,
+      "finish_rate": 57,
+      "age": 22
+    }
+  },
+  {
+    "id": "marcus-mcghee",
+    "name": "Marcus McGhee",
+    "dob": "1990-05-07",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 68,
+      "reach": 69.0,
+      "slpm": 5.5,
+      "career_sig": 376,
+      "knockdowns": 5,
+      "td_avg": 0.2,
+      "sub_wins": 1,
+      "win_pct": 86,
+      "finish_rate": 67,
+      "age": 36
+    }
+  },
+  {
+    "id": "raoni-barcelos",
+    "name": "Raoni Barcelos",
+    "dob": "1987-05-01",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 67,
+      "reach": 67.0,
+      "slpm": 4.8,
+      "career_sig": 1045,
+      "knockdowns": 5,
+      "td_avg": 2.9,
+      "sub_wins": 2,
+      "win_pct": 69,
+      "finish_rate": 36,
+      "age": 39
+    }
+  },
+  {
+    "id": "bryce-mitchell",
+    "name": "Bryce Mitchell",
+    "dob": "1994-10-04",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 70,
+      "reach": 70.0,
+      "slpm": 2.2,
+      "career_sig": 337,
+      "knockdowns": 1,
+      "td_avg": 3.1,
+      "sub_wins": 2,
+      "win_pct": 77,
+      "finish_rate": 30,
+      "age": 32
+    }
+  },
+  {
+    "id": "movsar-evloev",
+    "name": "Movsar Evloev",
+    "dob": "1994-02-11",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 67,
+      "reach": 72.0,
+      "slpm": 3.9,
+      "career_sig": 665,
+      "knockdowns": 0,
+      "td_avg": 4.8,
+      "sub_wins": 0,
+      "win_pct": 91,
+      "finish_rate": 0,
+      "age": 32
+    }
+  },
+  {
+    "id": "lerone-murphy",
+    "name": "Lerone Murphy",
+    "dob": "1991-07-22",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 69,
+      "reach": 73.0,
+      "slpm": 4.3,
+      "career_sig": 707,
+      "knockdowns": 3,
+      "td_avg": 1.2,
+      "sub_wins": 0,
+      "win_pct": 82,
+      "finish_rate": 33,
+      "age": 35
+    }
+  },
+  {
+    "id": "arnold-allen",
+    "name": "Arnold Allen",
+    "dob": "1994-01-22",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 68,
+      "reach": 70.0,
+      "slpm": 3.5,
+      "career_sig": 765,
+      "knockdowns": 4,
+      "td_avg": 1.2,
+      "sub_wins": 2,
+      "win_pct": 80,
+      "finish_rate": 33,
+      "age": 32
+    }
+  },
+  {
+    "id": "youssef-zalal",
+    "name": "Youssef Zalal",
+    "dob": "1996-09-04",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 70,
+      "reach": 72.0,
+      "slpm": 2.8,
+      "career_sig": 454,
+      "knockdowns": 2,
+      "td_avg": 1.8,
+      "sub_wins": 4,
+      "win_pct": 62,
+      "finish_rate": 50,
+      "age": 30
+    }
+  },
+  {
+    "id": "kevin-vallejos",
+    "name": "Kevin Vallejos",
+    "dob": "2001-12-08",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 67,
+      "reach": 68.0,
+      "slpm": 4.6,
+      "career_sig": 197,
+      "knockdowns": 4,
+      "td_avg": 0.7,
+      "sub_wins": 0,
+      "win_pct": 100,
+      "finish_rate": 60,
+      "age": 24
+    }
+  },
+  {
+    "id": "steve-garcia",
+    "name": "Steve Garcia",
+    "dob": "1992-05-22",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 72,
+      "reach": 75.0,
+      "slpm": 5.0,
+      "career_sig": 339,
+      "knockdowns": 8,
+      "td_avg": 0.9,
+      "sub_wins": 0,
+      "win_pct": 73,
+      "finish_rate": 88,
+      "age": 34
+    }
+  },
+  {
+    "id": "aaron-pico",
+    "name": "Aaron Pico",
+    "dob": "1996-09-23",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 68,
+      "reach": 70.0,
+      "career_sig": 119,
+      "knockdowns": 1,
+      "sub_wins": 0,
+      "age": 30
+    }
+  },
+  {
+    "id": "patricio-freire",
+    "name": "Patricio Freire",
+    "dob": "1987-07-07",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 66,
+      "reach": 67.0,
+      "career_sig": 72,
+      "knockdowns": 0,
+      "sub_wins": 0,
+      "age": 39
+    }
+  },
+  {
+    "id": "david-onama",
+    "name": "David Onama",
+    "dob": "1994-06-07",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 71,
+      "reach": 74.0,
+      "slpm": 5.1,
+      "career_sig": 509,
+      "knockdowns": 4,
+      "td_avg": 1.0,
+      "sub_wins": 1,
+      "win_pct": 67,
+      "finish_rate": 50,
+      "age": 32
+    }
+  },
+  {
+    "id": "pat-sabatini",
+    "name": "Pat Sabatini",
+    "dob": "1990-11-09",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 68,
+      "reach": 70.0,
+      "slpm": 1.7,
+      "career_sig": 178,
+      "knockdowns": 1,
+      "td_avg": 4.3,
+      "sub_wins": 3,
+      "win_pct": 82,
+      "finish_rate": 33,
+      "age": 36
+    }
+  },
+  {
+    "id": "paddy-pimblett",
+    "name": "Paddy Pimblett",
+    "dob": "1995-01-03",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 70,
+      "reach": 73.0,
+      "slpm": 5.5,
+      "career_sig": 484,
+      "knockdowns": 2,
+      "td_avg": 0.7,
+      "sub_wins": 4,
+      "win_pct": 89,
+      "finish_rate": 75,
+      "age": 31
+    }
+  },
+  {
+    "id": "benoit-saint-denis",
+    "name": "Benoit Saint Denis",
+    "dob": "1995-12-18",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 71,
+      "reach": 73.0,
+      "slpm": 5.6,
+      "career_sig": 484,
+      "knockdowns": 5,
+      "td_avg": 4.1,
+      "sub_wins": 4,
+      "win_pct": 69,
+      "finish_rate": 100,
+      "age": 30
+    }
+  },
+  {
+    "id": "quillan-salkilld",
+    "name": "Quillan Salkilld",
+    "dob": "1999-12-28",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 72,
+      "reach": 75.0,
+      "slpm": 4.4,
+      "career_sig": 126,
+      "knockdowns": 3,
+      "td_avg": 5.7,
+      "sub_wins": 2,
+      "win_pct": 100,
+      "finish_rate": 83,
+      "age": 26
+    }
+  },
+  {
+    "id": "mauricio-ruffy",
+    "name": "Mauricio Ruffy",
+    "dob": "1996-06-17",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 71,
+      "reach": 75.0,
+      "slpm": 3.7,
+      "career_sig": 179,
+      "knockdowns": 6,
+      "td_avg": 0.0,
+      "sub_wins": 0,
+      "win_pct": 71,
+      "finish_rate": 80,
+      "age": 30
+    }
+  },
+  {
+    "id": "salahdine-parnasse",
+    "name": "Salahdine Parnasse",
+    "dob": "1997-12-04",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "knockdowns": 1,
+      "sub_wins": 0,
+      "age": 28
+    }
+  },
+  {
+    "id": "mateusz-gamrot",
+    "name": "Mateusz Gamrot",
+    "dob": "1990-12-11",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 70,
+      "reach": 70.0,
+      "slpm": 3.1,
+      "career_sig": 501,
+      "knockdowns": 1,
+      "td_avg": 5.1,
+      "sub_wins": 2,
+      "win_pct": 64,
+      "finish_rate": 56,
+      "age": 35
+    }
+  },
+  {
+    "id": "rafael-fiziev",
+    "name": "Rafael Fiziev",
+    "dob": "1993-03-05",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 68,
+      "reach": 71.0,
+      "slpm": 4.7,
+      "career_sig": 706,
+      "knockdowns": 3,
+      "td_avg": 1.0,
+      "sub_wins": 0,
+      "win_pct": 62,
+      "finish_rate": 50,
+      "age": 33
+    }
+  },
+  {
+    "id": "tom-nolan",
+    "name": "Tom Nolan",
+    "dob": "2000-03-08",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 75,
+      "reach": 73.0,
+      "slpm": 4.9,
+      "career_sig": 324,
+      "knockdowns": 1,
+      "td_avg": 1.1,
+      "sub_wins": 1,
+      "win_pct": 86,
+      "finish_rate": 50,
+      "age": 26
+    }
+  },
+  {
+    "id": "dan-hooker",
+    "name": "Dan Hooker",
+    "dob": "1990-02-13",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 72,
+      "reach": 75.0,
+      "slpm": 5.1,
+      "career_sig": 1331,
+      "knockdowns": 9,
+      "td_avg": 0.6,
+      "sub_wins": 2,
+      "win_pct": 58,
+      "finish_rate": 60,
+      "age": 36
+    }
+  },
+  {
+    "id": "grant-dawson",
+    "name": "Grant Dawson",
+    "dob": "1994-02-20",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 70,
+      "reach": 72.0,
+      "slpm": 3.4,
+      "career_sig": 623,
+      "knockdowns": 1,
+      "td_avg": 3.7,
+      "sub_wins": 5,
+      "win_pct": 81,
+      "finish_rate": 54,
+      "age": 32
+    }
+  },
+  {
+    "id": "carlos-prates",
+    "name": "Carlos Prates",
+    "dob": "1993-08-17",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 73,
+      "reach": 78.0,
+      "slpm": 4.4,
+      "career_sig": 339,
+      "knockdowns": 12,
+      "td_avg": 0.2,
+      "sub_wins": 0,
+      "win_pct": 88,
+      "finish_rate": 100,
+      "age": 33
+    }
+  },
+  {
+    "id": "michael-morales",
+    "name": "Michael Morales",
+    "dob": "1999-06-24",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 72,
+      "reach": 79.0,
+      "slpm": 6.2,
+      "career_sig": 356,
+      "knockdowns": 7,
+      "td_avg": 0.3,
+      "sub_wins": 0,
+      "win_pct": 100,
+      "finish_rate": 71,
+      "age": 27
+    }
+  },
+  {
+    "id": "gabriel-bonfim",
+    "name": "Gabriel Bonfim",
+    "dob": "1997-08-20",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 73,
+      "reach": 72.0,
+      "slpm": 4.7,
+      "career_sig": 390,
+      "knockdowns": 1,
+      "td_avg": 2.5,
+      "sub_wins": 3,
+      "win_pct": 88,
+      "finish_rate": 57,
+      "age": 29
+    }
+  },
+  {
+    "id": "sean-brady",
+    "name": "Sean Brady",
+    "dob": "1992-11-23",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 70,
+      "reach": 72.0,
+      "slpm": 4.1,
+      "career_sig": 599,
+      "knockdowns": 1,
+      "td_avg": 3.6,
+      "sub_wins": 4,
+      "win_pct": 82,
+      "finish_rate": 44,
+      "age": 34
+    }
+  },
+  {
+    "id": "mike-malott",
+    "name": "Mike Malott",
+    "dob": "1991-11-07",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 73,
+      "reach": 73.0,
+      "slpm": 4.0,
+      "career_sig": 338,
+      "knockdowns": 6,
+      "td_avg": 1.4,
+      "sub_wins": 2,
+      "win_pct": 89,
+      "finish_rate": 75,
+      "age": 35
+    }
+  },
+  {
+    "id": "yaroslav-amosov",
+    "name": "Yaroslav Amosov",
+    "dob": "1993-09-09",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "career_sig": 25,
+      "knockdowns": 0,
+      "sub_wins": 2,
+      "age": 33
+    }
+  },
+  {
+    "id": "uros-medic",
+    "name": "Uros Medic",
+    "dob": "1993-04-25",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 73,
+      "reach": 71.0,
+      "slpm": 4.5,
+      "career_sig": 259,
+      "knockdowns": 9,
+      "td_avg": 0.3,
+      "sub_wins": 0,
+      "win_pct": 67,
+      "finish_rate": 100,
+      "age": 33
+    }
+  },
+  {
+    "id": "joaquin-buckley",
+    "name": "Joaquin Buckley",
+    "dob": "1994-04-27",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 70,
+      "reach": 76.0,
+      "slpm": 3.6,
+      "career_sig": 737,
+      "knockdowns": 9,
+      "td_avg": 1.4,
+      "sub_wins": 0,
+      "win_pct": 61,
+      "finish_rate": 73,
+      "age": 32
+    }
+  },
+  {
+    "id": "kevin-holland",
+    "name": "Kevin Holland",
+    "dob": "1992-11-05",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 75,
+      "reach": 81.0,
+      "slpm": 4.1,
+      "career_sig": 1341,
+      "knockdowns": 8,
+      "td_avg": 0.9,
+      "sub_wins": 6,
+      "win_pct": 55,
+      "finish_rate": 69,
+      "age": 34
+    }
+  },
+  {
+    "id": "daniel-rodriguez",
+    "name": "Daniel Rodriguez",
+    "dob": "1986-12-31",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 73,
+      "reach": 74.0,
+      "slpm": 7.2,
+      "career_sig": 1171,
+      "knockdowns": 7,
+      "td_avg": 0.2,
+      "sub_wins": 1,
+      "win_pct": 67,
+      "finish_rate": 40,
+      "age": 39
+    }
+  },
+  {
+    "id": "nassourdine-imavov",
+    "name": "Nassourdine Imavov",
+    "dob": "1996-03-01",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 75,
+      "reach": 75.0,
+      "slpm": 4.3,
+      "career_sig": 784,
+      "knockdowns": 2,
+      "td_avg": 0.7,
+      "sub_wins": 0,
+      "win_pct": 82,
+      "finish_rate": 44,
+      "age": 30
+    }
+  },
+  {
+    "id": "brendan-allen",
+    "name": "Brendan Allen",
+    "dob": "1995-12-28",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 74,
+      "reach": 75.0,
+      "slpm": 3.6,
+      "career_sig": 885,
+      "knockdowns": 3,
+      "td_avg": 1.6,
+      "sub_wins": 8,
+      "win_pct": 80,
+      "finish_rate": 62,
+      "age": 30
+    }
+  },
+  {
+    "id": "caio-borralho",
+    "name": "Caio Borralho",
+    "dob": "1993-01-16",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 73,
+      "reach": 75.0,
+      "slpm": 3.1,
+      "career_sig": 479,
+      "knockdowns": 3,
+      "td_avg": 1.5,
+      "sub_wins": 1,
+      "win_pct": 90,
+      "finish_rate": 22,
+      "age": 33
+    }
+  },
+  {
+    "id": "joe-pyfer",
+    "name": "Joe Pyfer",
+    "dob": "1996-09-17",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 74,
+      "reach": 75.0,
+      "slpm": 3.5,
+      "career_sig": 253,
+      "knockdowns": 5,
+      "td_avg": 1.3,
+      "sub_wins": 2,
+      "win_pct": 88,
+      "finish_rate": 86,
+      "age": 30
+    }
+  },
+  {
+    "id": "gregory-rodrigues",
+    "name": "Gregory Rodrigues",
+    "dob": "1992-02-17",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 75,
+      "reach": 75.0,
+      "slpm": 5.8,
+      "career_sig": 816,
+      "knockdowns": 11,
+      "td_avg": 1.6,
+      "sub_wins": 0,
+      "win_pct": 79,
+      "finish_rate": 64,
+      "age": 34
+    }
+  },
+  {
+    "id": "anthony-hernandez",
+    "name": "Anthony Hernandez",
+    "dob": "1993-10-18",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 72,
+      "reach": 75.0,
+      "slpm": 4.4,
+      "career_sig": 710,
+      "knockdowns": 0,
+      "td_avg": 5.3,
+      "sub_wins": 5,
+      "win_pct": 69,
+      "finish_rate": 78,
+      "age": 33
+    }
+  },
+  {
+    "id": "christian-leroy-duncan",
+    "name": "Christian Leroy Duncan",
+    "dob": "1995-07-24",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 74,
+      "reach": 79.0,
+      "slpm": 4.5,
+      "career_sig": 575,
+      "knockdowns": 3,
+      "td_avg": 0.4,
+      "sub_wins": 0,
+      "win_pct": 73,
+      "finish_rate": 62,
+      "age": 31
+    }
+  },
+  {
+    "id": "abus-magomedov",
+    "name": "Abus Magomedov",
+    "dob": "1990-09-02",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 74,
+      "reach": 78.0,
+      "slpm": 3.1,
+      "career_sig": 250,
+      "knockdowns": 2,
+      "td_avg": 2.4,
+      "sub_wins": 3,
+      "win_pct": 67,
+      "finish_rate": 67,
+      "age": 36
+    }
+  },
+  {
+    "id": "ikram-aliskerov",
+    "name": "Ikram Aliskerov",
+    "dob": "1992-12-07",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 72,
+      "reach": 76.0,
+      "slpm": 4.9,
+      "career_sig": 272,
+      "knockdowns": 3,
+      "td_avg": 3.8,
+      "sub_wins": 0,
+      "win_pct": 86,
+      "finish_rate": 50,
+      "age": 33
+    }
+  },
+  {
+    "id": "bo-nickal",
+    "name": "Bo Nickal",
+    "dob": "1996-01-14",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 73,
+      "reach": 76.0,
+      "slpm": 3.4,
+      "career_sig": 171,
+      "knockdowns": 3,
+      "td_avg": 2.4,
+      "sub_wins": 2,
+      "win_pct": 86,
+      "finish_rate": 83,
+      "age": 30
+    }
+  },
+  {
+    "id": "shara-magomedov",
+    "name": "Shara Magomedov",
+    "dob": "1994-05-16",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 74,
+      "reach": 73.0,
+      "slpm": 5.5,
+      "career_sig": 540,
+      "knockdowns": 2,
+      "td_avg": 0.0,
+      "sub_wins": 0,
+      "win_pct": 86,
+      "finish_rate": 33,
+      "age": 32
+    }
+  },
+  {
+    "id": "navajo-stirling",
+    "name": "Navajo Stirling",
+    "dob": "1997-11-07",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 76,
+      "reach": 79.0,
+      "slpm": 6.2,
+      "career_sig": 467,
+      "knockdowns": 3,
+      "td_avg": 0.8,
+      "sub_wins": 0,
+      "win_pct": 100,
+      "finish_rate": 57,
+      "age": 29
+    }
+  },
+  {
+    "id": "bogdan-guskov",
+    "name": "Bogdan Guskov",
+    "dob": "1992-09-12",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 75,
+      "reach": 76.0,
+      "slpm": 3.6,
+      "career_sig": 238,
+      "knockdowns": 4,
+      "td_avg": 0.0,
+      "sub_wins": 1,
+      "win_pct": 57,
+      "age": 34
+    }
+  },
+  {
+    "id": "azamat-murzakanov",
+    "name": "Azamat Murzakanov",
+    "dob": "1989-04-12",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 70,
+      "reach": 71.0,
+      "slpm": 4.3,
+      "career_sig": 286,
+      "knockdowns": 6,
+      "td_avg": 0.7,
+      "sub_wins": 0,
+      "win_pct": 75,
+      "finish_rate": 83,
+      "age": 37
+    }
+  },
+  {
+    "id": "abdul-rakhman-yakhyaev",
+    "name": "Abdul Rakhman Yakhyaev",
+    "dob": "2001-01-03",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 74,
+      "reach": 78.0,
+      "career_sig": 25,
+      "knockdowns": 3,
+      "sub_wins": 2,
+      "age": 25
+    }
+  },
+  {
+    "id": "alonzo-menifield",
+    "name": "Alonzo Menifield",
+    "dob": "1987-10-18",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 72,
+      "reach": 76.0,
+      "slpm": 3.9,
+      "career_sig": 635,
+      "knockdowns": 7,
+      "td_avg": 0.5,
+      "sub_wins": 2,
+      "win_pct": 63,
+      "finish_rate": 58,
+      "age": 39
+    }
+  },
+  {
+    "id": "reinier-de-ridder",
+    "name": "Reinier de Ridder",
+    "dob": "1990-09-07",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 76,
+      "reach": 78.0,
+      "slpm": 3.2,
+      "career_sig": 274,
+      "knockdowns": 2,
+      "td_avg": 2.4,
+      "sub_wins": 2,
+      "win_pct": 71,
+      "finish_rate": 80,
+      "age": 36
+    }
+  },
+  {
+    "id": "nikita-krylov",
+    "name": "Nikita Krylov",
+    "dob": "1992-03-07",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 75,
+      "reach": 77.0,
+      "slpm": 4.3,
+      "career_sig": 693,
+      "knockdowns": 6,
+      "td_avg": 2.2,
+      "sub_wins": 5,
+      "win_pct": 52,
+      "finish_rate": 83,
+      "age": 34
+    }
+  },
+  {
+    "id": "alexander-volkov",
+    "name": "Alexander Volkov",
+    "dob": "1988-10-24",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 79,
+      "reach": 80.0,
+      "slpm": 5.1,
+      "career_sig": 1324,
+      "knockdowns": 4,
+      "td_avg": 0.6,
+      "sub_wins": 1,
+      "win_pct": 75,
+      "finish_rate": 47,
+      "age": 38
+    }
+  },
+  {
+    "id": "josh-hokit",
+    "name": "Josh Hokit",
+    "dob": "1997-11-12",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 73,
+      "reach": 73.0,
+      "slpm": 8.3,
+      "career_sig": 455,
+      "knockdowns": 3,
+      "td_avg": 1.6,
+      "sub_wins": 0,
+      "win_pct": 80,
+      "age": 29
+    }
+  },
+  {
+    "id": "johnny-walker",
+    "name": "Johnny Walker",
+    "dob": "1992-03-30",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 78,
+      "reach": 82.0,
+      "slpm": 3.8,
+      "career_sig": 475,
+      "knockdowns": 7,
+      "td_avg": 0.2,
+      "sub_wins": 1,
+      "win_pct": 59,
+      "finish_rate": 90,
+      "age": 34
+    }
+  },
+  {
+    "id": "rizvan-kuniev",
+    "name": "Rizvan Kuniev",
+    "dob": "1992-03-10",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 76,
+      "reach": 76.0,
+      "career_sig": 205,
+      "knockdowns": 1,
+      "sub_wins": 0,
+      "age": 34
+    }
+  },
+  {
+    "id": "vitor-petrino",
+    "name": "Vitor Petrino",
+    "dob": "1997-08-28",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 74,
+      "reach": 77.0,
+      "slpm": 3.2,
+      "career_sig": 358,
+      "knockdowns": 3,
+      "td_avg": 3.0,
+      "sub_wins": 2,
+      "win_pct": 80,
+      "finish_rate": 50,
+      "age": 29
+    }
+  },
+  {
+    "id": "serghei-spivac",
+    "name": "Serghei Spivac",
+    "dob": "1995-01-24",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 75,
+      "reach": 78.0,
+      "slpm": 3.4,
+      "career_sig": 471,
+      "knockdowns": 0,
+      "td_avg": 3.4,
+      "sub_wins": 3,
+      "win_pct": 56,
+      "finish_rate": 67,
+      "age": 31
+    }
+  },
+  {
+    "id": "ante-delija",
+    "name": "Ante Delija",
+    "dob": "1990-08-07",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 75,
+      "reach": 78.0,
+      "career_sig": 90,
+      "knockdowns": 1,
+      "sub_wins": 0,
+      "age": 36
+    }
+  },
+  {
+    "id": "valter-walker",
+    "name": "Valter Walker",
+    "dob": "1997-12-14",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 78,
+      "reach": 78.0,
+      "slpm": 1.9,
+      "career_sig": 48,
+      "knockdowns": 0,
+      "td_avg": 5.4,
+      "sub_wins": 5,
+      "win_pct": 83,
+      "finish_rate": 100,
+      "age": 28
+    }
+  },
+  {
+    "id": "aleksandar-rakic",
+    "name": "Aleksandar Rakic",
+    "dob": "1992-02-06",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 76,
+      "reach": 78.0,
+      "slpm": 4.2,
+      "career_sig": 556,
+      "knockdowns": 4,
+      "td_avg": 0.6,
+      "sub_wins": 0,
+      "win_pct": 58,
+      "finish_rate": 29,
+      "age": 34
+    }
+  },
+  {
+    "id": "kayla-harrison",
+    "name": "Kayla Harrison",
+    "dob": "1990-07-02",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 68,
+      "reach": 66.0,
+      "career_sig": 161,
+      "knockdowns": 0,
+      "sub_wins": 3,
+      "age": 36
+    }
+  },
+  {
+    "id": "natalia-silva",
+    "name": "Natalia Silva",
+    "dob": "1997-02-03",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 64,
+      "reach": 65.0,
+      "slpm": 4.7,
+      "career_sig": 611,
+      "knockdowns": 3,
+      "td_avg": 0.7,
+      "sub_wins": 0,
+      "win_pct": 100,
+      "finish_rate": 22,
+      "age": 29
+    }
+  },
+  {
+    "id": "manon-fiorot",
+    "name": "Manon Fiorot",
+    "dob": "1990-02-17",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 67,
+      "reach": 65.0,
+      "slpm": 5.6,
+      "career_sig": 798,
+      "knockdowns": 1,
+      "td_avg": 0.9,
+      "sub_wins": 0,
+      "win_pct": 80,
+      "finish_rate": 38,
+      "age": 36
+    }
+  },
+  {
+    "id": "jasmine-jasudavicius",
+    "name": "Jasmine Jasudavicius",
+    "dob": "1989-03-01",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 67,
+      "reach": 68.0,
+      "slpm": 3.3,
+      "career_sig": 548,
+      "knockdowns": 1,
+      "td_avg": 2.7,
+      "sub_wins": 3,
+      "win_pct": 77,
+      "finish_rate": 30,
+      "age": 37
+    }
+  },
+  {
+    "id": "erin-blanchfield",
+    "name": "Erin Blanchfield",
+    "dob": "1999-05-04",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 64,
+      "reach": 66.0,
+      "slpm": 5.1,
+      "career_sig": 705,
+      "knockdowns": 0,
+      "td_avg": 1.9,
+      "sub_wins": 4,
+      "win_pct": 80,
+      "finish_rate": 50,
+      "age": 27
+    }
+  },
+  {
+    "id": "denise-gomes",
+    "name": "Denise Gomes",
+    "dob": "1999-12-30",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 62,
+      "reach": 63.0,
+      "slpm": 4.0,
+      "career_sig": 374,
+      "knockdowns": 4,
+      "td_avg": 1.6,
+      "sub_wins": 0,
+      "win_pct": 78,
+      "finish_rate": 57,
+      "age": 26
+    }
+  },
+  {
+    "id": "fatima-kline",
+    "name": "Fatima Kline",
+    "dob": "2000-07-12",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 66,
+      "reach": 67.0,
+      "slpm": 4.9,
+      "career_sig": 327,
+      "knockdowns": 1,
+      "td_avg": 3.1,
+      "sub_wins": 0,
+      "win_pct": 80,
+      "age": 26
+    }
+  },
+  {
+    "id": "loopy-godinez",
+    "name": "Loopy Godinez",
+    "dob": "1993-09-06",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 62,
+      "reach": 61.0,
+      "slpm": 4.4,
+      "career_sig": 954,
+      "knockdowns": 1,
+      "td_avg": 2.9,
+      "sub_wins": 2,
+      "win_pct": 62,
+      "finish_rate": 20,
+      "age": 33
+    }
+  },
+  {
+    "id": "alexia-thainara",
+    "name": "Alexia Thainara",
+    "dob": "1995-11-20",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 64,
+      "reach": 67.0,
+      "career_sig": 209,
+      "knockdowns": 0,
+      "sub_wins": 1,
+      "age": 31
+    }
+  },
+  {
+    "id": "tabatha-ricci",
+    "name": "Tabatha Ricci",
+    "dob": "1995-02-21",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 61,
+      "reach": 61.0,
+      "slpm": 3.8,
+      "career_sig": 597,
+      "knockdowns": 0,
+      "td_avg": 2.4,
+      "sub_wins": 1,
+      "win_pct": 58,
+      "finish_rate": 29,
+      "age": 31
+    }
+  },
+  {
+    "id": "amanda-ribas",
+    "name": "Amanda Ribas",
+    "dob": "1993-08-26",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 64,
+      "reach": 66.0,
+      "slpm": 4.3,
+      "career_sig": 686,
+      "knockdowns": 1,
+      "td_avg": 2.1,
+      "sub_wins": 2,
+      "win_pct": 54,
+      "finish_rate": 43,
+      "age": 33
+    }
+  },
+  {
+    "id": "piera-rodriguez",
+    "name": "Piera Rodriguez",
+    "dob": "1992-11-11",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 63,
+      "reach": 63.0,
+      "slpm": 4.5,
+      "career_sig": 481,
+      "knockdowns": 1,
+      "td_avg": 3.6,
+      "sub_wins": 0,
+      "win_pct": 75,
+      "finish_rate": 0,
+      "age": 34
+    }
+  },
+  {
+    "id": "angela-hill",
+    "name": "Angela Hill",
+    "dob": "1985-01-12",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 63,
+      "reach": 64.0,
+      "slpm": 5.5,
+      "career_sig": 2364,
+      "knockdowns": 3,
+      "td_avg": 0.8,
+      "sub_wins": 1,
+      "win_pct": 47,
+      "finish_rate": 21,
+      "age": 41
+    }
+  },
+  {
+    "id": "maycee-barber",
+    "name": "Maycee Barber",
+    "dob": "1998-05-18",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 65,
+      "reach": 65.0,
+      "slpm": 4.2,
+      "career_sig": 635,
+      "knockdowns": 0,
+      "td_avg": 1.5,
+      "sub_wins": 0,
+      "win_pct": 77,
+      "finish_rate": 40,
+      "age": 28
+    }
+  },
+  {
+    "id": "wang-cong",
+    "name": "Wang Cong",
+    "dob": "1992-05-15",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 66,
+      "reach": 66.0,
+      "slpm": 6.1,
+      "career_sig": 576,
+      "knockdowns": 3,
+      "td_avg": 0.3,
+      "sub_wins": 0,
+      "win_pct": 71,
+      "finish_rate": 20,
+      "age": 34
+    }
+  },
+  {
+    "id": "tracy-cortez",
+    "name": "Tracy Cortez",
+    "dob": "1993-12-10",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 65,
+      "reach": 65.0,
+      "slpm": 3.9,
+      "career_sig": 545,
+      "knockdowns": 0,
+      "td_avg": 1.8,
+      "sub_wins": 0,
+      "win_pct": 67,
+      "finish_rate": 0,
+      "age": 32
+    }
+  },
+  {
+    "id": "miranda-maverick",
+    "name": "Miranda Maverick",
+    "dob": "1997-07-01",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 63,
+      "reach": 65.0,
+      "slpm": 3.2,
+      "career_sig": 514,
+      "knockdowns": 0,
+      "td_avg": 2.2,
+      "sub_wins": 2,
+      "win_pct": 67,
+      "finish_rate": 38,
+      "age": 29
+    }
+  },
+  {
+    "id": "karine-silva",
+    "name": "Karine Silva",
+    "dob": "1993-12-02",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 65,
+      "reach": 67.0,
+      "slpm": 2.4,
+      "career_sig": 249,
+      "knockdowns": 1,
+      "td_avg": 1.8,
+      "sub_wins": 3,
+      "win_pct": 67,
+      "finish_rate": 50,
+      "age": 32
+    }
+  },
+  {
+    "id": "casey-o-neill",
+    "name": "Casey O'Neill",
+    "dob": "1997-10-07",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 66,
+      "reach": 69.0,
+      "slpm": 7.6,
+      "career_sig": 678,
+      "knockdowns": 1,
+      "td_avg": 1.3,
+      "sub_wins": 2,
+      "win_pct": 78,
+      "finish_rate": 71,
+      "age": 29
+    }
+  },
+  {
+    "id": "eduarda-moura",
+    "name": "Eduarda Moura",
+    "dob": "1994-02-28",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 66,
+      "reach": 67.0,
+      "slpm": 2.5,
+      "career_sig": 180,
+      "knockdowns": 0,
+      "td_avg": 3.4,
+      "sub_wins": 0,
+      "win_pct": 50,
+      "age": 32
+    }
+  },
+  {
+    "id": "gabriella-fernandes",
+    "name": "Gabriella Fernandes",
+    "dob": "1993-08-13",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 66,
+      "reach": 66.0,
+      "slpm": 3.4,
+      "career_sig": 297,
+      "knockdowns": 1,
+      "td_avg": 0.3,
+      "sub_wins": 1,
+      "win_pct": 43,
+      "age": 33
+    }
+  },
+  {
+    "id": "joselyne-edwards",
+    "name": "Joselyne Edwards",
+    "dob": "1995-09-29",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 68,
+      "reach": 70.0,
+      "slpm": 4.6,
+      "career_sig": 748,
+      "knockdowns": 1,
+      "td_avg": 1.3,
+      "sub_wins": 2,
+      "win_pct": 69,
+      "finish_rate": 44,
+      "age": 31
+    }
+  },
+  {
+    "id": "ailin-perez",
+    "name": "Ailin Perez",
+    "dob": "1994-10-05",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 65,
+      "reach": 66.0,
+      "slpm": 2.8,
+      "career_sig": 293,
+      "knockdowns": 1,
+      "td_avg": 4.3,
+      "sub_wins": 1,
+      "win_pct": 88,
+      "finish_rate": 14,
+      "age": 32
+    }
+  },
+  {
+    "id": "luana-santos",
+    "name": "Luana Santos",
+    "dob": "2000-04-16",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 66,
+      "reach": 67.0,
+      "slpm": 2.3,
+      "career_sig": 210,
+      "knockdowns": 0,
+      "td_avg": 2.6,
+      "sub_wins": 2,
+      "win_pct": 88,
+      "finish_rate": 43,
+      "age": 26
+    }
+  },
+  {
+    "id": "yana-santos",
+    "name": "Yana Santos",
+    "dob": "1989-11-11",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 66,
+      "reach": 68.0,
+      "slpm": 4.1,
+      "career_sig": 694,
+      "knockdowns": 1,
+      "td_avg": 0.7,
+      "sub_wins": 0,
+      "win_pct": 54,
+      "finish_rate": 0,
+      "age": 37
+    }
+  },
+  {
+    "id": "bia-mesquita",
+    "name": "Bia Mesquita",
+    "dob": "1991-04-07",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "career_sig": 75,
+      "knockdowns": 0,
+      "sub_wins": 4,
+      "age": 35
+    }
+  },
+  {
+    "id": "jacqueline-cavalcanti",
+    "name": "Jacqueline Cavalcanti",
+    "dob": "1997-08-29",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 68,
+      "reach": 70.0,
+      "slpm": 5.3,
+      "career_sig": 477,
+      "knockdowns": 0,
+      "td_avg": 0.0,
+      "sub_wins": 0,
+      "win_pct": 83,
+      "finish_rate": 0,
+      "age": 29
+    }
+  },
+  {
+    "id": "karol-rosa",
+    "name": "Karol Rosa",
+    "dob": "1994-12-30",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 65,
+      "reach": 67.0,
+      "slpm": 5.5,
+      "career_sig": 1066,
+      "knockdowns": 2,
+      "td_avg": 1.1,
+      "sub_wins": 0,
+      "win_pct": 62,
+      "finish_rate": 0,
+      "age": 31
+    }
+  },
+  {
+    "id": "michelle-montague",
+    "name": "Michelle Montague",
+    "dob": "1993-11-25",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 69,
+      "reach": 68.0,
+      "career_sig": 83,
+      "knockdowns": 0,
+      "sub_wins": 0,
+      "age": 32
+    }
+  },
+  {
+    "id": "nora-cornolle",
+    "name": "Nora Cornolle",
+    "dob": "1989-12-06",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 67,
+      "reach": 67.0,
+      "slpm": 2.6,
+      "career_sig": 219,
+      "knockdowns": 1,
+      "td_avg": 0.9,
+      "sub_wins": 1,
+      "win_pct": 57,
+      "age": 36
+    }
+  },
+  {
+    "id": "alice-pereira",
+    "name": "Alice Pereira",
+    "dob": "2005-12-20",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 68,
+      "reach": 71.0,
+      "career_sig": 89,
+      "knockdowns": 1,
+      "sub_wins": 0
+    }
+  },
+  {
+    "id": "chelsea-chandler",
+    "name": "Chelsea Chandler",
+    "dob": "1990-11-23",
+    "active": true,
+    "daily": false,
+    "hasImage": false,
+    "metrics": {
+      "height": 68,
+      "reach": 68.0,
+      "slpm": 3.4,
+      "career_sig": 207,
+      "knockdowns": 1,
+      "td_avg": 0.7,
+      "sub_wins": 2,
+      "win_pct": 57,
       "age": 36
     }
   }

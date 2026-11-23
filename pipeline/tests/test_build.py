@@ -28,7 +28,7 @@ def run(roster=(A, B), shipped=SHIP, image_dir=Path("no-such-dir"), min_eligible
 
 def test_fighters_json_shape():
     fighters, _, _ = run()
-    assert fighters[0] == {"id": "a-one", "name": "A One", "dob": "1987-07-19", "active": True,
+    assert fighters[0] == {"id": "a-one", "name": "A One", "dob": "1987-07-19", "active": True, "daily": True,
                            "hasImage": False, "metrics": {"height": 76, "reach": 84.0}}
     assert fighters[1]["dob"] is None
     assert fighters[1]["active"] is False
@@ -284,3 +284,64 @@ def test_main_keeps_the_old_data_when_too_much_changed(tmp_path, monkeypatch, ca
     assert build.main() == 1
     assert old.read_text() == old_text
     assert "changed" in capsys.readouterr().err
+
+
+def ranked(*fighters):
+    return [{"division": "Flyweight", "is_p4p": False, "champion": None,
+             "ranked": [{"rank": i + 1, "name": n, "slug": s, "change": None} for i, (n, s) in enumerate(fighters)]}]
+
+
+def test_ranked_additions_adds_only_clear_matches():
+    divisions = ranked(("A One", "a-one"), ("Bee Twoo", "b-two"), ("B Two", "b-two"), ("C Three", "c-three"),
+                       ("D Dup", "d-dup"), ("Nobody", "nobody"))
+    added, skipped = build.ranked_additions(build.read_csvs(DATA), [A], divisions)
+    # B by the ufc.com slug, under the ufcstats name, once; out of the Daily.
+    assert added == [{"name": "B Two", "ufcstats_id": "bbbb", "ufc_slug": "b-two", "deceased": "0", "daily": "0"}]
+    assert skipped == ["C Three (c-three): 1 ufcstats matches, no fights", "D Dup (d-dup): 2 ufcstats matches",
+                       "Nobody (nobody): 0 ufcstats matches"]
+
+
+
+def with_e_five():
+    """The fixture rows plus E Five, a 7-footer with one fight: far off the A One / B Two scale."""
+    rows = {k: list(v) for k, v in build.read_csvs(DATA).items()}
+    rows["ufc_fighter_tott"].append({"FIGHTER": "E Five", "HEIGHT": "7' 0\"", "WEIGHT": "265 lbs.", "REACH": "90\"",
+                                     "STANCE": "", "DOB": "--", "URL": "http://ufcstats.com/fighter-details/ffff"})
+    fight = next(r for r in rows["ufc_fight_results"] if r["BOUT"].startswith("A One"))
+    rows["ufc_fight_results"].append({**fight, "BOUT": "E Five vs. B Two", "URL": "http://ufcstats.com/fight-details/f3"})
+    for r in [r for r in rows["ufc_fight_stats"] if r["BOUT"] == "A One vs. B Two"]:
+        rows["ufc_fight_stats"].append({**r, "BOUT": "E Five vs. B Two", "FIGHTER": r["FIGHTER"].replace("A One", "E Five")})
+    return rows
+
+
+E = {"name": "E Five", "ufcstats_id": "ffff", "ufc_slug": "e-five", "deceased": "0", "daily": "0"}
+
+
+def test_non_daily_fighters_do_not_move_the_ranges():
+    def go(roster):
+        return build.build(with_e_five(), list(roster), SHIP, TODAY, Path("no-such-dir"), 2)
+    fighters, with_e, _ = go((A, B, E))
+    assert with_e == go((A, B))[1]
+    assert fighters[2]["daily"] is False and fighters[2]["metrics"] == {}  # off the scale for height and reach
+    assert go((A, B, dict(E, daily="1")))[1] != with_e
+
+
+def test_main_adds_ranked_fighters_outside_the_daily(tmp_path, monkeypatch):
+    (tmp_path / "pipeline").mkdir()
+    (tmp_path / "web" / "data").mkdir(parents=True)
+    (tmp_path / "pipeline" / "roster.csv").write_text(
+        "name,ufcstats_id,ufc_slug,deceased\nA One,aaaa,a-one,0\nB Two,bbbb,b-two,0\n")
+    (tmp_path / "pipeline" / "shipped.json").write_text(json.dumps(SHIP))
+    (tmp_path / "web" / "data" / "rankings.json").write_text(json.dumps({"divisions": ranked(("E Five", "e-five"))}))
+    monkeypatch.setattr(build, "read_active", lambda url: set())
+    rows = with_e_five()
+    monkeypatch.setattr(build, "read_csvs", lambda url: rows)
+    monkeypatch.setattr(build, "ROOT", tmp_path)
+    monkeypatch.setattr(build, "MIN_FIGHTERS", 2)
+    monkeypatch.setattr(build, "build", functools.partial(build.build, min_eligible=2))
+    assert build.main() == 0
+    assert (tmp_path / "pipeline" / "roster.csv").read_bytes() == (
+        b"name,ufcstats_id,ufc_slug,deceased,daily\nA One,aaaa,a-one,0,1\nB Two,bbbb,b-two,0,1\nE Five,ffff,e-five,0,0\n")
+    fighters = json.loads((tmp_path / "web" / "data" / "fighters.json").read_text(encoding="utf-8"))
+    assert [(f["id"], f["daily"], f["active"]) for f in fighters] == [
+        ("a-one", True, False), ("b-two", True, False), ("e-five", False, True)]

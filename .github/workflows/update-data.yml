@@ -42,7 +42,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add web/data pipeline/report.txt
+          git add web/data pipeline/report.txt pipeline/roster.csv
           git commit -m "Update fighter data"
           git push
       # After the fighter data, so a rankings page change fails the run without holding back that commit.
