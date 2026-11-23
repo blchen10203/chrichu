@@ -281,16 +281,20 @@ def main():
         out, offline = {}, "--offline" in sys.argv
         with open(ROOT / "pipeline" / "open_photos.csv", newline="", encoding="utf-8") as f:
             judged = {parse.slug(r["name"]): float(r["shown"]) for r in csv.DictReader(f)}  # Commons photos, see open_photos.py
+        refused = 0  # in a row: one athlete page can refuse for good (junior-dos-santos); a block refuses them all
         for n, r in enumerate(roster, 1):
             fighter_id = parse.slug(r["name"])
+            asks = not offline and not any((CACHE / f"{fighter_id}{x}").exists() for x in (".png", ".none"))
             try:
                 data = cutout(fighter_id, r["ufc_slug"], offline)
+                refused = 0 if asks else refused
                 if data:
                     d, cut, (sy, sl, sr) = outline(read_alpha(data), judged.get(fighter_id))
                     out[fighter_id] = {"d": d, "cut": cut, "sy": sy, "sl": sl, "sr": sr}
                 print(f"{n}/{len(roster)} {fighter_id}: {'traced' if data else 'no cutout'}", flush=True)
             except urllib.error.HTTPError as e:
-                if e.code in (403, 429):  # refused: stop asking, but trace what is cached
+                refused += e.code in (403, 429)
+                if refused >= 2:  # refused twice running: stop asking, but trace what is cached
                     print(f"ufc.com refused ({e.code}); no more downloads this run.", file=sys.stderr, flush=True)
                     offline = True
                 print(f"{n}/{len(roster)} {fighter_id}: skipped ({e})", file=sys.stderr, flush=True)

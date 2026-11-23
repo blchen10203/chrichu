@@ -23,6 +23,15 @@ const oneDecimal = (x: number) => Math.round(x * 10) / 10;
 
 // Survival damage: the round's penalty, to one decimal, never more than the HP left.
 export function takeHit(hp: number, metric: Metric, guess: number, actual: number): { hp: number; lost: number } {
-  const lost = Math.min(hp, oneDecimal(penalty(metric, guess, actual)));
+  return hitFor(hp, penalty(metric, guess, actual));
+}
+
+// A ranking round hurts like a slider guess with the same score: all wrong costs what a zero does at least.
+export function takeRankingHit(hp: number, score: number): { hp: number; lost: number } {
+  return hitFor(hp, (ZERO_DISTANCE - FREE_ZONE) * (1 - score / 100));
+}
+
+function hitFor(hp: number, damage: number): { hp: number; lost: number } {
+  const lost = Math.min(hp, oneDecimal(damage));
   return { hp: oneDecimal(hp - lost), lost };
 }

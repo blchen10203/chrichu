@@ -1,7 +1,7 @@
 import type { Fighter } from "@/lib/engine/types";
 import { fighterImage } from "@/lib/images";
 
-export function Avatar({ fighter, corner }: { fighter: Fighter; corner: "blue" | "red" }) {
+export function Avatar({ fighter, corner }: { fighter: Fighter; corner?: "blue" | "red" }) {
   return (
     // eslint-disable-next-line @next/next/no-img-element -- static export, no image optimisation
     <img
@@ -9,7 +9,7 @@ export function Avatar({ fighter, corner }: { fighter: Fighter; corner: "blue" |
       alt={fighter.name}
       width={44}
       height={44}
-      className={`size-11 shrink-0 rounded-full border object-cover grayscale ${corner === "blue" ? "border-blue" : "border-red"}`}
+      className={`size-11 shrink-0 rounded-full border object-cover grayscale ${corner === "blue" ? "border-blue" : corner === "red" ? "border-red" : "border-line"}`}
     />
   );
 }

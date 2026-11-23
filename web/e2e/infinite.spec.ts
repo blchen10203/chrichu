@@ -28,8 +28,15 @@ test("a keyboard-only player can play Infinite rounds", async ({ page }) => {
 
 test("the readout shows the live estimate, the stage shows no answer-revealing scale, and the reveal agrees", async ({ page }) => {
   await page.goto("/infinite");
-  for (let round = 1; round <= 8; round++) {
+  for (let round = 1, sliders = 0; sliders < 8; round++) {
     await expect(page.getByText(`Round ${round}`, { exact: true })).toBeVisible();
+    if (await page.getByTestId("rank-slot").count()) {
+      // A ranking round has no slider: covered by ranking.spec.ts.
+      await page.getByRole("button", { name: "Lock in" }).click();
+      await page.getByRole("button", { name: "Next round" }).click();
+      continue;
+    }
+    sliders++;
     const slider = page.getByRole("slider").first();
     await slider.focus();
     await page.keyboard.press("ArrowUp");

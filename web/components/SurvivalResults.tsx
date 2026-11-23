@@ -11,12 +11,13 @@ import { useFormat } from "@/lib/units";
 type Props = {
   survived: number;
   best: number;
-  fatal: { metric: Metric; target: Fighter; guess: number; actual: number; lost: number };
+  // The round that ended the run: a slider guess, or a ranking round with how many were placed right.
+  fatal: { lost: number } & ({ metric: Metric; target: Fighter; guess: number; actual: number } | { division: string; right: number; of: number });
   onPlayAgain: () => void;
 };
 
 export function SurvivalResults({ survived, best, fatal, onPlayAgain }: Props) {
-  const { metric, target, guess, actual, lost } = fatal;
+  const { lost } = fatal;
   const formatValue = useFormat();
   return (
     <>
@@ -32,12 +33,23 @@ export function SurvivalResults({ survived, best, fatal, onPlayAgain }: Props) {
         </div>
         <div className="flex flex-col gap-1 text-[15px]">
           <div className="text-xs text-muted">Ended by</div>
-          <div>
-            {target.name} <span className="text-muted">{metricCopy(metric, target.name).short.toLowerCase()}</span>
-          </div>
-          <div className="text-muted">
-            {formatValue(metric, guess)}, actual {formatValue(metric, actual)}
-          </div>
+          {"metric" in fatal ? (
+            <>
+              <div>
+                {fatal.target.name} <span className="text-muted">{metricCopy(fatal.metric, fatal.target.name).short.toLowerCase()}</span>
+              </div>
+              <div className="text-muted">
+                {formatValue(fatal.metric, fatal.guess)}, actual {formatValue(fatal.metric, fatal.actual)}
+              </div>
+            </>
+          ) : (
+            <>
+              <div>The {fatal.division} rankings</div>
+              <div className="text-muted">
+                {fatal.right} of {fatal.of} placed right
+              </div>
+            </>
+          )}
         </div>
       </div>
       <div className="flex flex-col gap-3">

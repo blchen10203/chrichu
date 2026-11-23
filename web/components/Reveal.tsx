@@ -22,7 +22,7 @@ type Props = {
 };
 
 // A score's colour: red at 0, through amber, to green at 100. `lightness` (a CSS variable per theme) keeps it readable.
-const quality = (score: number, lightness: string) => `hsl(${Math.round(score * 1.3)} 75% ${lightness})`;
+export const quality = (score: number, lightness: string) => `hsl(${Math.round(score * 1.3)} 75% ${lightness})`;
 
 // The answer's entrance: the dashed marker leaves your guess and travels to the real value
 // while the score counts up beside it, both on one clock.
