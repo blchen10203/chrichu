@@ -1,7 +1,7 @@
 """Trace ufc.com full-body cutouts into outline paths for the height silhouette.
 
-Run by hand when the roster changes; not part of the weekly Action.
-`--offline` traces only the cutouts already cached.
+The daily Action runs it for fighters with no outline yet (it keeps the cache between runs); run it by hand
+to trace everyone again from your own cache. `--offline` traces only the cutouts already cached.
 Photos are cached in pipeline/.image-cache/ (git-ignored) and are never
 committed: only the traced paths go to web/data/outlines.json. Spec 11.1, 13.
 """
@@ -289,22 +289,29 @@ def main():
     try:
         with open(ROOT / "pipeline" / "roster.csv", newline="", encoding="utf-8-sig") as f:
             roster = list(csv.DictReader(f))
-        out, offline = {}, "--offline" in sys.argv
+        offline = "--offline" in sys.argv
+        # Start from the committed outlines: a run without the cache (a fresh clone, the Action) must not drop them.
+        old = json.loads(OUT.read_text(encoding="utf-8")) if OUT.exists() else {}
+        ids = {parse.slug(r["name"]) for r in roster}
+        out = {k: v for k, v in old.items() if k in ids}
         with open(ROOT / "pipeline" / "open_photos.csv", newline="", encoding="utf-8") as f:
             judged = {parse.slug(r["name"]): float(r["shown"]) for r in csv.DictReader(f)}  # Commons photos, see open_photos.py
         for n, r in enumerate(roster, 1):
             fighter_id = parse.slug(r["name"])
             try:
-                data = cutout(fighter_id, r["ufc_slug"], offline)
+                # A committed outline needs no download; a cached photo is traced again.
+                data = cutout(fighter_id, r["ufc_slug"], offline or fighter_id in old)
                 if data:
                     d, cut, (sy, sl, sr) = outline(read_alpha(data), judged.get(fighter_id))
                     out[fighter_id] = {"d": d, "cut": cut, "sy": sy, "sl": sl, "sr": sr}
-                print(f"{n}/{len(roster)} {fighter_id}: {'traced' if data else 'no cutout'}", flush=True)
+                print(f"{n}/{len(roster)} {fighter_id}: {'traced' if data else 'kept' if fighter_id in out else 'no cutout'}", flush=True)
             except urllib.error.HTTPError as e:
                 # Some athlete pages refuse for good (junior-dos-santos); only a refused known page means a block.
                 if e.code in (403, 429) and not answers(KNOWN_PAGE):  # stop asking, but trace what is cached
                     print(f"ufc.com refused ({e.code}); no more downloads this run.", file=sys.stderr, flush=True)
                     offline = True
+                elif e.code == 403:
+                    (CACHE / f"{fighter_id}.none").touch()  # this page refuses for good: do not ask again
                 print(f"{n}/{len(roster)} {fighter_id}: skipped ({e})", file=sys.stderr, flush=True)
             except Exception as e:  # one bad page or image must not lose the rest
                 print(f"{n}/{len(roster)} {fighter_id}: skipped ({e})", file=sys.stderr, flush=True)

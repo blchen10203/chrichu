@@ -1,5 +1,9 @@
+import json
 import struct
+import urllib.error
 import zlib
+
+import pytest
 
 import images
 
@@ -75,3 +79,28 @@ def test_arms_join_at_the_shoulders():
 def test_arms_fall_back_when_no_shoulders_show():
     mask = [[True] * 10] * 20  # no neck
     assert images.arms(mask, 1.0, 5) == (images.ARM_Y, -images.ARM_X, images.ARM_X)
+
+
+def test_a_run_without_the_cache_keeps_the_outlines(tmp_path, monkeypatch):
+    """A fresh clone (or the Action) has no photos: committed outlines stay, only fighters without one are asked for."""
+    (tmp_path / "pipeline").mkdir()
+    (tmp_path / "pipeline" / "roster.csv").write_text(
+        "name,ufcstats_id,ufc_slug,deceased,daily\nA One,a,a-one,0,1\nB Two,b,b-two,0,0\n", encoding="utf-8")
+    (tmp_path / "pipeline" / "open_photos.csv").write_text("name,shown\n", encoding="utf-8")
+    out = tmp_path / "outlines.json"
+    out.write_text(json.dumps({"a-one": {"d": "M0 0Z"}, "left-the-roster": {"d": "M1 1Z"}}), encoding="utf-8")
+    monkeypatch.setattr(images, "ROOT", tmp_path)
+    monkeypatch.setattr(images, "CACHE", tmp_path / "cache")
+    monkeypatch.setattr(images, "OUT", out)
+
+    def fetch(url):
+        if url == images.KNOWN_PAGE:
+            return b""  # ufc.com answers, so only b-two's page refuses
+        if "b-two" in url:
+            raise urllib.error.HTTPError(url, 403, "Forbidden", None, None)
+        pytest.fail(f"asked for {url}")
+    monkeypatch.setattr(images, "fetch", fetch)
+
+    assert images.main() == 0
+    assert json.loads(out.read_text(encoding="utf-8")) == {"a-one": {"d": "M0 0Z"}}
+    assert (tmp_path / "cache" / "b-two.none").exists()  # a page that refuses for good is not asked again

@@ -9,10 +9,7 @@ import re
 import sys
 from datetime import datetime, timezone
 
-import requests
 from bs4 import BeautifulSoup
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
 
 import build
 import parse
@@ -27,15 +24,6 @@ MEDIA_BLOCK = ".block-views-blockathlete-rankings-block-1"
 
 class RankingsError(Exception):
     pass
-
-
-def fetch(url):
-    session = requests.Session()
-    session.mount("https://", HTTPAdapter(max_retries=Retry(total=3, backoff_factor=2,
-                                                            status_forcelist=(429, 500, 502, 503, 504))))
-    resp = session.get(url, headers={"User-Agent": "Mozilla/5.0 (compatible; reachdle-rankings/1.0)"}, timeout=30)
-    resp.raise_for_status()
-    return resp.text
 
 
 def fighter(a):
@@ -105,9 +93,9 @@ def match(divisions, roster):
 def main():
     sys.stdout.reconfigure(encoding="utf-8")  # names like Jiří Procházka on a Windows console
     try:
-        last_updated, divisions = parse_page(fetch(URL))
+        last_updated, divisions = parse_page(build.get(URL, "Mozilla/5.0 (compatible; reachdle-rankings/1.0)").decode("utf-8"))
         check(divisions)
-    except (RankingsError, requests.RequestException) as e:
+    except (RankingsError, OSError) as e:
         print(e, file=sys.stderr)
         return 1
     with open(build.ROOT / "pipeline" / "roster.csv", newline="", encoding="utf-8-sig") as f:

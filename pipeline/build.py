@@ -9,6 +9,7 @@ import io
 import json
 import re
 import sys
+import time
 import unicodedata
 import urllib.request
 from datetime import date
@@ -36,6 +37,18 @@ class BuildError(Exception):
     pass
 
 
+def get(url, ua="reachdle-build/1.0 (python-urllib)", tries=3):
+    """The body at url, asking again after a busy server (429, 5xx) or a dropped connection."""
+    for n in range(tries):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": ua}), timeout=60) as resp:
+                return resp.read()
+        except OSError as e:  # HTTPError (has a code), URLError, timeouts
+            if n == tries - 1 or getattr(e, "code", 503) not in (429, 500, 502, 503, 504):
+                raise
+            time.sleep(2 ** (n + 1))
+
+
 def name_key(name):
     """A name without accents, case or punctuation, so "Jan Błachowicz" and "Jan Blachowicz" match."""
     return parse.slug(unicodedata.normalize("NFKD", name.translate(PLAIN)).encode("ascii", "ignore").decode())
@@ -51,9 +64,7 @@ def roster_name(cell):
 
 
 def read_active(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "roster-build/1.0 (python-urllib)"})
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        text = json.loads(resp.read().decode("utf-8"))["parse"]["wikitext"]
+    text = json.loads(get(url, "roster-build/1.0 (python-urllib)").decode("utf-8"))["parse"]["wikitext"]
     # Only the weight-class tables: the page also lists recent releases, retirements and unsigned signings.
     text = text[text.index("==Debuted fighters=="):text.index("==See also==")]
     # Each fighter row starts with their flag (two for dual nationals), then their name.
@@ -98,8 +109,7 @@ def ranked_additions(rows, roster, divisions):
 def read_csvs(base_url):
     out = {}
     for name in FILES:
-        with urllib.request.urlopen(f"{base_url}{name}.csv", timeout=60) as resp:
-            out[name] = list(csv.DictReader(io.StringIO(resp.read().decode("utf-8"), newline="")))
+        out[name] = list(csv.DictReader(io.StringIO(get(f"{base_url}{name}.csv").decode("utf-8"), newline="")))
     return out
 
 

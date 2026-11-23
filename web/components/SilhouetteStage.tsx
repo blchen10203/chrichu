@@ -1,7 +1,6 @@
-import { useId, useRef, type PointerEvent } from "react";
+import { useEffect, useId, useRef, useState, type PointerEvent } from "react";
 import type { StageProps } from "@/components/BarStage";
 import { arrowKeys } from "@/components/stages/gauge";
-import outlinesJson from "@/data/outlines.json";
 import { fighters } from "@/lib/engine/data";
 import { fromFraction, snapValue } from "@/lib/engine/scale";
 import { useFormat } from "@/lib/units";
@@ -17,8 +16,18 @@ const GROUND = 280;
 // d: the outline; cut: where its photo stops (FIG when whole); sy: the arms' centre line; sl, sr: the shoulder edges.
 type Outline = { d: string; cut: number; sy: number; sl: number; sr: number };
 
-// Traced from photos by pipeline/images.py.
-const outlines: Record<string, Outline> = outlinesJson;
+// Traced from photos by pipeline/images.py. Kept out of the page code (only height and reach rounds draw them)
+// but asked for as soon as this module loads, so they are usually here before the first such round.
+let outlines: Record<string, Outline> | null = null;
+const loading = import("@/data/outlines.json").then((m) => (outlines = m.default as Record<string, Outline>));
+
+function useOutlines() {
+  const [ready, setReady] = useState(outlines !== null);
+  useEffect(() => {
+    if (!ready) loading.then(() => setReady(true));
+  }, [ready]);
+  return ready;
+}
 
 // Fighters with no usable photo: a plain standing figure, drawn the same way. Right half, mirrored.
 const half: [number, number][] = [
@@ -34,7 +43,7 @@ const GENERIC: Outline = {
   sl: -14.5,
   sr: 14.5,
 };
-const outlineOf = (id?: string) => (id && outlines[id]) || GENERIC;
+const outlineOf = (id?: string) => (id && outlines?.[id]) || GENERIC;
 const heightOf = (id?: string) => fighters.find((f) => f.id === id)?.metrics.height ?? 70;
 
 // One fighter's outline, fading out between `fade` (y from, y to) when given or where the photo stops.
@@ -128,7 +137,8 @@ export function SilhouetteStage({ metric, refValue, value, onChange, actual, ref
   const reach = metric.id === "reach";
   const formatValue = useFormat();
   const reveal = actual !== undefined;
-  const interactive = onChange && !reveal;
+  const ready = useOutlines(); // until then, draw no figure rather than the generic one
+  const interactive = onChange && !reveal && ready;
   const cx = W / 2;
   const ppi = reach ? W / metric.max : (GROUND - 20) / metric.max;
 
@@ -208,7 +218,7 @@ export function SilhouetteStage({ metric, refValue, value, onChange, actual, ref
         onPointerCancel={interactive && !reach ? lift : undefined}
       >
         <svg viewBox={`0 0 ${W} ${H}`} className="absolute inset-0 size-full" role="img" aria-label={reach ? "Arm spans of both fighters" : "Heights of both fighters"}>
-          {reach ? (
+          {!ready ? null : reach ? (
             <>
               <Reacher id={refId} top={BLUE_TOP} span={refValue} ppi={ppi} color="var(--color-blue)" />
               <Ticks x={cx % (4 * ppi)} y={150} n={Math.ceil(W / (4 * ppi)) + 1} step={4 * ppi} />

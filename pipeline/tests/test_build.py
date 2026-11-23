@@ -1,5 +1,6 @@
 import functools
 import json
+import urllib.error
 from datetime import date
 from pathlib import Path
 
@@ -172,6 +173,7 @@ def test_failed_run_leaves_files_untouched(tmp_path, monkeypatch, capsys):
     assert old.read_text() == "[]"
     assert not (tmp_path / "pipeline" / "report.txt").exists()
     monkeypatch.setattr(build, "SOURCE", (tmp_path / "missing").as_uri() + "/")
+    monkeypatch.setattr(build.time, "sleep", lambda s: None)  # get() asks again before giving up
     assert build.main() == 1                      # download fails
     assert old.read_text() == "[]"
     assert "roster" in capsys.readouterr().err
@@ -345,3 +347,27 @@ def test_main_adds_ranked_fighters_outside_the_daily(tmp_path, monkeypatch):
     fighters = json.loads((tmp_path / "web" / "data" / "fighters.json").read_text(encoding="utf-8"))
     assert [(f["id"], f["daily"], f["active"]) for f in fighters] == [
         ("a-one", True, False), ("b-two", True, False), ("e-five", False, True)]
+
+
+def test_get_asks_again_after_a_busy_server_but_not_after_a_missing_page(monkeypatch):
+    calls = []
+
+    class Body:
+        def __enter__(self): return self
+        def __exit__(self, *a): pass
+        def read(self): return b"ok"
+
+    def urlopen(req, timeout):
+        calls.append(req.full_url)
+        if req.full_url.endswith("missing"):
+            raise urllib.error.HTTPError(req.full_url, 404, "Not Found", None, None)
+        if len(calls) == 1:
+            raise urllib.error.HTTPError(req.full_url, 503, "Backend.max_conn reached", None, None)
+        return Body()
+
+    monkeypatch.setattr(build.urllib.request, "urlopen", urlopen)
+    monkeypatch.setattr(build.time, "sleep", lambda s: None)
+    assert build.get("https://x/busy") == b"ok" and len(calls) == 2
+    with pytest.raises(urllib.error.HTTPError):
+        build.get("https://x/missing")
+    assert len(calls) == 3  # a 404 is not asked again

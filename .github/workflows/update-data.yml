@@ -20,10 +20,27 @@ jobs:
         with:
           python-version: "3.13"
       - run: python pipeline/build.py
+      # Photos for fighters with no outline yet, such as ranked fighters the build just added. The cache keeps each
+      # downloaded photo and each "no photo" mark between runs, so a day with no new fighter asks ufc.com nothing.
+      - uses: actions/cache@v4
+        with:
+          path: pipeline/.image-cache
+          key: image-cache-${{ github.run_id }}
+          restore-keys: image-cache-
+      - name: Add photos for new fighters
+        continue-on-error: true # photos are extras: never hold back the fight data for them
+        run: |
+          python pipeline/images.py
+          pip install pillow==13.0.0
+          python pipeline/headshots.py
+          # A new headshot turns on hasImage, which only the build writes.
+          if [ -n "$(git status --porcelain -- web/public/img/fighters)" ]; then python pipeline/build.py; fi
       - name: Stop if the site data did not change
         id: changed
-        # report.txt carries the build date, so only web/data decides whether there is anything to ship.
-        run: git diff --quiet -- web/data && echo "data=no" >> "$GITHUB_OUTPUT" || echo "data=yes" >> "$GITHUB_OUTPUT"
+        # report.txt carries the build date, so only web/data and new headshots decide whether there is anything to ship.
+        run: |
+          if [ -n "$(git status --porcelain -- web/data web/public/img/fighters)" ]; then data=yes; else data=no; fi
+          echo "data=$data" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-node@v4
         if: steps.changed.outputs.data == 'yes'
         with:
@@ -42,16 +59,19 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add web/data pipeline/report.txt pipeline/roster.csv
+          git add web/data web/public/img/fighters pipeline/report.txt pipeline/roster.csv
           git commit -m "Update fighter data"
           git push
       # After the fighter data, so a rankings page change fails the run without holding back that commit.
       # rankings.py only rewrites the file when the rankings change, so an unchanged run commits nothing.
+      # Also after a failed fighter build (it writes nothing then): one bad day there must not freeze the rankings.
       - name: Update the UFC rankings
+        if: ${{ !cancelled() }}
         run: |
           pip install -r pipeline/requirements.txt
           python pipeline/rankings.py
       - name: Commit the rankings
+        if: ${{ !cancelled() }}
         run: |
           git add web/data/rankings.json
           if git diff --cached --quiet; then echo "Rankings unchanged."; exit 0; fi
