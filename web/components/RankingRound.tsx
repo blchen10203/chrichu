@@ -16,7 +16,7 @@ const rankLabel = "w-9 shrink-0 font-display text-[26px] font-light leading-none
 const dropZone = "flex min-h-14 flex-1 items-center rounded-lg border border-dashed p-1";
 
 // The drop target under the pointer: the nearest element marked data-drop.
-function whereAt(x: number, y: number): Where | null {
+export function whereAt(x: number, y: number): Where | null {
   for (const el of document.elementsFromPoint(x, y)) {
     const drop = (el as HTMLElement).dataset?.drop;
     if (drop !== undefined) return drop === "side" ? "side" : Number(drop);

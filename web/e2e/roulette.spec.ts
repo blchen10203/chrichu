@@ -2,19 +2,11 @@ import { expect, test, type Page } from "@playwright/test";
 import rankings from "../data/rankings.json";
 
 const card = (page: Page, division: string) => page.getByRole("button", { name: new RegExp(`^${division}\\b`) });
-const rowNames = (page: Page) =>
-  page.getByTestId("roulette-row").evaluateAll((rows) => rows.map((r) => r.querySelector("button")!.getAttribute("aria-label")!.split(", ")[0]));
-
-// A swap animates the rows into place; clicking a moving row can hit its neighbour.
-const settled = (page: Page) =>
-  expect
-    .poll(async () => {
-      const read = () => page.getByTestId("roulette-row").evaluateAll((rows) => rows.map((r) => Math.round(r.getBoundingClientRect().y)).join());
-      const before = await read();
-      await page.waitForTimeout(100);
-      return before === (await read());
-    })
-    .toBe(true);
+const slot = (page: Page, i: number) => page.getByTestId("roulette-slot").nth(i);
+const pool = (page: Page) => page.getByLabel("Fighters to place").getByTestId("roulette-chip");
+const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const chipOf = (page: Page, name: string) => page.getByRole("button", { name: new RegExp(`^${escape(name)}, `) });
+const nameIn = (page: Page, i: number) => slot(page, i).getByTestId("roulette-chip").getAttribute("aria-label").then((l) => l?.split(", ")[0]);
 
 const errorsOf = new WeakMap<Page, string[]>();
 test.beforeEach(({ page }) => {
@@ -30,25 +22,25 @@ const answerOf = (division: string) => {
   return [...(d.champion && !d.is_p4p ? [d.champion.name] : []), ...d.ranked.map((r) => r.name)];
 };
 
-// Taps rows into the given order, one swap at a time.
-async function arrange(page: Page, answer: string[]) {
-  await expect(page.getByTestId("roulette-row")).toHaveCount(answer.length);
-  for (let i = 0; i < answer.length; i++) {
-    const j = (await rowNames(page)).indexOf(answer[i]);
-    if (j === i) continue;
-    await settled(page);
-    const rows = page.getByTestId("roulette-row");
-    const a = rows.nth(i).getByRole("button").first();
-    await a.click();
-    await expect(a).toHaveAttribute("aria-pressed", "true");
-    await rows.nth(j).getByRole("button").first().click();
-    await expect.poll(async () => (await rowNames(page))[i]).toBe(answer[i]);
-  }
+// Taps a fighter (the pool's first when no name), then a slot. Chips stay disabled while the pool shuffles in.
+async function place(page: Page, name: string | null, i: number) {
+  await expect(pool(page).first()).toBeEnabled();
+  const chip = chipOf(page, name ?? (await pool(page).first().getAttribute("aria-label"))!.split(", ")[0]);
+  await chip.click();
+  await expect(chip).toHaveAttribute("aria-pressed", "true");
+  await slot(page, i).getByRole("button", { name: /^Place at / }).click();
+  await expect(slot(page, i).getByTestId("roulette-chip")).toHaveCount(1);
+}
+
+// Fills every slot, in the given order of names, or in the pool's dealt order (never fully right).
+async function fill(page: Page, answer?: string[]) {
+  const n = await page.getByTestId("roulette-slot").count();
+  for (let i = 0; i < n; i++) await place(page, answer ? answer[i] : null, i);
 }
 
 async function clear(page: Page, division: string, answer: string[]) {
   await card(page, division).click();
-  await arrange(page, answer);
+  await fill(page, answer);
   await page.getByRole("button", { name: "Lock in" }).click();
   await expect(page.getByText("1 of 13 cleared")).toBeVisible();
   await expect(card(page, division)).toBeDisabled();
@@ -65,8 +57,9 @@ test("clearing a division by taps checks it off", async ({ page }) => {
 test("a pound-for-pound list has 15 slots and no Champ", async ({ page }) => {
   await page.goto("/roulette");
   await card(page, "Men's Pound-for-Pound").click();
-  await expect(page.getByTestId("roulette-row")).toHaveCount(15);
-  await expect(page.getByTestId("roulette-row").getByText("Champ", { exact: true })).toHaveCount(0);
+  await expect(page.getByTestId("roulette-slot")).toHaveCount(15);
+  await expect(pool(page)).toHaveCount(15);
+  await expect(page.getByTestId("roulette-slot").getByText("Champ", { exact: true })).toHaveCount(0);
   await page.getByRole("button", { name: "← Board" }).click();
   await clear(page, "Men's Pound-for-Pound", answerOf("Men's Pound-for-Pound"));
 });
@@ -86,22 +79,36 @@ test("tied fighters are right in either order", async ({ page }) => {
   await clear(page, division, answer);
 });
 
-test("leaving a division keeps it unsolved and keeps its order", async ({ page }) => {
+test("leaving a division keeps it unsolved and keeps its placements", async ({ page }) => {
   await page.goto("/roulette");
   await card(page, "Lightweight").click();
-  await expect(page.getByTestId("roulette-row").first()).toBeVisible();
-  const order = await rowNames(page);
+  await place(page, null, 0);
+  const first = await nameIn(page, 0);
   await page.getByRole("button", { name: "← Board" }).click();
   await expect(page.getByText("0 of 13 cleared")).toBeVisible();
   await expect(card(page, "Lightweight")).toBeEnabled();
   await card(page, "Lightweight").click();
-  await expect(page.getByTestId("roulette-row").first()).toBeVisible();
-  expect(await rowNames(page)).toEqual(order);
+  await expect.poll(() => nameIn(page, 0)).toBe(first);
+  await expect(pool(page)).toHaveCount(15);
+});
+
+test("the fighters shuffle in, and lock in waits for every slot", async ({ page }) => {
+  await page.goto("/roulette");
+  await card(page, "Lightweight").click();
+  await expect(page.getByTestId("roulette-slot")).toHaveCount(16);
+  await expect(pool(page)).toHaveCount(16);
+  await expect(pool(page).first()).toBeDisabled(); // dealing
+  await expect(pool(page).first()).toBeEnabled();
+  const lockIn = page.getByRole("button", { name: "Lock in" });
+  await expect(lockIn).toBeDisabled();
+  await fill(page);
+  await expect(lockIn).toBeEnabled();
 });
 
 test("stepping back right after a wrong lock-in still ends the run", async ({ page }) => {
   await page.goto("/roulette");
   await card(page, "Lightweight").click();
+  await fill(page);
   const lockIn = page.getByRole("button", { name: "Lock in" });
   await lockIn.scrollIntoViewIfNeeded(); // ← Board sits beside it, so its box stays put
   const back = (await page.getByRole("button", { name: "← Board" }).boundingBox())!;
@@ -115,23 +122,33 @@ test("stepping back right after a wrong lock-in still ends the run", async ({ pa
 test("a wrong order ends the run", async ({ page }) => {
   await page.goto("/roulette");
   await card(page, "Lightweight").click();
+  await fill(page);
   await page.getByRole("button", { name: "Lock in" }).click();
   await expect(page.getByText(/^\d+ of 1[56] right$/)).toBeVisible();
   await page.getByRole("button", { name: "Restart roulette" }).click();
   await expect(page.getByText("0 of 13 cleared")).toBeVisible();
 });
 
-test("a drag moves a row", async ({ page }) => {
+test("a fighter drags from the pool into a slot and back", async ({ page }) => {
   await page.goto("/roulette");
   await card(page, "Lightweight").click();
-  const rows = page.getByTestId("roulette-row");
-  await expect(rows.first()).toBeVisible();
-  const first = (await rowNames(page))[0];
-  const from = (await rows.nth(0).getByTestId("roulette-handle").boundingBox())!;
-  const to = (await rows.nth(2).boundingBox())!;
-  await page.mouse.move(from.x + from.width / 2, from.y + from.height / 2);
-  await page.mouse.down();
-  await page.mouse.move(from.x + from.width / 2, to.y + to.height, { steps: 20 });
-  await page.mouse.up();
-  await expect.poll(async () => (await rowNames(page)).indexOf(first)).toBe(2);
+  const chip = pool(page).first();
+  await expect(chip).toBeEnabled();
+  // The pool keeps sliding into its dealt order for a moment after the chips come alive.
+  let last = "";
+  await expect.poll(async () => last === (last = JSON.stringify(await chip.boundingBox())), { intervals: [150] }).toBe(true);
+  const name = (await chip.getAttribute("aria-label"))!.split(", ")[0];
+  const drag = async (from: { x: number; y: number; width: number; height: number }, to: { x: number; y: number; width: number; height: number }) => {
+    await page.mouse.move(from.x + from.width / 2, from.y + from.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(to.x + to.width / 2, to.y + to.height / 2, { steps: 20 });
+    await page.mouse.up();
+  };
+  await drag((await chip.boundingBox())!, (await slot(page, 3).boundingBox())!);
+  await expect.poll(() => nameIn(page, 3)).toBe(name);
+  await expect(pool(page)).toHaveCount(15);
+  const placed = slot(page, 3).getByTestId("roulette-chip");
+  await drag((await placed.boundingBox())!, (await page.getByLabel("Fighters to place").boundingBox())!);
+  await expect(pool(page)).toHaveCount(16);
+  await expect(slot(page, 3).getByTestId("roulette-chip")).toHaveCount(0);
 });

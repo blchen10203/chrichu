@@ -4,7 +4,7 @@ import { AnimatePresence, motion, MotionConfig } from "motion/react";
 import { useState } from "react";
 import { bigButton, Header } from "@/components/RoundShell";
 import { headingFocus, RouletteBoard } from "@/components/RouletteBoard";
-import { RouletteList } from "@/components/RouletteList";
+import { RouletteList, type ListState } from "@/components/RouletteList";
 import { deal, rightCount, slotsOf, type Entry } from "@/lib/engine/roulette";
 import { rankings, type Division } from "@/lib/rankings";
 
@@ -12,46 +12,50 @@ type Run = {
   phase: "board" | "list" | "over" | "won";
   cleared: Set<string>;
   open: Division | null;
-  orders: Map<string, Entry[]>; // each opened list's arrangement, kept when the player steps back to the board
+  lists: Map<string, ListState>; // each opened list's pool and placements, kept when the player steps back to the board
+  dealt: boolean; // the open list was dealt just now, so its pool shuffles in
   last: { right: number; total: number } | null;
   justCleared: string | null;
 };
 
-const fresh = (): Run => ({ phase: "board", cleared: new Set(), open: null, orders: new Map(), last: null, justCleared: null });
+const fresh = (): Run => ({ phase: "board", cleared: new Set(), open: null, lists: new Map(), dealt: false, last: null, justCleared: null });
 
 const screen = "flex flex-1 flex-col gap-6";
 // An exiting screen stays on the page while it fades, so it must not take clicks.
 const gone = { opacity: 0, pointerEvents: "none" as const };
-const rise = { initial: { opacity: 0, y: 16 }, animate: { opacity: 1, y: 0 }, exit: gone };
-const fade = { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: gone };
+// A screen brought back while still fading out must come back to life, not stay as its exit left it.
+const shown = { opacity: 1, pointerEvents: "auto" as const };
+const rise = { initial: { opacity: 0, y: 16 }, animate: { ...shown, y: 0 }, exit: gone };
+const fade = { initial: { opacity: 0 }, animate: shown, exit: gone };
 // The popped-out screen lingers until the card's move ends, so it hides fast.
-const leave = { exit: { ...gone, transition: { duration: 0.15 } } };
+const leave = { animate: shown, exit: { ...gone, transition: { duration: 0.15 } } };
 
 export default function RoulettePage() {
   const [run, setRun] = useState(fresh);
-  const { phase, cleared, open, orders, last } = run;
+  const { phase, cleared, open, lists, last } = run;
   const total = rankings.divisions.length;
 
   // Every change goes through an updater that checks the phase, since a fading screen's handlers hold stale state.
   const pick = (name: string) => {
     const d = rankings.divisions.find((x) => x.division === name)!;
-    const dealt = orders.get(name) ?? deal(Math.random, d); // the first open in a run deals
+    const dealt: ListState = { pool: deal(Math.random, d), placed: slotsOf(d).map(() => null) }; // used on a list's first open
     setRun((r) =>
       r.phase !== "board" || r.cleared.has(name)
         ? r
-        : { ...r, phase: "list", open: d, justCleared: null, orders: r.orders.has(name) ? r.orders : new Map(r.orders).set(name, dealt) },
+        : { ...r, phase: "list", open: d, justCleared: null, dealt: !r.lists.has(name), lists: r.lists.has(name) ? r.lists : new Map(r.lists).set(name, dealt) },
     );
   };
 
-  const reorder = (d: Division, order: Entry[]) =>
-    setRun((r) => (r.phase === "list" && r.open === d ? { ...r, orders: new Map(r.orders).set(d.division, order) } : r));
+  const change = (d: Division, list: ListState) =>
+    setRun((r) => (r.phase === "list" && r.open === d ? { ...r, lists: new Map(r.lists).set(d.division, list) } : r));
 
   const back = () => setRun((r) => (r.phase === "list" ? { ...r, phase: "board", open: null } : r));
 
   const lockIn = () =>
     setRun((r) => {
-      if (r.phase !== "list" || !r.open) return r;
-      const right = rightCount(r.open, r.orders.get(r.open.division)!);
+      const placed = r.open && r.lists.get(r.open.division)!.placed;
+      if (r.phase !== "list" || !r.open || !placed || placed.includes(null)) return r;
+      const right = rightCount(r.open, placed as Entry[]);
       const slots = slotsOf(r.open).length;
       if (right < slots) return { ...r, phase: "over", last: { right, total: slots } };
       const next = new Set(r.cleared).add(r.open.division);
@@ -90,8 +94,9 @@ export default function RoulettePage() {
                 <motion.div key={`list-${open.division}`} {...leave} className={screen}>
                   <RouletteList
                     division={open}
-                    order={orders.get(open.division)!}
-                    onOrder={(order) => reorder(open, order)}
+                    state={lists.get(open.division)!}
+                    shuffle={run.dealt}
+                    onChange={(list) => change(open, list)}
                     onLockIn={lockIn}
                     onBack={back}
                   />
