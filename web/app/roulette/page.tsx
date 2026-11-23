@@ -13,6 +13,8 @@ type Phase = "board" | "list" | "over" | "won";
 const screen = "flex flex-1 flex-col gap-6";
 const rise = { initial: { opacity: 0, y: 16 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0 } };
 const fade = { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 } };
+// The popped-out screen lingers until the card's move ends, so it hides fast and lets clicks through.
+const leave = { exit: { opacity: 0, pointerEvents: "none" as const, transition: { duration: 0.15 } } };
 
 export default function RoulettePage() {
   const [cleared, setCleared] = useState<Set<string>>(() => new Set());
@@ -62,32 +64,39 @@ export default function RoulettePage() {
       <Header modeLabel="Roulette" />
       {/* No fade on first paint: the server-rendered board shows before scripts load. */}
       <AnimatePresence mode="wait" initial={false}>
-        {phase === "list" && open ? (
-          <motion.div key={`list-${open.division}`} {...fade} className={screen}>
-            <RouletteList
-              division={open}
-              onLockIn={(order) => lockIn(open, order)}
-              onBack={() => {
-                setOpen(null);
-                setPhase("board");
-              }}
-            />
-          </motion.div>
-        ) : phase === "over" && last ? (
+        {phase === "over" && last ? (
           end("Run over", `${last.right} of ${last.total} right`)
         ) : phase === "won" ? (
           end("All cleared", `${cleared.size} of ${total} cleared`)
         ) : (
-          <motion.div key="board" {...fade} className={screen}>
-            <RouletteBoard
-              cleared={cleared}
-              justCleared={justCleared}
-              onPick={(name) => {
-                setJustCleared(null);
-                setOpen(rankings.divisions.find((d) => d.division === name) ?? null);
-                setPhase("list");
-              }}
-            />
+          <motion.div key="play" {...fade} className={screen}>
+            {/* Board and list swap in one commit, so the card can grow into the heading. */}
+            <AnimatePresence mode="popLayout" initial={false}>
+              {phase === "list" && open ? (
+                <motion.div key={`list-${open.division}`} {...leave} className={screen}>
+                  <RouletteList
+                    division={open}
+                    onLockIn={(order) => lockIn(open, order)}
+                    onBack={() => {
+                      setOpen(null);
+                      setPhase("board");
+                    }}
+                  />
+                </motion.div>
+              ) : (
+                <motion.div key="board" {...leave} className={screen}>
+                  <RouletteBoard
+                    cleared={cleared}
+                    justCleared={justCleared}
+                    onPick={(name) => {
+                      setJustCleared(null);
+                      setOpen(rankings.divisions.find((d) => d.division === name) ?? null);
+                      setPhase("list");
+                    }}
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         )}
       </AnimatePresence>

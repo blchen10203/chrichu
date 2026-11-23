@@ -23,6 +23,7 @@ export function RouletteBoard({ cleared, justCleared, onPick }: { cleared: Set<s
             <motion.button
               key={d.division}
               layoutId={`division-${d.division}`}
+              layoutCrossfade={false}
               type="button"
               data-testid="division-card"
               disabled={done}

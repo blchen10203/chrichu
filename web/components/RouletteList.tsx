@@ -8,9 +8,10 @@ import { deal, entryKey, slotsOf, type Entry } from "@/lib/engine/roulette";
 import { fighterImage } from "@/lib/images";
 import type { Division } from "@/lib/rankings";
 
+const hasImage = new Map(fighters.map((f) => [f.id, f.hasImage]));
+
 function Row({ entry, label, selected, onTap }: { entry: Entry; label: string; selected: boolean; onTap: () => void }) {
   const controls = useDragControls();
-  const hasImage = fighters.find((f) => f.id === entry.id)?.hasImage ?? false;
   return (
     <Reorder.Item
       value={entry}
@@ -31,7 +32,7 @@ function Row({ entry, label, selected, onTap }: { entry: Entry; label: string; s
         <span className="w-14 shrink-0 text-center font-display text-[22px] font-light leading-none">{label}</span>
         {/* eslint-disable-next-line @next/next/no-img-element -- static export, no image optimisation */}
         <img
-          src={entry.id ? fighterImage(entry.id, hasImage) : fighterImage("", false)}
+          src={entry.id ? fighterImage(entry.id, hasImage.get(entry.id) ?? false) : fighterImage("", false)}
           alt={entry.name}
           width={44}
           height={44}
@@ -75,11 +76,11 @@ export function RouletteList({ division, onLockIn, onBack }: { division: Divisio
     <>
       <div className="flex flex-col gap-1">
         <div className="text-xs uppercase tracking-wide text-muted">Official UFC rankings</div>
-        <motion.h1 layoutId={`division-${division.division}`} className="self-start text-[26px] font-medium leading-[1.15] tracking-tight">
+        <motion.h1 layoutId={`division-${division.division}`} layoutCrossfade={false} className="self-start text-[26px] font-medium leading-[1.15] tracking-tight">
           {division.division}
         </motion.h1>
       </div>
-      <Reorder.Group axis="y" as="ol" values={order} onReorder={setOrder} aria-label={`${division.division} order`} className="flex flex-col gap-2">
+      <Reorder.Group axis="y" as="ol" initial={{ opacity: 0 }} animate={{ opacity: 1 }} values={order} onReorder={setOrder} aria-label={`${division.division} order`} className="flex flex-col gap-2">
         {order.map((e, i) => (
           <Row key={entryKey(e)} entry={e} label={slots[i].label} selected={selected === entryKey(e)} onTap={() => tap(entryKey(e))} />
         ))}
