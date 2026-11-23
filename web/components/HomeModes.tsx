@@ -59,6 +59,9 @@ export function HomeModes() {
       <Link href="/survival" className={mode}>
         <span className={word}>Survival</span>
       </Link>
+      <Link href="/roulette" className={mode}>
+        <span className={word}>Roulette</span>
+      </Link>
       <ActiveToggle />
       <p className="mt-2 min-h-5 text-sm text-muted">
         {live && `Streak: ${live.streak} ${live.streak === 1 ? "day" : "days"}`}
