@@ -4,7 +4,7 @@ const steps = [
   "You see one fighter's real number, shown in blue.",
   "Drag your marker to your estimate for the other fighter. Tap − and + to fine-tune.",
   "Press Lock In. The closer you are, the more of the 100 points you get. A near miss still scores full marks.",
-  "Daily is the same 5 rounds for everyone, once a day. Infinite never ends and does not count. Survival gives you 10 HP and 15 seconds a round; misses cost HP, and the run ends at zero.",
+  "Daily is the same 5 rounds for everyone, once a day. Infinite never ends and does not count. Survival gives you 10 HP and 15 seconds a round; misses cost HP, and the run ends at zero. Roulette has you put every fighter in all 13 UFC ranking lists in order; one wrong list ends the run.",
   "Share your Daily score and keep your streak going.",
 ];
 

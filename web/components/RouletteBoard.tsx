@@ -4,13 +4,18 @@ import { motion } from "motion/react";
 import { entriesOf } from "@/lib/engine/roulette";
 import { rankings } from "@/lib/rankings";
 
+// Each screen's heading takes focus as it mounts, so keyboard and screen-reader players land on the new screen.
+// Stable identity: React calls it once per mount, not on every render.
+export const focusOnMount = (el: HTMLElement | null) => el?.focus();
+export const headingFocus = { ref: focusOnMount, tabIndex: -1 };
+
 // Only the division just cleared pops its check and ticks the counter; the rest appear still.
 export function RouletteBoard({ cleared, justCleared, onPick }: { cleared: Set<string>; justCleared: string | null; onPick: (division: string) => void }) {
   const total = rankings.divisions.length;
   return (
     <>
       <div className="flex flex-col gap-1">
-        <h1 className="text-[26px] font-normal leading-[1.15] tracking-tight text-balance">Ranking Roulette</h1>
+        <h1 {...headingFocus} className="text-[26px] font-normal leading-[1.15] tracking-tight text-balance outline-none">Ranking Roulette</h1>
         <p className="text-sm text-muted">Clear every division. One mistake ends the run.</p>
       </div>
       <motion.p initial={justCleared ? { opacity: 0, y: -6 } : false} animate={{ opacity: 1, y: 0 }} className="text-sm">

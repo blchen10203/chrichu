@@ -2,9 +2,10 @@
 
 import { motion, Reorder, useDragControls } from "motion/react";
 import { useState } from "react";
+import { headingFocus } from "@/components/RouletteBoard";
 import { bigButton, quietButton } from "@/components/RoundShell";
 import { fighters } from "@/lib/engine/data";
-import { deal, entryKey, slotsOf, type Entry } from "@/lib/engine/roulette";
+import { entryKey, slotsOf, type Entry } from "@/lib/engine/roulette";
 import { fighterImage } from "@/lib/images";
 import type { Division } from "@/lib/rankings";
 
@@ -54,10 +55,10 @@ function Row({ entry, label, selected, onTap }: { entry: Entry; label: string; s
   );
 }
 
-export function RouletteList({ division, onLockIn, onBack }: { division: Division; onLockIn: (order: Entry[]) => void; onBack: () => void }) {
+type ListProps = { division: Division; order: Entry[]; onOrder: (order: Entry[]) => void; onLockIn: () => void; onBack: () => void };
+
+export function RouletteList({ division, order, onOrder, onLockIn, onBack }: ListProps) {
   const slots = slotsOf(division);
-  // Mounted from a click, never on the server, so the deal can use Math.random.
-  const [order, setOrder] = useState(() => deal(Math.random, division));
   const [selected, setSelected] = useState<string | null>(null);
 
   // Tap one row, then another to swap them; tapping the same row again lets go.
@@ -67,7 +68,7 @@ export function RouletteList({ division, onLockIn, onBack }: { division: Divisio
       const b = order.findIndex((e) => entryKey(e) === key);
       const next = [...order];
       [next[a], next[b]] = [next[b], next[a]];
-      setOrder(next);
+      onOrder(next);
     }
     setSelected(selected === null ? key : null);
   };
@@ -76,11 +77,16 @@ export function RouletteList({ division, onLockIn, onBack }: { division: Divisio
     <>
       <div className="flex flex-col gap-1">
         <div className="text-xs uppercase tracking-wide text-muted">Official UFC rankings</div>
-        <motion.h1 layoutId={`division-${division.division}`} layoutCrossfade={false} className="self-start text-[26px] font-medium leading-[1.15] tracking-tight">
+        <motion.h1
+          {...headingFocus}
+          layoutId={`division-${division.division}`}
+          layoutCrossfade={false}
+          className="self-start text-[26px] font-medium leading-[1.15] tracking-tight outline-none"
+        >
           {division.division}
         </motion.h1>
       </div>
-      <Reorder.Group axis="y" as="ol" initial={{ opacity: 0 }} animate={{ opacity: 1 }} values={order} onReorder={setOrder} aria-label={`${division.division} order`} className="flex flex-col gap-2">
+      <Reorder.Group axis="y" as="ol" initial={{ opacity: 0 }} animate={{ opacity: 1 }} values={order} onReorder={onOrder} aria-label={`${division.division} order`} className="flex flex-col gap-2">
         {order.map((e, i) => (
           <Row key={entryKey(e)} entry={e} label={slots[i].label} selected={selected === entryKey(e)} onTap={() => tap(entryKey(e))} />
         ))}
@@ -90,7 +96,7 @@ export function RouletteList({ division, onLockIn, onBack }: { division: Divisio
         <button type="button" className={quietButton} onClick={onBack}>
           ← Board
         </button>
-        <button type="button" className={bigButton} onClick={() => onLockIn(order)}>
+        <button type="button" className={bigButton} onClick={onLockIn}>
           Lock in
         </button>
       </div>

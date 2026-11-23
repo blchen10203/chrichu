@@ -3,57 +3,71 @@
 import { AnimatePresence, motion, MotionConfig } from "motion/react";
 import { useState } from "react";
 import { bigButton, Header } from "@/components/RoundShell";
-import { RouletteBoard } from "@/components/RouletteBoard";
+import { headingFocus, RouletteBoard } from "@/components/RouletteBoard";
 import { RouletteList } from "@/components/RouletteList";
-import { rightCount, slotsOf, type Entry } from "@/lib/engine/roulette";
+import { deal, rightCount, slotsOf, type Entry } from "@/lib/engine/roulette";
 import { rankings, type Division } from "@/lib/rankings";
 
-type Phase = "board" | "list" | "over" | "won";
+type Run = {
+  phase: "board" | "list" | "over" | "won";
+  cleared: Set<string>;
+  open: Division | null;
+  orders: Map<string, Entry[]>; // each opened list's arrangement, kept when the player steps back to the board
+  last: { right: number; total: number } | null;
+  justCleared: string | null;
+};
+
+const fresh = (): Run => ({ phase: "board", cleared: new Set(), open: null, orders: new Map(), last: null, justCleared: null });
 
 const screen = "flex flex-1 flex-col gap-6";
-const rise = { initial: { opacity: 0, y: 16 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0 } };
-const fade = { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 } };
-// The popped-out screen lingers until the card's move ends, so it hides fast and lets clicks through.
-const leave = { exit: { opacity: 0, pointerEvents: "none" as const, transition: { duration: 0.15 } } };
+// An exiting screen stays on the page while it fades, so it must not take clicks.
+const gone = { opacity: 0, pointerEvents: "none" as const };
+const rise = { initial: { opacity: 0, y: 16 }, animate: { opacity: 1, y: 0 }, exit: gone };
+const fade = { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: gone };
+// The popped-out screen lingers until the card's move ends, so it hides fast.
+const leave = { exit: { ...gone, transition: { duration: 0.15 } } };
 
 export default function RoulettePage() {
-  const [cleared, setCleared] = useState<Set<string>>(() => new Set());
-  const [open, setOpen] = useState<Division | null>(null);
-  const [phase, setPhase] = useState<Phase>("board");
-  const [last, setLast] = useState<{ right: number; total: number } | null>(null);
-  const [justCleared, setJustCleared] = useState<string | null>(null);
+  const [run, setRun] = useState(fresh);
+  const { phase, cleared, open, orders, last } = run;
   const total = rankings.divisions.length;
 
-  const restart = () => {
-    setCleared(new Set());
-    setOpen(null);
-    setLast(null);
-    setJustCleared(null);
-    setPhase("board");
+  // Every change goes through an updater that checks the phase, since a fading screen's handlers hold stale state.
+  const pick = (name: string) => {
+    const d = rankings.divisions.find((x) => x.division === name)!;
+    const dealt = orders.get(name) ?? deal(Math.random, d); // the first open in a run deals
+    setRun((r) =>
+      r.phase !== "board" || r.cleared.has(name)
+        ? r
+        : { ...r, phase: "list", open: d, justCleared: null, orders: r.orders.has(name) ? r.orders : new Map(r.orders).set(name, dealt) },
+    );
   };
 
-  const lockIn = (d: Division, order: Entry[]) => {
-    const right = rightCount(d, order);
-    const slots = slotsOf(d).length;
-    if (right < slots) {
-      setLast({ right, total: slots });
-      return setPhase("over");
-    }
-    const next = new Set(cleared).add(d.division);
-    setCleared(next);
-    setJustCleared(d.division);
-    setOpen(null);
-    setPhase(next.size === total ? "won" : "board");
-  };
+  const reorder = (d: Division, order: Entry[]) =>
+    setRun((r) => (r.phase === "list" && r.open === d ? { ...r, orders: new Map(r.orders).set(d.division, order) } : r));
+
+  const back = () => setRun((r) => (r.phase === "list" ? { ...r, phase: "board", open: null } : r));
+
+  const lockIn = () =>
+    setRun((r) => {
+      if (r.phase !== "list" || !r.open) return r;
+      const right = rightCount(r.open, r.orders.get(r.open.division)!);
+      const slots = slotsOf(r.open).length;
+      if (right < slots) return { ...r, phase: "over", last: { right, total: slots } };
+      const next = new Set(r.cleared).add(r.open.division);
+      return { ...r, phase: next.size === total ? "won" : "board", cleared: next, open: null, justCleared: r.open.division };
+    });
 
   const end = (label: string, result: string) => (
     <motion.div key={phase} {...rise} className={screen}>
       <div className="flex flex-col gap-2">
         <div className="text-xs uppercase tracking-wide text-muted">{label}</div>
-        <h1 className="font-display text-[56px] font-extralight leading-none tracking-tight">{result}</h1>
+        <h1 {...headingFocus} className="font-display text-[56px] font-extralight leading-none tracking-tight outline-none">
+          {result}
+        </h1>
       </div>
       <div className="flex-1" />
-      <button type="button" className={bigButton} onClick={restart}>
+      <button type="button" className={bigButton} onClick={() => setRun(fresh())}>
         Restart roulette
       </button>
     </motion.div>
@@ -76,24 +90,15 @@ export default function RoulettePage() {
                 <motion.div key={`list-${open.division}`} {...leave} className={screen}>
                   <RouletteList
                     division={open}
-                    onLockIn={(order) => lockIn(open, order)}
-                    onBack={() => {
-                      setOpen(null);
-                      setPhase("board");
-                    }}
+                    order={orders.get(open.division)!}
+                    onOrder={(order) => reorder(open, order)}
+                    onLockIn={lockIn}
+                    onBack={back}
                   />
                 </motion.div>
               ) : (
                 <motion.div key="board" {...leave} className={screen}>
-                  <RouletteBoard
-                    cleared={cleared}
-                    justCleared={justCleared}
-                    onPick={(name) => {
-                      setJustCleared(null);
-                      setOpen(rankings.divisions.find((d) => d.division === name) ?? null);
-                      setPhase("list");
-                    }}
-                  />
+                  <RouletteBoard cleared={cleared} justCleared={run.justCleared} onPick={pick} />
                 </motion.div>
               )}
             </AnimatePresence>
