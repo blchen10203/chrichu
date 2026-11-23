@@ -72,12 +72,18 @@ test("a pound-for-pound list has 15 slots and no Champ", async ({ page }) => {
 });
 
 test("tied fighters are right in either order", async ({ page }) => {
-  await page.goto("/roulette");
-  const answer = answerOf("Flyweight");
-  const a = answer.indexOf("Sumudaerji");
-  const b = answer.indexOf("Steve Erceg"); // both ranked #12
+  // The rankings change daily, so find whichever list has two fighters sharing a rank today.
+  const tie = rankings.divisions
+    .map((d) => ({ division: d.division, pair: d.ranked.filter((r) => d.ranked.some((o) => o !== r && o.rank === r.rank)) }))
+    .find((t) => t.pair.length >= 2);
+  test.skip(!tie, "no list in rankings.json has a tie today");
+  const { division, pair } = tie!;
+  const answer = answerOf(division);
+  const [a, b] = [answer.indexOf(pair[0].name), answer.indexOf(pair[1].name)];
+  expect(pair[0].rank).toBe(pair[1].rank);
   [answer[a], answer[b]] = [answer[b], answer[a]];
-  await clear(page, "Flyweight", answer);
+  await page.goto("/roulette");
+  await clear(page, division, answer);
 });
 
 test("leaving a division keeps it unsolved and keeps its order", async ({ page }) => {
