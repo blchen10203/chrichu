@@ -5,6 +5,7 @@ test("home shows the modes, and today's result once Daily is done", async ({ pag
   await expect(page.getByRole("link", { name: /Daily/ })).toBeVisible();
   await expect(page.getByRole("link", { name: /Infinite/ })).toBeVisible();
   await expect(page.getByRole("link", { name: /Survival/ })).toBeVisible();
+  await expect(page.getByRole("link", { name: /Roulette/ })).toBeVisible();
   await expect(page.getByText("Streak: 0 days")).toBeVisible();
 
   await page.getByRole("link", { name: /Daily/ }).click();
