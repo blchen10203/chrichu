@@ -45,3 +45,17 @@ jobs:
           git add web/data pipeline/report.txt
           git commit -m "Update fighter data"
           git push
+      # After the fighter data, so a rankings page change fails the run without holding back that commit.
+      # rankings.py only rewrites the file when the rankings change, so an unchanged run commits nothing.
+      - name: Update the UFC rankings
+        run: |
+          pip install -r pipeline/requirements.txt
+          python pipeline/rankings.py
+      - name: Commit the rankings
+        run: |
+          git add web/data/rankings.json
+          if git diff --cached --quiet; then echo "Rankings unchanged."; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update UFC rankings"
+          git push
