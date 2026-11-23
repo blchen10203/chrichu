@@ -4,7 +4,8 @@ import { motion } from "motion/react";
 import { entriesOf } from "@/lib/engine/roulette";
 import { rankings } from "@/lib/rankings";
 
-export function RouletteBoard({ cleared, onPick }: { cleared: Set<string>; onPick: (division: string) => void }) {
+// Only the division just cleared pops its check and ticks the counter; the rest appear still.
+export function RouletteBoard({ cleared, justCleared, onPick }: { cleared: Set<string>; justCleared: string | null; onPick: (division: string) => void }) {
   const total = rankings.divisions.length;
   return (
     <>
@@ -12,7 +13,7 @@ export function RouletteBoard({ cleared, onPick }: { cleared: Set<string>; onPic
         <h1 className="text-[26px] font-normal leading-[1.15] tracking-tight text-balance">Ranking Roulette</h1>
         <p className="text-sm text-muted">Clear every division. One mistake ends the run.</p>
       </div>
-      <motion.p key={cleared.size} initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="text-sm">
+      <motion.p initial={justCleared ? { opacity: 0, y: -6 } : false} animate={{ opacity: 1, y: 0 }} className="text-sm">
         {cleared.size} of {total} cleared
       </motion.p>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -34,7 +35,7 @@ export function RouletteBoard({ cleared, onPick }: { cleared: Set<string>; onPic
                 <motion.span
                   role="img"
                   aria-label="Cleared"
-                  initial={{ scale: 0 }}
+                  initial={d.division === justCleared ? { scale: 0 } : false}
                   animate={{ scale: 1 }}
                   transition={{ type: "spring", stiffness: 500, damping: 15 }}
                   className="absolute top-2 right-3 text-truth"

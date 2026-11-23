@@ -19,12 +19,14 @@ export default function RoulettePage() {
   const [open, setOpen] = useState<Division | null>(null);
   const [phase, setPhase] = useState<Phase>("board");
   const [last, setLast] = useState<{ right: number; total: number } | null>(null);
+  const [justCleared, setJustCleared] = useState<string | null>(null);
   const total = rankings.divisions.length;
 
   const restart = () => {
     setCleared(new Set());
     setOpen(null);
     setLast(null);
+    setJustCleared(null);
     setPhase("board");
   };
 
@@ -37,6 +39,7 @@ export default function RoulettePage() {
     }
     const next = new Set(cleared).add(d.division);
     setCleared(next);
+    setJustCleared(d.division);
     setOpen(null);
     setPhase(next.size === total ? "won" : "board");
   };
@@ -78,7 +81,9 @@ export default function RoulettePage() {
           <motion.div key="board" {...fade} className={screen}>
             <RouletteBoard
               cleared={cleared}
+              justCleared={justCleared}
               onPick={(name) => {
+                setJustCleared(null);
                 setOpen(rankings.divisions.find((d) => d.division === name) ?? null);
                 setPhase("list");
               }}
