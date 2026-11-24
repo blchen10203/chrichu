@@ -1,6 +1,6 @@
 {
   "source": "https://www.ufc.com/rankings",
-  "fetched_at": "2026-11-23T19:44:38+00:00",
+  "fetched_at": "2026-11-24T04:11:43+00:00",
   "last_updated": "Tuesday, Nov. 17",
   "divisions": [
     {
@@ -207,17 +207,17 @@
         },
         {
           "rank": 12,
-          "name": "Sumudaerji",
-          "slug": "su-mudaerji",
-          "change": null,
-          "id": "sumudaerji"
-        },
-        {
-          "rank": 12,
           "name": "Steve Erceg",
           "slug": "steve-erceg",
           "change": null,
           "id": "steve-erceg"
+        },
+        {
+          "rank": 12,
+          "name": "Sumudaerji",
+          "slug": "su-mudaerji",
+          "change": null,
+          "id": "sumudaerji"
         },
         {
           "rank": 14,
