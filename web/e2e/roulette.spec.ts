@@ -113,9 +113,10 @@ test("stepping back right after a wrong lock-in still ends the run", async ({ pa
   await lockIn.scrollIntoViewIfNeeded(); // ← Board sits beside it, so its box stays put
   const back = (await page.getByRole("button", { name: "← Board" }).boundingBox())!;
   await lockIn.click();
-  // A raw click where the button was: Playwright's own checks would wait for the list to go.
+  // A raw click where the button was: it must neither leave the list nor hit Restart.
   await page.mouse.click(back.x + back.width / 2, back.y + back.height / 2);
   await expect(page.getByText(/^\d+ of 1[56] right$/)).toBeVisible();
+  await expect(page.getByTestId("roulette-slot")).toHaveCount(16);
   await expect(page.getByRole("button", { name: "Restart roulette" })).toBeVisible();
 });
 
@@ -124,7 +125,14 @@ test("a wrong order ends the run", async ({ page }) => {
   await card(page, "Lightweight").click();
   await fill(page);
   await page.getByRole("button", { name: "Lock in" }).click();
-  await expect(page.getByText(/^\d+ of 1[56] right$/)).toBeVisible();
+  // The list stays up, each slot marked right or wrong, and the marks add up to the count.
+  const result = page.getByText(/^\d+ of 16 right$/);
+  await expect(result).toBeVisible();
+  const right = parseInt((await result.textContent())!);
+  await expect(page.getByTestId("roulette-slot").getByText("Right", { exact: true })).toHaveCount(right);
+  await expect(page.getByTestId("roulette-slot").getByText("Wrong", { exact: true })).toHaveCount(16 - right);
+  await expect(pool(page)).toHaveCount(0);
+  await expect(slot(page, 0).getByTestId("roulette-chip")).toBeDisabled();
   await page.getByRole("button", { name: "Restart roulette" }).click();
   await expect(page.getByText("0 of 13 cleared")).toBeVisible();
 });

@@ -14,8 +14,8 @@ with that list checked off, then pick the next. Any mistake ends the run. Cleari
 - Ties (two fighters sharing a rank) count as right in either order.
 - Fighters missing from our data (5 today) appear by name with the placeholder photo.
 - Lock in, all right: the list is cleared and the player returns to the board.
-- Lock in, anything wrong: the run ends. Show only **how many** slots were right ("11 of 16 right"), not which,
-  and a **Restart roulette** button that clears the whole board.
+- Lock in, anything wrong: the run ends. The list stays up with each slot outlined green (right) or red (wrong),
+  the count ("11 of 16 right"), and a **Restart roulette** button that clears the whole board.
 - One sitting: nothing is saved between visits.
 
 ## Approaches

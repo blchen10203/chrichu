@@ -14,11 +14,10 @@ type Run = {
   open: Division | null;
   lists: Map<string, ListState>; // each opened list's pool and placements, kept when the player steps back to the board
   dealt: boolean; // the open list was dealt just now, so its pool shuffles in
-  last: { right: number; total: number } | null;
   justCleared: string | null;
 };
 
-const fresh = (): Run => ({ phase: "board", cleared: new Set(), open: null, lists: new Map(), dealt: false, last: null, justCleared: null });
+const fresh = (): Run => ({ phase: "board", cleared: new Set(), open: null, lists: new Map(), dealt: false, justCleared: null });
 
 const screen = "flex flex-1 flex-col gap-6";
 // An exiting screen stays on the page while it fades, so it must not take clicks.
@@ -32,7 +31,7 @@ const leave = { animate: shown, exit: { ...gone, transition: { duration: 0.15 } 
 
 export default function RoulettePage() {
   const [run, setRun] = useState(fresh);
-  const { phase, cleared, open, lists, last } = run;
+  const { phase, cleared, open, lists } = run;
   const total = rankings.divisions.length;
 
   // Every change goes through an updater that checks the phase, since a fading screen's handlers hold stale state.
@@ -55,9 +54,8 @@ export default function RoulettePage() {
     setRun((r) => {
       const placed = r.open && r.lists.get(r.open.division)!.placed;
       if (r.phase !== "list" || !r.open || !placed || placed.includes(null)) return r;
-      const right = rightCount(r.open, placed as Entry[]);
-      const slots = slotsOf(r.open).length;
-      if (right < slots) return { ...r, phase: "over", last: { right, total: slots } };
+      // A wrong order keeps the list open, now marked slot by slot.
+      if (rightCount(r.open, placed as Entry[]) < placed.length) return { ...r, phase: "over" };
       const next = new Set(r.cleared).add(r.open.division);
       return { ...r, phase: next.size === total ? "won" : "board", cleared: next, open: null, justCleared: r.open.division };
     });
@@ -82,23 +80,23 @@ export default function RoulettePage() {
       <Header modeLabel="Roulette" />
       {/* No fade on first paint: the server-rendered board shows before scripts load. */}
       <AnimatePresence mode="wait" initial={false}>
-        {phase === "over" && last ? (
-          end("Run over", `${last.right} of ${last.total} right`)
-        ) : phase === "won" ? (
+        {phase === "won" ? (
           end("All cleared", `${cleared.size} of ${total} cleared`)
         ) : (
           <motion.div key="play" {...fade} className={screen}>
             {/* Board and list swap in one commit, so the card can grow into the heading. */}
             <AnimatePresence mode="popLayout" initial={false}>
-              {phase === "list" && open ? (
+              {(phase === "list" || phase === "over") && open ? (
                 <motion.div key={`list-${open.division}`} {...leave} className={screen}>
                   <RouletteList
                     division={open}
                     state={lists.get(open.division)!}
                     shuffle={run.dealt}
+                    checked={phase === "over"}
                     onChange={(list) => change(open, list)}
                     onLockIn={lockIn}
                     onBack={back}
+                    onRestart={() => setRun(fresh())}
                   />
                 </motion.div>
               ) : (

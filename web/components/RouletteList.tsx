@@ -3,6 +3,7 @@
 import { motion, useReducedMotion, type PanInfo } from "motion/react";
 import { useEffect, useId, useRef, useState } from "react";
 import { whereAt } from "@/components/RankingRound";
+import { quality } from "@/components/Reveal";
 import { headingFocus } from "@/components/RouletteBoard";
 import { bigButton, quietButton } from "@/components/RoundShell";
 import { fighters } from "@/lib/engine/data";
@@ -69,9 +70,19 @@ function Chip({ entry, group, where, compact, selected, busy, onTap, onDrag, onD
   );
 }
 
-type ListProps = { division: Division; state: ListState; shuffle: boolean; onChange: (state: ListState) => void; onLockIn: () => void; onBack: () => void };
+// `checked`: a wrong lock-in ended the run; the list stays up with each slot marked right or wrong.
+type ListProps = {
+  division: Division;
+  state: ListState;
+  shuffle: boolean;
+  checked: boolean;
+  onChange: (state: ListState) => void;
+  onLockIn: () => void;
+  onBack: () => void;
+  onRestart: () => void;
+};
 
-export function RouletteList({ division, state, shuffle, onChange, onLockIn, onBack }: ListProps) {
+export function RouletteList({ division, state, shuffle, checked, onChange, onLockIn, onBack, onRestart }: ListProps) {
   const slots = slotsOf(division);
   const { pool, placed } = state;
   const [selected, setSelected] = useState<string | null>(null);
@@ -93,7 +104,9 @@ export function RouletteList({ division, state, shuffle, onChange, onLockIn, onB
     // Runs once per opening; `dealing` only says whether to start.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const busy = dealing !== null;
+  const busy = dealing !== null || checked;
+  const rightAt = (i: number) => placed[i]?.rank === slots[i].rank;
+  const right = slots.filter((_, i) => rightAt(i)).length;
 
   // Puts `key` at `to`; a fighter already in that slot goes where `key` came from.
   const move = (key: string, to: Where) => {
@@ -153,10 +166,15 @@ export function RouletteList({ division, state, shuffle, onChange, onLockIn, onB
         <ol aria-label={`${division.division} ranks`} className="flex flex-col gap-2">
           {slots.map((slot, i) => {
             const e = placed[i];
+            const ok = rightAt(i);
             return (
               <li key={i} data-drop={i} data-testid="roulette-slot" className="flex items-center gap-2">
                 <span className="w-11 shrink-0 font-display text-[18px] font-light leading-none">{slot.label}</span>
-                <div className={`flex min-h-14 min-w-0 flex-1 items-center rounded-full border border-dashed p-1 ${highlight(i)}`}>
+                <div
+                  className={`flex min-h-14 min-w-0 flex-1 items-center rounded-full border p-1 transition-colors duration-300 ${checked ? "border-2" : `border-dashed ${highlight(i)}`}`}
+                  style={checked ? { borderColor: quality(ok ? 100 : 0, "var(--quality-bar)") } : undefined}
+                >
+                  {checked && <span className="sr-only">{ok ? "Right" : "Wrong"}</span>}
                   {e ? (
                     chip(e, `placed at ${slot.label}`)
                   ) : (
@@ -183,15 +201,32 @@ export function RouletteList({ division, state, shuffle, onChange, onLockIn, onB
           {waiting.map((e) => chip(e, "not placed"))}
         </div>
       </div>
-      <p className="text-xs text-muted">Drag each fighter to their rank, or tap a fighter and then a rank.</p>
-      <div className="grid grid-cols-2 gap-3">
-        <button type="button" className={quietButton} onClick={onBack}>
-          ← Board
-        </button>
-        <button type="button" className={`${bigButton} disabled:opacity-40`} disabled={placed.includes(null)} onClick={onLockIn}>
-          Lock in
-        </button>
-      </div>
+      <p className="text-xs text-muted">
+        {checked ? "Green is right, red is wrong." : "Drag each fighter to their rank, or tap a fighter and then a rank."}
+      </p>
+      {checked ? (
+        <>
+          {/* Sits exactly where the buttons were, so a second tap on Lock in lands on text, not on Restart. */}
+          <div role="status" className="flex h-14 items-center justify-between gap-3">
+            <span className="text-xs uppercase tracking-wide text-muted">Run over</span>
+            <span className="font-display text-[28px] font-light leading-none">
+              {right} of {slots.length} right
+            </span>
+          </div>
+          <button type="button" className={bigButton} onClick={onRestart}>
+            Restart roulette
+          </button>
+        </>
+      ) : (
+        <div className="grid grid-cols-2 gap-3">
+          <button type="button" className={quietButton} onClick={onBack}>
+            ← Board
+          </button>
+          <button type="button" className={`${bigButton} disabled:opacity-40`} disabled={placed.includes(null)} onClick={onLockIn}>
+            Lock in
+          </button>
+        </div>
+      )}
     </>
   );
 }
