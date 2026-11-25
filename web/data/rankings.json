@@ -1,7 +1,7 @@
 {
   "source": "https://www.ufc.com/rankings",
-  "fetched_at": "2026-11-24T04:11:43+00:00",
-  "last_updated": "Tuesday, Nov. 17",
+  "fetched_at": "2026-11-25T02:52:14+00:00",
+  "last_updated": "Tuesday, Nov. 24",
   "divisions": [
     {
       "division": "Men's Pound-for-Pound",
@@ -65,35 +65,35 @@
           "rank": 8,
           "name": "Ciryl Gane",
           "slug": "ciryl-gane",
-          "change": "+4",
+          "change": null,
           "id": "ciryl-gane"
         },
         {
           "rank": 9,
           "name": "Tom Aspinall",
           "slug": "tom-aspinall",
-          "change": "-1",
+          "change": null,
           "id": "tom-aspinall"
         },
         {
           "rank": 10,
           "name": "Merab Dvalishvili",
           "slug": "merab-dvalishvili",
-          "change": "-1",
+          "change": null,
           "id": "merab-dvalishvili"
         },
         {
           "rank": 11,
           "name": "Alex Pereira",
           "slug": "alex-pereira",
-          "change": "-1",
+          "change": null,
           "id": "alex-pereira"
         },
         {
           "rank": 12,
           "name": "Khamzat Chimaev",
           "slug": "khamzat-chimaev",
-          "change": "-1",
+          "change": null,
           "id": "khamzat-chimaev"
         },
         {
@@ -136,10 +136,10 @@
           "id": "alexandre-pantoja"
         },
         {
-          "rank": 2,
+          "rank": 1,
           "name": "Manel Kape",
           "slug": "manel-kape",
-          "change": null,
+          "change": "+1",
           "id": "manel-kape"
         },
         {
@@ -207,17 +207,17 @@
         },
         {
           "rank": 12,
-          "name": "Steve Erceg",
-          "slug": "steve-erceg",
-          "change": null,
-          "id": "steve-erceg"
-        },
-        {
-          "rank": 12,
           "name": "Sumudaerji",
           "slug": "su-mudaerji",
           "change": null,
           "id": "sumudaerji"
+        },
+        {
+          "rank": 12,
+          "name": "Steve Erceg",
+          "slug": "steve-erceg",
+          "change": null,
+          "id": "steve-erceg"
         },
         {
           "rank": 14,
@@ -329,10 +329,10 @@
           "id": "deiveson-figueiredo"
         },
         {
-          "rank": 13,
+          "rank": 12,
           "name": "Marcus McGhee",
           "slug": "marcus-mcghee",
-          "change": null,
+          "change": "+1",
           "id": "marcus-mcghee"
         },
         {
@@ -362,17 +362,17 @@
       "ranked": [
         {
           "rank": 1,
+          "name": "Diego Lopes",
+          "slug": "diego-lopes",
+          "change": "+1",
+          "id": "diego-lopes"
+        },
+        {
+          "rank": 1,
           "name": "Movsar Evloev",
           "slug": "movsar-evloev",
           "change": null,
           "id": "movsar-evloev"
-        },
-        {
-          "rank": 2,
-          "name": "Diego Lopes",
-          "slug": "diego-lopes",
-          "change": null,
-          "id": "diego-lopes"
         },
         {
           "rank": 3,
@@ -383,45 +383,45 @@
         },
         {
           "rank": 4,
-          "name": "Aljamain Sterling",
-          "slug": "aljamain-sterling",
-          "change": null,
-          "id": "aljamain-sterling"
-        },
-        {
-          "rank": 5,
           "name": "Jean Silva",
           "slug": "jean-silva",
-          "change": null,
+          "change": "+1",
           "id": null
         },
         {
+          "rank": 5,
+          "name": "Kevin Vallejos",
+          "slug": "kevin-vallejos",
+          "change": "+4",
+          "id": "kevin-vallejos"
+        },
+        {
           "rank": 6,
-          "name": "Arnold Allen",
-          "slug": "arnold-allen",
-          "change": null,
-          "id": "arnold-allen"
+          "name": "Aljamain Sterling",
+          "slug": "aljamain-sterling",
+          "change": "-2",
+          "id": "aljamain-sterling"
         },
         {
           "rank": 7,
-          "name": "Yair Rodriguez",
-          "slug": "yair-rodriguez",
-          "change": null,
-          "id": "yair-rodriguez"
+          "name": "Arnold Allen",
+          "slug": "arnold-allen",
+          "change": "-1",
+          "id": "arnold-allen"
         },
         {
           "rank": 8,
-          "name": "Youssef Zalal",
-          "slug": "youssef-zalal",
-          "change": null,
-          "id": "youssef-zalal"
+          "name": "Yair Rodriguez",
+          "slug": "yair-rodriguez",
+          "change": "-1",
+          "id": "yair-rodriguez"
         },
         {
           "rank": 9,
-          "name": "Kevin Vallejos",
-          "slug": "kevin-vallejos",
-          "change": null,
-          "id": "kevin-vallejos"
+          "name": "Youssef Zalal",
+          "slug": "youssef-zalal",
+          "change": "-1",
+          "id": "youssef-zalal"
         },
         {
           "rank": 10,
@@ -441,29 +441,29 @@
           "rank": 12,
           "name": "Patricio Pitbull",
           "slug": "patricio-freire",
-          "change": "+2",
+          "change": null,
           "id": "patricio-freire"
         },
         {
           "rank": 13,
-          "name": "Brian Ortega",
-          "slug": "brian-ortega",
-          "change": null,
-          "id": "brian-ortega"
+          "name": "Pat Sabatini",
+          "slug": "pat-sabatini",
+          "change": "+2",
+          "id": "pat-sabatini"
         },
         {
           "rank": 14,
           "name": "David Onama",
           "slug": "david-onama",
-          "change": "+1",
+          "change": null,
           "id": "david-onama"
         },
         {
           "rank": 15,
-          "name": "Pat Sabatini",
-          "slug": "pat-sabatini",
+          "name": "Josh Emmett",
+          "slug": "josh-emmett",
           "change": "NR",
-          "id": "pat-sabatini"
+          "id": "josh-emmett"
         }
       ]
     },
@@ -664,17 +664,17 @@
         },
         {
           "rank": 11,
-          "name": "Yaroslav Amosov",
-          "slug": "yaroslav-amosov",
+          "name": "Uroš Medić",
+          "slug": "uros-medic",
           "change": "+1",
-          "id": "yaroslav-amosov"
+          "id": "uros-medic"
         },
         {
           "rank": 12,
-          "name": "Uroš Medić",
-          "slug": "uros-medic",
+          "name": "Yaroslav Amosov",
+          "slug": "yaroslav-amosov",
           "change": "-1",
-          "id": "uros-medic"
+          "id": "yaroslav-amosov"
         },
         {
           "rank": 13,
@@ -687,14 +687,14 @@
           "rank": 14,
           "name": "Kevin Holland",
           "slug": "kevin-holland",
-          "change": "+1",
+          "change": null,
           "id": "kevin-holland"
         },
         {
           "rank": 15,
           "name": "Daniel Rodriguez",
           "slug": "daniel-rodriguez",
-          "change": "-1",
+          "change": null,
           "id": "daniel-rodriguez"
         }
       ]
@@ -780,38 +780,38 @@
         },
         {
           "rank": 11,
-          "name": "Abus Magomedov",
-          "slug": "abus-magomedov",
-          "change": null,
-          "id": "abus-magomedov"
-        },
-        {
-          "rank": 12,
-          "name": "Jared Cannonier",
-          "slug": "jared-cannonier",
-          "change": null,
-          "id": "jared-cannonier"
-        },
-        {
-          "rank": 13,
           "name": "Ikram Aliskerov",
           "slug": "ikram-aliskerov",
-          "change": null,
+          "change": "+2",
           "id": "ikram-aliskerov"
         },
         {
-          "rank": 14,
+          "rank": 12,
+          "name": "Abus Magomedov",
+          "slug": "abus-magomedov",
+          "change": "-1",
+          "id": "abus-magomedov"
+        },
+        {
+          "rank": 13,
           "name": "Bo Nickal",
           "slug": "bo-nickal",
-          "change": null,
+          "change": "+1",
           "id": "bo-nickal"
         },
         {
-          "rank": 15,
+          "rank": 14,
           "name": "Shara Magomedov",
           "slug": "shara-magomedov",
-          "change": null,
+          "change": "+1",
           "id": "shara-magomedov"
+        },
+        {
+          "rank": 15,
+          "name": "Jared Cannonier",
+          "slug": "jared-cannonier",
+          "change": "-3",
+          "id": "jared-cannonier"
         }
       ]
     },
@@ -833,45 +833,45 @@
         },
         {
           "rank": 2,
-          "name": "Jiří Procházka",
-          "slug": "jiri-prochazka",
-          "change": null,
-          "id": "jiri-prochazka"
-        },
-        {
-          "rank": 3,
-          "name": "Alex Pereira",
-          "slug": "alex-pereira",
-          "change": null,
-          "id": "alex-pereira"
-        },
-        {
-          "rank": 4,
-          "name": "Khalil Rountree Jr.",
-          "slug": "khalil-rountree-jr",
-          "change": null,
-          "id": "khalil-rountree-jr"
-        },
-        {
-          "rank": 5,
           "name": "Navajo Stirling",
           "slug": "navajo-stirling",
-          "change": null,
+          "change": "+3",
           "id": "navajo-stirling"
         },
         {
+          "rank": 3,
+          "name": "Jiří Procházka",
+          "slug": "jiri-prochazka",
+          "change": "-1",
+          "id": "jiri-prochazka"
+        },
+        {
+          "rank": 4,
+          "name": "Alex Pereira",
+          "slug": "alex-pereira",
+          "change": "-1",
+          "id": "alex-pereira"
+        },
+        {
+          "rank": 5,
+          "name": "Khalil Rountree Jr.",
+          "slug": "khalil-rountree-jr",
+          "change": "-1",
+          "id": "khalil-rountree-jr"
+        },
+        {
           "rank": 6,
-          "name": "Paulo Costa",
-          "slug": "paulo-costa",
-          "change": null,
-          "id": "paulo-costa"
+          "name": "Dominick Reyes",
+          "slug": "dominick-reyes",
+          "change": "+1",
+          "id": "dominick-reyes"
         },
         {
           "rank": 7,
-          "name": "Dominick Reyes",
-          "slug": "dominick-reyes",
-          "change": null,
-          "id": "dominick-reyes"
+          "name": "Paulo Costa",
+          "slug": "paulo-costa",
+          "change": "-1",
+          "id": "paulo-costa"
         },
         {
           "rank": 8,
@@ -979,14 +979,14 @@
           "rank": 6,
           "name": "Johnny Walker",
           "slug": "johnny-walker",
-          "change": "+1",
+          "change": null,
           "id": "johnny-walker"
         },
         {
           "rank": 7,
           "name": "Rizvan Kuniev",
           "slug": "rizvan-kuniev",
-          "change": "-1",
+          "change": null,
           "id": "rizvan-kuniev"
         },
         {
@@ -1060,14 +1060,14 @@
           "rank": 1,
           "name": "Kayla Harrison",
           "slug": "kayla-harrison",
-          "change": "+1",
+          "change": null,
           "id": "kayla-harrison"
         },
         {
           "rank": 2,
           "name": "Valentina Shevchenko",
           "slug": "valentina-shevchenko",
-          "change": "-1",
+          "change": null,
           "id": "valentina-shevchenko"
         },
         {
@@ -1100,66 +1100,66 @@
         },
         {
           "rank": 7,
-          "name": "Manon Fiorot",
-          "slug": "manon-fiorot",
-          "change": null,
-          "id": "manon-fiorot"
+          "name": "Amanda Nunes",
+          "slug": "amanda-nunes",
+          "change": "+3",
+          "id": "amanda-nunes"
         },
         {
           "rank": 8,
-          "name": "Tatiana Suarez",
-          "slug": "tatiana-suarez",
-          "change": null,
-          "id": "tatiana-suarez"
+          "name": "Manon Fiorot",
+          "slug": "manon-fiorot",
+          "change": "-1",
+          "id": "manon-fiorot"
         },
         {
           "rank": 9,
-          "name": "Jasmine Jasudavicius",
-          "slug": "jasmine-jasudavicius",
-          "change": null,
-          "id": "jasmine-jasudavicius"
+          "name": "Tatiana Suarez",
+          "slug": "tatiana-suarez",
+          "change": "-1",
+          "id": "tatiana-suarez"
         },
         {
           "rank": 10,
-          "name": "Amanda Nunes",
-          "slug": "amanda-nunes",
-          "change": "NR",
-          "id": "amanda-nunes"
+          "name": "Jasmine Jasudavicius",
+          "slug": "jasmine-jasudavicius",
+          "change": "-1",
+          "id": "jasmine-jasudavicius"
         },
         {
           "rank": 11,
           "name": "Erin Blanchfield",
           "slug": "erin-blanchfield",
-          "change": "-1",
+          "change": null,
           "id": "erin-blanchfield"
         },
         {
           "rank": 12,
           "name": "Julianna Peña",
           "slug": "julianna-pena",
-          "change": "-1",
+          "change": null,
           "id": "julianna-pena"
         },
         {
           "rank": 13,
-          "name": "Virna Jandiroba",
-          "slug": "virna-jandiroba",
-          "change": "-1",
-          "id": "virna-jandiroba"
-        },
-        {
-          "rank": 14,
           "name": "Rose Namajunas",
           "slug": "rose-namajunas",
-          "change": "-1",
+          "change": "+1",
           "id": "rose-namajunas"
         },
         {
-          "rank": 15,
+          "rank": 14,
           "name": "Denise Gomes",
           "slug": "denise-gomes",
-          "change": "-1",
+          "change": "+1",
           "id": "denise-gomes"
+        },
+        {
+          "rank": 15,
+          "name": "Joselyne Edwards",
+          "slug": "joselyne-edwards",
+          "change": "NR",
+          "id": "joselyne-edwards"
         }
       ]
     },
@@ -1188,94 +1188,94 @@
         },
         {
           "rank": 3,
-          "name": "Virna Jandiroba",
-          "slug": "virna-jandiroba",
-          "change": null,
-          "id": "virna-jandiroba"
-        },
-        {
-          "rank": 4,
           "name": "Denise Gomes",
           "slug": "denise-gomes",
-          "change": null,
+          "change": "+1",
           "id": "denise-gomes"
         },
         {
-          "rank": 5,
+          "rank": 4,
           "name": "Gillian Robertson",
           "slug": "gillian-robertson",
-          "change": null,
+          "change": "+1",
           "id": "gillian-robertson"
         },
         {
-          "rank": 6,
+          "rank": 5,
           "name": "Fatima Kline",
           "slug": "fatima-kline",
-          "change": null,
+          "change": "+1",
           "id": "fatima-kline"
         },
         {
-          "rank": 7,
+          "rank": 6,
           "name": "Yan Xiaonan",
           "slug": "yan-xiaonan",
-          "change": null,
+          "change": "+1",
           "id": "yan-xiaonan"
         },
         {
-          "rank": 8,
+          "rank": 7,
           "name": "Loopy Godinez",
           "slug": "loopy-godinez",
-          "change": null,
+          "change": "+1",
           "id": "loopy-godinez"
         },
         {
-          "rank": 9,
+          "rank": 8,
           "name": "Alexia Thainara",
           "slug": "alexia-thainara",
-          "change": null,
+          "change": "+1",
           "id": "alexia-thainara"
         },
         {
-          "rank": 10,
+          "rank": 9,
           "name": "Tabatha Ricci",
           "slug": "tabatha-ricci",
-          "change": null,
+          "change": "+1",
           "id": "tabatha-ricci"
         },
         {
-          "rank": 11,
+          "rank": 10,
           "name": "Amanda Lemos",
           "slug": "amanda-lemos",
-          "change": null,
+          "change": "+1",
           "id": "amanda-lemos"
         },
         {
-          "rank": 12,
+          "rank": 11,
           "name": "Jéssica Andrade",
           "slug": "jessica-andrade",
-          "change": null,
+          "change": "+1",
           "id": "jessica-andrade"
         },
         {
-          "rank": 13,
+          "rank": 12,
           "name": "Amanda Ribas",
           "slug": "amanda-ribas",
-          "change": null,
+          "change": "+1",
           "id": "amanda-ribas"
         },
         {
-          "rank": 14,
+          "rank": 13,
           "name": "Piera Rodriguez",
           "slug": "piera-rodriguez",
-          "change": null,
+          "change": "+1",
           "id": "piera-rodriguez"
         },
         {
-          "rank": 15,
+          "rank": 14,
           "name": "Angela Hill",
           "slug": "angela-hill",
-          "change": null,
+          "change": "+1",
           "id": "angela-hill"
+        },
+        {
+          "rank": 15,
+          "name": "Mizuki",
+          "slug": "mizuki-inoue",
+          "change": "NR",
+          "id": null
         }
       ]
     },
@@ -1408,28 +1408,28 @@
           "rank": 1,
           "name": "Amanda Nunes",
           "slug": "amanda-nunes",
-          "change": "NR",
+          "change": null,
           "id": "amanda-nunes"
-        },
-        {
-          "rank": 2,
-          "name": "Julianna Peña",
-          "slug": "julianna-pena",
-          "change": "-1",
-          "id": "julianna-pena"
         },
         {
           "rank": 2,
           "name": "Joselyne Edwards",
           "slug": "joselyne-edwards",
-          "change": "-1",
+          "change": null,
           "id": "joselyne-edwards"
+        },
+        {
+          "rank": 2,
+          "name": "Julianna Peña",
+          "slug": "julianna-pena",
+          "change": null,
+          "id": "julianna-pena"
         },
         {
           "rank": 4,
           "name": "Ailin Perez",
           "slug": "ailin-perez",
-          "change": "-1",
+          "change": null,
           "id": "ailin-perez"
         },
         {
@@ -1448,44 +1448,44 @@
         },
         {
           "rank": 7,
-          "name": "Raquel Pennington",
-          "slug": "raquel-pennington",
-          "change": null,
-          "id": "raquel-pennington"
+          "name": "Bia Mesquita",
+          "slug": "bia-mesquita",
+          "change": "+1",
+          "id": "bia-mesquita"
         },
         {
           "rank": 8,
-          "name": "Bia Mesquita",
-          "slug": "bia-mesquita",
-          "change": "+3",
-          "id": "bia-mesquita"
+          "name": "Raquel Pennington",
+          "slug": "raquel-pennington",
+          "change": "-1",
+          "id": "raquel-pennington"
         },
         {
           "rank": 9,
           "name": "Jacqueline Cavalcanti",
           "slug": "jacqueline-cavalcanti",
-          "change": "-1",
+          "change": null,
           "id": "jacqueline-cavalcanti"
         },
         {
           "rank": 10,
           "name": "Karol Rosa",
           "slug": "karol-rosa",
-          "change": "-1",
+          "change": null,
           "id": "karol-rosa"
         },
         {
           "rank": 11,
           "name": "Michelle Montague",
           "slug": "michelle-montague",
-          "change": "+1",
+          "change": null,
           "id": "michelle-montague"
         },
         {
           "rank": 12,
           "name": "Macy Chiasson",
           "slug": "macy-chiasson",
-          "change": "-2",
+          "change": null,
           "id": "macy-chiasson"
         },
         {
