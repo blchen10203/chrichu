@@ -1,6 +1,6 @@
 {
   "source": "https://www.ufc.com/rankings",
-  "fetched_at": "2026-11-25T02:52:14+00:00",
+  "fetched_at": "2026-11-26T02:00:56+00:00",
   "last_updated": "Tuesday, Nov. 24",
   "divisions": [
     {
@@ -1275,7 +1275,7 @@
           "name": "Mizuki",
           "slug": "mizuki-inoue",
           "change": "NR",
-          "id": null
+          "id": "mizuki"
         }
       ]
     },
