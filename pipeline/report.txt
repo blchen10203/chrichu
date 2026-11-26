@@ -1,4 +1,4 @@
-Metric report 2026-11-25, 309 fighters
+Metric report 2026-11-26, 310 fighters
 metric            n       min    median       max        sd      step
 height          200    61.000    71.000    80.000     3.816     1.526  SHIP
 reach           188    62.000    73.000    84.000     4.897     1.959  SHIP

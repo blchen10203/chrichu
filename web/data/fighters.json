@@ -2527,7 +2527,7 @@
     "id": "brian-ortega",
     "name": "Brian Ortega",
     "dob": "1991-02-21",
-    "active": true,
+    "active": false,
     "daily": true,
     "hasImage": true,
     "metrics": {
@@ -3659,7 +3659,7 @@
     "id": "virna-jandiroba",
     "name": "Virna Jandiroba",
     "dob": "1988-05-30",
-    "active": true,
+    "active": false,
     "daily": true,
     "hasImage": true,
     "metrics": {
@@ -6081,6 +6081,22 @@
       "sub_wins": 2,
       "win_pct": 57,
       "age": 36
+    }
+  },
+  {
+    "id": "mizuki",
+    "name": "Mizuki",
+    "dob": "1994-08-19",
+    "active": true,
+    "daily": false,
+    "hasImage": true,
+    "metrics": {
+      "height": 63,
+      "reach": 65.0,
+      "career_sig": 267,
+      "knockdowns": 1,
+      "sub_wins": 0,
+      "age": 32
     }
   }
 ]
