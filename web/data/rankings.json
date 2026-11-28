@@ -1,6 +1,6 @@
 {
   "source": "https://www.ufc.com/rankings",
-  "fetched_at": "2026-11-26T02:00:56+00:00",
+  "fetched_at": "2026-11-28T01:42:59+00:00",
   "last_updated": "Tuesday, Nov. 24",
   "divisions": [
     {
@@ -362,17 +362,17 @@
       "ranked": [
         {
           "rank": 1,
-          "name": "Diego Lopes",
-          "slug": "diego-lopes",
-          "change": "+1",
-          "id": "diego-lopes"
-        },
-        {
-          "rank": 1,
           "name": "Movsar Evloev",
           "slug": "movsar-evloev",
           "change": null,
           "id": "movsar-evloev"
+        },
+        {
+          "rank": 1,
+          "name": "Diego Lopes",
+          "slug": "diego-lopes",
+          "change": "+1",
+          "id": "diego-lopes"
         },
         {
           "rank": 3,
@@ -1413,17 +1413,17 @@
         },
         {
           "rank": 2,
-          "name": "Joselyne Edwards",
-          "slug": "joselyne-edwards",
-          "change": null,
-          "id": "joselyne-edwards"
-        },
-        {
-          "rank": 2,
           "name": "Julianna Peña",
           "slug": "julianna-pena",
           "change": null,
           "id": "julianna-pena"
+        },
+        {
+          "rank": 2,
+          "name": "Joselyne Edwards",
+          "slug": "joselyne-edwards",
+          "change": null,
+          "id": "joselyne-edwards"
         },
         {
           "rank": 4,
